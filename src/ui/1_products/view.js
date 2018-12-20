@@ -7,9 +7,11 @@ export class ProductsView extends React.Component {
 
   render() {
     return (
-    <div>
-      Products
-    </div>
+        <div>
+          {this.props.products.map(p =>
+              <p>{p.name}</p>
+          )}
+        </div>
     )
   }
 }
