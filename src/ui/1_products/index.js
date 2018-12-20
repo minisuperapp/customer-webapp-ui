@@ -1,4 +1,4 @@
-// import productsService from "src/services/products";
+import * as productsService from "src/services/products";
 // import offersService from "src/services/offers";
 import React from "react";
 import { ProductsView } from "./view";
@@ -25,8 +25,8 @@ export class Products extends React.Component {
     // );
     // this.socket.on("published_offer", offer => this._processNewOffer(offer));
 
-    // const products = await productsService.getProducts();
-    // this.setState({ products });
+    const products = await productsService.getProducts();
+    this.setState({ products });
 
     // const offersByProduct = await offersService.getOffersByProduct();
     // this.setState({ offersByProduct });
