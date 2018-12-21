@@ -1,6 +1,6 @@
 import React from 'react'
 
-export class ProductsView extends React.Component {
+export class Products extends React.Component {
   constructor(props) {
     super(props)
   }

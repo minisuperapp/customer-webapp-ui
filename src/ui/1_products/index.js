@@ -1,11 +1,11 @@
 import * as productsService from "src/services/products";
 // import offersService from "src/services/offers";
 import React from "react";
-import { ProductsView } from "./view";
+import { Products } from "./Products";
 import config from "src/config";
 import io from "socket.io-client";
 
-export class Products extends React.Component {
+export class ProductsPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,10 +38,10 @@ export class Products extends React.Component {
   }
 
   render() {
-    return <ProductsView {...this.state} />;
+    return <Products {...this.state} />;
   }
 
   componentWillUnmount() {
-    this.socket.disconnect();
+    // this.socket.disconnect();
   }
 }

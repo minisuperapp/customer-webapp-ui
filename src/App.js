@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom'
 import './App.css';
 import Header from './ui/Header'
-import { Products } from './ui/1_products'
+import { ProductsPage } from './ui/1_products'
+import { geolocated } from "react-geolocated";
 
 class App extends Component {
   render() {
     return (
         <div>
           <Header/>
-          <Products/>
+          <ProductsPage/>
         </div>
     );
   }
 }
 
-export default App;
+export default geolocated({
+  positionOptions: {
+    enableHighAccuracy: false
+  },
+  userDecisionTimeout: 5000
+})(App);
