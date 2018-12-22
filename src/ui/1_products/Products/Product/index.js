@@ -8,7 +8,8 @@ export class Product extends React.Component {
   render() {
     return (
         <div>
-          {this.props.name}
+          {this.props.name} - ${this.props.lowestPrice}
+
         </div>
     )
   }

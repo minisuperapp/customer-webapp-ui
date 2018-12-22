@@ -7,10 +7,11 @@ export class Products extends React.Component {
   }
 
   render() {
+    console.log('this.props: ', this.props)
     return (
         <div>
           {this.props.products.map(p =>
-              <Product {...p} />
+              <Product {...p} lowestPrice={this.props.lowestPriceByProduct[p.code]}/>
           )}
         </div>
     )
