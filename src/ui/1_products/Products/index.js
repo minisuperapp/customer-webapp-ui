@@ -11,7 +11,7 @@ export class Products extends React.Component {
     return (
         <div>
           {this.props.products.map(p =>
-              <Product {...p} lowestPrice={this.props.lowestPriceByProduct[p.code]}/>
+              <Product product={p} lowestPrice={this.props.lowestPriceByProduct[p.code]}/>
           )}
         </div>
     )

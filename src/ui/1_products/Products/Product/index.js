@@ -8,8 +8,12 @@ export class Product extends React.Component {
   render() {
     return (
         <div>
-          {this.props.name} - ${this.props.lowestPrice}
-
+          {this.props.product.name} - ${this.props.lowestPrice}
+          {this.props.lowestPrice && (
+              <button>
+                Comprar
+              </button>
+          )}
         </div>
     )
   }
