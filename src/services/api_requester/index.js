@@ -15,14 +15,11 @@ export const send = async (request) => {
   }
   console.log('request: ', info)
   try {
-    debugger
     const response = await axios(info)
-    debugger
     await setCustomerCode(response)
     console.log('response: ', response)
     return response
   } catch (err) {
-    debugger
     console.log(request.uri + '/' + request.path, info)
     console.log(err)
   }

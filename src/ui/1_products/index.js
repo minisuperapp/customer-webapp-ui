@@ -18,12 +18,12 @@ export class ProductsPage extends React.Component {
   }
 
   async componentDidMount() {
-    // this.socket = io(config.API_HOST);
-    // this.socket.emit(
-    //     "subscribe_for_offers_updates",
-    //     config.mocks.customerLocation
-    // );
-    // this.socket.on("published_offer", offer => this._processNewOffer(offer));
+    this.socket = io(config.API_HOST, { query: "is-test=true" });
+    this.socket.emit(
+        "subscribe_for_offers_updates",
+        config.mocks.customerLocation
+    );
+    this.socket.on("published_offer", offer => this._processNewOffer(offer));
 
     const products = await productsService.getProducts();
     this.setState({ products });
@@ -37,11 +37,16 @@ export class ProductsPage extends React.Component {
     // this.setState({ lowestPriceByProduct });
   }
 
+  _processNewOffer = offer => {
+    debugger
+    alert(offer)
+  };
+
   render() {
     return <Products {...this.state} />;
   }
 
   componentWillUnmount() {
-    // this.socket.disconnect();
+    this.socket.disconnect();
   }
 }

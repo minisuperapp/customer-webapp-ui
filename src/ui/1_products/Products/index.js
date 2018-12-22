@@ -1,4 +1,5 @@
 import React from 'react'
+import { Product } from './Product'
 
 export class Products extends React.Component {
   constructor(props) {
@@ -9,7 +10,7 @@ export class Products extends React.Component {
     return (
         <div>
           {this.props.products.map(p =>
-              <p>{p.name}</p>
+              <Product {...p} />
           )}
         </div>
     )
