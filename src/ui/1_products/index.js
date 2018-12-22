@@ -1,5 +1,5 @@
 import * as productsService from "src/services/products";
-// import offersService from "src/services/offers";
+import * as offersService from "src/services/offers";
 import React from "react";
 import { Products } from "./Products";
 import config from "src/config";
@@ -28,18 +28,29 @@ export class ProductsPage extends React.Component {
     const products = await productsService.getProducts();
     this.setState({ products });
 
-    // const offersByProduct = await offersService.getOffersByProduct();
-    // this.setState({ offersByProduct });
-    //
-    // const lowestPriceByProduct = await offersService.getLowestPriceByProduct(
-    //     offersByProduct
-    // );
-    // this.setState({ lowestPriceByProduct });
+    const offersByProduct = await offersService.getOffersByProduct();
+    this.setState({ offersByProduct });
+
+    const lowestPriceByProduct = await offersService.getLowestPriceByProduct(
+        offersByProduct
+    );
+    this.setState({ lowestPriceByProduct });
   }
 
   _processNewOffer = offer => {
-    debugger
-    alert(offer)
+    const offersByProduct = offersService.addToOffersByProduct(
+        this.state.offersByProduct,
+        offer
+    );
+    this.setState({ offersByProduct });
+
+    if (offersService.isLowestPrice(this.state.lowestPriceByProduct, offer)) {
+      const lowestPriceByProduct = offersService.addToLowestPriceByProduct(
+          this.state.lowestPriceByProduct,
+          offer
+      );
+      this.setState({ lowestPriceByProduct });
+    }
   };
 
   render() {
