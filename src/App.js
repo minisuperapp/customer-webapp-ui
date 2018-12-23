@@ -9,7 +9,13 @@ class App extends Component {
     return (
         <div>
           <Header/>
-          <ProductsPage/>
+          {this.props.coords ?
+              <ProductsPage customerLocation = {{
+                latitude: this.props.coords.latitude,
+                longitude: this.props.coords.longitude,
+              }}/>
+              : 'Cargando...'
+          }
         </div>
     );
   }

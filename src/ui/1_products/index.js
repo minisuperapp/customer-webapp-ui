@@ -21,14 +21,14 @@ export class ProductsPage extends React.Component {
     this.socket = io(config.API_HOST, { query: "is-test=true" });
     this.socket.emit(
         "subscribe_for_offers_updates",
-        config.mocks.customerLocation
+        this.props.customerLocation
     );
     this.socket.on("published_offer", offer => this._processNewOffer(offer));
 
     const products = await productsService.getProducts();
     this.setState({ products });
 
-    const offersByProduct = await offersService.getOffersByProduct();
+    const offersByProduct = await offersService.getOffersByProduct(this.props.customerLocation);
     this.setState({ offersByProduct });
 
     const lowestPriceByProduct = await offersService.getLowestPriceByProduct(
@@ -54,7 +54,7 @@ export class ProductsPage extends React.Component {
   };
 
   render() {
-    return <Products {...this.state} />;
+    return <Products {...this.state} customerLocation={this.props.customerLocation}/>;
   }
 
   componentWillUnmount() {

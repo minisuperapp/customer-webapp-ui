@@ -5,32 +5,32 @@ import { OffersGroupedByProductRequest } from './requests/offers_grouped_by_prod
 import { ListOffersRequest } from './requests/list'
 import { AssignBestOfferRequest } from './requests/assign_best'
 
-export const getOffersByProduct = async () => {
+export const getOffersByProduct = async (customerLocation) => {
   const offersRequest = new OffersGroupedByProductRequest.Builder()
-    .withCustomerLocationLatitude(config.mocks.customerLocation.latitude)
-    .withCustomerLocationLongitude(config.mocks.customerLocation.longitude)
+    .withCustomerLocationLatitude(customerLocation.latitude)
+    .withCustomerLocationLongitude(customerLocation.longitude)
     .build()
   const offersByProductResponse = await apiRequester.send(offersRequest)
   return offersByProductResponse.data.data.offersByProduct
 }
 
-export const assignBestOffer = async (productCode, quantity) => {
+export const assignBestOffer = async (customerLocation, productCode, quantity) => {
   const request = new AssignBestOfferRequest.Builder()
     .withProductCode(productCode)
     .withQuantity(quantity)
-    .withCustomerLocationLatitude(config.mocks.customerLocation.latitude)
-    .withCustomerLocationLongitude(config.mocks.customerLocation.longitude)
+    .withCustomerLocationLatitude(customerLocation.latitude)
+    .withCustomerLocationLongitude(customerLocation.longitude)
     .build()
   const offers = await apiRequester.send(request)
   return offers.data
 }
 
-export const getOffers = async (productCode, quantity) => {
+export const getOffers = async (customerLocation, productCode, quantity) => {
   const request = new ListOffersRequest.Builder()
     .withProductCode(productCode)
     .withQuantity(quantity)
-    .withCustomerLocationLatitude(config.mocks.customerLocation.latitude)
-    .withCustomerLocationLongitude(config.mocks.customerLocation.longitude)
+    .withCustomerLocationLatitude(customerLocation.latitude)
+    .withCustomerLocationLongitude(customerLocation.longitude)
     .build()
   const offers = await apiRequester.send(request)
   return offers.data

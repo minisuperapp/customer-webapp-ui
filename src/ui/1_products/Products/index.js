@@ -10,6 +10,7 @@ export class Products extends React.Component {
     console.log('this.props: ', this.props)
     return (
         <div>
+          location: {this.props.customerLocation.latitude + ',' + this.props.customerLocation.longitude}
           {this.props.products.map(p =>
               <Product product={p} lowestPrice={this.props.lowestPriceByProduct[p.code]}/>
           )}

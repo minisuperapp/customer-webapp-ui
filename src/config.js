@@ -4,10 +4,4 @@ module.exports = {
   get API_URL() {
     return `${this.API_HOST}/api`
   },
-  mocks: {
-    customerLocation: {
-      latitude: '28.1867048',
-      longitude: '-105.4600849'
-    }
-  }
 }
