@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 
 export class Product extends React.Component {
   constructor(props) {
@@ -10,9 +11,11 @@ export class Product extends React.Component {
         <div>
           {this.props.product.name} - ${this.props.lowestPrice}
           {this.props.lowestPrice && (
-              <button>
-                Comprar
-              </button>
+              <Link to="/quantity">
+                <button>
+                  Comprar
+                </button>
+              </Link>
           )}
         </div>
     )
