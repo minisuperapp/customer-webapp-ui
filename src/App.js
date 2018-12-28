@@ -1,22 +1,23 @@
-import React, { Component } from 'react';
-import './App.css';
-import Header from './ui/Header'
-import { ProductsPage } from './ui/1_products'
+import React, { Component } from "react";
+import "./App.css";
+import Header from "./ui/Header";
+import Body from "./ui/Body";
 import { geolocated } from "react-geolocated";
 
 class App extends Component {
   render() {
     return (
-        <div>
-          <Header/>
-          {this.props.coords ?
-              <ProductsPage customerLocation = {{
-                latitude: this.props.coords.latitude,
-                longitude: this.props.coords.longitude,
-              }}/>
-              : 'Cargando...'
-          }
-        </div>
+      <div>
+        <Header />
+        {this.props.coords && (
+          <Body
+            customerLocation={{
+              latitude: this.props.coords.latitude,
+              longitude: this.props.coords.longitude
+            }}
+          />
+        )}
+      </div>
     );
   }
 }
