@@ -1,22 +1,20 @@
 import React, { Component } from "react";
 import "./App.css";
-import Header from "./ui/Header";
-import Body from "./ui/Body";
+import Main from "./ui/Main";
 import { geolocated } from "react-geolocated";
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Header />
-        {this.props.coords && (
-          <Body
+        {this.props.coords ? (
+          <Main
             customerLocation={{
               latitude: this.props.coords.latitude,
               longitude: this.props.coords.longitude
             }}
           />
-        )}
+        ) : 'Cargando'}
       </div>
     );
   }
