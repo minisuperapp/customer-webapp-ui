@@ -9,7 +9,7 @@ export class QuantityPage extends React.Component {
   }
 
   render() {
-    return <div>Hello</div>
+    return <div>Hello {this.props.params.product.name}</div>
   }
 
 }

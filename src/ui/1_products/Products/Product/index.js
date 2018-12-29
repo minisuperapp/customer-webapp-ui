@@ -7,10 +7,11 @@ export class Product extends React.Component {
 
   render() {
     return (
-      <div>
-        {this.props.product.name} - ${this.props.lowestPrice}
-        {this.props.lowestPrice && <button onClick={this.props.onStepDone}>Comprar</button>}
-      </div>
+        <div>
+          {this.props.product.name} - ${this.props.lowestPrice}
+          {this.props.lowestPrice &&
+          <button onClick={() => this.props.onStepDone({product: this.props.product })}>Comprar</button>}
+        </div>
     );
   }
 }
