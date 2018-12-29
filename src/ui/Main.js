@@ -5,13 +5,18 @@ import {QuantityPage} from "./2_quantity";
 
 class Main extends Component {
   steps = {
-    PRODUCTS: {
-      page: ProductsPage,
-      nextStep: this.QUANTITY
+    get PRODUCTS () {
+      return {
+        page: ProductsPage,
+        nextStep: this.QUANTITY
+      }
     },
-    QUANTITY: {
-      page: QuantityPage
-    }
+    get QUANTITY () {
+      return {
+        page: QuantityPage,
+        nextStep: undefined
+      }
+    },
   }
   constructor() {
     super()
