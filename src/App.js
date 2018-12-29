@@ -14,7 +14,7 @@ class App extends Component {
               longitude: this.props.coords.longitude
             }}
           />
-        ) : 'Cargando'}
+        ) : 'Cargando...'}
       </div>
     );
   }

@@ -54,7 +54,7 @@ export class ProductsPage extends React.Component {
   };
 
   render() {
-    return <Products {...this.state} customerLocation={this.props.customerLocation}/>;
+    return <Products {...this.state} onStepDone={this.props.onStepDone} customerLocation={this.props.customerLocation} />;
   }
 
   componentWillUnmount() {

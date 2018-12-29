@@ -9,7 +9,7 @@ export class Product extends React.Component {
     return (
       <div>
         {this.props.product.name} - ${this.props.lowestPrice}
-        {this.props.lowestPrice && <button>Comprar</button>}
+        {this.props.lowestPrice && <button onClick={this.props.onStepDone}>Comprar</button>}
       </div>
     );
   }
