@@ -12,7 +12,9 @@ export class AssignedOffer extends React.Component {
           <p>Assigned Offer</p>
           <p>Producto {this.props.params.product.name}</p>
           <p>Cantidad {this.props.params.quantity}</p>
-          <p>Tu Repartidor {this.props.offer.deliverer.name}</p>
+          <p>Tu Repartidor {this.props.offer.deliverer.name}
+            <button onClick={this.props.changeDeliverer}>Cambiar</button>
+          </p>
           <p>Precio {this.props.offer.unitPrice}</p>
         </div>
     );
