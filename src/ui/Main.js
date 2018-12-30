@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "./Header";
 import { ProductsPage } from "./1_products";
 import { QuantityPage } from "./2_quantity";
+import { AssignedOfferPage } from "./3_assigned_offer";
 
 class Main extends Component {
   steps = {
@@ -14,6 +15,12 @@ class Main extends Component {
     get QUANTITY() {
       return {
         page: QuantityPage,
+        nextStep: this.ASSIGNED_OFFER
+      };
+    },
+    get ASSIGNED_OFFER() {
+      return {
+        page: AssignedOfferPage,
         nextStep: undefined
       };
     }

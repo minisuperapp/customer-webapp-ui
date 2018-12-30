@@ -1,5 +1,3 @@
-import * as productsService from "src/services/products";
-import * as offersService from "src/services/offers";
 import React from "react";
 
 export class QuantityPage extends React.Component {
@@ -22,7 +20,10 @@ export class QuantityPage extends React.Component {
     return <div>
       <input type="text" value={this.state.quantity} onChange={this.handleChange}/> {this.props.params.product.quantityType} de {this.props.params.product.name}
       <div>Total: ${this.state.total}</div>
-      <button>Buscar repartidor</button>
+      <button onClick={() => this.props.onStepDone({
+        product: this.props.params.product,
+        quantity: this.state.quantity
+      })}>Buscar repartidor</button>
     </div>
   }
 
