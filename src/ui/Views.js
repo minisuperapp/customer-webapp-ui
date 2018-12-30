@@ -1,9 +1,9 @@
-import { ProductsPage } from "./1_products";
-import { QuantityPage } from "./2_quantity";
-import { AssignedOfferPage } from "./3_assigned_offer";
+import { ProductsView } from "./1_products";
+import { QuantityView } from "./2_quantity";
+import { AssignedOfferView } from "./3_assigned_offer";
 
 export const views = {
-  PRODUCTS: ProductsPage,
-  QUANTITY: QuantityPage,
-  ASSIGNED_OFFER: AssignedOfferPage,
+  PRODUCTS: ProductsView,
+  QUANTITY: QuantityView,
+  ASSIGNED_OFFER: AssignedOfferView,
 }

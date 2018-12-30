@@ -11,7 +11,7 @@ class Main extends Component {
     }
   }
 
-  onStepDone = (view, params) => {
+  changeView = (view, params) => {
     this.setState({
       view,
       nextStepParams: params
@@ -23,7 +23,7 @@ class Main extends Component {
         <div>
           <Header/>
           <this.state.view {...this.props}
-                           onStepDone={this.onStepDone}
+                           changeView={this.changeView}
                            params={this.state.nextStepParams}
           />
         </div>

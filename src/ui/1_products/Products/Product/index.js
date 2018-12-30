@@ -11,7 +11,7 @@ export class Product extends React.Component {
         <div>
           {this.props.product.name} - ${this.props.lowestPrice}
           {this.props.lowestPrice &&
-          <button onClick={() => this.props.onStepDone(views.QUANTITY, {
+          <button onClick={() => this.props.changeView(views.QUANTITY, {
             product: this.props.product,
             lowestPrice: this.props.lowestPrice
           })}>Comprar</button>}

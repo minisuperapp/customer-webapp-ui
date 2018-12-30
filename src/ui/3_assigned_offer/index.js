@@ -2,7 +2,7 @@ import * as productsService from "src/services/products";
 import * as offersService from "src/services/offers";
 import React from "react";
 
-export class AssignedOfferPage extends React.Component {
+export class AssignedOfferView extends React.Component {
   constructor(props) {
     super(props);
 

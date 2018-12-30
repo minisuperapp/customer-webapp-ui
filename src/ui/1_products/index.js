@@ -5,7 +5,7 @@ import { Products } from "./Products";
 import config from "src/config";
 import io from "socket.io-client";
 
-export class ProductsPage extends React.Component {
+export class ProductsView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -54,7 +54,7 @@ export class ProductsPage extends React.Component {
   };
 
   render() {
-    return <Products {...this.state} onStepDone={this.props.onStepDone} customerLocation={this.props.customerLocation} />;
+    return <Products {...this.state} changeView={this.props.changeView} customerLocation={this.props.customerLocation} />;
   }
 
   componentWillUnmount() {
