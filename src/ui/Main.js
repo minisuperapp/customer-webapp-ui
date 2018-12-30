@@ -1,55 +1,32 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import Header from "./Header";
-import { ProductsPage } from "./1_products";
-import { QuantityPage } from "./2_quantity";
-import { AssignedOfferPage } from "./3_assigned_offer";
+import {views} from './Views'
 
 class Main extends Component {
-  steps = {
-    get PRODUCTS() {
-      return {
-        page: ProductsPage,
-        nextStep: this.QUANTITY
-      };
-    },
-    get QUANTITY() {
-      return {
-        page: QuantityPage,
-        nextStep: this.ASSIGNED_OFFER
-      };
-    },
-    get ASSIGNED_OFFER() {
-      return {
-        page: AssignedOfferPage,
-        nextStep: undefined
-      };
-    }
-  };
-
   constructor() {
     super();
     this.state = {
-      step: this.steps.PRODUCTS,
+      view: views.PRODUCTS,
       nextStepParams: {}
     }
   }
 
-  onStepDone = (params) => {
+  onStepDone = (view, params) => {
     this.setState({
-      step: this.state.step.nextStep,
+      view,
       nextStepParams: params
     })
   }
 
   render() {
     return (
-      <div>
-        <Header />
-        <this.state.step.page {...this.props}
-                              onStepDone={this.onStepDone}
-                              params={this.state.nextStepParams}
-        />
-      </div>
+        <div>
+          <Header/>
+          <this.state.view {...this.props}
+                           onStepDone={this.onStepDone}
+                           params={this.state.nextStepParams}
+          />
+        </div>
     );
   }
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { views } from 'src/ui/Views'
 
 export class QuantityPage extends React.Component {
   constructor(props) {
@@ -20,7 +21,7 @@ export class QuantityPage extends React.Component {
     return <div>
       <input type="text" value={this.state.quantity} onChange={this.handleChange}/> {this.props.params.product.quantityType} de {this.props.params.product.name}
       <div>Total: ${this.state.total}</div>
-      <button onClick={() => this.props.onStepDone({
+      <button onClick={() => this.props.onStepDone(views.ASSIGNED_OFFER, {
         product: this.props.params.product,
         quantity: this.state.quantity
       })}>Buscar repartidor</button>

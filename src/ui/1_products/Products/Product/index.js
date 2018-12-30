@@ -1,4 +1,5 @@
 import React from "react";
+import { views } from 'src/ui/Views'
 
 export class Product extends React.Component {
   constructor(props) {
@@ -10,7 +11,7 @@ export class Product extends React.Component {
         <div>
           {this.props.product.name} - ${this.props.lowestPrice}
           {this.props.lowestPrice &&
-          <button onClick={() => this.props.onStepDone({
+          <button onClick={() => this.props.onStepDone(views.QUANTITY, {
             product: this.props.product,
             lowestPrice: this.props.lowestPrice
           })}>Comprar</button>}
