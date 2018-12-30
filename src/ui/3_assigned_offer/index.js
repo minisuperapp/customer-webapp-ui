@@ -1,4 +1,5 @@
 import * as offersService from 'src/services/offers'
+import * as ordersService from 'src/services/orders'
 import React from 'react'
 import { AssignedOffer } from './AssignedOffer'
 import { views } from 'src/ui/Views'
@@ -40,7 +41,27 @@ export class AssignedOfferView extends React.Component {
     })
   }
 
+  order = async () => {
+    const response = await ordersService.placeOrder(
+      this.props.customerLocation,
+      this.state.offer.id,
+      this.props.params.quantity,
+    )
+    if (response.success) {
+      this.props.changeView(views.ORDER, { order: response.data })
+    } else {
+      alert(JSON.stringify(response))
+    }
+  }
+
   render() {
-    return <AssignedOffer {...this.props} {...this.state} changeDeliverer={this.changeDeliverer} />
+    return (
+      <AssignedOffer
+        {...this.props}
+        {...this.state}
+        changeDeliverer={this.changeDeliverer}
+        order={this.order}
+      />
+    )
   }
 }

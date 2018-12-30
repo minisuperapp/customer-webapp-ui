@@ -1,5 +1,4 @@
 import * as R from 'ramda'
-import config from 'src/config'
 import * as apiRequester from 'src/services/api_requester'
 import { OffersGroupedByProductRequest } from './requests/offers_grouped_by_product'
 import { ListOffersRequest } from './requests/list'
