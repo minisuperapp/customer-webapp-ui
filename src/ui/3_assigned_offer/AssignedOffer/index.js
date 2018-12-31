@@ -15,7 +15,7 @@ export class AssignedOffer extends React.Component {
           <p>Tu Repartidor {this.props.offer.deliverer.name}
             <button onClick={this.props.changeDeliverer}>Cambiar</button>
           </p>
-          <p>Precio {this.props.offer.unitPrice}</p>
+          <p>Precio ${this.props.offer.unitPrice}</p>
           <button onClick={this.props.order}>Pedir</button>
         </div>
     );
