@@ -1,18 +1,25 @@
-import React from "react";
+import React from 'react'
 import { views } from 'src/ui/Views'
+import { Order } from './Order'
+import io from 'socket.io-client'
+import config from 'src/config'
 
 export class OrderView extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
+    this.state = {
+      status: 'STARTED',
+    }
+  }
+  async componentDidMount() {
+    this.socket = io(config.API_HOST)
+    this.socket.emit('subscribe_for_order_updates', this.props.params.order.id)
+    this.socket.on('update_order_status', (data) => {
+      alert(JSON.stringify(data))
+      this.setState({ status: data.status })
+    })
   }
   render() {
-    return <div>
-      <p>Tu pedido esta en camino.</p>
-      <p>Tu repartidor: {this.props.params.offer.deliverer.name}</p>
-      <p>Tu orden:</p>
-      <p>{this.props.params.order.productQuantity} {this.props.params.product.quantityType} de {this.props.params.product.name}</p>
-      <p>Total: ${this.props.params.order.total}</p>
-    </div>
+    return <Order {...this.props} {...this.state} />
   }
-
 }
