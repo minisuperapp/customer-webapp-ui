@@ -1,5 +1,6 @@
 import * as productsService from 'src/services/products'
 import * as offersService from 'src/services/offers'
+import * as orderService from 'src/services/orders'
 import React from 'react'
 import { Products } from './Products'
 import config from 'src/config'
@@ -13,6 +14,7 @@ export class ProductsView extends React.Component {
       offersByProduct: {},
       lowestPriceByProduct: {},
       error: '',
+      currentOrders: []
     }
     this.socket = {}
   }
@@ -23,13 +25,10 @@ export class ProductsView extends React.Component {
     this.socket.on('published_offer', (offer) => this._processNewOffer(offer))
 
     const products = await productsService.getProducts()
-    this.setState({ products })
-
     const offersByProduct = await offersService.getOffersByProduct(this.props.customerLocation)
-    this.setState({ offersByProduct })
-
     const lowestPriceByProduct = await offersService.getLowestPriceByProduct(offersByProduct)
-    this.setState({ lowestPriceByProduct })
+    const currentOrders = (await orderService.getOrdersPendingToDeliver()).data.orders
+    this.setState({ products, offersByProduct, lowestPriceByProduct, currentOrders })
   }
 
   _processNewOffer = (offer) => {
@@ -47,11 +46,16 @@ export class ProductsView extends React.Component {
 
   render() {
     return (
-      <Products
+      <div><Products
         {...this.state}
         changeView={this.props.changeView}
         customerLocation={this.props.customerLocation}
       />
+        <div>
+          <button>Ver mis ordenes ({this.state.currentOrders.length})
+          </button></div>
+      </div>
+
     )
   }
 
