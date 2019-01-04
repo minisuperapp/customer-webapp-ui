@@ -5,6 +5,7 @@ import React from 'react'
 import { Products } from './Products'
 import config from 'src/config'
 import io from 'socket.io-client'
+import { views } from 'src/ui/Views'
 
 export class ProductsView extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ export class ProductsView extends React.Component {
       offersByProduct: {},
       lowestPriceByProduct: {},
       error: '',
-      currentOrders: []
+      currentOrders: [],
     }
     this.socket = {}
   }
@@ -46,16 +47,16 @@ export class ProductsView extends React.Component {
 
   render() {
     return (
-      <div><Products
-        {...this.state}
-        changeView={this.props.changeView}
-        customerLocation={this.props.customerLocation}
-      />
+      <div>
+        <Products
+          {...this.state}
+          changeView={this.props.changeView}
+          customerLocation={this.props.customerLocation}
+        />
         <div>
-          <button>Ver mis ordenes ({this.state.currentOrders.length})
-          </button></div>
+          <button onClick={() => this.props.changeView(views.ORDERS_LIST)}>Ver mis ordenes ({this.state.currentOrders.length})</button>
+        </div>
       </div>
-
     )
   }
 
