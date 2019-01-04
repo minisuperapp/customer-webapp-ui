@@ -1,10 +1,15 @@
+<<<<<<< HEAD
 import React from 'react'
 import { Link } from "react-router-dom";
 import {styles} from "./styles";
+=======
+import React from "react";
+import { views } from 'src/ui/Views'
+>>>>>>> origin/master
 
 export class Product extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   render() {
@@ -24,6 +29,7 @@ export class Product extends React.Component {
  }
 
     return (
+<<<<<<< HEAD
         <div style={styles.container}>
         <div style = {styles.image}>
         </div>
@@ -41,7 +47,16 @@ export class Product extends React.Component {
           </div>
           </div>
           </div>
+=======
+        <div>
+          {this.props.product.name} - ${this.props.lowestPrice}
+          {this.props.lowestPrice &&
+          <button onClick={() => this.props.changeView(views.QUANTITY, {
+            product: this.props.product,
+            lowestPrice: this.props.lowestPrice
+          })}>Comprar</button>}
+>>>>>>> origin/master
         </div>
-    )
+    );
   }
 }
