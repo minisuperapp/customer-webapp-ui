@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import * as apiRequester from 'src/services/api_requester'
 import { OrderPlacementRequest } from './requests/place_order'
 import { PendingToDeliverRequest } from './requests/pending_to_deliver'
@@ -17,7 +18,7 @@ export const getOrdersPendingToDeliver = async () => {
   const request = new PendingToDeliverRequest.Builder()
     .build()
   const response = await apiRequester.send(request)
-  return response.data
+  return _.get(response, 'data', [])
 }
 
 
