@@ -1,7 +1,8 @@
 import React from 'react'
+import {styles} from "./styles"
 
 const Header = () => (
-    <header>
+    <header style = {styles.textTitle}>
       Minisuper
     </header>
 )

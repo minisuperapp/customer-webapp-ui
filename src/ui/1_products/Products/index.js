@@ -1,6 +1,8 @@
 import React from 'react'
 import { Product } from './Product'
 
+
+
 export class Products extends React.Component {
   constructor(props) {
     super(props)
