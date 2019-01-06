@@ -1,5 +1,4 @@
 import React from 'react'
-import { index } from 'src/ui/views/index'
 import * as offersService from 'src/services/offers/index'
 import { ChangeDeliverer } from './ChangeDeliverer/index'
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { index } from 'src/ui/views/index'
+import { views } from 'src/ui/views/index'
 import {styles} from "./styles";
 
 export class Product extends React.Component {
@@ -32,7 +32,7 @@ export class Product extends React.Component {
         <div style = {styles.textPanel}>
         <div style = {styles.textBody}>${this.props.lowestPrice}</div>
         <div style = {styles.textBody}>  {this.props.lowestPrice && (
-                <button style={styles.button}  onClick={() => this.props.changeView(index.QUANTITY, {
+                <button style={styles.button}  onClick={() => this.props.changeView(views.QUANTITY, {
             product: this.props.product,
             lowestPrice: this.props.lowestPrice
           })}>

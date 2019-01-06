@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import Index from './views/0_header/index'
-import { index } from './views/index'
+import { views } from './views/index'
 
 class Main extends Component {
   constructor() {
     super()
     this.state = {
-      view: index.PRODUCTS,
+      view: views.PRODUCTS,
       nextStepParams: {},
     }
   }

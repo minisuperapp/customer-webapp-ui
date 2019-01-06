@@ -6,7 +6,7 @@ import React from 'react'
 import { Products } from './Products/index'
 import config from 'src/config'
 import io from 'socket.io-client'
-import { index } from 'src/ui/views/index'
+import { views } from 'src/ui/views/index'
 
 export class ProductsView extends React.Component {
   constructor(props) {
@@ -59,7 +59,7 @@ export class ProductsView extends React.Component {
           customerLocation={this.props.customerLocation}
         />
         <div>
-          <button onClick={() => this.props.changeView(index.ORDERS_LIST)}>Ver mis ordenes ({this.state.currentOrders.length})</button>
+          <button onClick={() => this.props.changeView(views.ORDERS_LIST)}>Ver mis ordenes ({this.state.currentOrders.length})</button>
         </div>
       </div>
     )

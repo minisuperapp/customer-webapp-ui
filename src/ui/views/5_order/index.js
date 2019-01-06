@@ -1,5 +1,4 @@
 import React from 'react'
-import { index } from 'src/ui/views/index'
 import { Order } from './Order/index'
 import io from 'socket.io-client'
 import config from 'src/config'

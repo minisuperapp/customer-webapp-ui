@@ -2,7 +2,7 @@ import * as offersService from 'src/services/offers/index'
 import * as ordersService from 'src/services/orders/index'
 import React from 'react'
 import { AssignedOffer } from './AssignedOffer/index'
-import { index } from 'src/ui/views/index'
+import { views } from 'src/ui/views/index'
 
 export class AssignedOfferView extends React.Component {
   constructor(props) {
@@ -35,7 +35,7 @@ export class AssignedOfferView extends React.Component {
   }
 
   changeDeliverer = async () => {
-    this.props.changeView(index.CHANGE_DELIVERER, {
+    this.props.changeView(views.CHANGE_DELIVERER, {
       productCode: this.props.params.product.code,
       quantity: this.props.params.quantity,
     })
@@ -48,7 +48,7 @@ export class AssignedOfferView extends React.Component {
       this.props.params.quantity,
     )
     if (response.success) {
-      this.props.changeView(index.ORDER, {
+      this.props.changeView(views.ORDER, {
         order: response.data,
         offer: this.state.offer,
         product: this.props.params.product

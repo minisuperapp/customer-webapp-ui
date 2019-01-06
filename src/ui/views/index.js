@@ -5,7 +5,7 @@ import { ChangeDelivererView } from "./4_change_deliverer/index";
 import { OrderView } from "./5_order/index";
 import { OrdersListView } from "./6_orders_list/index";
 
-export const index = {
+export const views = {
   PRODUCTS: ProductsView,
   QUANTITY: QuantityView,
   ASSIGNED_OFFER: AssignedOfferView,
