@@ -1,5 +1,5 @@
 import React from "react";
-import {views} from 'src/ui/Views'
+import {index} from 'src/ui/views/index'
 
 export class AssignedOffer extends React.Component {
   constructor(props) {

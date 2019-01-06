@@ -1,12 +1,12 @@
 import Bluebird from 'bluebird'
-import * as productsService from 'src/services/products'
-import * as offersService from 'src/services/offers'
-import * as orderService from 'src/services/orders'
+import * as productsService from 'src/services/products/index'
+import * as offersService from 'src/services/offers/index'
+import * as orderService from 'src/services/orders/index'
 import React from 'react'
-import { Products } from './Products'
+import { Products } from './Products/index'
 import config from 'src/config'
 import io from 'socket.io-client'
-import { views } from 'src/ui/Views'
+import { index } from 'src/ui/views/index'
 
 export class ProductsView extends React.Component {
   constructor(props) {
@@ -31,7 +31,7 @@ export class ProductsView extends React.Component {
       offersService.getOffersByProduct(this.props.customerLocation),
       orderService.getOrdersPendingToDeliver()
     )
-debugger
+
     const lowestPriceByProduct = await offersService.getLowestPriceByProduct(offersByProduct)
 
     this.setState({ products, offersByProduct, lowestPriceByProduct, currentOrders })
@@ -59,7 +59,7 @@ debugger
           customerLocation={this.props.customerLocation}
         />
         <div>
-          <button onClick={() => this.props.changeView(views.ORDERS_LIST)}>Ver mis ordenes ({this.state.currentOrders.length})</button>
+          <button onClick={() => this.props.changeView(index.ORDERS_LIST)}>Ver mis ordenes ({this.state.currentOrders.length})</button>
         </div>
       </div>
     )

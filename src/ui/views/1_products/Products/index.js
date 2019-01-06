@@ -1,5 +1,5 @@
 import React from "react";
-import {Product} from "./Product";
+import {Product} from "./Product/index";
 
 export class Products extends React.Component {
   constructor(props) {

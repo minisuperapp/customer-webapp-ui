@@ -1,6 +1,6 @@
 import React from 'react'
-import { views } from 'src/ui/Views'
-import { Order } from './Order'
+import { index } from 'src/ui/views/index'
+import { Order } from './Order/index'
 import io from 'socket.io-client'
 import config from 'src/config'
 

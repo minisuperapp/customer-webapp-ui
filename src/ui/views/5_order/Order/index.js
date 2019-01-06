@@ -1,5 +1,5 @@
 import React from "react";
-import { views } from 'src/ui/Views'
+import { index } from 'src/ui/views/index'
 
 export class Order extends React.Component {
   constructor(props) {

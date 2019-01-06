@@ -1,5 +1,5 @@
 import React from "react";
-import { views } from 'src/ui/Views'
+import { index } from 'src/ui/views/index'
 
 export class QuantityView extends React.Component {
   constructor(props) {
@@ -18,7 +18,7 @@ export class QuantityView extends React.Component {
   }
 
   changeView = () => {
-    this.props.changeView(views.ASSIGNED_OFFER, {
+    this.props.changeView(index.ASSIGNED_OFFER, {
       product: this.props.params.product,
       quantity: this.state.quantity
     })
