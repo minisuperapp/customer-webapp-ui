@@ -1,3 +1,4 @@
+import Bluebird from 'bluebird'
 import * as productsService from 'src/services/products'
 import * as offersService from 'src/services/offers'
 import * as orderService from 'src/services/orders'
@@ -25,10 +26,14 @@ export class ProductsView extends React.Component {
     this.socket.emit('subscribe_for_offers_updates', this.props.customerLocation)
     this.socket.on('published_offer', (offer) => this._processNewOffer(offer))
 
-    const products = await productsService.getProducts()
-    const offersByProduct = await offersService.getOffersByProduct(this.props.customerLocation)
+    const [products, offersByProduct, currentOrders] = await Bluebird.join(
+      productsService.getProducts(),
+      offersService.getOffersByProduct(this.props.customerLocation),
+      orderService.getOrdersPendingToDeliver()
+    )
+debugger
     const lowestPriceByProduct = await offersService.getLowestPriceByProduct(offersByProduct)
-    const currentOrders = (await orderService.getOrdersPendingToDeliver()).data.orders
+
     this.setState({ products, offersByProduct, lowestPriceByProduct, currentOrders })
   }
 

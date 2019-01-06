@@ -11,7 +11,8 @@ export const getOffersByProduct = async (customerLocation) => {
     .withCustomerLocationLongitude(customerLocation.longitude)
     .build()
   const offersByProductResponse = await apiRequester.send(offersRequest)
-  return _.get(offersByProductResponse, '.data.data.offersByProduct', {})
+  debugger
+  return _.get(offersByProductResponse, 'data.data.offersByProduct', {})
 }
 
 export const assignBestOffer = async (customerLocation, productCode, quantity) => {
