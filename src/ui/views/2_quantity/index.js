@@ -23,12 +23,17 @@ export class QuantityView extends React.Component {
       quantity: this.state.quantity
     })
   }
-
+  
+  changeViewProducts = () => {
+    this.props.changeView(views.PRODUCTS)
+  }
+  
   render() {
     return <div>
       <input type="text" value={this.state.quantity} onChange={this.handleChange}/> {this.props.params.product.quantityType} de {this.props.params.product.name}
       <div>Total: ${this.state.total}</div>
       <button onClick={this.changeView}>Buscar repartidor</button>
+      <button onClick={this.changeViewProducts}>Ver productos</button>
     </div>
   }
 
