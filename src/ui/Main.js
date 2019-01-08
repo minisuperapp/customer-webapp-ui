@@ -21,7 +21,7 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <Index />
+        <Index/>
         <this.state.view
           {...this.props}
           changeView={this.changeView}
