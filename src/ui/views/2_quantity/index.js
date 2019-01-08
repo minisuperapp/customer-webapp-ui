@@ -23,7 +23,22 @@ export class QuantityView extends React.Component {
       product: this.props.params.product,
       quantity: this.state.quantity
     })
+
   }
+  addQuantity = (event) => {
+    this.setState({
+      quantity: Number(this.state.quantity) + Number(1),
+      total: (Number(this.state.quantity) + Number(1)) * Number(this.props.params.lowestPrice)
+    })
+  }
+  substractQuantity = (event) => {
+    this.setState({
+      quantity: Number(this.state.quantity) - Number(1),
+      total: (Number(this.state.quantity) - Number(1)) * Number(this.props.params.lowestPrice)
+    })
+  }
+
+
 
 
   render() {
@@ -48,10 +63,15 @@ export class QuantityView extends React.Component {
     <div style = {styles.textTitle}>{this.props.params.product.name}</div>
     <div style = {styles.priceText}> ${this.props.params.lowestPrice} {this.props.params.product.quantityType}</div>
     <div style = {styles.cant}>Cant.</div>
-    <input  style={styles.input} type="Number" value={this.state.quantity} onChange={this.handleChange}/>
+    <div style ={styles.spinners}>
+    <button style={styles.substractButton} onClick = {this.substractQuantity}>-</button>
+    <input  style={styles.input} type="Text" value={this.state.quantity} onChange={this.handleChange}/>
+    <button  style = {styles.addButton} onClick = {this.addQuantity}>+</button>
+
+    </div>
     <div style = {styles.totalContainer} >
        <div style = {styles.total}>Total</div>
-       <div  style = {styles.totalNumber}>${this.state.total}</div>
+       <div  style = {styles.quantity}>${this.state.total}</div>
     </div>
       <button style = {styles.button} onClick={this.changeView}>Buscar repartidor</button>
     </div>
