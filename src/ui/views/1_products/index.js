@@ -56,7 +56,6 @@ export class ProductsView extends React.Component {
         <Products
           {...this.state}
           changeView={this.props.changeView}
-          customerLocation={this.props.customerLocation}
         />
         <div>
           <button onClick={() => this.props.changeView(views.ORDERS_LIST)}>Ver mis ordenes ({this.state.currentOrders.length})</button>
