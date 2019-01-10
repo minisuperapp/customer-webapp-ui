@@ -86,8 +86,11 @@ export class QuantityView extends React.Component {
           <div style={styles.total}>Total</div>
           <div style={styles.quantity}>${this.state.total}</div>
         </div>
-        <button style={styles.button} onClick={this.changeView}>
+        <button style={styles.button} onClick={this.goToAssignedOffer}>
           Buscar repartidor
+        </button>
+        <button style={styles.backButton} onClick={this.goToProducts}>
+          Volver a productos
         </button>
       </div>
     )
