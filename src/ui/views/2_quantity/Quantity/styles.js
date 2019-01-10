@@ -93,7 +93,7 @@ export const styles = {
     color: 'white',
     fontFamily: 'SFProText-Bold',
   },
-  substractButton: {
+  subtractButton: {
     fontSize: '22px',
     borderColor: '#49a25b',
     textAlign: 'center',

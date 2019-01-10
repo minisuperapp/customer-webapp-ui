@@ -1,6 +1,7 @@
 import React from 'react'
-import { views } from 'src/ui/views/index'
-import { styles } from './styles'
+import {views} from 'src/ui/views/index'
+import {styles} from './Quantity/styles'
+import {Quantity} from './Quantity'
 
 export class QuantityView extends React.Component {
   constructor(props) {
@@ -24,7 +25,8 @@ export class QuantityView extends React.Component {
       quantity: this.state.quantity,
     })
   }
-  addQuantity = (event) => {
+
+  addQuantity = () => {
     this.setState({
       quantity: Number(this.state.quantity) + Number(1),
       total: (Number(this.state.quantity) + Number(1)) * Number(this.props.params.lowestPrice),
@@ -35,7 +37,7 @@ export class QuantityView extends React.Component {
     this.props.changeView(views.PRODUCTS)
   }
 
-  substractQuantity = (event) => {
+  subtractQuantity = () => {
     this.setState({
       quantity: Number(this.state.quantity) - Number(1),
       total: (Number(this.state.quantity) - Number(1)) * Number(this.props.params.lowestPrice),
@@ -60,39 +62,15 @@ export class QuantityView extends React.Component {
     }
 
     return (
-      <div style={styles.container}>
-        <div style={styles.image}> </div>
-        <div style={styles.textTitle}>{this.props.params.product.name}</div>
-        <div style={styles.priceText}>
-          {' '}
-          ${this.props.params.lowestPrice} {this.props.params.product.quantityType}
-        </div>
-        <div style={styles.cant}>Cant.</div>
-        <div style={styles.spinners}>
-          <button style={styles.substractButton} onClick={this.substractQuantity}>
-            -
-          </button>
-          <input
-            style={styles.input}
-            type="Text"
-            value={this.state.quantity}
-            onChange={this.handleChange}
-          />
-          <button style={styles.addButton} onClick={this.addQuantity}>
-            +
-          </button>
-        </div>
-        <div style={styles.totalContainer}>
-          <div style={styles.total}>Total</div>
-          <div style={styles.quantity}>${this.state.total}</div>
-        </div>
-        <button style={styles.button} onClick={this.goToAssignedOffer}>
-          Buscar repartidor
-        </button>
-        <button style={styles.backButton} onClick={this.goToProducts}>
-          Volver a productos
-        </button>
-      </div>
+      <Quantity
+        {...this.state}
+        {...this.props}
+        handleChange={this.handleChange}
+        goToAssignedOffer={this.goToAssignedOffer}
+        addQuantity={this.addQuantity}
+        goToProducts={this.goToProducts}
+        subtractQuantity={this.subtractQuantity}
+      />
     )
   }
 }
