@@ -18,7 +18,7 @@ export class QuantityView extends React.Component {
     });
   }
 
-  changeView = () => {
+  goToAssignedOffer = () => {
     this.props.changeView(views.ASSIGNED_OFFER, {
       product: this.props.params.product,
       quantity: this.state.quantity
@@ -31,6 +31,11 @@ export class QuantityView extends React.Component {
       total: (Number(this.state.quantity) + Number(1)) * Number(this.props.params.lowestPrice)
     })
   }
+
+  goToProducts = () => {
+    this.props.changeView(views.PRODUCTS)
+  }
+
   substractQuantity = (event) => {
     this.setState({
       quantity: Number(this.state.quantity) - Number(1),
