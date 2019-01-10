@@ -38,10 +38,12 @@ export class QuantityView extends React.Component {
   }
 
   subtractQuantity = () => {
-    this.setState({
+    if(Number(this.state.quantity) > Number(this.props.params.minimumBuyingQuantity)){
+      this.setState({
       quantity: Number(this.state.quantity) - Number(1),
       total: (Number(this.state.quantity) - Number(1)) * Number(this.props.params.lowestPrice),
     })
+    }
   }
 
   render() {
