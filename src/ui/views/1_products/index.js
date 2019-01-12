@@ -31,7 +31,6 @@ export class ProductsView extends React.Component {
       offersService.getOffersByProduct(this.props.customerLocation),
       orderService.getOrdersPendingToDeliver()
     )
-
     const lowestPriceByProduct = await offersService.getLowestPriceByProduct(offersByProduct)
 
     this.setState({ products, offersByProduct, lowestPriceByProduct, currentOrders })
