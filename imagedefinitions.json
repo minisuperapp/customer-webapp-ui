@@ -1,0 +1,6 @@
+[
+  {
+    "name": "minisuper-customer-webapp-ui",
+    "imageUri": "421154629972.dkr.ecr.us-east-2.amazonaws.com/minisuper/minisuper-customer-webapp-ui:latest"
+  }
+]
