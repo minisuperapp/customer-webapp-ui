@@ -1,6 +1,6 @@
 [
   {
     "name": "minisuper-customer-webapp-ui",
-    "imageUri": "421154629972.dkr.ecr.us-east-2.amazonaws.com/minisuper/minisuper-customer-webapp-ui:latest"
+    "imageUri": "016630370567.dkr.ecr.us-west-1.amazonaws.com/minisuper/customer-webapp-ui:latest"
   }
 ]
