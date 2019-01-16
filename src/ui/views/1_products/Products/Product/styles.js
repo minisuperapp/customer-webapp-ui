@@ -14,6 +14,8 @@ export const styles = {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    width:"100%",
+    height:"25vh"
   },
   textTitle: {
     marginLeft: '5px',

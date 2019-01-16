@@ -25,6 +25,7 @@ export const styles = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    height:"100vh"
   },
   input: {
     borderRightColor: 'transparent',
