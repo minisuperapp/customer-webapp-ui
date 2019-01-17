@@ -3,6 +3,8 @@ export const styles = {
     backgroundColor: '#49a25b',
     borderRadius: '18px',
     boxShadow: '0 2px 8px 0 rgb(73, 162, 91,30)',
+    width:"50%",
+    height:"3vh"
   },
   container: {
     marginTop: 14,
@@ -14,13 +16,12 @@ export const styles = {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    width:"100%",
-    height:"25vh"
+    height:"33vh"
   },
   textTitle: {
     marginLeft: '5px',
     fontFamily: 'SFProText-Bold',
-    fontSize: '14px',
+    fontSize: '3vh',
     color: '#212121',
   },
   textBody: {
@@ -28,13 +29,13 @@ export const styles = {
     marginRight: '5px',
     marginLeft: '5px',
     fontFamily: 'SFProText-Regular',
-    fontSize: '12px',
+    fontSize: '2vh',
     color: '#212121',
   },
   buttonText: {
     fontFamily: 'SFProTextRegular',
     color: '#FFFFFF',
-    fontSize: '12px',
+    fontSize: '2vh',
     letterSpacing: '-0.3px',
   },
   mainPanel: {
@@ -42,6 +43,9 @@ export const styles = {
     flexDirection: 'column',
     justifyContent: 'flexStart',
     backgroundColor: '#FFFFFF',
+    width:"100%",
+    alignItems:"stretch",
+    marginRight: '10%'
   },
   textPanel: {
     flex: 1,
@@ -50,10 +54,15 @@ export const styles = {
     alignContent: 'flex-start',
     alignItems: 'center',
     backgroundColor: '#FFFFFF',
+    height:"100%",
+    width:"100%"
+
   },
   image: {},
   cellIcon: {
     display: 'flex',
     justifyContent: 'center',
+    height:"100%",
   },
+
 }
