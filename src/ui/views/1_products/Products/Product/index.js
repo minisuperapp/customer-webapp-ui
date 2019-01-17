@@ -21,7 +21,7 @@ export class Product extends React.Component {
       backgroundSize: 'contain',
       backgroundRepeat: 'no-repeat',
       height: '80%',
-      width: '100%',
+      width: '80%',
       backgroundPosition:"right",
       backgroundColor:"#FFFFFF",
       marginLeft: '10%'

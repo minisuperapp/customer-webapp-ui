@@ -16,7 +16,7 @@ export const styles = {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    height:"33vh"
+    height:"12.5vh"
   },
   textTitle: {
     marginLeft: '5px',
@@ -29,7 +29,7 @@ export const styles = {
     marginRight: '5px',
     marginLeft: '5px',
     fontFamily: 'SFProText-Regular',
-    fontSize: '2vh',
+    fontSize: '3vh',
     color: '#212121',
   },
   buttonText: {
