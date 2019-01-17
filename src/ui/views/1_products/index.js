@@ -49,6 +49,13 @@ export class ProductsView extends React.Component {
     }
   }
 
+  goToQuantity = (product, lowestPrice) => {
+    this.props.changeView(this.state, views.QUANTITY, {
+      product,
+      lowestPrice,
+    })
+  }
+
   render() {
     return (
       <div>
@@ -57,7 +64,9 @@ export class ProductsView extends React.Component {
           changeView={this.props.changeView}
         />
         <div>
-          <button onClick={() => this.props.changeView(views.ORDERS_LIST)}>Ver mis ordenes ({this.state.currentOrders.length})</button>
+          <button onClick={() => this.props.changeView(this.state, views.ORDERS_LIST)}>
+            Ver mis ordenes ({this.state.currentOrders.length})
+          </button>
         </div>
       </div>
     )

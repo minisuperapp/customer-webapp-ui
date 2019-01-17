@@ -58,6 +58,10 @@ export class AssignedOfferView extends React.Component {
     }
   }
 
+  onCancel = async () => {
+    this.props.changeView(views.QUANTITY)
+  }
+
   render() {
     return (
       <AssignedOffer
@@ -65,6 +69,7 @@ export class AssignedOfferView extends React.Component {
         {...this.state}
         changeDeliverer={this.changeDeliverer}
         order={this.order}
+        onCancel={this.onCancel}
       />
     )
   }

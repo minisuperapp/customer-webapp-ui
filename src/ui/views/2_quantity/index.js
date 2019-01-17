@@ -1,14 +1,18 @@
 import React from 'react'
-import {views} from 'src/ui/views/index'
-import {styles} from './Quantity/styles'
-import {Quantity} from './Quantity'
+import { views } from 'src/ui/views/index'
+import { styles } from './Quantity/styles'
+import { Quantity } from './Quantity'
 
 export class QuantityView extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      quantity: props.params.product.minimumBuyingQuantity,
-      total: Number(props.params.product.minimumBuyingQuantity * props.params.lowestPrice),
+    if (props.previousState) {
+      this.state = props.previousState
+    } else {
+      this.state = {
+        quantity: props.params.product.minimumBuyingQuantity,
+        total: Number(props.params.product.minimumBuyingQuantity * props.params.lowestPrice),
+      }
     }
   }
 
@@ -38,11 +42,11 @@ export class QuantityView extends React.Component {
   }
 
   subtractQuantity = () => {
-    if(this.state.quantity > this.props.params.product.minimumBuyingQuantity){
+    if (this.state.quantity > this.props.params.product.minimumBuyingQuantity) {
       this.setState({
-      quantity: Number(this.state.quantity) - Number(1),
-      total: (Number(this.state.quantity) - Number(1)) * Number(this.props.params.lowestPrice),
-    })
+        quantity: Number(this.state.quantity) - Number(1),
+        total: (Number(this.state.quantity) - Number(1)) * Number(this.props.params.lowestPrice),
+      })
     }
   }
 

@@ -1,21 +1,31 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import Index from './views/0_header/index'
-import { views } from './views/index'
-import { styles } from './styles'
+import {views} from './views/index'
+import {styles} from './styles'
 
 class Main extends Component {
   constructor() {
     super()
     this.state = {
       view: views.PRODUCTS,
-      nextStepParams: {},
+      params: {},
+      previousParams: {},
+      previousState: {},
     }
   }
 
-  changeView = (view, params) => {
+  changeView = (view, newParams) => {
+    const combinedParams = {
+      ...this.state.previousParams[view],
+      ...newParams,
+    }
     this.setState({
       view,
-      nextStepParams: params,
+      params: combinedParams,
+      previousParams: {
+        ...this.state.previousParams,
+        [view]: combinedParams,
+      },
     })
   }
 
@@ -26,7 +36,8 @@ class Main extends Component {
         <this.state.view
           {...this.props}
           changeView={this.changeView}
-          params={this.state.nextStepParams}
+          params={this.state.params}
+          previousState={this.state.previousState[this.state.view]}
         />
       </div>
     )
