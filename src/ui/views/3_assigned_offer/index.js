@@ -27,7 +27,7 @@ export class AssignedOfferView extends React.Component {
       const offer = response.data
       this.setState({ offer })
       this.setState({
-        total: Number(offer.unitPrice) * Number(this.props.quantity),
+        total: Number(offer.unitPrice) * Number(this.props.params.quantity),
       })
     } else {
       alert(JSON.stringify(response.errors))

@@ -16,6 +16,7 @@ export class AssignedOffer extends React.Component {
             <button onClick={this.props.changeDeliverer}>Cambiar</button>
           </p>
           <p>Precio ${this.props.offer.unitPrice}</p>
+          <p>Total ${this.props.total}</p>
           <button onClick={this.props.onCancel}>Volver</button>
           <button onClick={this.props.order}>Pedir</button>
         </div>
