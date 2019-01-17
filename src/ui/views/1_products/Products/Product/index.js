@@ -15,12 +15,16 @@ export class Product extends React.Component {
     }
     styles.image = {
       display: 'flex',
+      alignItems:"flex-end",
       justifyContent: 'center',
       backgroundImage: productImages[this.props.product.code],
       backgroundSize: 'contain',
       backgroundRepeat: 'no-repeat',
-      height: '100px',
-      width: '100px',
+      height: '80%',
+      width: '100%',
+      backgroundPosition:"right",
+      backgroundColor:"#FFFFFF",
+      marginLeft: '10%'
     }
 
     return (
