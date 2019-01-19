@@ -59,6 +59,7 @@ export class AssignedOfferView extends React.Component {
   }
 
   onCancel = async () => {
+    await offersService.discardOfferAssigment(this.state.offer.id)
     this.props.changeView(views.QUANTITY)
   }
 

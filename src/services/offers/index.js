@@ -4,6 +4,7 @@ import * as apiRequester from 'src/services/api_requester'
 import { OffersGroupedByProductRequest } from './requests/offers_grouped_by_product'
 import { ListOffersRequest } from './requests/list'
 import { AssignBestOfferRequest } from './requests/assign_best'
+import { DiscardAssignmentRequest } from './requests/discard_assigment'
 
 export const getOffersByProduct = async (customerLocation) => {
   const offersRequest = new OffersGroupedByProductRequest.Builder()
@@ -35,6 +36,15 @@ export const getOffers = async (customerLocation, productCode, quantity) => {
     .build()
   const offers = await apiRequester.send(request)
   return offers.data
+}
+
+export const discardOfferAssigment = async (offerId) => {
+  const request = new DiscardAssignmentRequest.Builder()
+    .withOfferId(offerId)
+    .build()
+  const response = await apiRequester.send(request)
+
+  return _.get(response, 'data', {})
 }
 
 export const addToOffersByProduct = (offersByProduct, offer) => {
