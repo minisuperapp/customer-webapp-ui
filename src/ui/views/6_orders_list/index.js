@@ -1,5 +1,5 @@
 import React from 'react'
-import { OrdersList } from './OrdersList/index'
+import { OrdersList } from './OrdersList'
 import * as orderService from "../../../services/orders/index";
 
 export class OrdersListView extends React.Component {
@@ -10,8 +10,7 @@ export class OrdersListView extends React.Component {
     }
   }
   async componentDidMount() {
-    const pendingOrders = await orderService.getOrdersPendingToDeliver()
-    const orders = pendingOrders.data.orders
+    const orders = await orderService.getOrdersPendingToDeliver()
     this.setState({ orders })
   }
   render() {

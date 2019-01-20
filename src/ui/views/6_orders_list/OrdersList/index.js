@@ -1,16 +1,21 @@
-import React from "react";
-import { views } from 'src/ui/views/index'
+import React from 'react'
+import { Order } from './Order'
 
 export class OrdersList extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
-    return <div>
-      {this.props.orders.map(o => {
-        return o.productQuantity + " " 
-      })}
-    </div>
+    return (
+      <div>
+        <table>
+          <tr>
+            <th>Id</th>
+            <th>Producto</th>
+            <th>Cantidad</th>
+          </tr>
+          {this.props.orders.map((o) => {
+            return <Order order={o} />
+          })}
+        </table>
+      </div>
+    )
   }
-
 }
