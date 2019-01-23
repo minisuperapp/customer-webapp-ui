@@ -9,7 +9,7 @@ export const send = async (request) => {
     withCredentials: true,
     headers: {
       'Content-Type': 'application/json',
-      'is-test': 'true',
+      'is-test': isTestEnv() ? 'true' : 'false',
     }
   }
   console.log('request: ', info)
@@ -21,4 +21,9 @@ export const send = async (request) => {
     console.log(request.uri + '/' + request.path, info)
     console.log(err)
   }
+}
+
+function isTestEnv() {
+  return !(/^https:\/\/www\.minisuper\.app\/sell/.test(window.location.href) ||
+    /^https:\/\/minisuper\.app\/sell/.test(window.location.href))
 }
