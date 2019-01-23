@@ -5,7 +5,7 @@ export const send = async (request) => {
   let headers = {
     'Content-Type': 'application/json',
   }
-  if (isTestEnv()) {
+  if (config.isTestEnv) {
     headers = {
       ...headers,
       'is-test': 'true',
@@ -29,9 +29,3 @@ export const send = async (request) => {
   }
 }
 
-function isTestEnv() {
-  return !(
-    /^https:\/\/www\.minisuper\.app\/sell/.test(window.location.href) ||
-    /^https:\/\/minisuper\.app\/sell/.test(window.location.href)
-  )
-}

@@ -4,4 +4,10 @@ module.exports = {
   get API_URL() {
     return `${this.API_HOST}/api`
   },
+  get isTestEnv() {
+    return !(
+      /^https:\/\/www\.minisuper\.app\/sell/.test(window.location.href) ||
+      /^https:\/\/minisuper\.app\/sell/.test(window.location.href)
+    )
+  },
 }
