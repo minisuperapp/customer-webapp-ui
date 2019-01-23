@@ -9,7 +9,7 @@ export const send = async (request) => {
     withCredentials: true,
     headers: {
       'Content-Type': 'application/json',
-      'is-test': isTestEnv() ? 'true' : 'false',
+      'is-test': isTestEnv() ? 'true' : undefined,
     }
   }
   console.log('request: ', info)
