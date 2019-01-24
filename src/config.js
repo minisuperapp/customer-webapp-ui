@@ -6,8 +6,8 @@ module.exports = {
   },
   get isTestEnv() {
     return !(
-      /^https:\/\/www\.minisuper\.app\/sell/.test(window.location.href) ||
-      /^https:\/\/minisuper\.app\/sell/.test(window.location.href)
+      /^https:\/\/www\.minisuper\.app\/buy/.test(window.location.href) ||
+      /^https:\/\/minisuper\.app\/buy/.test(window.location.href)
     )
   },
 }
