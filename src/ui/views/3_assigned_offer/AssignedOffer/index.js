@@ -9,7 +9,7 @@ export class AssignedOffer extends React.Component {
   render() {
     return (
         <div>
-          <p>Assigned Offer</p>
+          <p>Revise su orden</p>
           <p>Producto {this.props.params.product.name}</p>
           <p>Cantidad {this.props.params.quantity}</p>
           <p>Tu Repartidor {this.props.offer.deliverer.name}
