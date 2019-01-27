@@ -10,6 +10,7 @@ export class OrdersList extends React.Component {
             <th>Id</th>
             <th>Producto</th>
             <th>Cantidad</th>
+            <th>&nbsp;</th>
           </tr>
           {this.props.orders.map((o) => {
             return <Order order={o} />
