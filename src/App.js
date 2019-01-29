@@ -7,8 +7,6 @@ class App extends Component {
   render() {
     return !this.props.isGeolocationAvailable ? (
       <div>Tu navegador no soporta geolocalización :(</div>
-    ) : !this.props.isGeolocationEnabled ? (
-      <div>La geolocalización no esta habilitada</div>
     ) : (
       <div>
         {this.props.coords ? (
