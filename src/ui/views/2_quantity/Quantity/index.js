@@ -48,7 +48,7 @@ export class Quantity extends React.Component {
           <div style={styles.quantity}>${this.props.total}</div>
         </div>
         <button style={styles.button} onClick={this.props.goToAssignedOffer}>
-          Buscar repartidor
+          Buscar proveedor
         </button>
         <button style={styles.backButton} onClick={this.props.goToProducts}>
           Volver a productos
