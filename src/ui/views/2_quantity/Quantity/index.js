@@ -1,7 +1,7 @@
 import React from 'react'
 import { views } from 'src/ui/views/index'
 import { styles } from './styles'
-import Label from 'src/components/Label'
+import Label from 'src/Components/Label'
 
 export class Quantity extends React.Component {
   render() {
