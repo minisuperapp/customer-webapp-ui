@@ -27,7 +27,7 @@ export class Quantity extends React.Component {
         <div style={styles.textTitle}>{this.props.params.product.name}</div>
         <div style={styles.priceText}>
           {' '}
-          <Label value="Precio: $" />
+          <Label value="Precio:  $" />
           <Label value={this.props.params.lowestPrice} />
           <Label value="  Unidad: " />
           <Label value={this.props.params.product.quantityType} />
