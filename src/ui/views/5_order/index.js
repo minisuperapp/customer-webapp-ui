@@ -1,4 +1,5 @@
 import React from 'react'
+import { views } from 'src/ui/views/index'
 import { Order } from './Order/index'
 import io from 'socket.io-client'
 import config from 'src/config'
@@ -9,6 +10,9 @@ export class OrderView extends React.Component {
     this.state = {
       status: 'STARTED',
     }
+  }
+  goToProducts = () => {
+    this.props.changeView(views.PRODUCTS)
   }
   async componentDidMount() {
     let socketPayload = {}
@@ -24,6 +28,7 @@ export class OrderView extends React.Component {
     })
   }
   render() {
-    return <Order {...this.props} {...this.state} />
+    return <Order {...this.props} {...this.state} 
+        goToProducts={this.goToProducts}/>
   }
 }
