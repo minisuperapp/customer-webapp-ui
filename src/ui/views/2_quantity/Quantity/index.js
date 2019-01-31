@@ -1,6 +1,7 @@
 import React from 'react'
 import { views } from 'src/ui/views/index'
 import { styles } from './styles'
+import Label from 'src/Components/Label'
 
 export class Quantity extends React.Component {
   render() {
@@ -26,7 +27,10 @@ export class Quantity extends React.Component {
         <div style={styles.textTitle}>{this.props.params.product.name}</div>
         <div style={styles.priceText}>
           {' '}
-          ${this.props.params.lowestPrice} {this.props.params.product.quantityType}
+          <Label value="Precio:  $" />
+          <Label value={this.props.params.lowestPrice} />
+          <Label value="  Unidad: " />
+          <Label value={this.props.params.product.quantityType} />
         </div>
         <div style={styles.cant}>Cant.</div>
         <div style={styles.spinners}>
