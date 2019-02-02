@@ -6,7 +6,7 @@ export class ListOffersRequest {
     return 'POST'
   }
   get path() {
-    return 'offers/list'
+    return 'offers/searchForOneProduct'
   }
   get payload() {
     return this.body
