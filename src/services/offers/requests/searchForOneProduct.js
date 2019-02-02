@@ -1,4 +1,4 @@
-export class ListOffersRequest {
+export class SearchOffersForOneProductRequest {
   constructor(build) {
     this.body = build
   }
@@ -38,7 +38,7 @@ export class ListOffersRequest {
         return this
       }
       build() {
-        return new ListOffersRequest(this)
+        return new SearchOffersForOneProductRequest(this)
       }
     }
     return Builder
