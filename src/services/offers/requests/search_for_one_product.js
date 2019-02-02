@@ -6,7 +6,7 @@ export class SearchOffersForOneProductRequest {
     return 'POST'
   }
   get path() {
-    return 'offers/searchForOneProduct'
+    return 'offers/search_for_one_product'
   }
   get payload() {
     return this.body

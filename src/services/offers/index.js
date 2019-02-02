@@ -1,8 +1,8 @@
 import _ from 'lodash'
 import * as R from 'ramda'
 import * as apiRequester from 'src/services/api_requester'
-import { OffersGroupedByProductRequest } from './requests/searchForAllProducts'
-import { SearchOffersForOneProductRequest } from './requests/searchForOneProduct'
+import { OffersGroupedByProductRequest } from './requests/search_for_all_products'
+import { SearchOffersForOneProductRequest } from './requests/search_for_one_product'
 import { AssignBestOfferRequest } from './requests/assign_best'
 import { DiscardAssignmentRequest } from './requests/discard_assigment'
 

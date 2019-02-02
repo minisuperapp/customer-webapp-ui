@@ -6,7 +6,7 @@ export class OffersGroupedByProductRequest {
     return 'POST'
   }
   get path() {
-    return 'offers/searchForAllProducts'
+    return 'offers/search_for_all_products'
   }
   get payload() {
     return this.body
