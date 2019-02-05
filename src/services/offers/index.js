@@ -1,8 +1,8 @@
 import _ from 'lodash'
 import * as R from 'ramda'
 import * as apiRequester from 'src/services/api_requester'
-import { OffersGroupedByProductRequest } from './requests/offers_grouped_by_product'
-import { ListOffersRequest } from './requests/list'
+import { OffersGroupedByProductRequest } from './requests/search_for_all_products'
+import { SearchOffersForOneProductRequest } from './requests/search_for_one_product'
 import { AssignBestOfferRequest } from './requests/assign_best'
 import { DiscardAssignmentRequest } from './requests/discard_assigment'
 
@@ -27,8 +27,8 @@ export const assignBestOffer = async (customerLocation, productCode, quantity) =
   return offers.data
 }
 
-export const getOffers = async (customerLocation, productCode, quantity) => {
-  const request = new ListOffersRequest.Builder()
+export const searchForOneProduct = async (customerLocation, productCode, quantity) => {
+  const request = new SearchOffersForOneProductRequest.Builder()
     .withProductCode(productCode)
     .withQuantity(quantity)
     .withCustomerLocationLatitude(customerLocation.latitude)

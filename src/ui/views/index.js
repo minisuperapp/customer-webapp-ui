@@ -4,6 +4,7 @@ import { AssignedOfferView } from "./3_assigned_offer/index";
 import { ChangeDelivererView } from "./4_change_deliverer/index";
 import { OrderView } from "./5_order/index";
 import { OrdersListView } from "./6_orders_list/index";
+import { OrderDetailsView } from "./7_order_details/index";
 
 export const views = {
   PRODUCTS: ProductsView,
@@ -12,4 +13,5 @@ export const views = {
   CHANGE_DELIVERER: ChangeDelivererView,
   ORDER: OrderView,
   ORDERS_LIST: OrdersListView,
+  ORDER_DETAILS: OrderDetailsView
 }

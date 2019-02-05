@@ -1,4 +1,4 @@
-export class ListOffersRequest {
+export class SearchOffersForOneProductRequest {
   constructor(build) {
     this.body = build
   }
@@ -6,7 +6,7 @@ export class ListOffersRequest {
     return 'POST'
   }
   get path() {
-    return 'offers/list'
+    return 'offers/search_for_one_product'
   }
   get payload() {
     return this.body
@@ -38,7 +38,7 @@ export class ListOffersRequest {
         return this
       }
       build() {
-        return new ListOffersRequest(this)
+        return new SearchOffersForOneProductRequest(this)
       }
     }
     return Builder

@@ -23,7 +23,7 @@ export class Product extends React.Component {
       height: '80%',
       width: '80%',
       backgroundPosition:"right",
-      backgroundColor:"#FFFFFF",
+      backgroundColor:"#FFFFFF" ,
       marginLeft: '10%'
     }
 

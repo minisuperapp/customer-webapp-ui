@@ -16,7 +16,7 @@ export class ChangeDelivererView extends React.Component {
   }
 
   async componentDidMount() {
-    const serviceResponse = await offersService.getOffers(
+    const serviceResponse = await offersService.searchForOneProduct(
       this.props.customerLocation,
       this.props.params.productCode,
       this.props.params.quantity,

@@ -11,12 +11,18 @@ export const styles = {
     backgroundColor: '#FFFFFF',
     borderRadious: '4px',
     boxShadow: '0 6px 16px 0 rgba(0,0,0,0.08)',
-
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     height:"12.5vh"
+  },
+  textChooseProduct: {
+    fontFamily: 'SFProText-Bold',
+    fontSize: '4vh',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   textTitle: {
     marginLeft: '5px',

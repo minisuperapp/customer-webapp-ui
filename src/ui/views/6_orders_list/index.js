@@ -14,6 +14,6 @@ export class OrdersListView extends React.Component {
     this.setState({ orders })
   }
   render() {
-    return <OrdersList {...this.state} />
+    return <OrdersList {...this.state} changeView={this.props.changeView} />
   }
 }
