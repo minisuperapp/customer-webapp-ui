@@ -7,7 +7,6 @@ export class Order extends React.Component {
     super(props)
   }
   render() {
-<<<<<<< HEAD
     return <div>
       {this.props.status === 'STARTED' && 'Tu pedido se ha enviado.'}
       {this.props.status === 'IN_TRANSIT' && 'Tu pedido esta en camino!'}
@@ -19,7 +18,6 @@ export class Order extends React.Component {
           Volver a productos
         </button>
     </div>
-=======
     return (
       <div style={styles.container}>
         <div style={styles.textTilte}>
@@ -35,6 +33,5 @@ export class Order extends React.Component {
         <button style={styles.backButton}>Volver</button>
       </div>
     )
->>>>>>> origin/master
   }
 }

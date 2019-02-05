@@ -1,5 +1,4 @@
 export const styles = {
-<<<<<<< HEAD
   button: {
     backgroundColor: '#49a25b',
     borderRadius: '18px',
@@ -104,7 +103,6 @@ export const styles = {
     borderTopLeftRadius: '18px',
     color: 'white',
     fontFamily: 'SFProText-Bold',
-=======
   container: {
     marginTop: '5vh',
     display: 'flex',
@@ -139,7 +137,6 @@ export const styles = {
     marginTop: '5vh',
     height: '5%',
     fontSize: '3vh',
->>>>>>> origin/master
   },
 }
   }
