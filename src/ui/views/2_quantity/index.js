@@ -49,6 +49,15 @@ export class QuantityView extends React.Component {
       })
     }
   }
+  
+  changeQuantity = (event) => {
+      const quantity = (event.target.validity.valid) ? event.target.value : this.state.quantity;
+          this.setState({
+            quantity,
+            total: event.target.value * Number(this.props.params.lowestPrice)
+      })
+    
+  }
 
   render() {
     const productImages = {
@@ -72,6 +81,7 @@ export class QuantityView extends React.Component {
         {...this.state}
         {...this.props}
         handleChange={this.handleChange}
+        changeQuantity={this.changeQuantity}
         goToAssignedOffer={this.goToAssignedOffer}
         addQuantity={this.addQuantity}
         goToProducts={this.goToProducts}
