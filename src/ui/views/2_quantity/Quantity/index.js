@@ -40,8 +40,9 @@ export class Quantity extends React.Component {
           <input
             style={styles.input}
             type="Text"
+            pattern="[0-9]*"
             value={this.props.quantity}
-            onChange={this.handleChange}
+            onInput={this.props.changeQuantity.bind(this)}
           />
           <button style={styles.addButton} onClick={this.props.addQuantity}>
             +
