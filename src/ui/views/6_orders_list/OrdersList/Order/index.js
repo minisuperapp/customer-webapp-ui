@@ -5,7 +5,7 @@ export class Order extends React.Component {
   render() {
     const status = {
       STARTED: 'Iniciada',
-      ORDERED: 'Ordenada',
+      PLACED: 'Ordenada',
       IN_TRANSIT: 'En tránsito',
       ARRIVED: 'En puerta!',
       DELIVERED: 'Recibida',
