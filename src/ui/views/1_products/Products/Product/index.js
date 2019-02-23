@@ -1,7 +1,6 @@
 import React from 'react'
 import { views } from 'src/ui/views/index'
-import { styles } from './styles'
-import cssStyles from './styles.module.css'
+import css from './styles.module.css'
 
 export class Product extends React.Component {
   render() {
@@ -15,24 +14,24 @@ export class Product extends React.Component {
     }
 
     return (
-      <div className={cssStyles.container}>
-        <div className={cssStyles.image} style={style} />
-        <div style={styles.mainPanel}>
-          <div style={styles.textTitle}> {this.props.product.name}</div>
-          <div style={styles.textPanel}>
-            <div style={styles.textBody}>${this.props.lowestPrice}</div>
-            <div style={styles.textBody}>
+      <div className={css.container}>
+        <div className={css.image} style={style} />
+        <div className={css.mainPanel}>
+          <div className={css.textTitle}> {this.props.product.name}</div>
+          <div className={css.textPanel}>
+            <div className={css.textBody}>${this.props.lowestPrice}</div>
+            <div className={css.textBody}>
               {' '}
               {this.props.lowestPrice && (
                 <button
-                  style={styles.button}
+                  className={css.button}
                   onClick={() =>
                     this.props.changeView(views.QUANTITY, {
                       product: this.props.product,
                       lowestPrice: this.props.lowestPrice,
                     })
                   }>
-                  <div style={styles.buttonText}>Comprar</div>
+                  <div className={css.buttonText}>Comprar</div>
                 </button>
               )}
             </div>

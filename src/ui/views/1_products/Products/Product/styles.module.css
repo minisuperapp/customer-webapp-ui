@@ -2,7 +2,7 @@
     margin-top: 14px;
     background-color: #FFFFFF;
     border-radius: 4px;
-    box-shadow: 0 6px 16px 0 rgba(0,0,0,0.08);
+    box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: row;
     justifyContent: center;
@@ -18,5 +18,57 @@
     width: 80%;
     background: #FFFFFF no-repeat right;
     background-size: contain;
-    margin-left: 10%
+    margin-left: 10%;
+}
+
+.mainPanel {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #FFFFFF;
+    width: 100%;
+    align-items: stretch;
+    margin-right: 10%;
+}
+
+.textTitle {
+    margin-left: 5px;
+    font-family: SFProText-Bold, serif;
+    font-size: 3vh;
+    color: #212121;
+}
+
+.textPanel {
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-content: flex-start;
+    align-items: center;
+    background-color: #FFFFFF;
+    height: 100%;
+    width: 100%;
+}
+
+.textBody {
+    display: flex;
+    margin-right: 5px;
+    margin-left: 5px;
+    font-family: SFProText-Regular, serif;
+    font-size: 3vh;
+    color: #212121;
+}
+
+.button {
+    background-color: #49a25b;
+    border-radius: 18px;
+    box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
+    width: 50%;
+    height: 3vh;
+}
+
+.buttonText {
+    font-family: SFProTextRegular, serif;
+    color: #FFFFFF;
+    fontSize: 2vh;
+    letter-spacing: -0.3px;
 }
