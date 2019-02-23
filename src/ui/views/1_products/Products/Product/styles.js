@@ -51,13 +51,10 @@ export const styles = {
     backgroundColor: '#FFFFFF',
     height:"100%",
     width:"100%"
-
   },
-  image: {},
   cellIcon: {
     display: 'flex',
     justifyContent: 'center',
     height:"100%",
   },
-
 }

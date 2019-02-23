@@ -9,3 +9,14 @@
     alignItems: center;
     height: 12.5vh;
 }
+
+.image {
+    display: flex;
+    alignItems: flex-end;
+    justifyContent: center;
+    height: 80%;
+    width: 80%;
+    background: #FFFFFF no-repeat right;
+    background-size: contain;
+    margin-left: 10%
+}
