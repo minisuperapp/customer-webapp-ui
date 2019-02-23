@@ -1,6 +1,7 @@
 import React from 'react'
 import { views } from 'src/ui/views/index'
 import { styles } from './styles'
+import cssStyles from './styles.module.css'
 
 export class Product extends React.Component {
   constructor(props) {
@@ -28,7 +29,7 @@ export class Product extends React.Component {
     }
 
     return (
-      <div style={styles.container}>
+      <div className={cssStyles.container}>
         <div style={styles.image} />
         <div style={styles.mainPanel}>
           <div style={styles.textTitle}> {this.props.product.name}</div>

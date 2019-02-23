@@ -6,17 +6,6 @@ export const styles = {
     width:"50%",
     height:"3vh"
   },
-  container: {
-    marginTop: 14,
-    backgroundColor: '#FFFFFF',
-    borderRadious: '4px',
-    boxShadow: '0 6px 16px 0 rgba(0,0,0,0.08)',
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height:"12.5vh"
-  },
   textChooseProduct: {
     fontFamily: 'SFProText-Bold',
     fontSize: '4vh',
