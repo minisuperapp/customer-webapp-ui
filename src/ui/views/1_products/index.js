@@ -7,7 +7,7 @@ import { Products } from './Products/index'
 import config from 'src/config'
 import io from 'socket.io-client'
 import { views } from 'src/ui/views/index'
-import { styles } from './styles'
+import css from './styles.module.css'
 
 export class ProductsView extends React.Component {
   constructor(props) {
@@ -60,7 +60,7 @@ export class ProductsView extends React.Component {
     return (
 		
 		<div>
-		<div style={styles.textChooseProduct}>
+		<div className={css.textChooseProduct}>
 		Elige tu producto
 		</div>
         <Products
