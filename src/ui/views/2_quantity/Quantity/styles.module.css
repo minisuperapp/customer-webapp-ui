@@ -1,0 +1,113 @@
+.button {
+    background-color: #49a25b;
+    border-radius: 18px;
+    box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
+    border: none;
+    color: white;
+    width: 20%;
+    text-align: center;
+    height: 5%;
+    margin-bottom: 1em
+}
+.backButton {
+    background-color: #a24d0d;
+    border-radius: 18px;
+    box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
+    border: none;
+    color: white;
+    width: 20%;
+    text-align: center;
+    height: 5%;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.input {
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-top-color: #49a25b;
+    border-bottom-color: #49a25b;
+    text-align: center;
+}
+.productName {
+    font-family: SFProText-Bold, serif;
+    font-size: 14px;
+    color: #212121;
+    text-align: center;
+}
+.priceText {
+    font-family: SFProText-Regular, serif;
+    font-size: 12px;
+    color: #212121;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.total-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.total {
+    display: flex;
+    margin-right: 50px;
+    font-family: SFProText-Bold, serif;
+    font-size: 14px;
+    color: #212121;
+    text-align: center;
+}
+.quantity {
+    display: flex;
+    margin-left: 50px;
+    font-family: SFProText-Semibold, serif;
+    font-size: 17px;
+    color: #000000;
+    letter-spacing: -0.41px;
+    text-align: center;
+    line-height: 22px;
+}
+.cant {
+    font-family: SFProText-Bold, serif;
+    fontSize: 12px;
+    color: #757575;
+    letter-spacing: -0.3px;
+}
+.spinners {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 60px;
+}
+.addButton {
+    font-size: 22px;
+    border-color: #49a25b;
+    text-align: center;
+    background-color: #49a25b;
+    border-bottom-right-radius: 18px;
+    border-top-right-radius: 18px;
+    color: white;
+    font-family: SFProText-Bold, serif
+}
+.subtractButton {
+    font-size: 22px;
+    border-color: #49a25b;
+    text-align: center;
+    background-color: #49a25b;
+    border-bottom-left-radius: 18px;
+    border-top-left-radius: 18px;
+    color: white;
+    font-family: SFProText-Bold, serif;
+}
+.image {
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 100px;
+}

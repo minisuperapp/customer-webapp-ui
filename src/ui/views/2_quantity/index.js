@@ -1,6 +1,5 @@
 import React from 'react'
 import { views } from 'src/ui/views/index'
-import { styles } from './Quantity/styles'
 import { Quantity } from './Quantity'
 
 export class QuantityView extends React.Component {
@@ -60,22 +59,6 @@ export class QuantityView extends React.Component {
   }
 
   render() {
-    const productImages = {
-      ORANGE: `url('https://s3.us-west-1.amazonaws.com/minisuper.images/orange_available.jpg')`,
-      RED_APPLE: `url('https://s3.us-west-1.amazonaws.com/minisuper.images/red_apple_available.jpg')`,
-      CORN_TORTILLA: `url('https://s3.us-west-1.amazonaws.com/minisuper.images/corn_tortilla_available.jpg')`,
-    }
-    styles.image = {
-      display: 'flex',
-      marginTop: '50px',
-      justifyContent: 'center',
-      backgroundImage: productImages[this.props.params.product.code],
-      backgroundSize: 'contain',
-      backgroundRepeat: 'no-repeat',
-      height: '100px',
-      width: '100px',
-    }
-
     return (
       <Quantity
         {...this.state}
