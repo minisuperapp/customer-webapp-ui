@@ -4,6 +4,7 @@ import * as offersService from 'src/services/offers/index'
 import * as orderService from 'src/services/orders/index'
 import React from 'react'
 import { ProductList } from './components/ProductList'
+import { LoadingList } from './components/LoadingList'
 import config from 'src/config'
 import io from 'socket.io-client'
 import { views } from 'src/ui/views/index'
@@ -73,14 +74,15 @@ export class ProductsView extends React.Component {
   }
 
   render() {
+    if (!this.state.products || !this.state.products.length) {
+      return <LoadingList />
+    }
     return (
       <div>
         <ProductList {...this.state} changeView={this.props.changeView} />
-        <div>
-          <button onClick={() => this.props.changeView(views.ORDERS_LIST)}>
-            Ver mis ordenes ({this.state.currentOrders.length})
-          </button>
-        </div>
+        <button onClick={() => this.props.changeView(views.ORDERS_LIST)}>
+          Ver mis ordenes ({this.state.currentOrders.length})
+        </button>
       </div>
     )
   }
