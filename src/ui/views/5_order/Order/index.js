@@ -1,11 +1,7 @@
 import React from 'react'
-import { views } from 'src/ui/views/index'
-import { styles } from './styles'
+import css from './styles.module.css'
 
 export class Order extends React.Component {
-  constructor(props) {
-    super(props)
-  }
   render() {
     return <div>
       {this.props.status === 'STARTED' && 'Tu pedido se ha enviado.'}
@@ -14,7 +10,7 @@ export class Order extends React.Component {
       <p>Tu orden:</p>
       <p>{this.props.params.order.productQuantity} {this.props.params.product.quantityType} de {this.props.params.product.name}</p>
       <p>Total: ${this.props.params.order.total}</p>
-      <button style={styles.backButton} onClick={this.props.goToProducts}>
+      <button className={css.backButton} onClick={this.props.goToProducts}>
           Volver a productos
         </button>
     </div>
