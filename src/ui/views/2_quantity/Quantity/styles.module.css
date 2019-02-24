@@ -1,44 +1,53 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .button {
     background-color: #49a25b;
     border-radius: 18px;
     box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
     border: none;
     color: white;
-    width: 20%;
+    max-width: 200px;
+    width: 100%;
     text-align: center;
-    height: 5%;
-    margin-bottom: 1em
+    height: 10%;
+    margin-bottom: 1em;
+    font-size: 16px;
 }
+
 .backButton {
     background-color: #a24d0d;
     border-radius: 18px;
     box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
     border: none;
     color: white;
-    width: 20%;
+    max-width: 200px;
+    width: 100%;
     text-align: center;
-    height: 5%;
+    height: 10%;
+    font-size: 16px;
 }
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
+
 .input {
     border-right-color: transparent;
     border-left-color: transparent;
     border-top-color: #49a25b;
     border-bottom-color: #49a25b;
     text-align: center;
+    font-size: 18px;
 }
+
 .productName {
     font-family: SFProText-Bold, serif;
-    font-size: 14px;
+    font-size: 20px;
     color: #212121;
     text-align: center;
 }
+
 .priceText {
     font-family: SFProText-Regular, serif;
     font-size: 12px;
@@ -46,6 +55,7 @@
     text-align: center;
     margin-bottom: 10px;
 }
+
 .total-container {
     display: flex;
     flex-direction: row;
@@ -53,55 +63,70 @@
     align-items: center;
     margin-bottom: 10px;
 }
+
+.totalContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
 .total {
     display: flex;
-    margin-right: 50px;
-    font-family: SFProText-Bold, serif;
-    font-size: 14px;
+    margin-right: 1em;
+    margin-bottom: 2em;
+    font-family: SFProText-Bold, sans-serif;
+    font-size: 24px;
     color: #212121;
     text-align: center;
 }
+
 .quantity {
     display: flex;
-    margin-left: 50px;
-    font-family: SFProText-Semibold, serif;
-    font-size: 17px;
-    color: #000000;
-    letter-spacing: -0.41px;
-    text-align: center;
-    line-height: 22px;
-}
-.cant {
+    margin-top: .5em;
+    margin-bottom: .5em;
     font-family: SFProText-Bold, serif;
-    fontSize: 12px;
-    color: #757575;
-    letter-spacing: -0.3px;
+    font-size: 16px;
+    text-align: center;
 }
+
 .spinners {
     display: flex;
     flex-direction: row;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
+
 .addButton {
-    font-size: 22px;
-    border-color: #49a25b;
-    text-align: center;
     background-color: #49a25b;
     border-bottom-right-radius: 18px;
     border-top-right-radius: 18px;
+    box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
+    border: none;
     color: white;
-    font-family: SFProText-Bold, serif
-}
-.subtractButton {
-    font-size: 22px;
-    border-color: #49a25b;
+    max-width: 200px;
+    width: 100%;
     text-align: center;
+    height: 100%;
+    margin-bottom: 1em;
+    font-size: 24px;
+}
+
+.subtractButton {
     background-color: #49a25b;
     border-bottom-left-radius: 18px;
     border-top-left-radius: 18px;
+    box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
+    border: none;
     color: white;
-    font-family: SFProText-Bold, serif;
+    max-width: 200px;
+    width: 100%;
+    text-align: center;
+    height: 100%;
+    margin-bottom: 1em;
+    font-size: 24px;
 }
+
 .image {
     display: flex;
     margin-top: 50px;
