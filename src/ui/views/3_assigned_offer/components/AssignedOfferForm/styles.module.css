@@ -41,14 +41,14 @@
 .productContainer {
     display: flex;
     flex-direction: row;
+    width: 100%;
 }
 
 .image {
-    display: flex;
-    margin-top: 1em;
-    margin-left: 1em;
-    margin-right: 1em;
+    flex: 1;
+    margin: 1em auto auto 1em;
     justify-content: center;
+    align-items: right;
     background-size: contain;
     background-repeat: no-repeat;
     height: 100px;
@@ -56,12 +56,15 @@
 }
 
 .productDetailsContainer {
+    flex: 1;
+    justify-content: center;
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
+    align-items: left;
 }
 
 .productName {
-    margin-top: 1em;
     font-family: SFProText-Regular, serif;
     font-size: 18px;
     font-weight: bold;
@@ -69,18 +72,15 @@
 }
 
 .productPrice {
-    margin-top: 1em;
     font-family: SFProText-Regular, serif;
     font-size: 16px;
     color: #212121;
 }
 
 .totalContainer {
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: 1em;
     display: flex;
     flex-direction: row;
+    margin: 1em auto;
 }
 
 .textTitle {
@@ -96,6 +96,7 @@
     flex-direction: row;
     width: 100%;
     max-width: 300px;
+    margin: 1em auto;
 }
 
 .button {
@@ -109,16 +110,17 @@
     color: white;
     cursor: pointer;
     margin-left: 0.5em;
+
 }
 
 .backButton {
-    background-color: #a24d0d;
+    border-color: #a24d0d;
     box-shadow: 0 2px 8px 0 rgb(162, 77, 13);
     font-family: SFProTextRegular, serif;
     font-size: 18px;
     border-radius: 18px;
     width: 100%;
-    color: white;
+    color: #a24d0d;
     cursor: pointer;
     margin-right: 0.5em;
 }

@@ -39,7 +39,7 @@ export class AssignedOfferForm extends React.Component {
         </div>
         <div className={css.buttonContainer}>
           <button className={css.backButton} onClick={this.props.onCancel}>
-            Volver
+            Cancelar
           </button>
           <button className={css.button} onClick={this.props.order}>
             Pedir

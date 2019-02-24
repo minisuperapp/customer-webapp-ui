@@ -121,13 +121,13 @@
 }
 
 .backButton {
-    background-color: #a24d0d;
+    border-color: #a24d0d;
     box-shadow: 0 2px 8px 0 rgb(162, 77, 13);
     font-family: SFProTextRegular, serif;
     font-size: 18px;
     border-radius: 18px;
     width: 100%;
-    color: white;
+    color: #a24d0d;
     cursor: pointer;
     margin-right: 0.5em;
 }
