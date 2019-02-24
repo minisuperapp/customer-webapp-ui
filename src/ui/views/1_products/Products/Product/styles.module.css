@@ -11,9 +11,10 @@
 }
 
 .image {
+    margin-right: 2em;
     display: flex;
-    alignItems: flex-end;
-    justifyContent: center;
+    align-items: left;
+    justify-content: center;
     height: 80%;
     width: 80%;
     background: #FFFFFF no-repeat right;
@@ -54,7 +55,7 @@
 .button {
     position: relative;
     top: 0.5em;
-    right: -3em;
+    right: -2em;
     font-family: SFProTextRegular, serif;
     background-color: #49a25b;
     font-size: 18px;
