@@ -46,15 +46,14 @@
 .price {
     margin-top: 0.5em;
     margin-left: 0.5em;
-    font-family: SFProText-Regular, sans-serif;
-    font-size: 16px;
+    font-family: Courier, sans-serif;
+    font-size: 18px;
     color: #212121;
     clear: right;
 }
 
 .button {
     position: relative;
-    /*top: -0.1em;*/
     right: -5em;
     font-family: SFProTextRegular, serif;
     background-color: #49a25b;
