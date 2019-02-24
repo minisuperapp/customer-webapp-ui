@@ -68,7 +68,8 @@ export class AssignedOfferView extends React.Component {
       this.props.changeView(views.ORDER, {
         order: response.data,
         offer: this.state.offer,
-        product: this.props.params.product
+        product: this.props.params.product,
+        quantity: this.props.params.quantity
       })
     } else {
       alert(JSON.stringify(response))
