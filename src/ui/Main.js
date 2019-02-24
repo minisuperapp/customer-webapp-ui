@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import Index from './views/0_header/index'
 import {views} from './views/index'
-import {styles} from './styles'
+import css from './styles.modules.css'
 
 class Main extends Component {
   constructor() {
@@ -31,7 +31,7 @@ class Main extends Component {
 
   render() {
     return (
-      <div style={styles.container}>
+      <div className={css.container}>
         <Index/>
         <this.state.view
           {...this.props}
