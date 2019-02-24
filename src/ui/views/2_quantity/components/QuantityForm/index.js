@@ -2,7 +2,7 @@ import React from 'react'
 import css from './styles.module.css'
 import Label from 'src/Components/Label'
 
-export class Quantity extends React.Component {
+export class QuantityForm extends React.Component {
   render() {
     const productImages = {
       ORANGE: `url('https://s3.us-west-1.amazonaws.com/minisuper.images/orange_available.jpg')`,
@@ -36,8 +36,8 @@ export class Quantity extends React.Component {
           </button>
         </div>
         <div className={css.totalContainer}>
-          <div className={css.total}>Total (aprox.)</div>
-          <div className={css.total}>${this.props.total}</div>
+          <div className={css.total}>Total</div>
+          <div className={css.total}>${this.props.total} (aprox.)</div>
         </div>
         <div className={css.buttonContainer}>
           <button className={css.backButton} onClick={this.props.goToProducts}>

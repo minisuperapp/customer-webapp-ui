@@ -1,6 +1,6 @@
 import React from 'react'
 import { views } from 'src/ui/views/index'
-import { Quantity } from './Quantity'
+import { QuantityForm } from './components/QuantityForm'
 
 export class QuantityView extends React.Component {
   constructor(props) {
@@ -60,7 +60,7 @@ export class QuantityView extends React.Component {
 
   render() {
     return (
-      <Quantity
+      <QuantityForm
         {...this.state}
         {...this.props}
         handleChange={this.handleChange}

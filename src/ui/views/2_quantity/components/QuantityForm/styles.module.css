@@ -84,6 +84,8 @@
     text-align: center;
     margin-bottom: 1em;
     font-size: 24px;
+    cursor: pointer;
+    height: 1.4em;
 }
 
 .subtractButton {
@@ -96,6 +98,7 @@
     text-align: center;
     margin-bottom: 1em;
     font-size: 24px;
+    cursor: pointer;
 }
 
 .buttonContainer {
