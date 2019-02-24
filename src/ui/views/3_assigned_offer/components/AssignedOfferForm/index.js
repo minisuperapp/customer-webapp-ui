@@ -36,7 +36,8 @@ export class AssignedOfferForm extends React.Component {
           <button className={css.backButton} onClick={this.props.onCancel}>
             Cancelar
           </button>
-          <button className={css.button} onClick={this.props.order}>
+          <button className={this.props.offer.deliverer.name !== '-' ? css.button : css.disabledButton} onClick={this.props.order}
+                  disabled={this.props.offer.deliverer.name === '-'}>
             Pedir
           </button>
         </div>

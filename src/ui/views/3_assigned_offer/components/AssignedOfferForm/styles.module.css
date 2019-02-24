@@ -112,7 +112,18 @@
     color: white;
     cursor: pointer;
     margin-left: 0.5em;
+}
 
+.disabledButton {
+    background-color: #b5bbb7;
+    box-shadow: 0 2px 8px 0 rgb(162, 156, 162);
+    font-family: SFProTextRegular, serif;
+    font-size: 18px;
+    border-radius: 18px;
+    width: 100%;
+    color: white;
+    cursor: wait;
+    margin-left: 0.5em;
 }
 
 .backButton {
