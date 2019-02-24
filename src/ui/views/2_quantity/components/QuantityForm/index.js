@@ -1,18 +1,13 @@
 import React from 'react'
 import css from './styles.module.css'
 import Label from 'src/Components/Label'
+import * as images from 'src/ui/views/common/images'
 
 export class QuantityForm extends React.Component {
   render() {
-    const productImages = {
-      ORANGE: `url('https://s3.us-west-1.amazonaws.com/minisuper.images/orange_available.jpg')`,
-      RED_APPLE: `url('https://s3.us-west-1.amazonaws.com/minisuper.images/red_apple_available.jpg')`,
-      CORN_TORTILLA: `url('https://s3.us-west-1.amazonaws.com/minisuper.images/corn_tortilla_available.jpg')`,
-    }
     const style = {
-      backgroundImage: productImages[this.props.params.product.code],
+      backgroundImage: images.getProductImageURL(this.props.params.product.code.toLocaleLowerCase())
     }
-
     return (
       <div className={css.container}>
         <div className={css.image} style={style}/>
