@@ -1,15 +1,15 @@
 import React from 'react'
 import { Product } from './Product/index'
+import css from "./styles.module.css";
 
 export class Products extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     console.log('this.props: ', this.props)
     return (
       <div>
+        <div className={css.textChooseProduct}>
+          Elige tu producto
+        </div>
         {this.props.products.map((p) => (
           <Product
             key={p.id}
