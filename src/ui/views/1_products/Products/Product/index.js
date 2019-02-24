@@ -31,7 +31,7 @@ export class Product extends React.Component {
                       lowestPrice: this.props.lowestPrice,
                     })
                   }>
-                  <div className={css.buttonText}>Comprar</div>
+                  Comprar
                 </button>
               )}
             </div>
