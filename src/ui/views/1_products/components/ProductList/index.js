@@ -2,7 +2,7 @@ import React from 'react'
 import {Product} from './Product/index'
 import css from "./styles.module.css";
 
-export class Products extends React.Component {
+export class ProductList extends React.Component {
   render() {
     console.log('this.props: ', this.props)
     return (
