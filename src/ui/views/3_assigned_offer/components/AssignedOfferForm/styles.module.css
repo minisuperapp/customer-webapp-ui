@@ -1,0 +1,124 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.delivererContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.delivererName {
+    font-family: SFProText-Regular, serif;
+    font-size: 16px;
+    color: black;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.changeDelivererButton {
+    border-color: #49a25b;
+    background-color: white;
+    box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
+    font-family: SFProTextRegular, serif;
+    font-size: 18px;
+    border-radius: 18px;
+    width: 100%;
+    max-width: 200px;
+    color: #49a25b;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.offerContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+}
+
+.productContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.image {
+    display: flex;
+    margin-top: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+    justify-content: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 100px;
+}
+
+.productDetailsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.productName {
+    margin-top: 1em;
+    font-family: SFProText-Regular, serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #212121;
+}
+
+.productPrice {
+    margin-top: 1em;
+    font-family: SFProText-Regular, serif;
+    font-size: 16px;
+    color: #212121;
+}
+
+.totalContainer {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 1em;
+    display: flex;
+    flex-direction: row;
+}
+
+.textTitle {
+    alignment: left;
+    font-family: SFProText-Bold, serif;
+    font-size: 16px;
+    color: #757575;
+    margin-left: 1em;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 300px;
+}
+
+.button {
+    background-color: #49a25b;
+    box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
+    font-family: SFProTextRegular, serif;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 18px;
+    width: 100%;
+    color: white;
+    cursor: pointer;
+    margin-left: 0.5em;
+}
+
+.backButton {
+    background-color: #a24d0d;
+    box-shadow: 0 2px 8px 0 rgb(162, 77, 13);
+    font-family: SFProTextRegular, serif;
+    font-size: 18px;
+    border-radius: 18px;
+    width: 100%;
+    color: white;
+    cursor: pointer;
+    margin-right: 0.5em;
+}

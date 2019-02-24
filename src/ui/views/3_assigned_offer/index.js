@@ -1,7 +1,7 @@
 import * as offersService from 'src/services/offers/index'
 import * as ordersService from 'src/services/orders/index'
 import React from 'react'
-import { AssignedOffer } from './AssignedOffer/index'
+import { AssignedOfferForm } from './components/AssignedOfferForm'
 import { views } from 'src/ui/views/index'
 
 export class AssignedOfferView extends React.Component {
@@ -65,7 +65,7 @@ export class AssignedOfferView extends React.Component {
 
   render() {
     return (
-      <AssignedOffer
+      <AssignedOfferForm
         {...this.props}
         {...this.state}
         changeDeliverer={this.changeDeliverer}
