@@ -6,7 +6,7 @@ import * as images from 'src/ui/views/common/images'
 export class QuantityForm extends React.Component {
   render() {
     const style = {
-      backgroundImage: images.getProductImageURL(this.props.params.product.code.toLocaleLowerCase())
+      backgroundImage: `url(${images.getProductImageURL(this.props.params.product.code.toLocaleLowerCase())})`
     }
     return (
       <div className={css.container}>

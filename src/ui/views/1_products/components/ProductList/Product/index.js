@@ -6,7 +6,7 @@ import * as images from 'src/ui/views/common/images'
 export class Product extends React.Component {
   render() {
     const style = {
-      backgroundImage: images.getProductImageURL(this.props.product.code.toLocaleLowerCase())
+      backgroundImage: `url(${images.getProductImageURL(this.props.product.code.toLocaleLowerCase())})`
     }
 
     return (

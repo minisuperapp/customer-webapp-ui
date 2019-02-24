@@ -6,7 +6,7 @@ export class Order extends React.Component {
     const status = {
       STARTED: 'Iniciada',
       PLACED: 'Ordenada',
-      IN_TRANSIT: 'En tránsito',
+      IN_TRANSIT: 'En camino',
       ARRIVED: 'En puerta!',
       DELIVERED: 'Recibida',
       CANCELED_BY_CUSTOMER: 'Cancelada por el cliente',
