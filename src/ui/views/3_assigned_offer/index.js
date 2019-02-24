@@ -14,12 +14,23 @@ export class AssignedOfferView extends React.Component {
         },
       },
       total: '-',
+      location: {
+        latitude: '',
+        longitude: '',
+      },
     }
   }
 
   async componentDidMount() {
+    const location = await this._getPosition()
+    this.setState({
+      location: {
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude,
+      },
+    })
     const response = await offersService.assignBestOffer(
-      this.props.customerLocation,
+      this.state.location,
       this.props.params.product.code,
       this.props.params.quantity,
     )
@@ -34,6 +45,12 @@ export class AssignedOfferView extends React.Component {
     }
   }
 
+  _getPosition = () => {
+    return new Promise((success, error) => {
+      navigator.geolocation.getCurrentPosition(success, error)
+    })
+  }
+
   changeDeliverer = async () => {
     this.props.changeView(views.CHANGE_DELIVERER, {
       productCode: this.props.params.product.code,
@@ -43,7 +60,7 @@ export class AssignedOfferView extends React.Component {
 
   order = async () => {
     const response = await ordersService.placeOrder(
-      this.props.customerLocation,
+      this.state.location,
       this.state.offer.id,
       this.props.params.quantity,
     )

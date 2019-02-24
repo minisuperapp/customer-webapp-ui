@@ -8,6 +8,10 @@ export class ChangeDelivererView extends React.Component {
     super(props)
     this.state = {
       offers: [],
+      location: {
+        latitude: '',
+        longitude: '',
+      },
     }
   }
     
@@ -16,12 +20,25 @@ export class ChangeDelivererView extends React.Component {
   }
 
   async componentDidMount() {
+    const location = await this._getPosition()
+    this.setState({
+      location: {
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude,
+      },
+    })
     const serviceResponse = await offersService.searchForOneProduct(
-      this.props.customerLocation,
+      this.state.location,
       this.props.params.productCode,
       this.props.params.quantity,
     )
     this.setState({ offers: serviceResponse.data })
+  }
+
+  _getPosition = () => {
+    return new Promise((success, error) => {
+      navigator.geolocation.getCurrentPosition(success, error)
+    })
   }
 
   render() {

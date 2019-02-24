@@ -17,11 +17,22 @@ export class ProductsView extends React.Component {
       lowestPriceByProduct: {},
       error: '',
       currentOrders: [],
+      location: {
+        latitude: '',
+        longitude: '',
+      },
     }
     this.socket = {}
   }
 
   async componentDidMount() {
+    const location = await this._getPosition()
+    this.setState({
+      location: {
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude,
+      },
+    })
     let socketPayload = {}
     if (config.isTestEnv) {
       socketPayload = {
@@ -29,17 +40,23 @@ export class ProductsView extends React.Component {
       }
     }
     this.socket = io(config.API_HOST, socketPayload)
-    this.socket.emit('subscribe_for_offers_updates', this.props.customerLocation)
+    this.socket.emit('subscribe_for_offers_updates', this.state.location)
     this.socket.on('published_offer', (offer) => this._processNewOffer(offer))
 
     const [products, offersByProduct, currentOrders] = await Bluebird.join(
       productsService.getProducts(),
-      offersService.getOffersByProduct(this.props.customerLocation),
+      offersService.getOffersByProduct(this.state.location),
       orderService.getOrdersPendingToDeliver(),
     )
     const lowestPriceByProduct = await offersService.getLowestPriceByProduct(offersByProduct)
 
     this.setState({ products, offersByProduct, lowestPriceByProduct, currentOrders })
+  }
+
+  _getPosition = () => {
+    return new Promise((success, error) => {
+      navigator.geolocation.getCurrentPosition(success, error)
+    })
   }
 
   _processNewOffer = (offer) => {
