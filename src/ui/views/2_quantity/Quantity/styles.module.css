@@ -22,8 +22,8 @@
 .backButton {
     background-color: #a24d0d;
     border-radius: 18px;
-    box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
     border: none;
+    box-shadow: 0 2px 8px 0 rgb(162,77,13);
     color: white;
     max-width: 200px;
     width: 100%;
@@ -38,7 +38,7 @@
     border-top-color: #49a25b;
     border-bottom-color: #49a25b;
     text-align: center;
-    font-size: 18px;
+    font-size: 24px;
 }
 
 .productName {
@@ -75,7 +75,7 @@
 .total {
     display: flex;
     margin-right: 1em;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     font-family: SFProText-Bold, sans-serif;
     font-size: 24px;
     color: #212121;
@@ -84,7 +84,7 @@
 
 .quantity {
     display: flex;
-    margin-top: .5em;
+    margin-top: 2em;
     margin-bottom: .5em;
     font-family: SFProText-Bold, serif;
     font-size: 16px;
@@ -94,7 +94,7 @@
 .spinners {
     display: flex;
     flex-direction: row;
-    margin-bottom: 40px;
+    margin-bottom: 3em;
 }
 
 .addButton {

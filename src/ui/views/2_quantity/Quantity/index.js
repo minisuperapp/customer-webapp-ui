@@ -17,7 +17,7 @@ export class Quantity extends React.Component {
       <div className={css.container}>
         <div className={css.image} style={style}/>
         <div className={css.productName}>{this.props.params.product.name}</div>
-        <Label value={'$' + this.props.params.lowestPrice + ' / ' + this.props.params.product.quantityType}/>
+        <Label value={'$' + this.props.params.lowestPrice + ' / ' + this.props.params.product.quantityType + ' (aprox.)'}/>
         <div className={css.quantity}>Cantidad</div>
         <div className={css.spinners}>
           <button className={css.subtractButton} onClick={this.props.subtractQuantity}>
@@ -35,7 +35,7 @@ export class Quantity extends React.Component {
           </button>
         </div>
         <div className={css.totalContainer}>
-          <div className={css.total}>Total</div>
+          <div className={css.total}>Total (aprox.)</div>
           <div className={css.total}>${this.props.total}</div>
         </div>
         <button className={css.button} onClick={this.props.goToAssignedOffer}>
