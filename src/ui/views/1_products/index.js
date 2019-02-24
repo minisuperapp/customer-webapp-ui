@@ -8,6 +8,7 @@ import { LoadingList } from './components/LoadingList'
 import config from 'src/config'
 import io from 'socket.io-client'
 import { views } from 'src/ui/views/index'
+import css from './styles.module.css'
 
 export class ProductsView extends React.Component {
   constructor(props) {
@@ -74,15 +75,20 @@ export class ProductsView extends React.Component {
   }
 
   render() {
-    if (!this.state.products || !this.state.products.length) {
-      return <LoadingList />
-    }
     return (
       <div>
-        <ProductList {...this.state} changeView={this.props.changeView} />
-        <button onClick={() => this.props.changeView(views.ORDERS_LIST)}>
-          Ver mis ordenes ({this.state.currentOrders.length})
-        </button>
+        {!this.state.products || !this.state.products.length ? (
+          <LoadingList />
+        ) : (
+          <ProductList {...this.state} changeView={this.props.changeView} />
+        )}
+        {!!this.state.currentOrders.length && (
+          <button
+            className={css.ordersButton}
+            onClick={() => this.props.changeView(views.ORDERS_LIST)}>
+            Ver órdenes ({this.state.currentOrders.length})
+          </button>
+        )}
       </div>
     )
   }

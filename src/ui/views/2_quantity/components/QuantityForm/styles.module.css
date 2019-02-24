@@ -122,6 +122,7 @@
 
 .backButton {
     border-color: #a24d0d;
+    background-color: white;
     box-shadow: 0 2px 8px 0 rgb(162, 77, 13);
     font-family: SFProTextRegular, serif;
     font-size: 18px;
