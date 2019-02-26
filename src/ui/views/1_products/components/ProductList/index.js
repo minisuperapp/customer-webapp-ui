@@ -1,6 +1,6 @@
 import React from 'react'
 import {Product} from './Product/index'
-import css from "./styles.module.css";
+import css from './styles.module.css'
 
 export class ProductList extends React.Component {
   render() {

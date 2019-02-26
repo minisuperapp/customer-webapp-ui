@@ -21,7 +21,8 @@
     border-top-color: #49a25b;
     border-bottom-color: #49a25b;
     text-align: center;
-    font-size: 24px;
+    font-size: 22px;
+    max-width: 100px;
     height: 50%;
 }
 
