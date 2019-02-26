@@ -10,10 +10,10 @@ export class AssignedOfferView extends React.Component {
     this.state = {
       offer: {
         deliverer: {
-          name: '-',
+          name: 'Buscando...',
         },
       },
-      total: '-',
+      total: '...',
       location: {
         latitude: '',
         longitude: '',
