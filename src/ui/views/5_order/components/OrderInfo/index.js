@@ -32,11 +32,6 @@ export class OrderInfo extends React.Component {
           <div>Total:</div>
           <div>${this.props.params.order.total}</div>
         </div>
-        <div className={css.buttonContainer}>
-          <button className={css.backButton} onClick={this.props.goToProducts}>
-            Ver lista de productos
-          </button>
-        </div>
       </div>
     )
   }
