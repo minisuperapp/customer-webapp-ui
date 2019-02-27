@@ -12,6 +12,7 @@ class Main extends Component {
       previousParams: {},
       previousState: {},
     }
+    this.viewState = React.createRef()
   }
 
   changeView = (view, newParams) => {
@@ -19,6 +20,11 @@ class Main extends Component {
       ...this.state.previousParams[view],
       ...newParams,
     }
+    const combinedState = {
+      ...this.state.previousState[this.state.view],
+      ...this.viewState.current.state
+    }
+
     this.setState({
       view,
       params: combinedParams,
@@ -26,6 +32,10 @@ class Main extends Component {
         ...this.state.previousParams,
         [view]: combinedParams,
       },
+      previousState: {
+        ...this.state.previousState,
+        [this.state.view]: combinedState
+      }
     })
   }
 
@@ -38,6 +48,7 @@ class Main extends Component {
           changeView={this.changeView}
           params={this.state.params}
           previousState={this.state.previousState[this.state.view]}
+          ref={this.viewState}
         />
       </div>
     )
