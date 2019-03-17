@@ -50,14 +50,15 @@
 
 .button {
     position: relative;
+    top: -0.5em;
     right: -7em;
-    bottom: 0.5em;
     font-family: SFProTextRegular, serif;
-    background-color: #49a25b;
-    font-size: 18px;
+    font-size: 16px;
     border-radius: 18px;
-    box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
-    width: 100px;
-    color: white;
+    width: 100%;
+    max-width: 100px;
     cursor: pointer;
+    box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
+    color: white;
+    background-color: #49a25b;
 }

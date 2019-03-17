@@ -28,13 +28,17 @@ export class ProductsView extends React.Component {
   }
 
   async componentDidMount() {
-    const location = await this._getPosition()
-    this.setState({
-      location: {
-        latitude: location.coords.latitude,
-        longitude: location.coords.longitude,
-      },
-    })
+    try {
+      const location = await this._getPosition()
+      this.setState({
+        location: {
+          latitude: location.coords.latitude,
+          longitude: location.coords.longitude,
+        },
+      })
+    } catch(e) {
+      debugger
+    }
     let socketPayload = {}
     if (config.isTestEnv) {
       socketPayload = {
