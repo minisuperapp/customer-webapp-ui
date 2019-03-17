@@ -10,7 +10,7 @@ export class Product extends React.Component {
         this.props.product.code.toLocaleLowerCase(),
       )})`,
     }
-    const price = this.props.lowestPrice ? this.props.lowestPrice : '?'
+    const price = this.props.lowestPrice ? this.props.lowestPrice : '-'
     return (
       <div className={css.container}>
         <div className={css.image} style={style} />
