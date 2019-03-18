@@ -1,5 +1,5 @@
 import React from 'react'
-import { views } from 'src/ui/views/index'
+import {views} from 'src/ui/views/index'
 import css from './styles.module.css'
 import * as images from 'src/ui/views/common/images'
 
@@ -10,25 +10,36 @@ export class Product extends React.Component {
         this.props.product.code.toLocaleLowerCase(),
       )})`,
     }
-    const price = this.props.lowestPrice ? this.props.lowestPrice : '-'
+    const price = this.props.lowestPrice
+      ? `$${this.props.lowestPrice}  ${this.props.product.quantityType}`
+      : 'No disponible'
     return (
       <div className={css.container}>
-        <div className={css.image} style={style} />
+        <div className={css.image} style={style}/>
         <div className={css.mainPanel}>
           <div className={css.textTitle}> {this.props.product.name}</div>
           <div className={css.buyPanel}>
-            <div className={css.price}>${price + ' ' + this.props.product.quantityType}</div>
+            <div className={css.price}>{price}</div>
           </div>
-          <button
-            className={css.button}
-            onClick={() =>
-              this.props.changeView(views.QUANTITY, {
-                product: this.props.product,
-                lowestPrice: this.props.lowestPrice,
-              })
-            }>
-            Comprar
-          </button>
+          {this.props.lowestPrice ? (
+            <button
+              className={css.button}
+              onClick={() =>
+                this.props.changeView(views.QUANTITY, {
+                  product: this.props.product,
+                  lowestPrice: this.props.lowestPrice,
+                })
+              }>
+              Comprar
+            </button>
+          ) : (
+            <button
+              className={css.requestButton}
+              onClick={() => alert('Producto solicitado.')
+              }>
+              Solicitar
+            </button>
+          )}
         </div>
       </div>
     )

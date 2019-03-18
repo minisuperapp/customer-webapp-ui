@@ -3,11 +3,11 @@ import * as productsService from 'src/services/products/index'
 import * as offersService from 'src/services/offers/index'
 import * as orderService from 'src/services/orders/index'
 import React from 'react'
-import { ProductList } from './components/ProductList'
-import { LoadingList } from './components/LoadingList'
+import {ProductList} from './components/ProductList'
+import {LoadingList} from './components/LoadingList'
 import config from 'src/config'
 import io from 'socket.io-client'
-import { views } from 'src/ui/views/index'
+import {views} from 'src/ui/views/index'
 import css from './styles.module.css'
 
 export class ProductsView extends React.Component {
@@ -19,6 +19,7 @@ export class ProductsView extends React.Component {
       lowestPriceByProduct: {},
       error: '',
       currentOrders: [],
+      locationDisabled: false,
       location: {
         latitude: '',
         longitude: '',
@@ -36,8 +37,10 @@ export class ProductsView extends React.Component {
           longitude: location.coords.longitude,
         },
       })
-    } catch(e) {
-      debugger
+    } catch (e) {
+      this.setState({
+        locationDisabled: true
+      })
     }
     let socketPayload = {}
     if (config.isTestEnv) {
@@ -56,7 +59,7 @@ export class ProductsView extends React.Component {
     )
     const lowestPriceByProduct = await offersService.getLowestPriceByProduct(offersByProduct)
 
-    this.setState({ products, offersByProduct, lowestPriceByProduct, currentOrders })
+    this.setState({products, offersByProduct, lowestPriceByProduct, currentOrders})
   }
 
   _getPosition = () => {
@@ -67,25 +70,29 @@ export class ProductsView extends React.Component {
 
   _processNewOffer = (offer) => {
     const offersByProduct = offersService.addToOffersByProduct(this.state.offersByProduct, offer)
-    this.setState({ offersByProduct })
+    this.setState({offersByProduct})
 
     if (offersService.isLowestPrice(this.state.lowestPriceByProduct, offer)) {
       const lowestPriceByProduct = offersService.addToLowestPriceByProduct(
         this.state.lowestPriceByProduct,
         offer,
       )
-      this.setState({ lowestPriceByProduct })
+      this.setState({lowestPriceByProduct})
     }
   }
 
   render() {
+    if (this.state.locationDisabled === true) {
+      return 'Habilita tu localización'
+    }
+    if (!this.state.products || !this.state.products.length) {
+      return (
+        <LoadingList/>
+      )
+    }
     return (
       <div>
-        {!this.state.products || !this.state.products.length ? (
-          <LoadingList />
-        ) : (
-          <ProductList {...this.state} changeView={this.props.changeView} />
-        )}
+        <ProductList {...this.state} changeView={this.props.changeView}/>
         {!!this.state.currentOrders.length && (
           <button
             className={css.ordersButton}
