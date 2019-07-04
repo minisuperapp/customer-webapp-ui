@@ -41,7 +41,7 @@
 
 .price {
     margin-left: 0.5em;
-    font-family: Courier, sans-serif;
+    font-family: SFProTextRegular, sans-serif;
     font-size: 18px;
     color: #212121;
     clear: right;
@@ -74,7 +74,7 @@
     width: 100%;
     max-width: 100px;
     cursor: pointer;
-    box-shadow: 0 2px 8px 0 rgb(31, 66, 162);
+    /*box-shadow: 0 2px 8px 0 rgb(31, 66, 162);*/
     color: white;
     background-color: #1f32a2;
 }
