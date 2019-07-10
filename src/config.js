@@ -1,5 +1,7 @@
 module.exports = {
-  API_HOST: 'https://www.minisuper.app/buy/api/',
+  get API_HOST() {
+    return 'https://www.minisuper.app/buy/api/'
+  },
   // API_HOST: 'http://localhost:3000',
   get API_URL() {
     return `${this.API_HOST}/api`
@@ -10,12 +12,20 @@ module.exports = {
       /^https:\/\/minisuper\.app\/buy/.test(window.location.href)
     )
   },
+  get isApiHostProd() {
+    return (
+      /^https:\/\/www\.minisuper\.app\/buy/.test(this.API_HOST) ||
+      /^https:\/\/minisuper\.app\/buy/.test(this.API_HOST)
+    )
+  },
   get socketPayload() {
+    const payload = {}
     if (this.isTestEnv) {
-      return {
-        query: 'is-test=true',
-      }
+      payload.query = 'is-test=true'
     }
-    return {}
+    if (this.isApiHostProd) {
+      payload.path = '/buy/api/socket.io'
+    }
+    return payload
   }
 }
