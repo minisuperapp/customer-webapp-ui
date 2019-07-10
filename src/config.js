@@ -10,4 +10,12 @@ module.exports = {
       /^https:\/\/minisuper\.app\/buy/.test(window.location.href)
     )
   },
+  get socketPayload() {
+    if (this.isTestEnv) {
+      return {
+        query: 'is-test=true',
+      }
+    }
+    return {}
+  }
 }

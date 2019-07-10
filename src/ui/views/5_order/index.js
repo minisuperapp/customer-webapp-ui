@@ -18,13 +18,7 @@ export class OrderView extends React.Component {
   }
 
   async componentDidMount() {
-    let socketPayload = {}
-    if (config.isTestEnv) {
-      socketPayload = {
-        query: 'is-test=true',
-      }
-    }
-    this.socket = io(config.API_HOST, socketPayload)
+    this.socket = io(config.API_HOST, config.socketPayload)
     this.socket.emit('subscribe_for_order_updates', this.props.params.order.id)
     this.socket.on('update_order_status', (data) => {
       this.setState({ status: data.status })

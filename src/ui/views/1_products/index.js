@@ -42,13 +42,7 @@ export class ProductsView extends React.Component {
         locationDisabled: true
       })
     }
-    let socketPayload = {}
-    if (config.isTestEnv) {
-      socketPayload = {
-        query: 'is-test=true',
-      }
-    }
-    this.socket = io(config.API_HOST, socketPayload)
+    this.socket = io(config.API_HOST, config.socketPayload)
     this.socket.emit('subscribe_for_offers_updates', this.state.location)
     this.socket.on('published_offer', (offer) => this._processNewOffer(offer))
 
