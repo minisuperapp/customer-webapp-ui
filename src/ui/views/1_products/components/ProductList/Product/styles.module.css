@@ -49,9 +49,9 @@
 
 .button {
     margin-top: 0.5em;
-    position: relative;
-    right: -8em;
-    top: -0.2em;
+    /*position: relative;*/
+    /*right: -8em;*/
+    /*top: -0.2em;*/
     font-family: SFProTextRegular, serif;
     font-size: 16px;
     border-radius: 18px;
@@ -65,9 +65,9 @@
 
 .requestButton {
     margin-top: 0.5em;
-    position: relative;
-    right: -8em;
-    top: -0.2em;
+    /*position: relative;*/
+    /*right: -8em;*/
+    /*top: -0.2em;*/
     font-family: SFProTextRegular, serif;
     font-size: 16px;
     border-radius: 18px;
