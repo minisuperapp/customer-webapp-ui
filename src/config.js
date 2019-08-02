@@ -24,7 +24,7 @@ module.exports = {
       payload.query = 'is-test=true'
     }
     if (this.isApiHostProd) {
-      payload.path = '/buy/api/'
+      payload.path = '/buy/api/socket.io'
     }
     return payload
   }
