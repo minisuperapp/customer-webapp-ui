@@ -42,7 +42,7 @@ export class ProductsView extends React.Component {
         locationDisabled: true
       })
     }
-    this.socket = io(config.API_HOST)
+    this.socket = io(config.API_HOST, config.socketPayload)
     this.socket.emit('subscribe_for_offers_updates', this.state.location, function(data) {
       console.log(data);
     })
