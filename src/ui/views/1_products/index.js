@@ -43,7 +43,9 @@ export class ProductsView extends React.Component {
       })
     }
     this.socket = io(config.API_HOST, config.socketPayload)
-    this.socket.emit('subscribe_for_offers_updates', this.state.location)
+    this.socket.emit('subscribe_for_offers_updates', this.state.location, function(data) {
+      console.log(data);
+    })
     this.socket.on('published_offer', (offer) => this._processNewOffer(offer))
 
     const [products, offersByProduct, currentOrders] = await Bluebird.join(
