@@ -1,6 +1,6 @@
 module.exports = {
   get API_HOST() {
-    return 'https://www.minisuper.app/buy/api/'
+    return 'https://www.minisuper.app:3300'
   },
   // API_HOST: 'http://localhost:3000',
   get API_URL() {
@@ -22,9 +22,6 @@ module.exports = {
     const payload = {}
     if (this.isTestEnv) {
       payload.query = 'is-test=true'
-    }
-    if (this.isApiHostProd) {
-      payload.path = '/buy/api/socket.io'
     }
     return payload
   }
