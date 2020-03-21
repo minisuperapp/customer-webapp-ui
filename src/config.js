@@ -1,8 +1,7 @@
 module.exports = {
   get API_HOST() {
-    return 'https://www.minisuper.app:3300'
+    return 'http://localhost:3000'
   },
-  // API_HOST: 'http://localhost:3000',
   get API_URL() {
     return `${this.API_HOST}/api`
   },
