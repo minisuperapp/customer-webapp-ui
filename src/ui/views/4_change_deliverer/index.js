@@ -14,7 +14,7 @@ export class ChangeDelivererView extends React.Component {
       },
     }
   }
-    
+
   goToAssignedOffer = () => {
     this.props.changeView(views.ASSIGNED_OFFER)
   }
@@ -29,7 +29,7 @@ export class ChangeDelivererView extends React.Component {
     })
     const serviceResponse = await offersService.searchForOneProduct(
       this.state.location,
-      this.props.params.productCode,
+      this.props.params.product_code,
       this.props.params.quantity,
     )
     this.setState({ offers: serviceResponse.data })

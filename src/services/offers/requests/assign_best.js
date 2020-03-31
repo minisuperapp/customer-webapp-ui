@@ -14,15 +14,15 @@ export class AssignBestOfferRequest {
   static get Builder() {
     class Builder {
       constructor() {
-        this.productCode = ''
+        this.product_code = ''
         this.quantity = ''
         this.customerLocation = {
           latitude: '',
           longitude: '',
         }
       }
-      withProductCode(productCode) {
-       this.productCode = productCode
+      withProductCode(product_code) {
+       this.product_code = product_code
        return this
       }
       withQuantity(quantity) {

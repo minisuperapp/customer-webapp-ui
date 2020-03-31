@@ -11,7 +11,7 @@ export class Product extends React.Component {
       )})`,
     }
     const price = this.props.lowestPrice
-      ? `$${this.props.lowestPrice}  ${this.props.product.quantityType}`
+      ? `$${this.props.lowestPrice}  ${this.props.product.quantity_type}`
       : 'No disponible'
     return (
       <div className={css.container}>

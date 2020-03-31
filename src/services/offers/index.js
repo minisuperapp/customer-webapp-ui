@@ -16,9 +16,9 @@ export const getOffersByProduct = async (customerLocation) => {
   return _.get(offersByProductResponse, 'data.data.offersByProduct', {})
 }
 
-export const assignBestOffer = async (customerLocation, productCode, quantity) => {
+export const assignBestOffer = async (customerLocation, product_code, quantity) => {
   const request = new AssignBestOfferRequest.Builder()
-    .withProductCode(productCode)
+    .withProductCode(product_code)
     .withQuantity(quantity)
     .withCustomerLocationLatitude(customerLocation.latitude)
     .withCustomerLocationLongitude(customerLocation.longitude)
@@ -27,9 +27,9 @@ export const assignBestOffer = async (customerLocation, productCode, quantity) =
   return offers.data
 }
 
-export const searchForOneProduct = async (customerLocation, productCode, quantity) => {
+export const searchForOneProduct = async (customerLocation, product_code, quantity) => {
   const request = new SearchOffersForOneProductRequest.Builder()
-    .withProductCode(productCode)
+    .withProductCode(product_code)
     .withQuantity(quantity)
     .withCustomerLocationLatitude(customerLocation.latitude)
     .withCustomerLocationLongitude(customerLocation.longitude)
@@ -50,11 +50,11 @@ export const discardOfferAssigment = async (offerId) => {
 export const addToOffersByProduct = (offersByProduct, offer) => {
   return {
     ...offersByProduct,
-    [offer.productCode]: {
-      ...offersByProduct[offer.productCode],
+    [offer.product_code]: {
+      ...offersByProduct[offer.product_code],
       offers: [
-        ...(offersByProduct[offer.productCode]
-          ? offersByProduct[offer.productCode].offers
+        ...(offersByProduct[offer.product_code]
+          ? offersByProduct[offer.product_code].offers
           : []),
         offer
       ]
@@ -75,14 +75,14 @@ export const getLowestPriceByProduct = async offersByProduct => {
 
 export const isLowestPrice = (lowestPriceByProduct, offer) => {
   return (
-    !lowestPriceByProduct[offer.productCode] ||
-    Number(offer.unitPrice) < Number(lowestPriceByProduct[offer.productCode])
+    !lowestPriceByProduct[offer.product_code] ||
+    Number(offer.unitPrice) < Number(lowestPriceByProduct[offer.product_code])
   )
 }
 
 export const addToLowestPriceByProduct = (lowestPriceByProduct, offer) => {
   return {
     ...lowestPriceByProduct,
-    [offer.productCode]: offer.unitPrice
+    [offer.product_code]: offer.unitPrice
   }
 }

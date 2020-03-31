@@ -13,7 +13,7 @@ export class QuantityForm extends React.Component {
         <div className={css.image} style={style}/>
         <div className={css.productName}>{this.props.params.product.name}</div>
         <Label
-          value={'$' + this.props.params.lowestPrice + ' / ' + this.props.params.product.quantityType + ' (aprox.)'}/>
+          value={'$' + this.props.params.lowestPrice + ' / ' + this.props.params.product.quantity_type + ' (aprox.)'}/>
         <div className={css.quantity}>Cantidad</div>
         <div className={css.spinners}>
           <button className={css.subtractButton} onClick={this.props.subtractQuantity}>

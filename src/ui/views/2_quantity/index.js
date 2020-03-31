@@ -9,8 +9,8 @@ export class QuantityView extends React.Component {
       this.state = props.previousState
     } else {
       this.state = {
-        quantity: props.params.product.minimumBuyingQuantity,
-        total: Number(props.params.product.minimumBuyingQuantity * props.params.lowestPrice),
+        quantity: props.params.product.minimum_buying_quantity,
+        total: Number(props.params.product.minimum_buying_quantity * props.params.lowestPrice),
       }
     }
   }
@@ -41,21 +41,21 @@ export class QuantityView extends React.Component {
   }
 
   subtractQuantity = () => {
-    if (this.state.quantity > this.props.params.product.minimumBuyingQuantity) {
+    if (this.state.quantity > this.props.params.product.minimum_buying_quantity) {
       this.setState({
         quantity: Number(this.state.quantity) - Number(1),
         total: (Number(this.state.quantity) - Number(1)) * Number(this.props.params.lowestPrice),
       })
     }
   }
-  
+
   changeQuantity = (event) => {
       const quantity = (event.target.validity.valid) ? event.target.value : this.state.quantity;
           this.setState({
             quantity,
             total: event.target.value * Number(this.props.params.lowestPrice)
       })
-    
+
   }
 
   render() {

@@ -53,7 +53,7 @@ export class AssignedOfferView extends React.Component {
 
   changeDeliverer = async () => {
     this.props.changeView(views.CHANGE_DELIVERER, {
-      productCode: this.props.params.product.code,
+      product_code: this.props.params.product.code,
       quantity: this.props.params.quantity,
     })
   }

@@ -15,8 +15,8 @@ export class Order extends React.Component {
     return (
       <tr>
         <td>{this.props.order.id}</td>
-        <td>{this.props.order.productCode}</td>
-        <td>{this.props.order.productQuantity}</td>
+        <td>{this.props.order.product_code}</td>
+        <td>{this.props.order.product_quantity}</td>
         <td>{status[this.props.order.status]} </td>
         <td>
           <button onClick={() =>
