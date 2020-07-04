@@ -1,3 +1,5 @@
+import React, { Component } from 'react'
+
 import { ProductsView } from "./1_products/index";
 import { QuantityView } from "./2_quantity/index";
 import { AssignedOfferView } from "./3_assigned_offer/index";

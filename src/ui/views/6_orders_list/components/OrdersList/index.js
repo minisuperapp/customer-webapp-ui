@@ -13,7 +13,7 @@ export class OrdersList extends React.Component {
             <th>Estado</th>
           </tr>
           {this.props.orders.map((o) => {
-            return <Order order={o} changeView={this.props.changeView} />
+            return <Order key={o.id} order={o} changeView={this.props.changeView} />
           })}
         </table>
       </div>

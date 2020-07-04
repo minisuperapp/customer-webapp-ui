@@ -1,6 +1,6 @@
 module.exports = {
   get API_HOST() {
-    return 'https://minisuper-customer-api.herokuapp.com'
+    return process.env.API_ENDPOINT
   },
   get API_URL() {
     return `${this.API_HOST}/api`
