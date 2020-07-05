@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Index from './views/0_header'
+import Index from './views/header'
 import { views } from './views'
 import css from './styles.modules.css'
 
