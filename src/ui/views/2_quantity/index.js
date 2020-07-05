@@ -2,7 +2,7 @@ import React from 'react'
 import { views } from 'src/ui/views'
 import { QuantityForm } from './components/QuantityForm'
 
-export class QuantityView extends React.Component {
+class QuantityView extends React.Component {
   constructor(props) {
     super(props)
     if (props.previousState) {
@@ -73,3 +73,5 @@ export class QuantityView extends React.Component {
     )
   }
 }
+
+export default QuantityView

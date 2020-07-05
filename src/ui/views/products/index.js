@@ -1,8 +1,8 @@
+import React, { Component } from 'react'
 import Bluebird from 'bluebird'
 import * as productsService from 'src/services/products'
 import * as offersService from 'src/services/offers'
 import * as orderService from 'src/services/orders'
-import React from 'react'
 import { ProductList } from './components/ProductList'
 import { LoadingList } from './components/LoadingList'
 import config from 'src/config'
@@ -10,7 +10,7 @@ import io from 'socket.io-client'
 import { views } from 'src/ui/views'
 import css from './styles.module.css'
 
-export class ProductsView extends React.Component {
+class ProductsView extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -43,8 +43,7 @@ export class ProductsView extends React.Component {
       })
     }
     this.socket = io(config.API_HOST, config.socketPayload)
-    this.socket.emit('subscribe_for_offers_updates', this.state.location, function () {
-    })
+    this.socket.emit('subscribe_for_offers_updates', this.state.location, function () {})
     this.socket.on('published_offer', (offer) => this._processNewOffer(offer))
 
     const [products, offersByProduct, currentOrders] = await Bluebird.join(
@@ -101,3 +100,5 @@ export class ProductsView extends React.Component {
     this.socket.disconnect()
   }
 }
+
+export default ProductsView

@@ -2,7 +2,7 @@ import React from 'react'
 import { OrdersList } from './components/OrdersList'
 import * as orderService from "../../../services/orders/index";
 
-export class OrdersListView extends React.Component {
+class OrdersListView extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -17,3 +17,5 @@ export class OrdersListView extends React.Component {
     return <OrdersList {...this.state} changeView={this.props.changeView} />
   }
 }
+
+export default OrdersListView

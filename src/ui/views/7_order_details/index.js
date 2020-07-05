@@ -1,7 +1,7 @@
 import React from 'react'
 import { OrderDetails } from './OrderDetails'
 
-export class OrderDetailsView extends React.Component {
+class OrderDetailsView extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -14,3 +14,5 @@ export class OrderDetailsView extends React.Component {
     return <OrderDetails {...this.state} />
   }
 }
+
+export default OrderDetailsView

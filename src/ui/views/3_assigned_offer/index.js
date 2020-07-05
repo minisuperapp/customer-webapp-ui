@@ -4,7 +4,7 @@ import React from 'react'
 import { AssignedOfferForm } from './components/AssignedOfferForm'
 import { views } from 'src/ui/views'
 
-export class AssignedOfferView extends React.Component {
+class AssignedOfferView extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -93,3 +93,5 @@ export class AssignedOfferView extends React.Component {
     )
   }
 }
+
+export default AssignedOfferView

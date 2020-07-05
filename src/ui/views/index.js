@@ -1,10 +1,10 @@
-import { ProductsView } from "./1_products/index";
-import { QuantityView } from "./2_quantity/index";
-import { AssignedOfferView } from "./3_assigned_offer/index";
-import { ChangeDelivererView } from "./4_change_deliverer/index";
-import { OrderView } from "./5_order/index";
-import { OrdersListView } from "./6_orders_list/index";
-import { OrderDetailsView } from "./7_order_details/index";
+import ProductsView from './products'
+import QuantityView from './2_quantity'
+import AssignedOfferView from './3_assigned_offer'
+import ChangeDelivererView from './4_change_deliverer'
+import OrderView from './5_order'
+import OrdersListView from './6_orders_list'
+import OrderDetailsView from './7_order_details'
 
 export const views = {
   PRODUCTS: ProductsView,
@@ -13,5 +13,5 @@ export const views = {
   CHANGE_DELIVERER: ChangeDelivererView,
   ORDER: OrderView,
   ORDERS_LIST: OrdersListView,
-  ORDER_DETAILS: OrderDetailsView
+  ORDER_DETAILS: OrderDetailsView,
 }

@@ -1,9 +1,9 @@
-import React from 'react'
-import {views} from 'src/ui/views'
+import React, { Component } from 'react'
+import { views } from 'src/ui/views'
 import css from './styles.module.css'
 import * as images from 'src/ui/views/common/images'
 
-export class Product extends React.Component {
+export class Product extends Component {
   render() {
     const style = {
       backgroundImage: `url(${images.getProductImageURL(
@@ -15,7 +15,7 @@ export class Product extends React.Component {
       : 'No disponible'
     return (
       <div className={css.container}>
-        <div className={css.image} style={style}/>
+        <div className={css.image} style={style} />
         <div className={css.mainPanel}>
           <div className={css.textTitle}> {this.props.product.name}</div>
           <div className={css.buyPanel}>
@@ -33,10 +33,7 @@ export class Product extends React.Component {
               Comprar
             </button>
           ) : (
-            <button
-              className={css.requestButton}
-              onClick={() => alert('Producto solicitado.')
-              }>
+            <button className={css.requestButton} onClick={() => alert('Producto solicitado.')}>
               Solicitar
             </button>
           )}

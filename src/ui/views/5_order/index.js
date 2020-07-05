@@ -5,7 +5,7 @@ import io from 'socket.io-client'
 import config from 'src/config'
 import css from './styles.module.css'
 
-export class OrderView extends React.Component {
+class OrderView extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -38,3 +38,5 @@ export class OrderView extends React.Component {
     )
   }
 }
+
+export default OrderView

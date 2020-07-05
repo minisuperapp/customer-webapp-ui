@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 import { ConnectedRouter } from 'connected-react-router'
 import { Provider } from 'react-redux'
 import configure_store, { history } from './state/configure_store'
-import App from './App'
+import App from './ui/App'
 
 const store = configure_store()
 

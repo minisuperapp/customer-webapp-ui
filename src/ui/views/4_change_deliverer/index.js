@@ -3,7 +3,7 @@ import * as offersService from 'src/services/offers'
 import { ChangeDeliverer } from './ChangeDeliverer'
 import { views } from 'src/ui/views'
 
-export class ChangeDelivererView extends React.Component {
+class ChangeDelivererView extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -46,3 +46,5 @@ export class ChangeDelivererView extends React.Component {
         goToAssignedOffer={this.goToAssignedOffer}/>
   }
 }
+
+export default ChangeDelivererView
