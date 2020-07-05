@@ -1,6 +1,6 @@
 module.exports = {
   get API_HOST() {
-    return process.env.API_ENDPOINT
+    return process.env.API_HOST
   },
   get API_URL() {
     return `${this.API_HOST}/api`

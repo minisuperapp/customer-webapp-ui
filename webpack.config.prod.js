@@ -36,7 +36,7 @@ module.exports = {
     new webpack.DefinePlugin({
       // This global makes sure React is built in prod mode.
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-      'process.env.API_ENDPOINT': JSON.stringify('http://api.outest.io'),
+      'process.env.API_HOST': JSON.stringify('https://minisuper-customer-api.herokuapp.com'),
     }),
     // It adds reference to the js bundles into the index.html file
     new HtmlWebpackPlugin({
@@ -90,10 +90,5 @@ module.exports = {
         use: ['file-loader'],
       },
     ],
-  },
-  resolve: {
-    alias: {
-      src: path.resolve(__dirname, 'src/'),
-    }
   }
 }

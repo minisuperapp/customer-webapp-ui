@@ -25,10 +25,13 @@ module.exports = {
   },
   resolve: {
     modules: [path.resolve(__dirname, 'node_modules'), path.resolve(__dirname, 'src')],
+    alias: {
+      src: path.resolve(__dirname, 'src'),
+    },
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.API_ENDPOINT': JSON.stringify('http://localhost:3000'),
+      'process.env.API_HOST': JSON.stringify('http://localhost:3000'),
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
@@ -61,9 +64,4 @@ module.exports = {
       },
     ],
   },
-  resolve: {
-    alias: {
-      src: path.resolve(__dirname, 'src/'),
-    }
-  }
 }
