@@ -1,6 +1,6 @@
 import React from 'react'
 import { OrdersList } from './components/OrdersList'
-import * as orderService from "../../../services/orders/index";
+import * as orderService from "../../../state/services/orders/index";
 
 class OrdersListView extends React.Component {
   constructor(props) {

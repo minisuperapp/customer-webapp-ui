@@ -1,5 +1,5 @@
 import React from 'react'
-import * as offersService from 'src/services/offers'
+import * as offersService from 'src/state/services/offers'
 import { ChangeDeliverer } from './ChangeDeliverer'
 import { views } from 'src/ui/views'
 

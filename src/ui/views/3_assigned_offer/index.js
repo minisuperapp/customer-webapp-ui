@@ -1,5 +1,5 @@
-import * as offersService from 'src/services/offers'
-import * as ordersService from 'src/services/orders'
+import * as offersService from 'src/state/services/offers'
+import * as ordersService from 'src/state/services/orders'
 import React from 'react'
 import { AssignedOfferForm } from './components/AssignedOfferForm'
 import { views } from 'src/ui/views'
