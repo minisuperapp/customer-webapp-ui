@@ -1,4 +1,4 @@
 
-export const init_sagas = sagaMiddleware => {
+export const init_sagas = () => {
   return []
 }

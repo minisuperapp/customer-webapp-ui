@@ -24,10 +24,7 @@ module.exports = {
     https: false, //necessary because of issue with chrome
   },
   resolve: {
-    modules: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'node_modules')],
-    alias: {
-      src: path.resolve(__dirname, 'src/'),
-    },
+    modules: [path.resolve(__dirname, 'node_modules'), path.resolve(__dirname, 'src')],
   },
   plugins: [
     new webpack.DefinePlugin({
