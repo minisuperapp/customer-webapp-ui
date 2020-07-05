@@ -1,7 +1,7 @@
 import React from 'react'
-import * as offersService from 'src/services/offers/index'
-import { ChangeDeliverer } from './ChangeDeliverer/index'
-import { views } from 'src/ui/views/index'
+import * as offersService from 'src/services/offers'
+import { ChangeDeliverer } from './ChangeDeliverer'
+import { views } from 'src/ui/views'
 
 export class ChangeDelivererView extends React.Component {
   constructor(props) {

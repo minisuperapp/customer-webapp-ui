@@ -1,5 +1,5 @@
 import React from 'react'
-import { views } from 'src/ui/views/index'
+import { views } from 'src/ui/views'
 import { OrderInfo } from 'src/ui/views/common/components/OrderInfo'
 import io from 'socket.io-client'
 import config from 'src/config'

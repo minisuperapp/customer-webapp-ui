@@ -1,5 +1,5 @@
 import React from 'react'
-import {Product} from './Product/index'
+import {Product} from './Product'
 import css from './styles.module.css'
 
 export class ProductList extends React.Component {

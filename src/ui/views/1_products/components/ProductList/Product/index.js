@@ -1,5 +1,5 @@
 import React from 'react'
-import {views} from 'src/ui/views/index'
+import {views} from 'src/ui/views'
 import css from './styles.module.css'
 import * as images from 'src/ui/views/common/images'
 

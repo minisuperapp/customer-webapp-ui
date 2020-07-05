@@ -1,8 +1,8 @@
-import * as offersService from 'src/services/offers/index'
-import * as ordersService from 'src/services/orders/index'
+import * as offersService from 'src/services/offers'
+import * as ordersService from 'src/services/orders'
 import React from 'react'
 import { AssignedOfferForm } from './components/AssignedOfferForm'
-import { views } from 'src/ui/views/index'
+import { views } from 'src/ui/views'
 
 export class AssignedOfferView extends React.Component {
   constructor(props) {

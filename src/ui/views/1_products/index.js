@@ -1,13 +1,13 @@
 import Bluebird from 'bluebird'
-import * as productsService from 'src/services/products/index'
-import * as offersService from 'src/services/offers/index'
-import * as orderService from 'src/services/orders/index'
+import * as productsService from 'src/services/products'
+import * as offersService from 'src/services/offers'
+import * as orderService from 'src/services/orders'
 import React from 'react'
 import { ProductList } from './components/ProductList'
 import { LoadingList } from './components/LoadingList'
 import config from 'src/config'
 import io from 'socket.io-client'
-import { views } from 'src/ui/views/index'
+import { views } from 'src/ui/views'
 import css from './styles.module.css'
 
 export class ProductsView extends React.Component {

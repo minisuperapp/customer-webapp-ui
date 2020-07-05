@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import Index from './views/0_header/index'
-import {views} from './views/index'
+import Index from './views/0_header'
+import {views} from './views'
 import css from './styles.modules.css'
 
 class Main extends Component {
