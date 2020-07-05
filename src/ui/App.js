@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Index from './views/0_header'
-import ProductsView from './views/1_products'
+import ProductsView from './views/products'
 import QuantityView from './views/2_quantity'
 import AssignedOfferView from './views/3_assigned_offer'
 import ChangeDelivererView from './views/4_change_deliverer'
