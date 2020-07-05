@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import Bluebird from 'bluebird'
-import * as productsService from 'src/state/services/products'
+import { get_product_request } from 'src/state/actions/product_actions'
 import * as offersService from 'src/state/services/offers'
 import * as orderService from 'src/state/services/orders'
 import { ProductList } from './components/ProductList'
@@ -14,7 +15,6 @@ class ProductsView extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      products: [],
       offersByProduct: {},
       lowestPriceByProduct: {},
       error: '',
@@ -29,6 +29,7 @@ class ProductsView extends Component {
   }
 
   async componentDidMount() {
+    this.props.get_product_request()
     try {
       const location = await this._getPosition()
       this.setState({
@@ -46,14 +47,13 @@ class ProductsView extends Component {
     this.socket.emit('subscribe_for_offers_updates', this.state.location, function () {})
     this.socket.on('published_offer', (offer) => this._processNewOffer(offer))
 
-    const [products, offersByProduct, currentOrders] = await Bluebird.join(
-      productsService.getProducts(),
+    const [offersByProduct, currentOrders] = await Bluebird.join(
       offersService.getOffersByProduct(this.state.location),
       orderService.getOrdersPendingToDeliver(),
     )
     const lowestPriceByProduct = await offersService.getLowestPriceByProduct(offersByProduct)
 
-    this.setState({ products, offersByProduct, lowestPriceByProduct, currentOrders })
+    this.setState({ offersByProduct, lowestPriceByProduct, currentOrders })
   }
 
   _getPosition = () => {
@@ -76,15 +76,16 @@ class ProductsView extends Component {
   }
 
   render() {
+    const { products } = this.props
     if (this.state.locationDisabled === true) {
       return 'Habilita tu localización'
     }
-    if (!this.state.products || !this.state.products.length) {
+    if (!products.length) {
       return <LoadingList />
     }
     return (
       <div>
-        <ProductList {...this.state} changeView={this.props.changeView} />
+        <ProductList {...this.state} products={products} changeView={this.props.changeView} />
         {!!this.state.currentOrders.length && (
           <button
             className={css.ordersButton}
@@ -102,4 +103,15 @@ class ProductsView extends Component {
   }
 }
 
-export default ProductsView
+function mapStateToProps(state) {
+  const { products } = state
+  return {
+    products,
+  }
+}
+
+const mapDispatchToProps = {
+  get_product_request,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsView)
