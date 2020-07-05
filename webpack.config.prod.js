@@ -18,10 +18,6 @@ module.exports = {
     filename: '[name].[contentHash].js',
   },
   resolve: {
-    modules: [
-      path.resolve(__dirname, 'src'),
-      path.resolve(__dirname, 'node_modules'),
-    ],
     alias: {
       src: path.resolve(__dirname, 'src/'),
     }

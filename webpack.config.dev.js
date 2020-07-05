@@ -24,7 +24,6 @@ module.exports = {
     https: false, //necessary because of issue with chrome
   },
   resolve: {
-    modules: [path.resolve(__dirname, 'node_modules'), path.resolve(__dirname, 'src')],
     alias: {
       src: path.resolve(__dirname, 'src'),
     },
