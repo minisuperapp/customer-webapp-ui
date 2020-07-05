@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { views } from 'src/ui/views'
+
 import css from './styles.module.css'
 import * as images from 'src/ui/views/common/images'
 
@@ -24,12 +24,13 @@ export class Product extends Component {
           {this.props.lowestPrice ? (
             <button
               className={css.button}
-              onClick={() =>
-                this.props.changeView(views.QUANTITY, {
-                  product: this.props.product,
-                  lowestPrice: this.props.lowestPrice,
-                })
-              }>
+              // onClick={() =>
+              //   this.props.changeView(views.QUANTITY, {
+              //     product: this.props.product,
+              //     lowestPrice: this.props.lowestPrice,
+              //   })
+              // }
+            >
               Comprar
             </button>
           ) : (

@@ -1,7 +1,6 @@
 import React from 'react'
 import * as offersService from 'src/state/services/offers'
 import { ChangeDeliverer } from './ChangeDeliverer'
-import { views } from 'src/ui/views'
 
 class ChangeDelivererView extends React.Component {
   constructor(props) {
@@ -16,7 +15,7 @@ class ChangeDelivererView extends React.Component {
   }
 
   goToAssignedOffer = () => {
-    this.props.changeView(views.ASSIGNED_OFFER)
+    // this.props.changeView(views.ASSIGNED_OFFER)
   }
 
   async componentDidMount() {
@@ -42,8 +41,7 @@ class ChangeDelivererView extends React.Component {
   }
 
   render() {
-    return <ChangeDeliverer {...this.state}
-        goToAssignedOffer={this.goToAssignedOffer}/>
+    return <ChangeDeliverer {...this.state} goToAssignedOffer={this.goToAssignedOffer} />
   }
 }
 

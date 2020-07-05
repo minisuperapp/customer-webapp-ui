@@ -1,5 +1,4 @@
 import React from 'react'
-import { views } from 'src/ui/views'
 import { OrderInfo } from 'src/ui/views/common/components/OrderInfo'
 import io from 'socket.io-client'
 import config from 'src/config'
@@ -14,7 +13,7 @@ class OrderView extends React.Component {
   }
 
   goToProducts = () => {
-    this.props.changeView(views.PRODUCTS)
+    // this.props.changeView(views.PRODUCTS)
   }
 
   async componentDidMount() {

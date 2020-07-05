@@ -1,5 +1,5 @@
 import React from 'react'
-import { views } from 'src/ui/views'
+
 
 export class Order extends React.Component {
   render() {
@@ -19,11 +19,13 @@ export class Order extends React.Component {
         <td>{this.props.order.product_quantity}</td>
         <td>{status[this.props.order.status]} </td>
         <td>
-          <button onClick={() =>
-            this.props.changeView(views.ORDER_DETAILS, {
-              order: this.props.order
-            })
-          }>Ver detalles</button>
+          <button
+          //   onClick={() =>
+          //   this.props.changeView(views.ORDER_DETAILS, {
+          //     order: this.props.order
+          //   })
+          // }
+          >Ver detalles</button>
         </td>
       </tr>
     )

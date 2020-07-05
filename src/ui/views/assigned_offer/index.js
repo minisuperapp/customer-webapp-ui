@@ -2,7 +2,6 @@ import * as offersService from 'src/state/services/offers'
 import * as ordersService from 'src/state/services/orders'
 import React from 'react'
 import { AssignedOfferForm } from './components/AssignedOfferForm'
-import { views } from 'src/ui/views'
 
 class AssignedOfferView extends React.Component {
   constructor(props) {
@@ -52,10 +51,10 @@ class AssignedOfferView extends React.Component {
   }
 
   changeDeliverer = async () => {
-    this.props.changeView(views.CHANGE_DELIVERER, {
-      product_code: this.props.params.product.code,
-      quantity: this.props.params.quantity,
-    })
+    // this.props.changeView(views.CHANGE_DELIVERER, {
+    //   product_code: this.props.params.product.code,
+    //   quantity: this.props.params.quantity,
+    // })
   }
 
   order = async () => {
@@ -65,12 +64,12 @@ class AssignedOfferView extends React.Component {
       this.props.params.quantity,
     )
     if (response.success) {
-      this.props.changeView(views.ORDER, {
-        order: response.data,
-        offer: this.state.offer,
-        product: this.props.params.product,
-        quantity: this.props.params.quantity
-      })
+      // this.props.changeView(views.ORDER, {
+      //   order: response.data,
+      //   offer: this.state.offer,
+      //   product: this.props.params.product,
+      //   quantity: this.props.params.quantity
+      // })
     } else {
       alert(JSON.stringify(response))
     }
@@ -78,7 +77,7 @@ class AssignedOfferView extends React.Component {
 
   onCancel = async () => {
     await offersService.discardOfferAssigment(this.state.offer.id)
-    this.props.changeView(views.QUANTITY)
+    // this.props.changeView(views.QUANTITY)
   }
 
   render() {

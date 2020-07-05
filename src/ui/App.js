@@ -1,55 +1,29 @@
 import React, { Component } from 'react'
-import Index from './views/header'
-import { views } from './views'
+import { Route, Switch } from 'react-router-dom'
+import Header from './views/header'
+import ProductsView from './views/products'
+import QuantityView from './views/quantity'
+import AssignedOfferView from './views/assigned_offer'
+import ChangeDelivererView from './views/change_deliverer'
+import OrderView from './views/order'
+import OrdersListView from './views/orders_list'
+import OrdersDetailsView from './views/order_details'
 import css from './styles.modules.css'
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      view: views.PRODUCTS,
-      params: {},
-      previousParams: {},
-      previousState: {},
-    }
-    this.viewState = React.createRef()
-  }
-
-  changeView = (view, newParams) => {
-    const combinedParams = {
-      ...this.state.previousParams[view],
-      ...newParams,
-    }
-    const combinedState = {
-      ...this.state.previousState[this.state.view],
-      ...this.viewState.current.state,
-    }
-
-    this.setState({
-      view,
-      params: combinedParams,
-      previousParams: {
-        ...this.state.previousParams,
-        [view]: combinedParams,
-      },
-      previousState: {
-        ...this.state.previousState,
-        [this.state.view]: combinedState,
-      },
-    })
-  }
-
   render() {
     return (
       <div className={css.container}>
-        <Index />
-        <this.state.view
-          {...this.props}
-          changeView={this.changeView}
-          params={this.state.params}
-          previousState={this.state.previousState[this.state.view]}
-          ref={this.viewState}
-        />
+        <Header />
+        <Switch>
+          <Route exact path="/" component={ProductsView}/>
+          <Route exact path="/quantity" component={QuantityView}/>
+          <Route exact path="/assigned_offer" component={AssignedOfferView}/>
+          <Route exact path="/change_deliverer" component={ChangeDelivererView}/>
+          <Route exact path="/order" component={OrderView}/>
+          <Route exact path="/orders_list" component={OrdersListView}/>
+          <Route exact path="/order_details" component={OrdersDetailsView}/>
+        </Switch>
       </div>
     )
   }

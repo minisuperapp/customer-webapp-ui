@@ -1,5 +1,4 @@
 import React from 'react'
-import { views } from 'src/ui/views'
 import { QuantityForm } from './components/QuantityForm'
 
 class QuantityView extends React.Component {
@@ -23,10 +22,10 @@ class QuantityView extends React.Component {
   }
 
   goToAssignedOffer = () => {
-    this.props.changeView(views.ASSIGNED_OFFER, {
-      product: this.props.params.product,
-      quantity: this.state.quantity,
-    })
+    // this.props.changeView(views.ASSIGNED_OFFER, {
+    //   product: this.props.params.product,
+    //   quantity: this.state.quantity,
+    // })
   }
 
   addQuantity = () => {
@@ -37,7 +36,7 @@ class QuantityView extends React.Component {
   }
 
   goToProducts = () => {
-    this.props.changeView(views.PRODUCTS)
+    // this.props.changeView(views.PRODUCTS)
   }
 
   subtractQuantity = () => {
@@ -50,12 +49,11 @@ class QuantityView extends React.Component {
   }
 
   changeQuantity = (event) => {
-      const quantity = (event.target.validity.valid) ? event.target.value : this.state.quantity;
-          this.setState({
-            quantity,
-            total: event.target.value * Number(this.props.params.lowestPrice)
-      })
-
+    const quantity = event.target.validity.valid ? event.target.value : this.state.quantity
+    this.setState({
+      quantity,
+      total: event.target.value * Number(this.props.params.lowestPrice),
+    })
   }
 
   render() {

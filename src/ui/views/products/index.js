@@ -7,7 +7,7 @@ import { ProductList } from './components/ProductList'
 import { LoadingList } from './components/LoadingList'
 import config from 'src/config'
 import io from 'socket.io-client'
-import { views } from 'src/ui/views'
+
 import css from './styles.module.css'
 
 class ProductsView extends Component {
@@ -88,7 +88,8 @@ class ProductsView extends Component {
         {!!this.state.currentOrders.length && (
           <button
             className={css.ordersButton}
-            onClick={() => this.props.changeView(views.ORDERS_LIST)}>
+            // onClick={() => this.props.changeView(views.ORDERS_LIST)}
+          >
             Ver órdenes ({this.state.currentOrders.length})
           </button>
         )}
