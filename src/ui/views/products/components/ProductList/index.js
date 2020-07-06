@@ -15,7 +15,7 @@ export class ProductList extends React.Component {
               key={p.id}
               product={p}
               lowestPrice={this.props.lowest_price_by_product[p.code]}
-              changeView={this.props.changeView}
+              handleProductSelection={this.props.handleProductSelection}
             />
           ))}
         </div>

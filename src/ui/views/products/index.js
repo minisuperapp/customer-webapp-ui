@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Bluebird from 'bluebird'
-import { get_product_request } from 'src/state/actions/product_actions'
+import { get_product_request, set_selected_product } from 'src/state/actions/product_actions'
 import { get_offers_by_product_request } from 'src/state/actions/offer_actions'
 import * as offersService from 'src/state/services/offers'
 import * as orderService from 'src/state/services/orders'
@@ -21,10 +21,6 @@ class ProductsView extends Component {
       error: '',
       currentOrders: [],
       locationDisabled: false,
-      location: {
-        latitude: '',
-        longitude: '',
-      },
     }
     this.socket = {}
   }
@@ -32,28 +28,33 @@ class ProductsView extends Component {
   async componentDidMount() {
     const { get_product_request, get_offers_by_product_request } = this.props
     get_product_request()
+    let location
     try {
-      const location = await this._getPosition()
-      this.setState({
-        location: {
-          latitude: location.coords.latitude,
-          longitude: location.coords.longitude,
-        },
-      })
+      const position = await this._getPosition()
+      location = {
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+      }
     } catch (e) {
       this.setState({
         locationDisabled: true,
       })
     }
-    get_offers_by_product_request(this.state.location)
+    get_offers_by_product_request(location)
 
     this.socket = io(config.API_HOST, config.socketPayload)
-    this.socket.emit('subscribe_for_offers_updates', this.state.location, function () {})
+    this.socket.emit('subscribe_for_offers_updates', location, function () {})
     this.socket.on('published_offer', (offer) => this._processNewOffer(offer))
 
     const [currentOrders] = await Bluebird.join(orderService.getOrdersPendingToDeliver())
 
     this.setState({ currentOrders })
+  }
+
+  handleProductSelection = (product_code) => () => {
+    const { history, set_selected_product } = this.props
+    set_selected_product(product_code)
+    history.push('/quantity')
   }
 
   _getPosition = () => {
@@ -85,7 +86,11 @@ class ProductsView extends Component {
     }
     return (
       <div>
-        <ProductList products={products} lowest_price_by_product={lowest_price_by_product} />
+        <ProductList
+          products={products}
+          lowest_price_by_product={lowest_price_by_product}
+          handleProductSelection={this.handleProductSelection}
+        />
         {!!this.state.currentOrders.length && (
           <button
             className={css.ordersButton}
@@ -109,7 +114,7 @@ function mapStateToProps(state) {
     offers: { lowest_price_by_product },
   } = state
   return {
-    products,
+    products: products.list,
     lowest_price_by_product,
   }
 }
@@ -117,6 +122,7 @@ function mapStateToProps(state) {
 const mapDispatchToProps = {
   get_product_request,
   get_offers_by_product_request,
+  set_selected_product,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsView)
