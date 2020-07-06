@@ -5,16 +5,18 @@ import * as images from 'src/ui/views/common/images'
 
 export class QuantityForm extends React.Component {
   render() {
-    const { selected_product, price } = this.props
+    const {
+      cart: { product },
+      price,
+    } = this.props
     const style = {
-      backgroundImage: `url(${images.getProductImageURL(selected_product.code.toLocaleLowerCase())})`
+      backgroundImage: `url(${images.getProductImageURL(product.code.toLocaleLowerCase())})`,
     }
     return (
       <div className={css.container}>
-        <div className={css.image} style={style}/>
-        <div className={css.productName}>{selected_product.name}</div>
-        <Label
-          value={'$' + price + ' / ' + selected_product.quantity_type + ' (aprox.)'}/>
+        <div className={css.image} style={style} />
+        <div className={css.productName}>{product.name}</div>
+        <Label value={'$' + price + ' / ' + product.quantity_type + ' (aprox.)'} />
         <div className={css.quantity}>Cantidad</div>
         <div className={css.spinners}>
           <button className={css.subtractButton} onClick={this.props.subtractQuantity}>

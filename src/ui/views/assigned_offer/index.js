@@ -2,6 +2,8 @@ import * as offersService from 'src/state/services/offers'
 import * as ordersService from 'src/state/services/orders'
 import React from 'react'
 import { AssignedOfferForm } from './components/AssignedOfferForm'
+import {set_selected_quantity} from "../../../state/actions/cart_actions";
+import {connect} from "react-redux";
 
 class AssignedOfferView extends React.Component {
   constructor(props) {
@@ -93,4 +95,19 @@ class AssignedOfferView extends React.Component {
   }
 }
 
-export default AssignedOfferView
+function mapStateToProps(state) {
+  const {
+    cart: { product },
+    offers: { lowest_price_by_product },
+  } = state
+  return {
+    selected_product: product,
+    price: lowest_price_by_product[product.code],
+  }
+}
+
+const mapDispatchToProps = {
+  set_selected_quantity
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AssignedOfferView)
