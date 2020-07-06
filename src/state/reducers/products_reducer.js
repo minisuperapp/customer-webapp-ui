@@ -5,7 +5,7 @@ import Immutable from 'seamless-immutable'
 export default function reducer(state = initial_state.products, action) {
   switch (action.type) {
     case types.GET_PRODUCTS_RESPONSE:
-      return Immutable(action.products)
+      return Immutable(action.response)
     default:
       return state
   }

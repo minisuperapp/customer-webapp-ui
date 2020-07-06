@@ -6,7 +6,7 @@ import { SearchOffersForOneProductRequest } from './requests/search_for_one_prod
 import { AssignBestOfferRequest } from './requests/assign_best'
 import { DiscardAssignmentRequest } from './requests/discard_assigment'
 
-export const getOffersByProduct = async (customerLocation) => {
+export const get_offers_by_product = async (customerLocation) => {
   const offersRequest = new OffersGroupedByProductRequest.Builder()
     .withCustomerLocationLatitude(customerLocation.latitude)
     .withCustomerLocationLongitude(customerLocation.longitude)
@@ -62,15 +62,15 @@ export const addToOffersByProduct = (offersByProduct, offer) => {
   }
 }
 
-export const getLowestPriceByProduct = async offersByProduct => {
+export const get_lowest_price_by_product = offers_by_product => {
   return R.compose(
     R.reduce((acc, val) => {
       const id = Object.keys(val)[0]
       acc[id] = val[id]
       return acc
     }, {}),
-    R.map(p => ({ [p]: offersByProduct[p].lowestUnitPrice }))
-  )(Object.keys(offersByProduct))
+    R.map(p => ({ [p]: offers_by_product[p].lowestUnitPrice }))
+  )(Object.keys(offers_by_product))
 }
 
 export const isLowestPrice = (lowestPriceByProduct, offer) => {
