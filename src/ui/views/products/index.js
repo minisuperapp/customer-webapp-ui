@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Bluebird from 'bluebird'
-import { get_product_request, set_selected_product } from 'src/state/actions/product_actions'
-import { get_offers_by_product_request } from 'src/state/actions/offer_actions'
+import { set_selected_product } from 'src/state/actions/product_actions'
 import * as offersService from 'src/state/services/offers'
 import * as orderService from 'src/state/services/orders'
 import { ProductList } from './components/ProductList'
@@ -26,22 +25,6 @@ class ProductsView extends Component {
   }
 
   async componentDidMount() {
-    const { get_product_request, get_offers_by_product_request } = this.props
-    get_product_request()
-    let location
-    try {
-      const position = await this._getPosition()
-      location = {
-        latitude: position.coords.latitude,
-        longitude: position.coords.longitude,
-      }
-    } catch (e) {
-      this.setState({
-        locationDisabled: true,
-      })
-    }
-    get_offers_by_product_request(location)
-
     this.socket = io(config.API_HOST, config.socketPayload)
     this.socket.emit('subscribe_for_offers_updates', location, function () {})
     this.socket.on('published_offer', (offer) => this._processNewOffer(offer))
@@ -55,12 +38,6 @@ class ProductsView extends Component {
     const { history, set_selected_product } = this.props
     set_selected_product(product)
     history.push('/quantity')
-  }
-
-  _getPosition = () => {
-    return new Promise((success, error) => {
-      navigator.geolocation.getCurrentPosition(success, error)
-    })
   }
 
   _processNewOffer = (offer) => {
@@ -120,8 +97,6 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-  get_product_request,
-  get_offers_by_product_request,
   set_selected_product,
 }
 
