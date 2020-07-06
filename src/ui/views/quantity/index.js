@@ -1,7 +1,5 @@
 import React from 'react'
 import { QuantityForm } from './components/QuantityForm'
-import { get_product_request, set_selected_product } from '../../../state/actions/product_actions'
-import { get_offers_by_product_request } from '../../../state/actions/offer_actions'
 import { connect } from 'react-redux'
 
 class QuantityView extends React.Component {
@@ -27,7 +25,6 @@ class QuantityView extends React.Component {
 
   goToAssignedOffer = () => {
     // this.props.changeView(views.ASSIGNED_OFFER, {
-    //   product: this.props.params.product,
     //   quantity: this.state.quantity,
     // })
   }
@@ -83,12 +80,12 @@ class QuantityView extends React.Component {
 
 function mapStateToProps(state) {
   const {
-    products: { selected },
+    cart: { product },
     offers: { lowest_price_by_product },
   } = state
   return {
-    selected_product: selected,
-    price: lowest_price_by_product[selected.code],
+    selected_product: product,
+    price: lowest_price_by_product[product.code],
   }
 }
 

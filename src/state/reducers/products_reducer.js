@@ -9,11 +9,6 @@ export default function reducer(state = initial_state.products, action) {
         ...state,
         list: Immutable(action.response),
       })
-    case types.SET_SELECTED_PRODUCT:
-      return Immutable({
-        ...state,
-        selected: action.code,
-      })
     default:
       return state
   }

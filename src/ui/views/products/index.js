@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Bluebird from 'bluebird'
-import { set_selected_product } from 'src/state/actions/product_actions'
+import { set_selected_product } from 'src/state/actions/cart_actions'
 import * as offersService from 'src/state/services/offers'
 import * as orderService from 'src/state/services/orders'
 import { ProductList } from './components/ProductList'

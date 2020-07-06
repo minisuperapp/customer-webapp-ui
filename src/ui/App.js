@@ -15,7 +15,6 @@ import { connect } from 'react-redux'
 
 class App extends Component {
   async componentDidMount() {
-    debugger
     const { get_product_request, get_offers_by_product_request } = this.props
     get_product_request()
     try {
