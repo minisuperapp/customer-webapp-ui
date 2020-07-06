@@ -1,5 +1,6 @@
 import React from 'react'
 import { QuantityForm } from './components/QuantityForm'
+import { set_selected_quantity } from 'src/state/actions/cart_actions'
 import { connect } from 'react-redux'
 
 class QuantityView extends React.Component {
@@ -24,9 +25,9 @@ class QuantityView extends React.Component {
   }
 
   goToAssignedOffer = () => {
-    // this.props.changeView(views.ASSIGNED_OFFER, {
-    //   quantity: this.state.quantity,
-    // })
+    const { history, set_selected_quantity } = this.props
+    set_selected_quantity(this.state.quantity)
+    history.push('/assigned_offer')
   }
 
   addQuantity = () => {
@@ -89,6 +90,8 @@ function mapStateToProps(state) {
   }
 }
 
-const mapDispatchToProps = {}
+const mapDispatchToProps = {
+  set_selected_quantity
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(QuantityView)
