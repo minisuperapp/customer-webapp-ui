@@ -33,9 +33,10 @@ class QuantityView extends React.Component {
   }
 
   addQuantity = () => {
+    const { price } = this.props
     this.setState({
       quantity: Number(this.state.quantity) + Number(1),
-      total: (Number(this.state.quantity) + Number(1)) * Number(this.props.params.lowestPrice),
+      total: (Number(this.state.quantity) + Number(1)) * Number(price),
     })
   }
 
@@ -44,10 +45,11 @@ class QuantityView extends React.Component {
   }
 
   subtractQuantity = () => {
-    if (this.state.quantity > this.props.params.product.minimum_buying_quantity) {
+    const { selected_product, price } = this.props
+    if (this.state.quantity > selected_product.minimum_buying_quantity) {
       this.setState({
         quantity: Number(this.state.quantity) - Number(1),
-        total: (Number(this.state.quantity) - Number(1)) * Number(this.props.params.lowestPrice),
+        total: (Number(this.state.quantity) - Number(1)) * Number(price),
       })
     }
   }
@@ -62,7 +64,6 @@ class QuantityView extends React.Component {
 
   render() {
     const { selected_product, price } = this.props
-    debugger
     return (
       <QuantityForm
         {...this.state}

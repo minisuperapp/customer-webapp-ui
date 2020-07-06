@@ -25,7 +25,7 @@ export class QuantityForm extends React.Component {
             type="Text"
             pattern="[0-9]*"
             value={this.props.quantity}
-            onInput={this.props.changeQuantity.bind(this)}
+            onChange={this.props.changeQuantity.bind(this)}
           />
           <button className={css.addButton} onClick={this.props.addQuantity}>
             +
