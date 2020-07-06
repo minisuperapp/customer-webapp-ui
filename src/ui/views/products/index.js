@@ -51,9 +51,9 @@ class ProductsView extends Component {
     this.setState({ currentOrders })
   }
 
-  handleProductSelection = (product_code) => () => {
+  handleProductSelection = (product) => () => {
     const { history, set_selected_product } = this.props
-    set_selected_product(product_code)
+    set_selected_product(product)
     history.push('/quantity')
   }
 

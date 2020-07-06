@@ -24,7 +24,7 @@ export class Product extends Component {
           {this.props.lowestPrice ? (
             <button
               className={css.button}
-              onClick={this.props.handleProductSelection(this.props.product.code)}>
+              onClick={this.props.handleProductSelection(this.props.product)}>
               Comprar
             </button>
           ) : (

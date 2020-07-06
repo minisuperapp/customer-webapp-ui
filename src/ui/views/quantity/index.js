@@ -1,17 +1,21 @@
 import React from 'react'
 import { QuantityForm } from './components/QuantityForm'
+import { get_product_request, set_selected_product } from '../../../state/actions/product_actions'
+import { get_offers_by_product_request } from '../../../state/actions/offer_actions'
+import { connect } from 'react-redux'
 
 class QuantityView extends React.Component {
-  constructor(props) {
-    super(props)
-    if (props.previousState) {
-      this.state = props.previousState
-    } else {
-      this.state = {
-        quantity: props.params.product.minimum_buying_quantity,
-        total: Number(props.params.product.minimum_buying_quantity * props.params.lowestPrice),
-      }
-    }
+  state = {
+    quantity: 0,
+    total: 0,
+  }
+
+  componentDidMount() {
+    const { selected_product, price } = this.props
+    this.setState({
+      quantity: selected_product.minimum_buying_quantity,
+      total: Number(selected_product.minimum_buying_quantity * price),
+    })
   }
 
   handleChange = (event) => {
@@ -36,7 +40,7 @@ class QuantityView extends React.Component {
   }
 
   goToProducts = () => {
-    // this.props.changeView(views.PRODUCTS)
+    this.props.history.push('/')
   }
 
   subtractQuantity = () => {
@@ -57,10 +61,14 @@ class QuantityView extends React.Component {
   }
 
   render() {
+    const { selected_product, price } = this.props
+    debugger
     return (
       <QuantityForm
         {...this.state}
         {...this.props}
+        selected_product={selected_product}
+        price={price}
         handleChange={this.handleChange}
         changeQuantity={this.changeQuantity}
         goToAssignedOffer={this.goToAssignedOffer}
@@ -72,4 +80,17 @@ class QuantityView extends React.Component {
   }
 }
 
-export default QuantityView
+function mapStateToProps(state) {
+  const {
+    products: { selected },
+    offers: { lowest_price_by_product },
+  } = state
+  return {
+    selected_product: selected,
+    price: lowest_price_by_product[selected.code],
+  }
+}
+
+const mapDispatchToProps = {}
+
+export default connect(mapStateToProps, mapDispatchToProps)(QuantityView)

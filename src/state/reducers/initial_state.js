@@ -1,7 +1,7 @@
 const initial_state = {
   products: {
     list: [],
-    selected: '',
+    selected: {},
   },
   offers: {
     by_product: {},
