@@ -64,8 +64,8 @@ class QuantityView extends React.Component {
     const { cart, price } = this.props
     return (
       <QuantityForm
-        {...this.state}
-        {...this.props}
+        quantity={this.state.quantity}
+        total={this.state.total}
         cart={cart}
         price={price}
         handleChange={this.handleChange}
