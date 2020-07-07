@@ -49,10 +49,7 @@ class App extends Component {
           <Route exact path="/order" component={OrderView} />
           <Route exact path="/orders_list" component={OrdersListView} />
           <Route exact path="/order_details" component={OrdersDetailsView} />
-<<<<<<< HEAD
           <Route exact path="/register" component={Register} />
-=======
->>>>>>> 204b889706711c8c280d3a838cca1b45d390dfbb
         </Switch>
       </div>
     )
