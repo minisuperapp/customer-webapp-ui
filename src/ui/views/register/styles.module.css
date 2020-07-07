@@ -15,27 +15,27 @@
 }
 
 .body {
-  display: flexbox;
-  align-self: center;
+  display: table;
 }
 
 .name {
-  padding-top: 20px;
+  display: table-row;
 }
 
 .email {
-  padding-top: 20px;
+  display: table-row;
 }
 
 .password {
-  padding-top: 20px;
+  display: table-row;
 }
 
 label {
-  display: inline-block;
-  text-align: right;
+  display: table-cell;
+  padding-top: 20px;
 }
 
 input {
   display: table-cell;
+  width: auto;
 }
