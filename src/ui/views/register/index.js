@@ -20,6 +20,9 @@ export default class Register extends Component {
               <label htmlFor="password">Contraseña: </label>
               <input name="password" type="password" placeholder="Contraseña" />
             </div>
+            <div className="btn">
+              <button>Registrarse</button>
+            </div>
           </div>
         </div>
       </>
