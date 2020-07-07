@@ -1,3 +1,11 @@
+.container {
+  display: flexbox;
+  align-self: center;
+  border: 5px;
+  border-color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .header {
   background-color: #6f8f72;
   padding: 0.5em 1em;
@@ -7,14 +15,27 @@
 }
 
 .body {
-  padding: 1em;
-  margin: 10em auto;
-  border: 1px solid black;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  min-width: 20em;
+  display: flexbox;
+  align-self: center;
+}
 
-  input {
-    margin-bottom: 1em;
-  }
+.name {
+  padding-top: 20px;
+}
+
+.email {
+  padding-top: 20px;
+}
+
+.password {
+  padding-top: 20px;
+}
+
+label {
+  display: inline-block;
+  text-align: right;
+}
+
+input {
+  display: table-cell;
 }
