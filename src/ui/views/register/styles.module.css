@@ -44,11 +44,22 @@ input {
   padding-left: 10px;
 }
 
-.btn {
-  display: block;
-  padding: 0.2em 1em;
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+.ok {
   cursor: pointer;
+  font-size: 16px;
   background-color: #6f8f72;
   color: whitesmoke;
   font-weight: bold;
+  padding: 0.2en 1em;
+}
+
+.cancel {
+  cursor: pointer;
+  font-size: 14px;
 }
