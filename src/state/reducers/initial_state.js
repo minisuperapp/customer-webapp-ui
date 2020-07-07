@@ -1,7 +1,10 @@
 const initial_state = {
   products: {
     list: [],
-    selected: {},
+  },
+  cart: {
+    product: {},
+    quantity: 0,
   },
   offers: {
     by_product: {},

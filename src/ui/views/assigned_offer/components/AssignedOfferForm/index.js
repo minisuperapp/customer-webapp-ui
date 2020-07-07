@@ -4,8 +4,9 @@ import * as images from 'src/ui/views/common/images'
 
 export class AssignedOfferForm extends React.Component {
   render() {
+    const { cart } = this.props
     const style = {
-      backgroundImage: `url(${images.getProductImageURL(this.props.params.product.code.toLocaleLowerCase())})`
+      backgroundImage: `url(${images.getProductImageURL(cart.product.code.toLocaleLowerCase())})`
     }
     return (
       <div className={css.container}>
@@ -22,9 +23,9 @@ export class AssignedOfferForm extends React.Component {
           <div className={css.productContainer}>
             <div className={css.image} style={style}/>
             <div className={css.productDetailsContainer}>
-              <div className={css.productName}>{this.props.params.product.name}</div>
+              <div className={css.productName}>{cart.product.name}</div>
               <div className={css.productPrice}>Precio Unitario: ${this.props.offer.unitPrice}</div>
-              <div className={css.productPrice}>Cantidad: {this.props.params.quantity}</div>
+              <div className={css.productPrice}>Cantidad: {cart.quantity}</div>
             </div>
           </div>
         </div>

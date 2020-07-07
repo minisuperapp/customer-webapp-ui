@@ -2,6 +2,7 @@ import * as offersService from 'src/state/services/offers'
 import * as ordersService from 'src/state/services/orders'
 import React from 'react'
 import { AssignedOfferForm } from './components/AssignedOfferForm'
+import { connect } from 'react-redux'
 
 class AssignedOfferView extends React.Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class AssignedOfferView extends React.Component {
   }
 
   async componentDidMount() {
+    const { cart } = this.props
     const location = await this._getPosition()
     this.setState({
       location: {
@@ -30,14 +32,14 @@ class AssignedOfferView extends React.Component {
     })
     const response = await offersService.assignBestOffer(
       this.state.location,
-      this.props.params.product.code,
-      this.props.params.quantity,
+      cart.product.code,
+      cart.quantity,
     )
     if (response && response.success) {
       const offer = response.data
       this.setState({ offer })
       this.setState({
-        total: Number(offer.unitPrice) * Number(this.props.params.quantity),
+        total: Number(offer.unitPrice) * Number(cart.quantity),
       })
     } else {
       alert(JSON.stringify(response.errors))
@@ -58,10 +60,11 @@ class AssignedOfferView extends React.Component {
   }
 
   order = async () => {
+    const { cart } = this.props
     const response = await ordersService.placeOrder(
       this.state.location,
       this.state.offer.id,
-      this.props.params.quantity,
+      cart.quantity,
     )
     if (response.success) {
       // this.props.changeView(views.ORDER, {
@@ -76,15 +79,18 @@ class AssignedOfferView extends React.Component {
   }
 
   onCancel = async () => {
+    const { history } = this.props
     await offersService.discardOfferAssigment(this.state.offer.id)
-    // this.props.changeView(views.QUANTITY)
+    history.push('/quantity')
   }
 
   render() {
+    const { cart } = this.props
     return (
       <AssignedOfferForm
-        {...this.props}
-        {...this.state}
+        cart={cart}
+        offer={this.state.offer}
+        total={this.state.total}
         changeDeliverer={this.changeDeliverer}
         order={this.order}
         onCancel={this.onCancel}
@@ -93,4 +99,13 @@ class AssignedOfferView extends React.Component {
   }
 }
 
-export default AssignedOfferView
+function mapStateToProps(state) {
+  const { cart } = state
+  return {
+    cart,
+  }
+}
+
+const mapDispatchToProps = {}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AssignedOfferView)

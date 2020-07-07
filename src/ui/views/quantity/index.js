@@ -1,7 +1,6 @@
 import React from 'react'
 import { QuantityForm } from './components/QuantityForm'
-import { get_product_request, set_selected_product } from '../../../state/actions/product_actions'
-import { get_offers_by_product_request } from '../../../state/actions/offer_actions'
+import { set_selected_quantity } from 'src/state/actions/cart_actions'
 import { connect } from 'react-redux'
 
 class QuantityView extends React.Component {
@@ -11,10 +10,10 @@ class QuantityView extends React.Component {
   }
 
   componentDidMount() {
-    const { selected_product, price } = this.props
+    const { cart, price } = this.props
     this.setState({
-      quantity: selected_product.minimum_buying_quantity,
-      total: Number(selected_product.minimum_buying_quantity * price),
+      quantity: cart.product.minimum_buying_quantity,
+      total: Number(cart.product.minimum_buying_quantity * price),
     })
   }
 
@@ -26,16 +25,16 @@ class QuantityView extends React.Component {
   }
 
   goToAssignedOffer = () => {
-    // this.props.changeView(views.ASSIGNED_OFFER, {
-    //   product: this.props.params.product,
-    //   quantity: this.state.quantity,
-    // })
+    const { history, set_selected_quantity } = this.props
+    set_selected_quantity(this.state.quantity)
+    history.push('/assigned_offer')
   }
 
   addQuantity = () => {
+    const { price } = this.props
     this.setState({
       quantity: Number(this.state.quantity) + Number(1),
-      total: (Number(this.state.quantity) + Number(1)) * Number(this.props.params.lowestPrice),
+      total: (Number(this.state.quantity) + Number(1)) * Number(price),
     })
   }
 
@@ -44,10 +43,11 @@ class QuantityView extends React.Component {
   }
 
   subtractQuantity = () => {
-    if (this.state.quantity > this.props.params.product.minimum_buying_quantity) {
+    const { cart, price } = this.props
+    if (this.state.quantity > cart.product.minimum_buying_quantity) {
       this.setState({
         quantity: Number(this.state.quantity) - Number(1),
-        total: (Number(this.state.quantity) - Number(1)) * Number(this.props.params.lowestPrice),
+        total: (Number(this.state.quantity) - Number(1)) * Number(price),
       })
     }
   }
@@ -61,13 +61,12 @@ class QuantityView extends React.Component {
   }
 
   render() {
-    const { selected_product, price } = this.props
-    debugger
+    const { cart, price } = this.props
     return (
       <QuantityForm
-        {...this.state}
-        {...this.props}
-        selected_product={selected_product}
+        quantity={this.state.quantity}
+        total={this.state.total}
+        cart={cart}
         price={price}
         handleChange={this.handleChange}
         changeQuantity={this.changeQuantity}
@@ -82,15 +81,17 @@ class QuantityView extends React.Component {
 
 function mapStateToProps(state) {
   const {
-    products: { selected },
+    cart,
     offers: { lowest_price_by_product },
   } = state
   return {
-    selected_product: selected,
-    price: lowest_price_by_product[selected.code],
+    cart,
+    price: lowest_price_by_product[cart.product.code],
   }
 }
 
-const mapDispatchToProps = {}
+const mapDispatchToProps = {
+  set_selected_quantity
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(QuantityView)
