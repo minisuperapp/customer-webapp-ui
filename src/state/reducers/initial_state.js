@@ -10,6 +10,9 @@ const initial_state = {
     by_product: {},
     lowest_price_by_product: {},
   },
+  auth: {
+    registration: {},
+  },
 }
 
 export default initial_state
