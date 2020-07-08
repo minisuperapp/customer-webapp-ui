@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { register_customer_request } from 'state/actions/auth_actions.js'
 import css from './styles.module.css'
 
-export default class Register extends Component {
+class Register extends Component {
   render() {
     return (
       <>
@@ -30,3 +32,14 @@ export default class Register extends Component {
     )
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    registration_succesful: state.auth.registration.registration_successful,
+  }
+}
+
+const mapDispatchToProps = {
+  register_customer_request,
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Register)
