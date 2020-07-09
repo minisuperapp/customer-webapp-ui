@@ -1,40 +1,40 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { register_customer_request } from 'src/state/actions/auth_actions.js'
-import css from './styles.module.css'
+import Style from './style'
 
 class Register extends Component {
   render() {
     return (
-      <>
-        <div className={css.container}>
-          <div className={css.header}>Ingresa tus datos de registro</div>
-          <div className={css.body}>
-            <div className={css.name}>
+      <Style>
+        <div className="container">
+          <div className="header">Ingresa tus datos de registro</div>
+          <div className="body">
+            <div className="name">
               <label htmlFor="name">Nombre: </label>
               <input name="name" type="text" placeholder="Nombre" />
             </div>
-            <div className={css.email}>
+            <div className="email">
               <label htmlFor="email">Email: </label>
               <input name="email" type="text" placeholder="Email" />
             </div>
-            <div className={css.email}>
+            <div className="password">
               <label htmlFor="password">Contraseña: </label>
               <input name="password" type="password" placeholder="Contraseña" />
             </div>
           </div>
-          <div className={css.buttons}>
+          <div className="buttons">
             <button
-              className={css.ok}
+              className="ok"
               onClick={() => {
                 if (window.confirm('Registro Exitoso!')) this.confirm
               }}>
               Registrarse
             </button>
-            <button className={css.cancel}>Ya Tengo Cuenta</button>
+            <button className="cancel">Ya Tengo Cuenta</button>
           </div>
         </div>
-      </>
+      </Style>
     )
   }
 }
