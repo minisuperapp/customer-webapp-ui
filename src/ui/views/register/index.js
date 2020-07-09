@@ -24,7 +24,13 @@ class Register extends Component {
             </div>
           </div>
           <div className={css.buttons}>
-            <button className={css.ok}>Registrarse</button>
+            <button
+              className={css.ok}
+              onClick={() => {
+                if (window.confirm('Registro Exitoso!')) this.confirm
+              }}>
+              Registrarse
+            </button>
             <button className={css.cancel}>Ya Tengo Cuenta</button>
           </div>
         </div>
