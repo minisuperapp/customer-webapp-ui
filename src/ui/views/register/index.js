@@ -7,32 +7,30 @@ class Register extends Component {
   render() {
     return (
       <Style>
-        <div className="container">
-          <div className="header">Ingresa tus datos de registro</div>
-          <div className="body">
-            <div className="name">
-              <label htmlFor="name">Nombre: </label>
-              <input name="name" type="text" placeholder="Nombre" />
-            </div>
-            <div className="email">
-              <label htmlFor="email">Email: </label>
-              <input name="email" type="text" placeholder="Email" />
-            </div>
-            <div className="password">
-              <label htmlFor="password">Contraseña: </label>
-              <input name="password" type="password" placeholder="Contraseña" />
-            </div>
+        <div className="header">Ingresa tus datos de registro</div>
+        <div className="body">
+          <div className="name">
+            <label htmlFor="name">Nombre: </label>
+            <input name="name" type="text" placeholder="Nombre" />
           </div>
-          <div className="buttons">
-            <button
-              className="ok"
-              onClick={() => {
-                if (window.confirm('Registro Exitoso!')) this.confirm
-              }}>
-              Registrarse
-            </button>
-            <button className="cancel">Ya Tengo Cuenta</button>
+          <div className="email">
+            <label htmlFor="email">Email: </label>
+            <input name="email" type="text" placeholder="Email" />
           </div>
+          <div className="password">
+            <label htmlFor="password">Contraseña: </label>
+            <input name="password" type="password" placeholder="Contraseña" />
+          </div>
+        </div>
+        <div className="buttons">
+          <button
+            className="ok"
+            onClick={() => {
+              if (window.confirm('Registro Exitoso!')) this.confirm
+            }}>
+            Registrarse
+          </button>
+          <button className="cancel">Ya Tengo Cuenta</button>
         </div>
       </Style>
     )
