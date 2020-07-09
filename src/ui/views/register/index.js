@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { register_customer_request } from 'state/actions/auth_actions.js'
+import { register_customer_request } from 'src/state/actions/auth_actions.js'
 import css from './styles.module.css'
 
 class Register extends Component {
