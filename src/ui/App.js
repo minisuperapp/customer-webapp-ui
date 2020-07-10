@@ -9,7 +9,7 @@ import OrderView from './views/order'
 import OrdersListView from './views/orders_list'
 import OrdersDetailsView from './views/order_details'
 import Register from './views/register'
-import css from './styles.modules.css'
+import Style from './style'
 import { get_product_request } from '../state/actions/product_actions'
 import { get_offers_by_product_request } from '../state/actions/offer_actions'
 import { connect } from 'react-redux'
@@ -39,7 +39,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className={css.container}>
+      <Style>
         <Header />
         <Switch>
           <Route exact path="/" component={ProductsView} />
@@ -51,7 +51,7 @@ class App extends Component {
           <Route exact path="/order_details" component={OrdersDetailsView} />
           <Route exact path="/register" component={Register} />
         </Switch>
-      </div>
+      </Style>
     )
   }
 }
