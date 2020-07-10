@@ -1,3 +1,6 @@
+import styled from 'styled-components'
+
+export default styled.div`
 .ordersButton {
     position: absolute;
     bottom: 2em;
@@ -12,3 +15,4 @@
     color: black;
     cursor: pointer;
 }
+`

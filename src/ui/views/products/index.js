@@ -9,7 +9,7 @@ import { LoadingList } from './components/LoadingList'
 import config from 'src/config'
 import io from 'socket.io-client'
 
-import css from './styles.module.css'
+import Style from './style'
 
 class ProductsView extends Component {
   constructor(props) {
@@ -62,7 +62,7 @@ class ProductsView extends Component {
       return <LoadingList />
     }
     return (
-      <div>
+      <Style>
         <ProductList
           products={products}
           lowest_price_by_product={lowest_price_by_product}
@@ -70,13 +70,13 @@ class ProductsView extends Component {
         />
         {!!this.state.currentOrders.length && (
           <button
-            className={css.ordersButton}
+            className="ordersButton"
             // onClick={() => this.props.changeView(views.ORDERS_LIST)}
           >
             Ver órdenes ({this.state.currentOrders.length})
           </button>
         )}
-      </div>
+      </Style>
     )
   }
 
