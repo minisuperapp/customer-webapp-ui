@@ -1,5 +1,5 @@
 import React from 'react'
-import css from './styles.module.css'
+import Style from './style'
 import Label from 'src/ui/components/Label'
 import * as images from 'src/ui/views/common/images'
 
@@ -13,39 +13,39 @@ export class QuantityForm extends React.Component {
       backgroundImage: `url(${images.getProductImageURL(product.code.toLocaleLowerCase())})`,
     }
     return (
-      <div className={css.container}>
-        <div className={css.image} style={style} />
-        <div className={css.productName}>{product.name}</div>
+      <Style>
+        <div className="image" style={style} />
+        <div className="productName">{product.name}</div>
         <Label value={'$' + price + ' / ' + product.quantity_type + ' (aprox.)'} />
-        <div className={css.quantity}>Cantidad</div>
-        <div className={css.spinners}>
-          <button className={css.subtractButton} onClick={this.props.subtractQuantity}>
+        <div className="quantity">Cantidad</div>
+        <div className="spinners">
+          <button className="subtractButton" onClick={this.props.subtractQuantity}>
             -
           </button>
           <input
-            className={css.input}
+            className="input"
             type="Text"
             pattern="[0-9]*"
             value={this.props.quantity}
             onChange={this.props.changeQuantity.bind(this)}
           />
-          <button className={css.addButton} onClick={this.props.addQuantity}>
+          <button className="addButton" onClick={this.props.addQuantity}>
             +
           </button>
         </div>
-        <div className={css.totalContainer}>
-          <div className={css.total}>Total</div>
-          <div className={css.total}>${this.props.total} (aprox.)</div>
+        <div className="totalContainer">
+          <div className="total">Total</div>
+          <div className="total">${this.props.total} (aprox.)</div>
         </div>
-        <div className={css.buttonContainer}>
-          <button className={css.backButton} onClick={this.props.goToProducts}>
+        <div className="buttonContainer">
+          <button className="backButton" onClick={this.props.goToProducts}>
             Cancelar
           </button>
-          <button className={css.button} onClick={this.props.goToAssignedOffer}>
+          <button className="button" onClick={this.props.goToAssignedOffer}>
             Continuar
           </button>
         </div>
-      </div>
+      </Style>
     )
   }
 }
