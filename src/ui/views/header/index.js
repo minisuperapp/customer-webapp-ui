@@ -1,15 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import logo from 'src/ui/images/logo.png'
-import css from './styles.module.css'
+import Style from './style'
 
 const Index = () => (
-  <div className={css.container}>
+  <Style>
     <img src={logo} width="114" height="50" align="absmiddle" />
-    <div className={css.account}>
+    <div className="account">
       <Link to="/register">Crear una Cuenta</Link>
     </div>
-  </div>
+  </Style>
 )
 
 export default Index
