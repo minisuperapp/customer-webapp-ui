@@ -2,7 +2,7 @@ import React from 'react'
 import { OrderInfo } from 'src/ui/views/common/components/OrderInfo'
 import io from 'socket.io-client'
 import config from 'src/config'
-import css from './styles.module.css'
+import Style from './style'
 
 class OrderView extends React.Component {
   constructor(props) {
@@ -26,14 +26,14 @@ class OrderView extends React.Component {
 
   render() {
     return (
-      <div>
+      <Style>
         <OrderInfo {...this.props} {...this.state} />
-        <div className={css.buttonContainer}>
-          <button className={css.backButton} onClick={this.goToProducts}>
+        <div className="buttonContainer">
+          <button className="backButton" onClick={this.goToProducts}>
             Ver lista de productos
           </button>
         </div>
-      </div>
+      </Style>
     )
   }
 }
