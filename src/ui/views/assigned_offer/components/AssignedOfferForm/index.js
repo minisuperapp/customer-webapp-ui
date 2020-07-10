@@ -1,48 +1,50 @@
 import React from 'react'
-import css from './styles.module.css'
+import Style from './style'
 import * as images from 'src/ui/views/common/images'
 
 export class AssignedOfferForm extends React.Component {
   render() {
     const { cart } = this.props
     const style = {
-      backgroundImage: `url(${images.getProductImageURL(cart.product.code.toLocaleLowerCase())})`
+      backgroundImage: `url(${images.getProductImageURL(cart.product.code.toLocaleLowerCase())})`,
     }
     return (
-      <div className={css.container}>
-        <div className={css.delivererContainer}>
-          <div className={css.textTitle}>TU REPARTIDOR:</div>
-          <div className={css.delivererName}>{this.props.offer.deliverer.name}</div>
-          <button className={css.changeDelivererButton} onClick={this.props.changeDeliverer}>
+      <Style>
+        <div className="delivererContainer">
+          <div className="textTitle">TU REPARTIDOR:</div>
+          <div className="delivererName">{this.props.offer.deliverer.name}</div>
+          <button className="changeDelivererButton" onClick={this.props.changeDeliverer}>
             Cambiar repartidor
           </button>
         </div>
 
-        <div className={css.offerContainer}>
-          <div className={css.textTitle}>TU ORDEN:</div>
-          <div className={css.productContainer}>
-            <div className={css.image} style={style}/>
-            <div className={css.productDetailsContainer}>
-              <div className={css.productName}>{cart.product.name}</div>
-              <div className={css.productPrice}>Precio Unitario: ${this.props.offer.unitPrice}</div>
-              <div className={css.productPrice}>Cantidad: {cart.quantity}</div>
+        <div className="offerContainer">
+          <div className="textTitle">TU ORDEN:</div>
+          <div className="productContainer">
+            <div className="image" style={style} />
+            <div className="productDetailsContainer">
+              <div className="productName">{cart.product.name}</div>
+              <div className="productPrice">Precio Unitario: ${this.props.offer.unitPrice}</div>
+              <div className="productPrice">Cantidad: {cart.quantity}</div>
             </div>
           </div>
         </div>
-        <div className={css.totalContainer}>
+        <div className="totalContainer">
           <div>Total:</div>
           <div>${this.props.total}</div>
         </div>
-        <div className={css.buttonContainer}>
-          <button className={css.backButton} onClick={this.props.onCancel}>
+        <div className="buttonContainer">
+          <button className="backButton" onClick={this.props.onCancel}>
             Cancelar
           </button>
-          <button className={this.props.offer.deliverer.name !== '-' ? css.button : css.disabledButton} onClick={this.props.order}
-                  disabled={this.props.offer.deliverer.name === '-'}>
+          <button
+            className={this.props.offer.deliverer.name !== '-' ? 'button' : 'disabledButton'}
+            onClick={this.props.order}
+            disabled={this.props.offer.deliverer.name === '-'}>
             Pedir
           </button>
         </div>
-      </div>
+      </Style>
     )
   }
 }
