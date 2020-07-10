@@ -1,21 +1,21 @@
 import React from 'react'
-import css from './styles.module.css'
+import Style from './style'
 
 class Provider extends React.Component {
   render() {
-    const {deliverer, unitPrice} = this.props.offer
+    const { deliverer, unitPrice } = this.props.offer
     return (
-      <div className={css.deliverer}>
-        <div className={css.delivererName}>
+      <Style>
+        <div className="delivererName">
           <h1>{deliverer.name}</h1>
         </div>
-        <div className={css.delivererOfferPrice}>
+        <div className="delivererOfferPrice">
           <h2>$ {unitPrice}</h2>
         </div>
-        <div className={css.delivererSelect}>
+        <div className="delivererSelect">
           <button>Seleccionar</button>
         </div>
-      </div>
+      </Style>
     )
   }
 }
