@@ -1,6 +1,6 @@
 import { take, put, takeEvery, call } from 'redux-saga/effects'
 import { eventChannel } from 'redux-saga'
-import { get_offers_by_product_response } from 'src/state/actions/offer_actions'
+import { get_offers_by_product_response, listen_published_offer_response } from 'src/state/actions/offer_actions'
 import * as offers_api from 'src/state/services/offers'
 import * as types from 'src/state/actions/action_types'
 import { connect } from 'src/state/api/socket'
@@ -14,7 +14,7 @@ export function* get_offers_by_product() {
   })
 }
 
-export function* published_offers_listener() {
+export function* listen_published_offers() {
   const socket = connect()
   const location = yield call(get_location)
   socket.emit('subscribe_for_offers_updates', location, function () {})
@@ -31,7 +31,7 @@ export function* published_offers_listener() {
     let payload = yield take(chan)
     switch (payload.channel) {
       case 'published_offer':
-        // yield put(set_running_step(payload.offer))
+        yield put(listen_published_offer_response(payload.offer))
         break
     }
   }

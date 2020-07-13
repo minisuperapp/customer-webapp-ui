@@ -2,11 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { set_selected_product } from 'src/state/actions/cart_actions'
 import { get_current_orders_request } from 'src/state/actions/order_actions'
-import * as offersService from 'src/state/services/offers'
 import { ProductList } from './components/ProductList'
 import { LoadingList } from './components/LoadingList'
-import config from 'src/config'
-import io from 'socket.io-client'
 
 import Style from './style'
 
@@ -19,7 +16,6 @@ class ProductsView extends Component {
       error: '',
       locationDisabled: false,
     }
-    this.socket = {}
   }
 
   async componentDidMount() {
@@ -36,19 +32,6 @@ class ProductsView extends Component {
   handleNavigateToOrdersList = () => {
     const { history } = this.props
     history.push('/orders_list')
-  }
-
-  _processNewOffer = (offer) => {
-    const offersByProduct = offersService.addToOffersByProduct(this.state.offersByProduct, offer)
-    this.setState({ offersByProduct })
-
-    if (offersService.isLowestPrice(this.state.lowestPriceByProduct, offer)) {
-      const lowestPriceByProduct = offersService.addToLowestPriceByProduct(
-        this.state.lowestPriceByProduct,
-        offer,
-      )
-      this.setState({ lowestPriceByProduct })
-    }
   }
 
   render() {
@@ -73,10 +56,6 @@ class ProductsView extends Component {
         )}
       </Style>
     )
-  }
-
-  componentWillUnmount() {
-    this.socket.disconnect()
   }
 }
 
