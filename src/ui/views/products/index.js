@@ -23,10 +23,6 @@ class ProductsView extends Component {
   }
 
   async componentDidMount() {
-    this.socket = io(config.API_HOST, config.socketPayload)
-    this.socket.emit('subscribe_for_offers_updates', location, function () {})
-    this.socket.on('published_offer', (offer) => this._processNewOffer(offer))
-
     const { get_current_orders_request } = this.props
     get_current_orders_request()
   }
