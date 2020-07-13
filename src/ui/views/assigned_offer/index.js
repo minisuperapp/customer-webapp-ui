@@ -1,8 +1,9 @@
 import * as offersService from 'src/state/services/offers'
 import * as ordersService from 'src/state/services/orders'
+import {place_order_request} from 'src/state/actions/order_actions'
 import React from 'react'
-import { AssignedOfferForm } from './components/AssignedOfferForm'
-import { connect } from 'react-redux'
+import {AssignedOfferForm} from './components/AssignedOfferForm'
+import {connect} from 'react-redux'
 
 class AssignedOfferView extends React.Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class AssignedOfferView extends React.Component {
   }
 
   async componentDidMount() {
-    const { cart } = this.props
+    const {cart} = this.props
     const location = await this._getPosition()
     this.setState({
       location: {
@@ -37,7 +38,7 @@ class AssignedOfferView extends React.Component {
     )
     if (response && response.success) {
       const offer = response.data
-      this.setState({ offer })
+      this.setState({offer})
       this.setState({
         total: Number(offer.unitPrice) * Number(cart.quantity),
       })
@@ -60,32 +61,22 @@ class AssignedOfferView extends React.Component {
   }
 
   order = async () => {
-    const { cart } = this.props
-    const response = await ordersService.placeOrder(
-      this.state.location,
-      this.state.offer.id,
-      cart.quantity,
-    )
-    if (response.success) {
-      // this.props.changeView(views.ORDER, {
-      //   order: response.data,
-      //   offer: this.state.offer,
-      //   product: this.props.params.product,
-      //   quantity: this.props.params.quantity
-      // })
-    } else {
-      alert(JSON.stringify(response))
-    }
+    const {cart, place_order_request} = this.props
+    place_order_request({
+      customerLocation: this.state.location,
+      offerId: this.state.offer.id,
+      quantity: cart.quantity
+    })
   }
 
   onCancel = async () => {
-    const { history } = this.props
+    const {history} = this.props
     await offersService.discardOfferAssigment(this.state.offer.id)
     history.push('/quantity')
   }
 
   render() {
-    const { cart } = this.props
+    const {cart} = this.props
     return (
       <AssignedOfferForm
         cart={cart}
@@ -100,12 +91,14 @@ class AssignedOfferView extends React.Component {
 }
 
 function mapStateToProps(state) {
-  const { cart } = state
+  const {cart} = state
   return {
     cart,
   }
 }
 
-const mapDispatchToProps = {}
+const mapDispatchToProps = {
+  place_order_request
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(AssignedOfferView)
