@@ -1,9 +1,8 @@
 import React from 'react'
-import { OrderInfo } from 'src/ui/views/common/components/OrderInfo'
+import {OrderInfo} from 'src/ui/views/common/components/OrderInfo'
 import io from 'socket.io-client'
 import config from 'src/config'
 import Style from './style'
-import * as offersService from '../../../state/services/offers'
 
 class OrderView extends React.Component {
   constructor(props) {

@@ -38,15 +38,6 @@ export const searchForOneProduct = async (customerLocation, product_code, quanti
   return offers.data
 }
 
-export const discardOfferAssigment = async (offerId) => {
-  const request = new DiscardAssignmentRequest.Builder()
-    .withOfferId(offerId)
-    .build()
-  const response = await apiRequester.send(request)
-
-  return _.get(response, 'data', {})
-}
-
 export const addToOffersByProduct = (offersByProduct, offer) => {
   return {
     ...offersByProduct,

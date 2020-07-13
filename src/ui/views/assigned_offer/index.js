@@ -71,7 +71,6 @@ class AssignedOfferView extends React.Component {
 
   onCancel = async () => {
     const {history} = this.props
-    await offersService.discardOfferAssigment(this.state.offer.id)
     history.push('/quantity')
   }
 
