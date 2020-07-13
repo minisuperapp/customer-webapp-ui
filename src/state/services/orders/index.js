@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import * as apiRequester from '../api_requester'
+import * as apiRequester from '../../api'
 import { OrderPlacementRequest } from './requests/place_order'
 import { PendingToDeliverRequest } from './requests/pending_to_deliver'
 

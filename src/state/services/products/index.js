@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import * as apiRequester from '../api_requester'
+import * as apiRequester from '../../api'
 import { GetProductsRequest } from './requests/get_products'
 
 export const get_products = async () => {
