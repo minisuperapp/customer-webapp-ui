@@ -15,7 +15,7 @@ export const place_order = async (order) => {
   return response.data
 }
 
-export const getOrdersPendingToDeliver = async () => {
+export const get_orders_pending_to_deliver = async () => {
   const request = new PendingToDeliverRequest.Builder().build()
   const response = await apiRequester.send(request)
   return _.get(response, 'data.data.orders', [])

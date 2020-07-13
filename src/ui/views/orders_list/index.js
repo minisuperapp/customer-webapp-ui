@@ -10,7 +10,7 @@ class OrdersListView extends React.Component {
     }
   }
   async componentDidMount() {
-    const orders = await orderService.getOrdersPendingToDeliver()
+    const orders = await orderService.get_orders_pending_to_deliver()
     this.setState({ orders })
   }
   render() {
