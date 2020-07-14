@@ -1,15 +1,13 @@
 import React from 'react'
-import {Product} from './Product'
-import css from './styles.module.css'
+import { Product } from './Product'
+import Style from './style'
 
 export class ProductList extends React.Component {
   render() {
     return (
-      <div>
-        <div className={css.textChooseProduct}>
-          Elige tu producto
-        </div>
-        <div className={css.container}>
+      <Style>
+        <div className="textChooseProduct">Elige tu producto</div>
+        <div className="container">
           {this.props.products.map((p) => (
             <Product
               key={p.id}
@@ -19,7 +17,7 @@ export class ProductList extends React.Component {
             />
           ))}
         </div>
-      </div>
+      </Style>
     )
   }
 }
