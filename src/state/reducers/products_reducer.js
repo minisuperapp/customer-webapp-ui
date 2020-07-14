@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import * as types from '../actions/action_types'
 import initial_state from './initial_state'
 import Immutable from 'seamless-immutable'
@@ -8,6 +9,7 @@ export default function reducer(state = initial_state.products, action) {
       return Immutable({
         ...state,
         list: Immutable(action.response),
+        by_code: _.keyBy(action.response, 'code')
       })
     default:
       return state

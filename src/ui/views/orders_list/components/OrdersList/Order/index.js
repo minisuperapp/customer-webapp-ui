@@ -1,8 +1,10 @@
 import React from 'react'
-
+import Style from './style'
 
 export class Order extends React.Component {
   render() {
+    const { order, products_by_code } = this.props
+    const product = products_by_code[order.product_code] || {}
     const status = {
       STARTED: 'Iniciada',
       PLACED: 'Ordenada',
@@ -13,21 +15,16 @@ export class Order extends React.Component {
       CANCELED_BY_DELIVERER: 'Cancelada por el proveedor',
     }
     return (
-      <tr>
-        <td>{this.props.order.id}</td>
-        <td>{this.props.order.product_code}</td>
-        <td>{this.props.order.product_quantity}</td>
-        <td>{status[this.props.order.status]} </td>
-        <td>
-          <button
-          //   onClick={() =>
-          //   this.props.changeView(views.ORDER_DETAILS, {
-          //     order: this.props.order
-          //   })
-          // }
-          >Ver detalles</button>
-        </td>
-      </tr>
+      <Style>
+        <div className="header">{status[order.status]}</div>
+        <div className="content">
+          <div>#{order.id}</div>
+          <div>{product.name}</div>
+          <div>
+            {order.product_quantity} {product.quantity_type}
+          </div>
+        </div>
+      </Style>
     )
   }
 }

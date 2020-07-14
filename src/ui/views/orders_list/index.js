@@ -1,8 +1,7 @@
 import React from 'react'
 import { OrdersList } from './components/OrdersList'
-import * as orderService from '../../../state/services/orders/index'
 import { connect } from 'react-redux'
-import { get_current_orders_request } from '../../../state/actions/order_actions'
+import { get_current_orders_request } from 'src/state/actions/order_actions'
 
 class OrdersListView extends React.Component {
   constructor(props) {
@@ -13,15 +12,16 @@ class OrdersListView extends React.Component {
     get_current_orders_request()
   }
   render() {
-    const { orders } = this.props
-    return <OrdersList orders={orders} />
+    const { orders, products_by_code } = this.props
+    return <OrdersList orders={orders} products_by_code={products_by_code} />
   }
 }
 
 function mapStateToProps(state) {
-  const { orders } = state
+  const { orders, products } = state
   return {
     orders,
+    products_by_code: products.by_code
   }
 }
 

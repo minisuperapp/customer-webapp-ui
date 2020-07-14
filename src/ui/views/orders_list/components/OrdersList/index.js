@@ -1,24 +1,16 @@
 import React from 'react'
 import { Order } from './Order'
+import Style from './style'
 
 export class OrdersList extends React.Component {
   render() {
-    const { orders } = this.props
-
+    const { orders, products_by_code } = this.props
     return (
-      <div>
-        <table>
-          <tr>
-            <th>Id</th>
-            <th>Producto</th>
-            <th>Cantidad</th>
-            <th>Estado</th>
-          </tr>
-          {orders.map((o) => {
-            return <Order key={o.id} order={o} />
-          })}
-        </table>
-      </div>
+      <Style>
+        {orders.map((o) => {
+          return <Order key={o.id} order={o} products_by_code={products_by_code} />
+        })}
+      </Style>
     )
   }
 }
