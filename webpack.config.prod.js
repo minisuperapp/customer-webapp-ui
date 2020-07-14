@@ -14,7 +14,7 @@ module.exports = {
   output: {
     //webpack dev uses memory but we need to specify this anyway
     path: path.resolve(__dirname, 'build'),
-    publicPath: '/',
+    publicPath: '/comprar/',
     filename: '[name].[contentHash].js',
   },
   resolve: {
