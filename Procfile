@@ -1,1 +1,1 @@
-web: http-server --proxy $HOST/comprar/? ./build
+web: http-server --proxy $HOST? ./build
