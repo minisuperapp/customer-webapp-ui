@@ -32,7 +32,7 @@ module.exports = {
     new webpack.DefinePlugin({
       // This global makes sure React is built in prod mode.
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-      'process.env.API_HOST': JSON.stringify('https://minisuper-customer-api.herokuapp.com'),
+      'process.env.API_HOST': JSON.stringify('https://www.minisuper.app/comprar/api/'),
     }),
     // It adds reference to the js bundles into the index.html file
     new HtmlWebpackPlugin({
