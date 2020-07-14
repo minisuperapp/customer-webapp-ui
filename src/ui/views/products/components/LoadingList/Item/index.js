@@ -1,12 +1,8 @@
 import React from 'react'
-import css from './styles.module.css'
+import Style from './style'
 
 export class Item extends React.Component {
   render() {
-    return (
-      <div className={css.container}>
-
-      </div>
-    )
+    return <Style className="container"></Style>
   }
 }
