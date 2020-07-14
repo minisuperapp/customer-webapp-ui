@@ -21,6 +21,7 @@ module.exports = {
   },
   get socketPayload() {
     const payload = {}
+    payload.path = "/comprar/socket.io"
     if (this.isTestEnv) {
       payload.query = 'is-test=true'
     }
