@@ -11,9 +11,20 @@ class OrdersListView extends React.Component {
     const { get_current_orders_request } = this.props
     get_current_orders_request()
   }
+  go_to_products = () => {
+    const { history } = this.props
+    history.push('/')
+  }
+
   render() {
     const { orders, products_by_code } = this.props
-    return <OrdersList orders={orders} products_by_code={products_by_code} />
+    return (
+      <OrdersList
+        orders={orders}
+        products_by_code={products_by_code}
+        go_to_products={this.go_to_products}
+      />
+    )
   }
 }
 
@@ -21,7 +32,7 @@ function mapStateToProps(state) {
   const { orders, products } = state
   return {
     orders,
-    products_by_code: products.by_code
+    products_by_code: products.by_code,
   }
 }
 
