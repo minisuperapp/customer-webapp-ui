@@ -1,3 +1,6 @@
+import styled from 'styled-components'
+
+export default styled.div`
 .container {
     margin-top: 14px;
     background-color: #FFFFFF;
@@ -78,3 +81,4 @@
     color: white;
     background-color: #1f32a2;
 }
+`

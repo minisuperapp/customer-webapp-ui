@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import css from './styles.module.css'
+import Style from './style'
 import * as images from 'src/ui/views/common/images'
 
 export class Product extends Component {
@@ -14,26 +14,26 @@ export class Product extends Component {
       ? `$${this.props.lowestPrice}  ${this.props.product.quantity_type}`
       : 'No disponible'
     return (
-      <div className={css.container}>
-        <div className={css.image} style={style} />
-        <div className={css.mainPanel}>
-          <div className={css.textTitle}> {this.props.product.name}</div>
-          <div className={css.buyPanel}>
-            <div className={css.price}>{price}</div>
+      <Style className="container">
+        <div className="image" style={style} />
+        <div className="mainPanel">
+          <div className="textTitle"> {this.props.product.name}</div>
+          <div className="buyPanel">
+            <div className="price">{price}</div>
           </div>
           {this.props.lowestPrice ? (
             <button
-              className={css.button}
+              className="button"
               onClick={this.props.handleProductSelection(this.props.product)}>
               Comprar
             </button>
           ) : (
-            <button className={css.requestButton} onClick={() => alert('Producto solicitado.')}>
+            <button className="requestButton" onClick={() => alert('Producto solicitado.')}>
               Solicitar
             </button>
           )}
         </div>
-      </div>
+      </Style>
     )
   }
 }
