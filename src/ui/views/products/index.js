@@ -1,13 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Bluebird from 'bluebird'
 import { set_selected_product } from 'src/state/actions/cart_actions'
-import * as offersService from 'src/state/services/offers'
-import * as orderService from 'src/state/services/orders'
+import { get_current_orders_request } from 'src/state/actions/order_actions'
 import { ProductList } from './components/ProductList'
 import { LoadingList } from './components/LoadingList'
-import config from 'src/config'
-import io from 'socket.io-client'
 
 import Style from './style'
 
@@ -18,20 +14,13 @@ class ProductsView extends Component {
       offersByProduct: {},
       lowestPriceByProduct: {},
       error: '',
-      currentOrders: [],
       locationDisabled: false,
     }
-    this.socket = {}
   }
 
   async componentDidMount() {
-    this.socket = io(config.API_HOST, config.socketPayload)
-    this.socket.emit('subscribe_for_offers_updates', location, function () {})
-    this.socket.on('published_offer', (offer) => this._processNewOffer(offer))
-
-    const [currentOrders] = await Bluebird.join(orderService.getOrdersPendingToDeliver())
-
-    this.setState({ currentOrders })
+    const { get_current_orders_request } = this.props
+    get_current_orders_request()
   }
 
   handleProductSelection = (product) => () => {
@@ -40,21 +29,13 @@ class ProductsView extends Component {
     history.push('/quantity')
   }
 
-  _processNewOffer = (offer) => {
-    const offersByProduct = offersService.addToOffersByProduct(this.state.offersByProduct, offer)
-    this.setState({ offersByProduct })
-
-    if (offersService.isLowestPrice(this.state.lowestPriceByProduct, offer)) {
-      const lowestPriceByProduct = offersService.addToLowestPriceByProduct(
-        this.state.lowestPriceByProduct,
-        offer,
-      )
-      this.setState({ lowestPriceByProduct })
-    }
+  handleNavigateToOrdersList = () => {
+    const { history } = this.props
+    history.push('/orders_list')
   }
 
   render() {
-    const { products, lowest_price_by_product } = this.props
+    const { products, lowest_price_by_product, orders } = this.props
     if (this.state.locationDisabled === true) {
       return 'Habilita tu localización'
     }
@@ -68,20 +49,13 @@ class ProductsView extends Component {
           lowest_price_by_product={lowest_price_by_product}
           handleProductSelection={this.handleProductSelection}
         />
-        {!!this.state.currentOrders.length && (
-          <button
-            className="ordersButton"
-            // onClick={() => this.props.changeView(views.ORDERS_LIST)}
-          >
-            Ver órdenes ({this.state.currentOrders.length})
+        {!!orders.length && (
+          <button className="ordersButton" onClick={this.handleNavigateToOrdersList}>
+            Ver órdenes ({orders.length})
           </button>
         )}
       </Style>
     )
-  }
-
-  componentWillUnmount() {
-    this.socket.disconnect()
   }
 }
 
@@ -89,15 +63,18 @@ function mapStateToProps(state) {
   const {
     products,
     offers: { lowest_price_by_product },
+    orders,
   } = state
   return {
     products: products.list,
     lowest_price_by_product,
+    orders,
   }
 }
 
 const mapDispatchToProps = {
   set_selected_product,
+  get_current_orders_request,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsView)

@@ -3,6 +3,8 @@ import { Order } from './Order'
 
 export class OrdersList extends React.Component {
   render() {
+    const { orders } = this.props
+
     return (
       <div>
         <table>
@@ -12,8 +14,8 @@ export class OrdersList extends React.Component {
             <th>Cantidad</th>
             <th>Estado</th>
           </tr>
-          {this.props.orders.map((o) => {
-            return <Order key={o.id} order={o} changeView={this.props.changeView} />
+          {orders.map((o) => {
+            return <Order key={o.id} order={o} />
           })}
         </table>
       </div>

@@ -1,21 +1,32 @@
 import React from 'react'
 import { OrdersList } from './components/OrdersList'
-import * as orderService from "../../../state/services/orders/index";
+import * as orderService from '../../../state/services/orders/index'
+import { connect } from 'react-redux'
+import { get_current_orders_request } from '../../../state/actions/order_actions'
 
 class OrdersListView extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      orders: [],
-    }
   }
   async componentDidMount() {
-    const orders = await orderService.getOrdersPendingToDeliver()
-    this.setState({ orders })
+    const { get_current_orders_request } = this.props
+    get_current_orders_request()
   }
   render() {
-    return <OrdersList {...this.state} changeView={this.props.changeView} />
+    const { orders } = this.props
+    return <OrdersList orders={orders} />
   }
 }
 
-export default OrdersListView
+function mapStateToProps(state) {
+  const { orders } = state
+  return {
+    orders,
+  }
+}
+
+const mapDispatchToProps = {
+  get_current_orders_request,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(OrdersListView)
