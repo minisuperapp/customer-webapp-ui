@@ -42,7 +42,7 @@ class App extends Component {
       <Style>
         <Header />
         <Switch>
-          <Route exact path="/" component={ProductsView} />
+          <Route exact path={`/${process.env.SUBDIR}/`} component={ProductsView} />
           <Route exact path="/quantity" component={QuantityView} />
           <Route exact path="/assigned_offer" component={AssignedOfferView} />
           <Route exact path="/change_deliverer" component={ChangeDelivererView} />

@@ -1,5 +1,4 @@
 import * as offersService from 'src/state/services/offers'
-import * as ordersService from 'src/state/services/orders'
 import {place_order_request} from 'src/state/actions/order_actions'
 import React from 'react'
 import {AssignedOfferForm} from './components/AssignedOfferForm'

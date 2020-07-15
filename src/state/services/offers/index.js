@@ -4,7 +4,6 @@ import * as apiRequester from '../../api'
 import { OffersGroupedByProductRequest } from './requests/search_for_all_products'
 import { SearchOffersForOneProductRequest } from './requests/search_for_one_product'
 import { AssignBestOfferRequest } from './requests/assign_best'
-import { DiscardAssignmentRequest } from './requests/discard_assigment'
 
 export const get_offers_by_product = async (customerLocation) => {
   const offersRequest = new OffersGroupedByProductRequest.Builder()

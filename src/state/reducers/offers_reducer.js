@@ -1,8 +1,12 @@
 import * as types from '../actions/action_types'
 import initial_state from './initial_state'
 import Immutable from 'seamless-immutable'
-import { get_lowest_price_by_product } from '../services/offers'
-import * as offersService from '../services/offers'
+import {
+  addToLowestPriceByProduct,
+  isLowestPrice,
+  addToOffersByProduct,
+  get_lowest_price_by_product,
+} from '../services/offers'
 
 export default function reducer(state = initial_state.offers, action) {
   switch (action.type) {
@@ -13,11 +17,10 @@ export default function reducer(state = initial_state.offers, action) {
         lowest_price_by_product: get_lowest_price_by_product(action.response),
       })
     case types.LISTEN_PUBLISHED_OFFER_RESPONSE: {
-      debugger
-      const by_product = offersService.addToOffersByProduct(state.by_product, action.offer)
+      const by_product = addToOffersByProduct(state.by_product, action.offer)
       let lowest_price_by_product
-      if (offersService.isLowestPrice(state.lowest_price_by_product, action.offer)) {
-        lowest_price_by_product = offersService.addToLowestPriceByProduct(
+      if (isLowestPrice(state.lowest_price_by_product, action.offer)) {
+        lowest_price_by_product = addToLowestPriceByProduct(
           state.lowest_price_by_product,
           action.offer,
         )
