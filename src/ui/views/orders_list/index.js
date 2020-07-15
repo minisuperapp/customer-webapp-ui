@@ -2,6 +2,7 @@ import React from 'react'
 import { OrdersList } from './components/OrdersList'
 import { connect } from 'react-redux'
 import { get_current_orders_request } from 'src/state/actions/order_actions'
+import { paths } from 'src/constants'
 
 class OrdersListView extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class OrdersListView extends React.Component {
   }
   go_to_products = () => {
     const { history } = this.props
-    history.push('/')
+    history.push(paths.home)
   }
 
   render() {

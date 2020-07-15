@@ -13,6 +13,7 @@ import Style from './style'
 import { get_product_request } from '../state/actions/product_actions'
 import { get_offers_by_product_request } from '../state/actions/offer_actions'
 import { connect } from 'react-redux'
+import { paths } from 'src/constants'
 
 class App extends Component {
   async componentDidMount() {
@@ -42,14 +43,14 @@ class App extends Component {
       <Style>
         <Header />
         <Switch>
-          <Route exact path={`/${process.env.SUBDIR}/`} component={ProductsView} />
-          <Route exact path="/quantity" component={QuantityView} />
-          <Route exact path="/assigned_offer" component={AssignedOfferView} />
-          <Route exact path="/change_deliverer" component={ChangeDelivererView} />
-          <Route exact path="/order" component={OrderView} />
-          <Route exact path="/orders_list" component={OrdersListView} />
-          <Route exact path="/order_details" component={OrdersDetailsView} />
-          <Route exact path="/register" component={Register} />
+          <Route exact path={paths.home} component={ProductsView} />
+          <Route exact path={paths.quantity} component={QuantityView} />
+          <Route exact path={paths.assigned_offer} component={AssignedOfferView} />
+          <Route exact path={paths.change_deliverer} component={ChangeDelivererView} />
+          <Route exact path={paths.order} component={OrderView} />
+          <Route exact path={paths.orders_list} component={OrdersListView} />
+          <Route exact path={paths.order_details} component={OrdersDetailsView} />
+          <Route exact path={paths.register} component={Register} />
         </Switch>
       </Style>
     )

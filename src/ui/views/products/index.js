@@ -6,6 +6,7 @@ import { ProductList } from './components/ProductList'
 import { LoadingList } from './components/LoadingList'
 
 import Style from './style'
+import { paths } from 'src/constants'
 
 class ProductsView extends Component {
   constructor(props) {
@@ -23,15 +24,15 @@ class ProductsView extends Component {
     get_current_orders_request()
   }
 
-  handleProductSelection = (product) => () => {
+  handleProductSelection = product => () => {
     const { history, set_selected_product } = this.props
     set_selected_product(product)
-    history.push('/quantity')
+    history.push(paths.quantity)
   }
 
   handleNavigateToOrdersList = () => {
     const { history } = this.props
-    history.push('/orders_list')
+    history.push(paths.orders_list)
   }
 
   render() {

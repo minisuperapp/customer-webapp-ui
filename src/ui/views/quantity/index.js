@@ -2,6 +2,7 @@ import React from 'react'
 import { QuantityForm } from './components/QuantityForm'
 import { set_selected_quantity } from 'src/state/actions/cart_actions'
 import { connect } from 'react-redux'
+import { paths } from 'src/constants'
 
 class QuantityView extends React.Component {
   state = {
@@ -27,7 +28,7 @@ class QuantityView extends React.Component {
   goToAssignedOffer = () => {
     const { history, set_selected_quantity } = this.props
     set_selected_quantity(this.state.quantity)
-    history.push('/assigned_offer')
+    history.push(paths.assigned_offer)
   }
 
   addQuantity = () => {
@@ -39,7 +40,7 @@ class QuantityView extends React.Component {
   }
 
   goToProducts = () => {
-    this.props.history.push('/')
+    this.props.history.push(paths.home)
   }
 
   subtractQuantity = () => {

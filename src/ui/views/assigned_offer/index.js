@@ -3,6 +3,7 @@ import {place_order_request} from 'src/state/actions/order_actions'
 import React from 'react'
 import {AssignedOfferForm} from './components/AssignedOfferForm'
 import {connect} from 'react-redux'
+import { paths } from 'src/constants'
 
 class AssignedOfferView extends React.Component {
   constructor(props) {
@@ -70,7 +71,7 @@ class AssignedOfferView extends React.Component {
 
   onCancel = async () => {
     const {history} = this.props
-    history.push('/quantity')
+    history.push(paths.quantity)
   }
 
   render() {

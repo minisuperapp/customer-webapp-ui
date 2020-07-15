@@ -3,6 +3,7 @@ import {OrderInfo} from 'src/ui/views/common/components/OrderInfo'
 import io from 'socket.io-client'
 import config from 'src/config'
 import Style from './style'
+import { paths } from 'src/constants'
 
 class OrderView extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class OrderView extends React.Component {
 
   goToProducts = () => {
     const { history } = this.props
-    history.push('/products')
+    history.push(paths.home)
   }
 
   async componentDidMount() {
