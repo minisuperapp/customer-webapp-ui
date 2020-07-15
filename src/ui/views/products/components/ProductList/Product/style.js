@@ -1,56 +1,55 @@
 import styled from 'styled-components'
 
 export default styled.div`
-.container {
-    margin-top: 14px;
-    background-color: #FFFFFF;
-    border-radius: 10px;
-    box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08);
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 6em;
-}
+  border: 1px solid black;
+  margin-top: 14px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 6em;
 
-.image {
+  .image {
     margin-right: 1em;
     height: 80%;
     width: 100%;
     max-width: 100px;
-    background: #FFFFFF no-repeat right;
+    background: #ffffff no-repeat right;
     background-size: contain;
-}
+  }
 
-.mainPanel {
+  .mainPanel {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     width: 100%;
-}
+  }
 
-.textTitle {
+  .textTitle {
     margin-left: 5px;
     font-family: SFProText-Bold, serif;
     font-size: 24px;
     color: #212121;
-}
+  }
 
-.buyPanel {
+  .buyPanel {
     display: flex;
     flex-direction: column;
-}
+  }
 
-.price {
+  .price {
     margin-left: 0.5em;
     font-family: SFProTextRegular, sans-serif;
     font-size: 18px;
     color: #212121;
     clear: right;
-}
+  }
 
-.button {
+  .button {
     margin-top: 0.5em;
     /*position: relative;*/
     /*right: -8em;*/
@@ -64,9 +63,9 @@ export default styled.div`
     box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
     color: white;
     background-color: #49a25b;
-}
+  }
 
-.requestButton {
+  .requestButton {
     margin-top: 0.5em;
     /*position: relative;*/
     /*right: -8em;*/
@@ -80,5 +79,5 @@ export default styled.div`
     /*box-shadow: 0 2px 8px 0 rgb(31, 66, 162);*/
     color: white;
     background-color: #1f32a2;
-}
+  }
 `

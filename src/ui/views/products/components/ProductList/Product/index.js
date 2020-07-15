@@ -14,7 +14,7 @@ export class Product extends Component {
       ? `$${this.props.lowestPrice}  ${this.props.product.quantity_type}`
       : 'No disponible'
     return (
-      <Style className="container">
+      <Style>
         <div className="image" style={style} />
         <div className="mainPanel">
           <div className="textTitle"> {this.props.product.name}</div>
