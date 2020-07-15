@@ -6,7 +6,7 @@ import { routerMiddleware } from 'connected-react-router'
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant'
 import { init_sagas } from './sagas/init_sagas'
 
-export const history = createBrowserHistory()
+export const history = createBrowserHistory({ basename: '/comprar' })
 
 export default function configure_store(initial_state) {
   const sagaMiddleware = createSagaMiddleware()
