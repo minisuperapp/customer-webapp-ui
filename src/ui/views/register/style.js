@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export default styled.div`
   display: flex;
+  flex-direction: column;
   align-self: center;
   border: 1px solid black;
   border-top-left-radius: 5px;
