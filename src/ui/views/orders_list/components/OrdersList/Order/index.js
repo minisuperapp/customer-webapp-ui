@@ -19,10 +19,12 @@ export class Order extends React.Component {
       <Style>
         <div className="header">{status[order.status]}</div>
         <div className="content">
-          <div>#{order.id}</div>
-          <div>{product.name}</div>
-          <div>
-            {order.product_quantity} {product.quantity_type}
+          <div className="info">
+            <div>#{order.id}</div>
+            <div>{product.name}</div>
+            <div>
+              {order.product_quantity} {product.quantity_type}
+            </div>
           </div>
           <div className="image">
             <img width="100px" height="100px" src={imageURL} alt="imagen del producto" />
