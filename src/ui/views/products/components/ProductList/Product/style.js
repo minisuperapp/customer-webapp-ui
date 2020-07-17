@@ -2,17 +2,18 @@ import styled from 'styled-components'
 
 export default styled.div`
   border: 1px solid black;
-  margin-top: 14px;
+  margin-top: 1em;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
   height: 6em;
+  width: 20em;
+  margin-right: 1em;
 
-  .image {
+  & .image {
     margin-right: 1em;
     height: 80%;
     width: 100%;
@@ -21,7 +22,7 @@ export default styled.div`
     background-size: contain;
   }
 
-  .mainPanel {
+  & .main_panel {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -29,19 +30,14 @@ export default styled.div`
     width: 100%;
   }
 
-  .textTitle {
+  & .text_title {
     margin-left: 5px;
     font-family: SFProText-Bold, serif;
     font-size: 24px;
     color: #212121;
   }
-
-  .buyPanel {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .price {
+  
+  & .price {
     margin-left: 0.5em;
     font-family: SFProTextRegular, sans-serif;
     font-size: 18px;
@@ -49,11 +45,8 @@ export default styled.div`
     clear: right;
   }
 
-  .button {
+  & button {
     margin-top: 0.5em;
-    /*position: relative;*/
-    /*right: -8em;*/
-    /*top: -0.2em;*/
     font-family: SFProTextRegular, serif;
     font-size: 16px;
     border-radius: 18px;
@@ -63,21 +56,5 @@ export default styled.div`
     box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
     color: white;
     background-color: #49a25b;
-  }
-
-  .requestButton {
-    margin-top: 0.5em;
-    /*position: relative;*/
-    /*right: -8em;*/
-    /*top: -0.2em;*/
-    font-family: SFProTextRegular, serif;
-    font-size: 16px;
-    border-radius: 18px;
-    width: 100%;
-    max-width: 100px;
-    cursor: pointer;
-    /*box-shadow: 0 2px 8px 0 rgb(31, 66, 162);*/
-    color: white;
-    background-color: #1f32a2;
   }
 `

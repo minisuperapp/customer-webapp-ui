@@ -14,11 +14,9 @@ export class Product extends Component {
     return (
       <Style>
         <div className="image" style={style} />
-        <div className="mainPanel">
-          <div className="textTitle"> {this.props.product.name}</div>
-          <div className="buyPanel">
-            <div className="price">{price}</div>
-          </div>
+        <div className="main_panel">
+          <div className="text_title"> {this.props.product.name}</div>
+          <div className="price">{price}</div>
           {this.props.lowestPrice ? (
             <button
               className="button"
@@ -26,9 +24,7 @@ export class Product extends Component {
               Comprar
             </button>
           ) : (
-            <button className="requestButton" onClick={() => alert('Producto solicitado.')}>
-              Solicitar
-            </button>
+            <></>
           )}
         </div>
       </Style>
