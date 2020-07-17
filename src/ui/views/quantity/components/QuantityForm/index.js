@@ -10,7 +10,7 @@ export class QuantityForm extends React.Component {
       price,
     } = this.props
     const style = {
-      backgroundImage: `url(${images.getProductImageURL(product.code.toLocaleLowerCase())})`,
+      backgroundImage: `url(${images.getProductImageURL(product.code)})`,
     }
     return (
       <Style>

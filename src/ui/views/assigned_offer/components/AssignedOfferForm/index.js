@@ -6,7 +6,7 @@ export class AssignedOfferForm extends React.Component {
   render() {
     const { cart } = this.props
     const style = {
-      backgroundImage: `url(${images.getProductImageURL(cart.product.code.toLocaleLowerCase())})`,
+      backgroundImage: `url(${images.getProductImageURL(cart.product.code)})`,
     }
     return (
       <Style>
