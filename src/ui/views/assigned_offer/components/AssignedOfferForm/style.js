@@ -5,12 +5,14 @@ export default styled.div`
   flex-direction: column;
   width: 100%;
   max-width: 350px;
-  margin: 1em auto .delivererContainer {
+  margin: 1em auto;
+  
+  & .delivererContainer {
     display: flex;
     flex-direction: column;
   }
 
-  .delivererName {
+  & .delivererName {
     font-family: SFProText-Regular, serif;
     font-size: 16px;
     color: black;
@@ -19,7 +21,7 @@ export default styled.div`
     margin-bottom: 1em;
   }
 
-  .changeDelivererButton {
+  & .changeDelivererButton {
     border-color: #49a25b;
     background-color: white;
     box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
@@ -33,58 +35,58 @@ export default styled.div`
     margin: 0 auto;
   }
 
-  .offerContainer {
+  & .offerContainer {
     display: flex;
     flex-direction: column;
     margin-top: 2em;
   }
 
-  .productContainer {
+  & .productContainer {
     display: flex;
     flex-direction: row;
     width: 100%;
   }
 
-  .image {
+  & .image {
     flex: 1;
     margin: 1em auto auto 1em;
     justify-content: center;
-    align-items: right;
+    align-items: flex-end;
     background-size: contain;
     background-repeat: no-repeat;
     height: 100px;
     width: 100px;
   }
 
-  .productDetailsContainer {
+  & .productDetailsContainer {
     flex: 1;
     justify-content: center;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    align-items: left;
+    align-items: flex-start;
   }
 
-  .productName {
+  & .productName {
     font-family: SFProText-Regular, serif;
     font-size: 18px;
     font-weight: bold;
     color: #212121;
   }
 
-  .productPrice {
+  & .productPrice {
     font-family: SFProText-Regular, serif;
     font-size: 16px;
     color: #212121;
   }
 
-  .totalContainer {
+  & .totalContainer {
     display: flex;
     flex-direction: row;
     margin: 1em auto;
   }
 
-  .textTitle {
+  & .textTitle {
     alignment: left;
     font-family: SFProText-Bold, serif;
     font-size: 16px;
@@ -92,7 +94,7 @@ export default styled.div`
     margin-left: 1em;
   }
 
-  .buttonContainer {
+  & .buttonContainer {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -100,7 +102,7 @@ export default styled.div`
     margin: 1em auto;
   }
 
-  .button {
+  & .button {
     background-color: #49a25b;
     box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
     font-family: SFProTextRegular, serif;
@@ -113,7 +115,7 @@ export default styled.div`
     margin-left: 0.5em;
   }
 
-  .disabledButton {
+  & .disabledButton {
     background-color: #b5bbb7;
     box-shadow: 0 2px 8px 0 rgb(162, 156, 162);
     font-family: SFProTextRegular, serif;
@@ -125,7 +127,7 @@ export default styled.div`
     margin-left: 0.5em;
   }
 
-  .backButton {
+  & .backButton {
     border-color: #a24d0d;
     box-shadow: 0 2px 8px 0 rgb(162, 77, 13);
     font-family: SFProTextRegular, serif;

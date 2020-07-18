@@ -7,21 +7,19 @@ import { LoadingList } from './components/LoadingList'
 
 import Style from './style'
 import { paths } from 'src/constants'
+import { get_product_request } from 'src/state/actions/product_actions'
+import { get_offers_by_product_request } from 'src/state/actions/offer_actions'
 
 class ProductsView extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      offersByProduct: {},
-      lowestPriceByProduct: {},
-      error: '',
-      locationDisabled: false,
-    }
-  }
-
   async componentDidMount() {
-    const { get_current_orders_request } = this.props
+    const {
+      get_current_orders_request,
+      get_offers_by_product_request,
+      get_product_request,
+    } = this.props
     get_current_orders_request()
+    get_product_request()
+    get_offers_by_product_request()
   }
 
   handleProductSelection = product => () => {
@@ -37,9 +35,6 @@ class ProductsView extends Component {
 
   render() {
     const { products, lowest_price_by_product, orders } = this.props
-    if (this.state.locationDisabled === true) {
-      return 'Habilita tu localización'
-    }
     if (!products.length) {
       return <LoadingList />
     }
@@ -76,6 +71,8 @@ function mapStateToProps(state) {
 const mapDispatchToProps = {
   set_selected_product,
   get_current_orders_request,
+  get_product_request,
+  get_offers_by_product_request,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsView)

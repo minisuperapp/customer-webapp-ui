@@ -16,12 +16,6 @@ import { connect } from 'react-redux'
 import { paths } from 'src/constants'
 
 class App extends Component {
-  async componentDidMount() {
-    const { get_product_request, get_offers_by_product_request } = this.props
-    get_product_request()
-    get_offers_by_product_request()
-  }
-
   render() {
     return (
       <Style>
