@@ -12,6 +12,7 @@ export class AssignedOfferForm extends React.Component {
     }
     return (
       <Style>
+        <div className="title">Verifica tu pedido</div>
         <div className="delivererContainer">
           <div className="textTitle">TU REPARTIDOR:</div>
           <div className="delivererName">{deliverer_name}</div>

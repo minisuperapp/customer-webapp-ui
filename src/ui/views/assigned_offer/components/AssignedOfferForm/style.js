@@ -6,8 +6,17 @@ export default styled.div`
   width: 100%;
   max-width: 350px;
   margin: 1em auto;
-  
+
+  .title {
+    font-family: SFProText-Bold, serif;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   & .delivererContainer {
+    margin-top: 1em;
     display: flex;
     flex-direction: column;
   }

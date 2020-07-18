@@ -14,6 +14,7 @@ export class QuantityForm extends React.Component {
     }
     return (
       <Style>
+        <div className="title">Ingresa la cantidad</div>
         <div className="image" style={style} />
         <div className="productName">{product.name}</div>
         <Label value={'$' + price + ' / ' + product.quantity_type + ' (aprox.)'} />
