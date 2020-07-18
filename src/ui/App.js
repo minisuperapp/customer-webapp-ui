@@ -10,8 +10,8 @@ import OrdersListView from './views/orders_list'
 import OrdersDetailsView from './views/order_details'
 import Register from './views/register'
 import Style from './style'
-import { get_product_request } from '../state/actions/product_actions'
-import { get_offers_by_product_request } from '../state/actions/offer_actions'
+import { get_product_request } from 'src/state/actions/product_actions'
+import { get_offers_by_product_request } from 'src/state/actions/offer_actions'
 import { connect } from 'react-redux'
 import { paths } from 'src/constants'
 
@@ -19,23 +19,7 @@ class App extends Component {
   async componentDidMount() {
     const { get_product_request, get_offers_by_product_request } = this.props
     get_product_request()
-    try {
-      const position = await this._getPosition()
-      get_offers_by_product_request({
-        latitude: position.coords.latitude,
-        longitude: position.coords.longitude,
-      })
-    } catch (e) {
-      this.setState({
-        locationDisabled: true,
-      })
-    }
-  }
-
-  _getPosition = () => {
-    return new Promise((success, error) => {
-      navigator.geolocation.getCurrentPosition(success, error)
-    })
+    get_offers_by_product_request()
   }
 
   render() {

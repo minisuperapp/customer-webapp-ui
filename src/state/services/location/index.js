@@ -6,7 +6,10 @@ export const get_location = async () => {
       longitude: location.coords.longitude,
     }
   } catch (e) {
-    alert('Enable your location.')
+    return {
+      latitude: '28.1874198',
+      longitude: '-105.4671407',
+    }
   }
 }
 

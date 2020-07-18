@@ -4,19 +4,19 @@ import { get_offers_by_product_response, listen_published_offer_response } from 
 import * as offers_api from 'src/state/services/offers'
 import * as types from 'src/state/actions/action_types'
 import { connect } from 'src/state/api/socket'
-import { get_location } from 'src/state/services/location'
+import * as location_api from 'src/state/services/location'
 
 export function* get_offers_by_product() {
-  yield takeEvery(types.GET_OFFERS_BY_PRODUCT_REQUEST, function* (data) {
-    const { customer_location } = data
-    const response = yield call(offers_api.get_offers_by_product, customer_location)
+  yield takeEvery(types.GET_OFFERS_BY_PRODUCT_REQUEST, function* () {
+    const location = yield call(location_api.get_location)
+    const response = yield call(offers_api.get_offers_by_product, location)
     yield put(get_offers_by_product_response(response))
   })
 }
 
 export function* listen_published_offers() {
   const socket = connect()
-  const location = yield call(get_location)
+  const location = yield call(location_api.get_location)
   socket.emit('subscribe_for_offers_updates', location, function () {})
   const chan = new eventChannel((emit) => {
     socket.on('published_offer', (offer) => {
