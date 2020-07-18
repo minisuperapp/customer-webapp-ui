@@ -58,7 +58,6 @@ class QuantityView extends React.Component {
 
   render() {
     const { cart, price } = this.props
-    debugger
     const quantity = Math.max(
       this.state.quantity,
       Number(_.get(cart, 'product.minimum_buying_quantity', '0')),
