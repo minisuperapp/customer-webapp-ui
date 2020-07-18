@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 
 export default styled.div`
-  .textChooseProduct {
+  margin-top: 1em;
+  
+  .title {
     font-family: SFProText-Bold, serif;
     font-size: 24px;
     display: flex;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Header from './views/header'
+import SubHeader from './views/subheader'
 import ProductsView from './views/products'
 import QuantityView from './views/quantity'
 import AssignedOfferView from './views/assigned_offer'
@@ -26,6 +27,7 @@ class App extends Component {
     return (
       <Style>
         <Header />
+        <SubHeader />
         <Switch>
           <Route exact path={paths.home} component={ProductsView} />
           <Route exact path={paths.quantity} component={QuantityView} />

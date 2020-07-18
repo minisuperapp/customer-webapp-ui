@@ -6,7 +6,7 @@ export class ProductList extends React.Component {
   render() {
     return (
       <Style>
-        <div className="textChooseProduct">Elige tu producto</div>
+        <div className="title">Elige tu producto</div>
         <div className="container">
           {this.props.products.map((p) => (
             <Product
