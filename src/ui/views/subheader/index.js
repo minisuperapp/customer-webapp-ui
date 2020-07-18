@@ -5,7 +5,7 @@ import { paths } from 'src/constants'
 
 class SubHeader extends Component {
   refresh = () => {
-    this.setState(this.state)
+    this.setState({})
   }
   render() {
     const active_page = window.location.pathname

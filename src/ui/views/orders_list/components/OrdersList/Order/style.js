@@ -3,10 +3,11 @@ import styled from 'styled-components'
 export default styled.div`
   border: 1px solid black;
   border-radius: 5px;
+  margin-top: 1em;
+  margin-right: 0.5em;
+  margin-left: 0.5em;
   width: 15em;
   padding: 0.5em;
-  margin-top: 1em;
-  margin-left: 1em;
 
   & .image {
     text-align: right;

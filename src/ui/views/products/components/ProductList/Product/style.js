@@ -3,6 +3,8 @@ import styled from 'styled-components'
 export default styled.div`
   border: 1px solid black;
   margin-top: 1em;
+  margin-right: 0.5em;
+  margin-left: 0.5em;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08);
@@ -11,7 +13,6 @@ export default styled.div`
   align-items: center;
   height: 6em;
   width: 20em;
-  margin-right: 1em;
 
   & .image {
     margin-right: 1em;
@@ -36,7 +37,7 @@ export default styled.div`
     font-size: 24px;
     color: #212121;
   }
-  
+
   & .price {
     margin-left: 0.5em;
     font-family: SFProTextRegular, sans-serif;

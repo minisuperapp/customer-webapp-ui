@@ -8,7 +8,7 @@ export class OrdersList extends React.Component {
     return (
       <Style>
         <div className="title">Mis Ordenes</div>
-        <div className="products">
+        <div className="orders">
           {orders.map((o) => {
             return <Order key={o.id} order={o} products_by_code={products_by_code} />
           })}
