@@ -1,10 +1,12 @@
 import React from 'react'
+import _ from 'lodash'
 import Style from './style'
 import * as images from 'src/ui/views/common/images'
 
 export class AssignedOfferForm extends React.Component {
   render() {
-    const { cart } = this.props
+    const { cart, offer, changeDeliverer, onCancel, order } = this.props
+    const deliverer_name = _.get(offer, 'deliverer.name', 'Buscando...')
     const style = {
       backgroundImage: `url(${images.getProductImageURL(cart.product.code)})`,
     }
@@ -12,8 +14,8 @@ export class AssignedOfferForm extends React.Component {
       <Style>
         <div className="delivererContainer">
           <div className="textTitle">TU REPARTIDOR:</div>
-          <div className="delivererName">{this.props.offer.deliverer.name}</div>
-          <button className="changeDelivererButton" onClick={this.props.changeDeliverer}>
+          <div className="delivererName">{deliverer_name}</div>
+          <button className="changeDelivererButton" onClick={changeDeliverer}>
             Cambiar repartidor
           </button>
         </div>
@@ -24,7 +26,7 @@ export class AssignedOfferForm extends React.Component {
             <div className="image" style={style} />
             <div className="productDetailsContainer">
               <div className="productName">{cart.product.name}</div>
-              <div className="productPrice">Precio Unitario: ${this.props.offer.unitPrice}</div>
+              <div className="productPrice">Precio Unitario: ${offer.unitPrice}</div>
               <div className="productPrice">Cantidad: {cart.quantity}</div>
             </div>
           </div>
@@ -34,13 +36,13 @@ export class AssignedOfferForm extends React.Component {
           <div>${this.props.total}</div>
         </div>
         <div className="buttonContainer">
-          <button className="backButton" onClick={this.props.onCancel}>
+          <button className="backButton" onClick={onCancel}>
             Cancelar
           </button>
           <button
-            className={this.props.offer.deliverer.name !== '-' ? 'button' : 'disabledButton'}
-            onClick={this.props.order}
-            disabled={this.props.offer.deliverer.name === '-'}>
+            className={deliverer_name !== '-' ? 'button' : 'disabledButton'}
+            onClick={order}
+            disabled={deliverer_name === '-'}>
             Pedir
           </button>
         </div>

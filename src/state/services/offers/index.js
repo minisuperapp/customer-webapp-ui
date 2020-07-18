@@ -15,15 +15,15 @@ export const get_offers_by_product = async (customerLocation) => {
   return _.get(offersByProductResponse, 'data.data.offersByProduct', {})
 }
 
-export const assignBestOffer = async (customerLocation, product_code, quantity) => {
+export const assign_best_offer = async ({location, product_code, quantity}) => {
   const request = new AssignBestOfferRequest.Builder()
     .withProductCode(product_code)
     .withQuantity(quantity)
-    .withCustomerLocationLatitude(customerLocation.latitude)
-    .withCustomerLocationLongitude(customerLocation.longitude)
+    .withCustomerLocationLatitude(location.latitude)
+    .withCustomerLocationLongitude(location.longitude)
     .build()
-  const offers = await apiRequester.send(request)
-  return offers.data
+  const response = await apiRequester.send(request)
+  return _.get(response, 'data.data', {})
 }
 
 export const searchForOneProduct = async (customerLocation, product_code, quantity) => {

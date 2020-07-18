@@ -11,6 +11,7 @@ const initial_state = {
   offers: {
     by_product: {},
     lowest_price_by_product: {},
+    assigned: {}
   },
   auth: {
     registration: {},

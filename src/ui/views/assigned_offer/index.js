@@ -1,50 +1,17 @@
-import * as offersService from 'src/state/services/offers'
-import {place_order_request} from 'src/state/actions/order_actions'
+import { place_order_request } from 'src/state/actions/order_actions'
+import { assign_best_offer_request } from 'src/state/actions/offer_actions'
 import React from 'react'
-import {AssignedOfferForm} from './components/AssignedOfferForm'
-import {connect} from 'react-redux'
+import { AssignedOfferForm } from './components/AssignedOfferForm'
+import { connect } from 'react-redux'
 import { paths } from 'src/constants'
 
 class AssignedOfferView extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      offer: {
-        deliverer: {
-          name: 'Buscando...',
-        },
-      },
-      total: '...',
-      location: {
-        latitude: '',
-        longitude: '',
-      },
-    }
-  }
-
   async componentDidMount() {
-    const {cart} = this.props
-    const location = await this._getPosition()
-    this.setState({
-      location: {
-        latitude: location.coords.latitude,
-        longitude: location.coords.longitude,
-      },
+    const { cart, assign_best_offer_request } = this.props
+    assign_best_offer_request({
+      product_code: cart.product.code,
+      quantity: cart.quantity,
     })
-    const response = await offersService.assignBestOffer(
-      this.state.location,
-      cart.product.code,
-      cart.quantity,
-    )
-    if (response && response.success) {
-      const offer = response.data
-      this.setState({offer})
-      this.setState({
-        total: Number(offer.unitPrice) * Number(cart.quantity),
-      })
-    } else {
-      alert(JSON.stringify(response.errors))
-    }
   }
 
   _getPosition = () => {
@@ -61,26 +28,26 @@ class AssignedOfferView extends React.Component {
   }
 
   order = async () => {
-    const {cart, place_order_request} = this.props
+    const { cart, place_order_request } = this.props
     place_order_request({
       customerLocation: this.state.location,
       offerId: this.state.offer.id,
-      quantity: cart.quantity
+      quantity: cart.quantity,
     })
   }
 
   onCancel = async () => {
-    const {history} = this.props
+    const { history } = this.props
     history.push(paths.quantity)
   }
 
   render() {
-    const {cart} = this.props
+    const { cart, offer, total } = this.props
     return (
       <AssignedOfferForm
         cart={cart}
-        offer={this.state.offer}
-        total={this.state.total}
+        offer={offer}
+        total={total}
         changeDeliverer={this.changeDeliverer}
         order={this.order}
         onCancel={this.onCancel}
@@ -90,14 +57,22 @@ class AssignedOfferView extends React.Component {
 }
 
 function mapStateToProps(state) {
-  const {cart} = state
+  const {
+    cart,
+    offers: { assigned },
+  } = state
+
+  const total = Number(assigned.unitPrice) * Number(assigned.quantity)
   return {
     cart,
+    offer: assigned,
+    total,
   }
 }
 
 const mapDispatchToProps = {
-  place_order_request
+  place_order_request,
+  assign_best_offer_request,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AssignedOfferView)

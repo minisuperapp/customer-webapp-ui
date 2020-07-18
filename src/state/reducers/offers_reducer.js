@@ -12,7 +12,7 @@ export default function reducer(state = initial_state.offers, action) {
   switch (action.type) {
     case types.GET_OFFERS_BY_PRODUCT_RESPONSE:
       return Immutable({
-        ...state.offers,
+        ...state,
         by_product: action.response,
         lowest_price_by_product: get_lowest_price_by_product(action.response),
       })
@@ -33,6 +33,11 @@ export default function reducer(state = initial_state.offers, action) {
         },
       })
     }
+    case types.ASSIGN_BEST_OFFER_RESPONSE:
+      return Immutable({
+        ...state,
+        assigned: action.response,
+      })
     default:
       return state
   }
