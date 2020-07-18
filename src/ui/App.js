@@ -5,6 +5,7 @@ import SubHeader from './views/subheader'
 import ProductsView from './views/products'
 import QuantityView from './views/quantity'
 import AssignedOfferView from './views/assigned_offer'
+import DeliveryAddressView from './views/delivery_address'
 import ChangeDelivererView from './views/change_deliverer'
 import OrderView from './views/order'
 import OrdersListView from './views/orders_list'
@@ -32,6 +33,7 @@ class App extends Component {
           <Route exact path={paths.home} component={ProductsView} />
           <Route exact path={paths.quantity} component={QuantityView} />
           <Route exact path={paths.assigned_offer} component={AssignedOfferView} />
+          <Route exact path={paths.delivery_address} component={DeliveryAddressView} />
           <Route exact path={paths.change_deliverer} component={ChangeDelivererView} />
           <Route exact path={paths.order} component={OrderView} />
           <Route exact path={paths.orders_list} component={OrdersListView} />

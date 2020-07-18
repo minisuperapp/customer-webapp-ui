@@ -2,6 +2,8 @@ import React from 'react'
 import _ from 'lodash'
 import Style from './style'
 import * as images from 'src/ui/views/common/images'
+import { Link } from 'react-router-dom'
+import { paths } from 'src/constants'
 
 export class AssignedOfferForm extends React.Component {
   render() {
@@ -13,16 +15,23 @@ export class AssignedOfferForm extends React.Component {
     return (
       <Style>
         <div className="title">Verifica tu pedido</div>
-        <div className="delivererContainer">
-          <div className="textTitle">TU REPARTIDOR:</div>
+
+        <div className="address_container">
+          <div className="text_title">
+            ENTREGAR EN: <Link to={paths.delivery_address}>Indicar lugar de entrega</Link>
+          </div>
+        </div>
+
+        <div className="deliverer_container">
+          <div className="text_title">TU REPARTIDOR:</div>
           <div className="delivererName">{deliverer_name}</div>
           <button className="changeDelivererButton" onClick={changeDeliverer}>
             Cambiar repartidor
           </button>
         </div>
 
-        <div className="offerContainer">
-          <div className="textTitle">TU ORDEN:</div>
+        <div className="offer_container">
+          <div className="text_title">TU ORDEN:</div>
           <div className="productContainer">
             <div className="image" style={style} />
             <div className="productDetailsContainer">
@@ -32,11 +41,11 @@ export class AssignedOfferForm extends React.Component {
             </div>
           </div>
         </div>
-        <div className="totalContainer">
+        <div className="total_container">
           <div>Total:</div>
           <div>${this.props.total}</div>
         </div>
-        <div className="buttonContainer">
+        <div className="button_container">
           <button className="backButton" onClick={onCancel}>
             Cancelar
           </button>

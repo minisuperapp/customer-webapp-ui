@@ -13,7 +13,9 @@ class SubHeader extends Component {
       <Style>
         <div className="links">
           <Link
-            className={`${active_page === paths.home ? 'active' : ''} products_link`}
+            className={`${
+              ![paths.register, paths.orders_list].includes(active_page) ? 'active' : ''
+            } products_link`}
             onClick={this.refresh}
             to={paths.home}>
             Comprar

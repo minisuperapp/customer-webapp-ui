@@ -14,8 +14,14 @@ export default styled.div`
     flex-direction: column;
     align-items: center;
   }
+  
+  & .address_container {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+  }
 
-  & .delivererContainer {
+  & .deliverer_container {
     margin-top: 1em;
     display: flex;
     flex-direction: column;
@@ -44,7 +50,7 @@ export default styled.div`
     margin: 0 auto;
   }
 
-  & .offerContainer {
+  & .offer_container {
     display: flex;
     flex-direction: column;
     margin-top: 2em;
@@ -89,13 +95,13 @@ export default styled.div`
     color: #212121;
   }
 
-  & .totalContainer {
+  & .total_container {
     display: flex;
     flex-direction: row;
     margin: 1em auto;
   }
 
-  & .textTitle {
+  & .text_title {
     alignment: left;
     font-family: SFProText-Bold, serif;
     font-size: 16px;
@@ -103,7 +109,7 @@ export default styled.div`
     margin-left: 1em;
   }
 
-  & .buttonContainer {
+  & .button_container {
     display: flex;
     flex-direction: row;
     width: 100%;
