@@ -10,12 +10,14 @@ import {
 
 export default function reducer(state = initial_state.offers, action) {
   switch (action.type) {
-    case types.GET_OFFERS_BY_PRODUCT_RESPONSE:
+    case types.GET_OFFERS_BY_PRODUCT_RESPONSE: {
+      const lowest_price_by_product = get_lowest_price_by_product(action.response)
       return Immutable({
         ...state,
         by_product: action.response,
-        lowest_price_by_product: get_lowest_price_by_product(action.response),
+        lowest_price_by_product,
       })
+    }
     case types.LISTEN_PUBLISHED_OFFER_RESPONSE: {
       const by_product = addToOffersByProduct(state.by_product, action.offer)
       let lowest_price_by_product

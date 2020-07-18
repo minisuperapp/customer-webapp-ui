@@ -1,17 +1,17 @@
 const initial_state = {
   products: {
     list: [],
-    by_code: {}
+    by_code: {},
   },
   orders: [],
   cart: {
-    product: {},
-    quantity: 0,
+    product: JSON.parse(localStorage.getItem('cart_product') || '{}'),
+    quantity: localStorage.getItem('cart_quantity') || 0,
   },
   offers: {
     by_product: {},
     lowest_price_by_product: {},
-    assigned: {}
+    assigned: {},
   },
   auth: {
     registration: {},

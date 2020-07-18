@@ -1,4 +1,5 @@
 import React from 'react'
+import _ from 'lodash'
 import { QuantityForm } from './components/QuantityForm'
 import { set_selected_quantity } from 'src/state/actions/cart_actions'
 import { connect } from 'react-redux'
@@ -7,21 +8,18 @@ import { paths } from 'src/constants'
 class QuantityView extends React.Component {
   state = {
     quantity: 0,
-    total: 0,
   }
 
   componentDidMount() {
     const { cart, price } = this.props
     this.setState({
       quantity: cart.product.minimum_buying_quantity,
-      total: Number(cart.product.minimum_buying_quantity * price),
     })
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({
       quantity: event.target.value,
-      total: Number(event.target.value) * Number(this.props.params.lowestPrice),
     })
   }
 
@@ -35,7 +33,6 @@ class QuantityView extends React.Component {
     const { price } = this.props
     this.setState({
       quantity: Number(this.state.quantity) + Number(1),
-      total: (Number(this.state.quantity) + Number(1)) * Number(price),
     })
   }
 
@@ -48,25 +45,29 @@ class QuantityView extends React.Component {
     if (this.state.quantity > cart.product.minimum_buying_quantity) {
       this.setState({
         quantity: Number(this.state.quantity) - Number(1),
-        total: (Number(this.state.quantity) - Number(1)) * Number(price),
       })
     }
   }
 
-  changeQuantity = (event) => {
+  changeQuantity = event => {
     const quantity = event.target.validity.valid ? event.target.value : this.state.quantity
     this.setState({
       quantity,
-      total: event.target.value * Number(this.props.params.lowestPrice),
     })
   }
 
   render() {
     const { cart, price } = this.props
+    debugger
+    const quantity = Math.max(
+      this.state.quantity,
+      Number(_.get(cart, 'product.minimum_buying_quantity', '0')),
+    )
+    const total = Number(quantity * price)
     return (
       <QuantityForm
-        quantity={this.state.quantity}
-        total={this.state.total}
+        quantity={quantity}
+        total={total}
         cart={cart}
         price={price}
         handleChange={this.handleChange}
@@ -92,7 +93,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-  set_selected_quantity
+  set_selected_quantity,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(QuantityView)

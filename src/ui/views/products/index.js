@@ -7,19 +7,13 @@ import { LoadingList } from './components/LoadingList'
 
 import Style from './style'
 import { paths } from 'src/constants'
-import { get_product_request } from 'src/state/actions/product_actions'
-import { get_offers_by_product_request } from 'src/state/actions/offer_actions'
 
 class ProductsView extends Component {
   async componentDidMount() {
     const {
       get_current_orders_request,
-      get_offers_by_product_request,
-      get_product_request,
     } = this.props
     get_current_orders_request()
-    get_product_request()
-    get_offers_by_product_request()
   }
 
   handleProductSelection = product => () => {
@@ -71,8 +65,6 @@ function mapStateToProps(state) {
 const mapDispatchToProps = {
   set_selected_product,
   get_current_orders_request,
-  get_product_request,
-  get_offers_by_product_request,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsView)
