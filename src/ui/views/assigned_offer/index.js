@@ -14,24 +14,15 @@ class AssignedOfferView extends React.Component {
     })
   }
 
-  _getPosition = () => {
-    return new Promise((success, error) => {
-      navigator.geolocation.getCurrentPosition(success, error)
-    })
-  }
-
   changeDeliverer = async () => {
-    // this.props.changeView(views.CHANGE_DELIVERER, {
-    //   product_code: this.props.params.product.code,
-    //   quantity: this.props.params.quantity,
-    // })
+    const { history } = this.props
+    history.push(paths.change_deliverer)
   }
 
   order = async () => {
-    const { cart, place_order_request } = this.props
+    const { cart, offer, place_order_request } = this.props
     place_order_request({
-      customerLocation: this.state.location,
-      offerId: this.state.offer.id,
+      offerId: offer.id,
       quantity: cart.quantity,
     })
   }

@@ -1,6 +1,7 @@
 import React from 'react'
 import * as offersService from 'src/state/services/offers'
 import { ChangeDeliverer } from './ChangeDeliverer'
+import {paths} from "../../../constants";
 
 class ChangeDelivererView extends React.Component {
   constructor(props) {
@@ -15,7 +16,8 @@ class ChangeDelivererView extends React.Component {
   }
 
   goToAssignedOffer = () => {
-    // this.props.changeView(views.ASSIGNED_OFFER)
+    const { history } = this.props
+    history.push(paths.assigned_offer)
   }
 
   async componentDidMount() {

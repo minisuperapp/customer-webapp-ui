@@ -4,12 +4,12 @@ import { OrderPlacementRequest } from './requests/place_order'
 import { PendingToDeliverRequest } from './requests/pending_to_deliver'
 
 export const place_order = async (order) => {
-  const { customerLocation, offerId, quantity } = order
+  const { location, offerId, quantity } = order
   const request = new OrderPlacementRequest.Builder()
     .withOfferId(offerId)
     .withQuantity(quantity)
-    .withCustomerLocationLatitude(customerLocation.latitude)
-    .withCustomerLocationLongitude(customerLocation.longitude)
+    .withCustomerLocationLatitude(location.latitude)
+    .withCustomerLocationLongitude(location.longitude)
     .build()
   const response = await apiRequester.send(request)
   return response.data
