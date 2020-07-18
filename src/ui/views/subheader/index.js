@@ -1,22 +1,39 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Style from './style'
 import { paths } from 'src/constants'
 
-const SubHeader = () => (
-  <Style>
-    <div className="links">
-      <Link className="products_link" to={paths.home}>
-        Comprar
-      </Link>
-      <Link className="orders_link" to={paths.orders_list}>
-        Mis Ordenes
-      </Link>
-      <Link className="account_link" to={paths.register}>
-        Mi Cuenta
-      </Link>
-    </div>
-  </Style>
-)
+class SubHeader extends Component {
+  refresh = () => {
+    this.setState(this.state)
+  }
+  render() {
+    const active_page = window.location.pathname
+    return (
+      <Style>
+        <div className="links">
+          <Link
+            className={`${active_page === paths.home ? 'active' : ''} products_link`}
+            onClick={this.refresh}
+            to={paths.home}>
+            Comprar
+          </Link>
+          <Link
+            className={`${active_page === paths.orders_list ? 'active' : ''} orders_link`}
+            onClick={this.refresh}
+            to={paths.orders_list}>
+            Mis Ordenes
+          </Link>
+          <Link
+            className={`${active_page === paths.register ? 'active' : ''} account_link`}
+            onClick={this.refresh}
+            to={paths.register}>
+            Mi Cuenta
+          </Link>
+        </div>
+      </Style>
+    )
+  }
+}
 
 export default SubHeader
