@@ -26,7 +26,8 @@ class Register extends Component {
           <button
             className="ok"
             onClick={() => {
-              if (window.confirm('Registro Exitoso!')) this.confirm
+              const data = { email: 'test6@test.com', password: '1234' }
+              this.props.register_customer_request(data)
             }}>
             Registrarse
           </button>
