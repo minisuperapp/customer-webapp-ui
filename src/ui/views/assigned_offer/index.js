@@ -52,7 +52,7 @@ function mapStateToProps(state) {
     cart,
     offers: { assigned },
   } = state
-  const total = Number(assigned.unitPrice) * Number(cart.quantity)
+  const total = Number(assigned.unit_price) * Number(cart.quantity)
   return {
     cart,
     offer: assigned,
