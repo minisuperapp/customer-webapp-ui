@@ -11,6 +11,7 @@ import OrderView from './views/order'
 import OrdersListView from './views/orders_list'
 import OrdersDetailsView from './views/order_details'
 import Register from './views/register'
+import LogIn from './views/login'
 import Style from './style'
 import { get_product_request } from 'src/state/actions/product_actions'
 import { get_offers_by_product_request } from 'src/state/actions/offer_actions'
@@ -39,6 +40,7 @@ class App extends Component {
           <Route exact path={paths.orders_list} component={OrdersListView} />
           <Route exact path={paths.order_details} component={OrdersDetailsView} />
           <Route exact path={paths.register} component={Register} />
+          <Route exact path={paths.login} component={LogIn} />
         </Switch>
       </Style>
     )
