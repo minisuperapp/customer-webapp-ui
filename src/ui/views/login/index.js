@@ -1,7 +1,25 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 import Style from './style'
 
 class LogIn extends Component {
+  state = {
+    email: '',
+    password: '',
+    redirect: false,
+  }
+
+  setRedirect = () => {
+    this.setState({
+      redirect: true,
+    })
+  }
+
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to="/register" />
+    }
+  }
   render() {
     return (
       <Style>
@@ -17,11 +35,14 @@ class LogIn extends Component {
           </div>
 
           <div className="buttons">
+            {this.renderRedirect()}
             <div>
               <input type="submit" value="Ingresar" className="ok-button" />
             </div>
             <div>
-              <button className="cancel-button">No tengo cuenta</button>
+              <button className="cancel-button" onClick={this.setRedirect}>
+                No tengo cuenta
+              </button>
             </div>
           </div>
         </div>
