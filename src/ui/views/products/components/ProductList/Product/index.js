@@ -7,6 +7,7 @@ export class Product extends Component {
   render() {
     const style = {
       backgroundImage: `url(${images.getProductImageURL(this.props.product.code)})`,
+      backgroundPosition: 'center',
     }
     const price = this.props.lowestPrice
       ? `$${this.props.lowestPrice}  ${this.props.product.quantity_type}`
