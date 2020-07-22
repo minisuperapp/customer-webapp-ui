@@ -6,6 +6,11 @@ import * as auth_service from 'src/state/services/auth'
 export function* register_customer() {
   yield takeEvery(types.REGISTER_CUSTOMER_REQUEST, function* (data) {
     const response = yield call(auth_service.register_customer, data.customer)
+    if (response.success) {
+      if (data.success) {
+        data.success(response)
+      }
+    }
     yield put(register_customer_response(response))
   })
 }

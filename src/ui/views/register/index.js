@@ -50,7 +50,14 @@ class Register extends Component {
           <button
             className="ok"
             onClick={() => {
-              this.props.register_customer_request(this.state)
+              this.props.register_customer_request(this.state, () => {
+                this.setState({
+                  name: '',
+                  email: '',
+                  password: '',
+                })
+                alert('Tu cuenta se ha registrado con exito!')
+              })
             }}>
             Registrarse
           </button>
