@@ -4,7 +4,7 @@ import Style from './style'
 
 export class OrdersList extends React.Component {
   render() {
-    const { orders, products_by_code, go_to_products } = this.props
+    const { orders, products_by_code } = this.props
     return (
       <Style>
         <div className="title">Mis Ordenes</div>

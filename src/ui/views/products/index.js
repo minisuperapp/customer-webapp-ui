@@ -19,7 +19,7 @@ class ProductsView extends Component {
   }
 
   render() {
-    const { products, lowest_price_by_product, orders } = this.props
+    const { products, lowest_price_by_product } = this.props
     if (!products.length) {
       return <LoadingList />
     }

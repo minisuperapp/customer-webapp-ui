@@ -11,7 +11,7 @@ class QuantityView extends React.Component {
   }
 
   componentDidMount() {
-    const { cart, price } = this.props
+    const { cart } = this.props
     this.setState({
       quantity: cart.product.minimum_buying_quantity,
     })
@@ -30,7 +30,6 @@ class QuantityView extends React.Component {
   }
 
   addQuantity = () => {
-    const { price } = this.props
     this.setState({
       quantity: Number(this.state.quantity) + Number(1),
     })
@@ -41,7 +40,7 @@ class QuantityView extends React.Component {
   }
 
   subtractQuantity = () => {
-    const { cart, price } = this.props
+    const { cart } = this.props
     if (this.state.quantity > cart.product.minimum_buying_quantity) {
       this.setState({
         quantity: Number(this.state.quantity) - Number(1),
