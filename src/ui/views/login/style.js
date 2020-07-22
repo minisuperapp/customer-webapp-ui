@@ -4,7 +4,7 @@ export default styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin: 10em auto;
+  margin: 8em auto;
   border: 1px solid black;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -20,6 +20,7 @@ export default styled.div`
 
   .body {
     padding: 1em;
+    display: table;
 
     .field {
       margin-bottom: 1em;
