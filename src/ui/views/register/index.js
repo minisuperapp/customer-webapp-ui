@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { register_customer_request } from 'src/state/actions/auth_actions.js'
 import Style from './style'
@@ -8,6 +9,19 @@ class Register extends Component {
     name: '',
     email: '',
     password: '',
+    redirect: false,
+  }
+
+  setRedirect = () => {
+    this.setState({
+      redirect: true,
+    })
+  }
+
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to="/login" />
+    }
   }
 
   render() {
@@ -47,6 +61,7 @@ class Register extends Component {
           </div>
         </div>
         <div className="buttons">
+          {this.renderRedirect()}
           <button
             className="ok"
             onClick={() => {
@@ -61,7 +76,9 @@ class Register extends Component {
             }}>
             Registrarse
           </button>
-          <button className="cancel">Ya Tengo Cuenta</button>
+          <button className="cancel" onClick={this.setRedirect}>
+            Ya Tengo Cuenta
+          </button>
         </div>
       </Style>
     )
