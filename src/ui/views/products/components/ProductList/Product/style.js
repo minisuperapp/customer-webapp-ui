@@ -34,7 +34,7 @@ export default styled.div`
   & .text_title {
     margin-left: 5px;
     font-family: SFProText-Bold, serif;
-    font-size: 24px;
+    font-size: 18px;
     color: #212121;
   }
 
