@@ -11,11 +11,12 @@ export default styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 6em;
+  height: 10em;
   width: 20em;
 
   & .image {
-    margin-right: 1em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
     height: 80%;
     width: 100%;
     max-width: 100px;
@@ -32,9 +33,12 @@ export default styled.div`
   }
 
   & .text_title {
-    margin-left: 5px;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
+    text-align: left;
     font-family: SFProText-Bold, serif;
-    font-size: 18px;
+    font-size: 20px;
     color: #212121;
   }
 
