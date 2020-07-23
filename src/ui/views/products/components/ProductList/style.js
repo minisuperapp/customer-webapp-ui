@@ -2,13 +2,31 @@ import styled from 'styled-components'
 
 export default styled.div`
   margin-top: 1em;
-  
-  .title {
-    font-family: SFProText-Bold, serif;
-    font-size: 24px;
+
+  .search {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    & :focus {
+      outline: none;
+    }
+
+    & input {
+      font-size: 18px;
+      padding: 0.5em 1em;
+      border-radius: 15px;
+      width: 20em;
+    }
+  }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: SFProText-Bold, serif;
+    font-size: 24px;
   }
 
   & .container {

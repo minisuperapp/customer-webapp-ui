@@ -7,6 +7,9 @@ export class ProductList extends React.Component {
     return (
       <Style>
         <div className="title">Elige tu producto</div>
+        <div className="search">
+          <input autoFocus={true} type="text" placeholder="Buscar un producto..."/>
+        </div>
         <div className="container">
           {this.props.products.map((p) => (
             <Product
