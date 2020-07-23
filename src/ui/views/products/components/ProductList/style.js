@@ -17,7 +17,7 @@ export default styled.div`
       font-size: 18px;
       padding: 0.5em 1em;
       border-radius: 15px;
-      width: 20em;
+      min-width: 15em;
     }
   }
 
