@@ -2,9 +2,6 @@ const initial_state = {
   products: {
     list: [],
     by_code: {},
-    filtered: {
-      by_code: []
-    }
   },
   orders: [],
   cart: {
