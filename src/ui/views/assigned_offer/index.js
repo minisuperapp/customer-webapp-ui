@@ -22,7 +22,7 @@ class AssignedOfferView extends React.Component {
   order = async () => {
     const { cart, offer, place_order_request } = this.props
     place_order_request({
-      offerId: offer.id,
+      offerId: offer.code,
       quantity: cart.quantity,
     })
   }
@@ -52,7 +52,7 @@ function mapStateToProps(state) {
     cart,
     offers: { assigned },
   } = state
-  const total = Number(assigned.unitPrice) * Number(cart.quantity)
+  const total = Number(assigned.unit_price) * Number(cart.quantity)
   return {
     cart,
     offer: assigned,

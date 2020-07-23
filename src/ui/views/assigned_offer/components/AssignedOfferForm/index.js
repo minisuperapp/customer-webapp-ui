@@ -8,7 +8,7 @@ import { paths } from 'src/constants'
 export class AssignedOfferForm extends React.Component {
   render() {
     const { cart, offer, changeDeliverer, onCancel, order } = this.props
-    const deliverer_name = _.get(offer, 'deliverer.name', 'Buscando...')
+    const deliverer_name = _.get(offer, 'deliverer_name', 'Buscando...')
     const style = {
       backgroundImage: `url(${images.getProductImageURL(cart.product.code)})`,
     }
@@ -36,7 +36,7 @@ export class AssignedOfferForm extends React.Component {
             <div className="image" style={style} />
             <div className="productDetailsContainer">
               <div className="productName">{cart.product.name}</div>
-              <div className="productPrice">Precio Unitario: ${offer.unitPrice}</div>
+              <div className="productPrice">Precio Unitario: ${offer.unit_price}</div>
               <div className="productPrice">Cantidad: {cart.quantity}</div>
             </div>
           </div>

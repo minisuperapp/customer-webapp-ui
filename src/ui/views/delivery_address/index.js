@@ -8,7 +8,7 @@ class DeliveryAddressView extends React.Component {
   }
 }
 
-function mapStateToProps(state) {}
+function mapStateToProps() {}
 
 const mapDispatchToProps = {}
 
