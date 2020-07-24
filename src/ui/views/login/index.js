@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { login_customer_request } from 'src/state/actions/auth_actions.js'
 import Style from './style'
 
-class LogIn extends Component {
+class Login extends Component {
   state = {
     email: '',
     password: '',
@@ -51,4 +53,13 @@ class LogIn extends Component {
   }
 }
 
-export default LogIn
+function mapStateToProps(state) {
+  return {
+    login_succesful: state.auth.login.login_succesful,
+  }
+}
+
+const mapDispatchToProps = {
+  login_customer_request,
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
