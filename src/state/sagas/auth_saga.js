@@ -10,6 +10,8 @@ export function* register_customer() {
       if (data.success) {
         data.success(response)
       }
+    } else {
+      alert(response.error)
     }
     yield put(register_customer_response(response))
   })

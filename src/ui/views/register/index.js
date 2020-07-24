@@ -79,10 +79,8 @@ class Register extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    registration_succesful: state.auth.registration.registration_successful,
-  }
+function mapStateToProps() {
+  return {}
 }
 
 const mapDispatchToProps = {

@@ -7,12 +7,12 @@ export default function reducer(state = initial_state.auth, action) {
     case types.REGISTER_CUSTOMER_RESPONSE:
       return Immutable({
         ...state,
-        list: Immutable(action.response),
+        registration: Immutable(action.response),
       })
     case types.LOGIN_CUSTOMER_RESPONSE:
       return Immutable({
         ...state,
-        list: Immutable(action.response),
+        login: Immutable(action.response),
       })
     default:
       return state
