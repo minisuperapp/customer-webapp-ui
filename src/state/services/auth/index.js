@@ -10,12 +10,12 @@ export async function register_customer(data) {
   return response.data
 }
 
-export async function login_customer() {
+export async function login_customer(credentials) {
   const request = {
     method: 'post',
     path: 'login',
-    payload: {},
+    payload: credentials,
   }
   const response = await apiRequester.send(request)
-  return response
+  return response.data
 }

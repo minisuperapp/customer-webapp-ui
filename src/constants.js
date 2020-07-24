@@ -8,4 +8,5 @@ export const paths = {
   orders_list: `${process.env.SUBDIR}/orders_list`,
   order_details: `${process.env.SUBDIR}/order_details`,
   register: `${process.env.SUBDIR}/register`,
+  login: `${process.env.SUBDIR}/login`,
 }

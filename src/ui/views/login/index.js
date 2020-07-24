@@ -1,27 +1,31 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { login_customer_request } from 'src/state/actions/auth_actions.js'
 import Style from './style'
+import { paths } from 'src/constants'
 
 class Login extends Component {
   state = {
     email: '',
     password: '',
-    redirect: false,
   }
 
-  setRedirect = () => {
-    this.setState({
-      redirect: true,
+  go_to_registration = () => {
+    const { history } = this.props
+    history.push(paths.register)
+  }
+
+  on_accept = () => {
+    const { history, login_customer_request } = this.props
+    login_customer_request(this.state, () => {
+      this.setState({
+        email: '',
+        password: '',
+      })
+      history.push(paths.home)
     })
   }
 
-  renderRedirect = () => {
-    if (this.state.redirect) {
-      return <Redirect to="/register" />
-    }
-  }
   render() {
     return (
       <Style>
@@ -51,25 +55,16 @@ class Login extends Component {
           </div>
 
           <div className="buttons">
-            {this.renderRedirect()}
             <div>
               <input
                 type="submit"
                 value="Ingresar"
                 className="ok-button"
-                onClick={() => {
-                  this.props.login_customer_request(this.state, () => {
-                    this.setState({
-                      email: '',
-                      password: '',
-                    })
-                    alert('Bienvenido!')
-                  })
-                }}
+                onClick={this.on_accept}
               />
             </div>
             <div>
-              <button className="cancel-button" onClick={this.setRedirect}>
+              <button className="cancel-button" onClick={this.go_to_registration}>
                 No tengo cuenta
               </button>
             </div>
