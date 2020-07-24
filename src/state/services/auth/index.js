@@ -9,3 +9,7 @@ export async function register_customer(data) {
   const response = await apiRequester.send(request)
   return response.data
 }
+
+export async function login_customer() {
+  return { login: 'success' }
+}
