@@ -9,6 +9,11 @@ export default function reducer(state = initial_state.auth, action) {
         ...state,
         list: Immutable(action.response),
       })
+    case types.LOGIN_CUSTOMER_RESPONSE:
+      return Immutable({
+        ...state,
+        list: Immutable(action.response),
+      })
     default:
       return state
   }

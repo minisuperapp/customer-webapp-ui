@@ -15,6 +15,7 @@ const initial_state = {
   },
   auth: {
     registration: {},
+    login: {},
   },
 }
 

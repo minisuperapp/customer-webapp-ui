@@ -2,12 +2,32 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { register_customer_request } from 'src/state/actions/auth_actions.js'
 import Style from './style'
+import { paths } from 'src/constants'
 
 class Register extends Component {
   state = {
     name: '',
     email: '',
     password: '',
+    redirect: false,
+  }
+
+  go_to_login = () => {
+    const { history } = this.props
+    history.push(paths.login)
+  }
+
+  on_accept = () => {
+    const { history, register_customer_request } = this.props
+    register_customer_request(this.state, () => {
+      this.setState({
+        name: '',
+        email: '',
+        password: '',
+      })
+      alert('Tu cuenta se ha registrado con exito!')
+      history.push(paths.login)
+    })
   }
 
   render() {
@@ -47,21 +67,12 @@ class Register extends Component {
           </div>
         </div>
         <div className="buttons">
-          <button
-            className="ok"
-            onClick={() => {
-              this.props.register_customer_request(this.state, () => {
-                this.setState({
-                  name: '',
-                  email: '',
-                  password: '',
-                })
-                alert('Tu cuenta se ha registrado con exito!')
-              })
-            }}>
+          <button className="ok" onClick={this.on_accept}>
             Registrarse
           </button>
-          <button className="cancel">Ya Tengo Cuenta</button>
+          <button className="cancel" onClick={this.go_to_login}>
+            Ya Tengo Cuenta
+          </button>
         </div>
       </Style>
     )
