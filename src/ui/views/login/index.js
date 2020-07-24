@@ -29,11 +29,25 @@ class Login extends Component {
         <div className="body">
           <div>
             <label htmlFor="email">Email: </label>
-            <input className="field" name="email" type="email" placeholder="Email" />
+            <input
+              className="field"
+              name="email"
+              type="email"
+              placeholder="Email"
+              value={this.state.email}
+              onChange={e => this.setState({ email: e.target.value })}
+            />
           </div>
           <div>
             <label htmlFor="password">Contraseña: </label>
-            <input className="field" name="password" type="password" placeholder="Contraseña" />
+            <input
+              className="field"
+              name="password"
+              type="password"
+              placeholder="Contraseña"
+              value={this.state.password}
+              onChange={e => this.setState({ password: e.target.value })}
+            />
           </div>
 
           <div className="buttons">
