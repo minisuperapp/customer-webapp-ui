@@ -9,7 +9,7 @@ export default function reducer(state = initial_state.products, action) {
       return Immutable({
         ...state,
         list: Immutable(action.response),
-        by_code: _.keyBy(action.response, 'code')
+        by_code: _.keyBy(action.response, 'code'),
       })
     default:
       return state
