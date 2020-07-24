@@ -39,7 +39,20 @@ class Login extends Component {
           <div className="buttons">
             {this.renderRedirect()}
             <div>
-              <input type="submit" value="Ingresar" className="ok-button" />
+              <input
+                type="submit"
+                value="Ingresar"
+                className="ok-button"
+                onClick={() => {
+                  this.props.login_customer_request(this.state, () => {
+                    this.setState({
+                      email: '',
+                      password: '',
+                    })
+                    alert('Bienvenido!')
+                  })
+                }}
+              />
             </div>
             <div>
               <button className="cancel-button" onClick={this.setRedirect}>
