@@ -35,10 +35,21 @@ export default styled.div`
     .verify {
       font-size: 16px;
       padding: 10px;
+      background-color: #49a25b;
+      box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
+      border-radius: 18px;
+      color: white;
+      cursor: pointer;
     }
 
     .add {
       font-size: 16px;
+      background-color: #49a25b;
+      box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
+      border-radius: 18px;
+      color: white;
+      cursor: pointer;
+      margin-left: 15px;
     }
   }
 
