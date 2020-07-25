@@ -9,7 +9,7 @@ export default styled.div`
   font-family: Roboto, Helvetica, sans-serif;
 
   .title {
-    font-size: 24px;
+    font-size: 22px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,6 +23,9 @@ export default styled.div`
   .body {
     margin-top: 20px;
     font-size: 18px;
+    border: 1px solid black;
+    padding: 15px;
+    display: table;
   }
 
   .buttons {
@@ -38,5 +41,51 @@ export default styled.div`
     .add {
       font-size: 16px;
     }
+  }
+
+  label {
+    padding: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    display: table-cell;
+  }
+
+  input {
+    padding: 8px;
+    font-size: 16px;
+    display: table-cell;
+    margin-radius: 2px;
+  }
+
+  .name {
+    display: table-row;
+  }
+
+  .street {
+    display: table-row;
+  }
+
+  .exterior-number {
+    display: table-row;
+  }
+
+  .interior-number {
+    display: table-row;
+  }
+
+  .neighboorhood {
+    display: table-row;
+  }
+
+  .city {
+    display: table-row;
+  }
+
+  .zip-code {
+    display: table-row;
+  }
+
+  .state {
+    display: table-row;
   }
 `
