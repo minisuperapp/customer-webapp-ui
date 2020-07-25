@@ -5,7 +5,9 @@ export default styled.div`
   flex-direction: column;
   width: 100%;
   max-width: 350px;
-  margin: 1em auto .delivererContainer {
+  margin: 1em auto;
+  
+  & .delivererContainer {
     display: flex;
     flex-direction: column;
   }

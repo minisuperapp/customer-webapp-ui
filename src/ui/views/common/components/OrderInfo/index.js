@@ -6,6 +6,7 @@ export class OrderInfo extends React.Component {
   render() {
     const style = {
       backgroundImage: `url(${images.getProductImageURL(this.props.params.product.code)})`,
+      backgroundPosition: 'center',
     }
     return (
       <Style>
