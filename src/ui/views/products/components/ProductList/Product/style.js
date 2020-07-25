@@ -54,7 +54,7 @@ export default styled.div`
     margin-top: 0.5em;
     font-family: SFProTextRegular, serif;
     font-size: 16px;
-    border-radius: 18px;
+    border-radius: 10px;
     width: 100%;
     max-width: 100px;
     cursor: pointer;

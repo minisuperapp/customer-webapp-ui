@@ -10,16 +10,15 @@ export default styled.div`
   }
 
   .backButton {
-    border-color: #a24d0d;
-    box-shadow: 0 2px 8px 0 rgb(162, 77, 13);
+    background-color: #fff;
+    color: black;
+    box-shadow: none;
+    margin-right: 0.5em;
     font-family: SFProTextRegular, serif;
+    font-weight: 700;
     font-size: 18px;
-    border-radius: 18px;
+    border-radius: 10px;
     width: 100%;
-    max-width: 200px;
-    color: #a24d0d;
     cursor: pointer;
-    align-items: center;
-    background-color: white;
   }
 `
