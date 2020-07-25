@@ -44,7 +44,7 @@ export default styled.div`
 
   label {
     padding: 8px;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     display: table-cell;
   }
