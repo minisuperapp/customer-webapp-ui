@@ -1,6 +1,6 @@
 import React from 'react'
 import _ from 'lodash'
-import { QuantityForm } from './components/QuantityForm'
+import { QuantityForm } from './QuantityForm'
 import { set_selected_quantity } from 'src/state/actions/cart_actions'
 import { connect } from 'react-redux'
 import { paths } from 'src/constants'
