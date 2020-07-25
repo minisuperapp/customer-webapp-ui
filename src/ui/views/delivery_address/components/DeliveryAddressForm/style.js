@@ -22,7 +22,6 @@ export default styled.div`
 
   .body {
     margin-top: 20px;
-    font-size: 18px;
     border: 1px solid black;
     padding: 15px;
     display: table;
@@ -51,7 +50,7 @@ export default styled.div`
   }
 
   input {
-    padding: 8px;
+    padding: 4px;
     font-size: 16px;
     display: table-cell;
     margin-radius: 2px;
