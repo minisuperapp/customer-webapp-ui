@@ -17,12 +17,13 @@ export default styled.div`
     padding: 0.5em 1em;
     text-align: center;
     color: whitesmoke;
-    font-weight: bold;
+    border-radius: 4px;
   }
 
   .body {
     margin-top: 20px;
     border: 1px solid black;
+    border-radius: 4px;
     padding: 15px;
     display: table;
   }
