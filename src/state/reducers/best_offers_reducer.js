@@ -8,7 +8,7 @@ import {
   get_lowest_price_by_product,
 } from '../services/offers'
 
-export default function reducer(state = initial_state.offers, action) {
+export default function reducer(state = initial_state.best_offers, action) {
   switch (action.type) {
     case types.GET_OFFERS_BY_PRODUCT_RESPONSE: {
       const lowest_price_by_product = get_lowest_price_by_product(action.response)
@@ -35,11 +35,6 @@ export default function reducer(state = initial_state.offers, action) {
         },
       })
     }
-    case types.ASSIGN_BEST_OFFER_RESPONSE:
-      return Immutable({
-        ...state,
-        assigned: action.response,
-      })
     default:
       return state
   }

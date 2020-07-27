@@ -1,7 +1,7 @@
 import { place_order_request } from 'src/state/actions/order_actions'
 import { assign_best_offer_request } from 'src/state/actions/offer_actions'
 import React from 'react'
-import { AssignedOfferForm } from './components/AssignedOfferForm'
+import { AssignedOfferForm } from './AssignedOfferForm'
 import { connect } from 'react-redux'
 import { paths } from 'src/constants'
 
@@ -20,7 +20,8 @@ class AssignedOfferView extends React.Component {
   }
 
   order = async () => {
-    const { cart, offer, place_order_request } = this.props
+    const { cart, place_order_request } = this.props
+    const offer = cart.offer
     place_order_request({
       offerId: offer.code,
       quantity: cart.quantity,
@@ -33,7 +34,8 @@ class AssignedOfferView extends React.Component {
   }
 
   render() {
-    const { cart, offer, total } = this.props
+    const { cart, total } = this.props
+    const offer = cart.offer
     return (
       <AssignedOfferForm
         cart={cart}
@@ -48,14 +50,10 @@ class AssignedOfferView extends React.Component {
 }
 
 function mapStateToProps(state) {
-  const {
-    cart,
-    offers: { assigned },
-  } = state
-  const total = Number(assigned.unit_price) * Number(cart.quantity)
+  const { cart } = state
+  const total = Number(cart.offer.unit_price) * Number(cart.quantity)
   return {
     cart,
-    offer: assigned,
     total,
   }
 }

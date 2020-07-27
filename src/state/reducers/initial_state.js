@@ -7,11 +7,11 @@ const initial_state = {
   cart: {
     product: JSON.parse(localStorage.getItem('cart_product') || '{}'),
     quantity: localStorage.getItem('cart_quantity') || 0,
+    offer: {},
   },
-  offers: {
+  best_offers: {
     by_product: {},
     lowest_price_by_product: {},
-    assigned: {},
   },
   auth: {
     registration: {},

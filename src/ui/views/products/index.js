@@ -59,7 +59,7 @@ class ProductsView extends Component {
 function mapStateToProps(state) {
   const {
     products,
-    offers: { lowest_price_by_product },
+    best_offers: { lowest_price_by_product },
     orders,
   } = state
   return {

@@ -1,19 +1,9 @@
 import React from 'react'
 import * as offersService from 'src/state/services/offers'
 import { ChangeDeliverer } from './ChangeDeliverer'
-import {paths} from "../../../constants";
+import { paths } from 'src/constants'
 
 class ChangeDelivererView extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      offers: [],
-      location: {
-        latitude: '',
-        longitude: '',
-      },
-    }
-  }
 
   goToAssignedOffer = () => {
     const { history } = this.props
@@ -21,13 +11,6 @@ class ChangeDelivererView extends React.Component {
   }
 
   async componentDidMount() {
-    const location = await this._getPosition()
-    this.setState({
-      location: {
-        latitude: location.coords.latitude,
-        longitude: location.coords.longitude,
-      },
-    })
     const serviceResponse = await offersService.searchForOneProduct(
       this.state.location,
       this.props.params.product_code,
