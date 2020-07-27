@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
 export default styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   border: 1px solid black;
   margin-top: 1em;
   margin-right: 0.5em;
@@ -8,9 +11,6 @@ export default styled.div`
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   height: 10em;
   width: 20em;
 

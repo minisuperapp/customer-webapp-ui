@@ -1,6 +1,7 @@
 import React from 'react'
 import { Product } from './Product'
 import Style from './style'
+import {ProductRequest} from "./RequestProduct";
 
 export class ProductList extends React.Component {
   render() {
@@ -25,6 +26,7 @@ export class ProductList extends React.Component {
               handleProductSelection={handleProductSelection}
             />
           ))}
+          <ProductRequest />
         </div>
       </Style>
     )

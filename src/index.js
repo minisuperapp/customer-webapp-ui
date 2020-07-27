@@ -5,6 +5,12 @@ import { Provider } from 'react-redux'
 import configure_store, { history } from './state/configure_store'
 import App from './ui/App'
 
+window.onresize = function() {
+  document.body.height = window.innerHeight;
+}
+
+window.onresize()
+
 const store = configure_store()
 
 render(
