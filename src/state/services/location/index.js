@@ -9,7 +9,6 @@ export const get_location = async () => {
       zoom: zoom || '3',
     }
   }
-  try {
     const browser_location = await new Promise((success, error) => {
       navigator.geolocation.getCurrentPosition(success, error)
     })
@@ -18,13 +17,6 @@ export const get_location = async () => {
       longitude: browser_location.coords.longitude,
       zoom: 10,
     }
-  } catch (e) {
-    return {
-      latitude: 23.634501,
-      longitude: -102.552788,
-      zoom: 3,
-    }
-  }
 }
 
 export const set_location = (location) => {
