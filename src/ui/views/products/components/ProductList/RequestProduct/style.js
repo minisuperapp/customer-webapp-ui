@@ -14,9 +14,16 @@ export default styled.div`
   display: flex;
   height: 10em;
   width: 20em;
-  
+
   & .subtitle {
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
+  }
+
+  & .description {
+    padding: 0.5em;
+    width: 15em;
+    font-family: SFProTextRegular, serif;
+    font-size: 16px;
   }
 
   & button {

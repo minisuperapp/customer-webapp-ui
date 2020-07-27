@@ -8,7 +8,7 @@ export class ProductRequest extends Component {
       <Style>
         <div className="title">No encuentras tu producto?</div>
         <div className="subtitle">Describelo debajo y lo agregaremos a la lista.</div>
-        <textarea />
+        <textarea className="description" />
         <button>Enviar</button>
       </Style>
     )
