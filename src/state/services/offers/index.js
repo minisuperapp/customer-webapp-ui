@@ -5,7 +5,7 @@ import { OffersGroupedByProductRequest } from './requests/search_for_all_product
 import { SearchOffersForOneProductRequest } from './requests/search_for_one_product'
 import { AssignBestOfferRequest } from './requests/assign_best'
 
-export const get_offers_by_product = async (customerLocation) => {
+export const get_best_offers = async (customerLocation) => {
   const offersRequest = new OffersGroupedByProductRequest.Builder()
     .withCustomerLocationLatitude(customerLocation.latitude)
     .withCustomerLocationLongitude(customerLocation.longitude)

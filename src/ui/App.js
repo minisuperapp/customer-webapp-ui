@@ -14,15 +14,15 @@ import Register from './views/register'
 import Login from './views/login'
 import Style from './style'
 import { get_product_request } from 'src/state/actions/product_actions'
-import { get_offers_by_product_request } from 'src/state/actions/offer_actions'
+import { get_best_offers_request } from 'src/state/actions/offer_actions'
 import { connect } from 'react-redux'
 import { paths } from 'src/constants'
 
 class App extends Component {
   async componentDidMount() {
-    const { get_product_request, get_offers_by_product_request } = this.props
+    const { get_product_request, get_best_offers_request } = this.props
     get_product_request()
-    get_offers_by_product_request()
+    get_best_offers_request()
   }
 
   render() {
@@ -49,7 +49,7 @@ class App extends Component {
 
 const mapDispatchToProps = {
   get_product_request,
-  get_offers_by_product_request,
+  get_best_offers_request,
 }
 
 export default connect(() => ({}), mapDispatchToProps)(App)
