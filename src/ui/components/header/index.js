@@ -4,7 +4,7 @@ import Style from './style'
 
 const Header = () => (
   <Style>
-    <img className="logo" alt="minisuper" src={logo} width="90" height="40" align="absmiddle" />
+    <img className="logo" alt="minisuper" src={logo} width="90vh" height="40vh" align="absmiddle" />
   </Style>
 )
 
