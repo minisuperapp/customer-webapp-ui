@@ -1,33 +1,34 @@
 import React from 'react'
-import * as offersService from 'src/state/services/offers'
+import { get_product_offers_request } from 'src/state/actions/offer_actions'
 import { ChangeDeliverer } from './ChangeDeliverer'
 import { paths } from 'src/constants'
+import { connect } from 'react-redux'
 
 class ChangeDelivererView extends React.Component {
-
   goToAssignedOffer = () => {
     const { history } = this.props
     history.push(paths.assigned_offer)
   }
 
   async componentDidMount() {
-    const serviceResponse = await offersService.searchForOneProduct(
-      this.state.location,
-      this.props.params.product_code,
-      this.props.params.quantity,
-    )
-    this.setState({ offers: serviceResponse.data })
-  }
-
-  _getPosition = () => {
-    return new Promise((success, error) => {
-      navigator.geolocation.getCurrentPosition(success, error)
-    })
+    const { get_product_offers_request, cart } = this.props
+    get_product_offers_request({ product_code: cart.product.code, quantity: cart.quantity })
   }
 
   render() {
-    return <ChangeDeliverer {...this.state} goToAssignedOffer={this.goToAssignedOffer} />
+    return <div>Change deliverer</div>
   }
 }
 
-export default ChangeDelivererView
+function mapStateToProps(state) {
+  const { cart } = state
+  return {
+    cart,
+  }
+}
+
+const mapDispatchToProps = {
+  get_product_offers_request,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChangeDelivererView)

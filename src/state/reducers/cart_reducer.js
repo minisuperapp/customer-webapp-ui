@@ -21,6 +21,11 @@ export default function reducer(state = initial_state.cart, action) {
         ...state,
         offer: action.response,
       })
+    case types.GET_PRODUCT_OFFERS_RESPONSE:
+      return Immutable({
+        ...state,
+        product_offers: action.response.data,
+      })
     default:
       return state
   }

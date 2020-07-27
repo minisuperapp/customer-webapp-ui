@@ -4,6 +4,7 @@ import {
   get_best_offers_response,
   listen_published_offer_response,
   assign_best_offer_response,
+  get_product_offers_response,
 } from 'src/state/actions/offer_actions'
 import * as offers_api from 'src/state/services/offers'
 import * as types from 'src/state/actions/action_types'
@@ -52,5 +53,17 @@ export function* assign_best_offer() {
       quantity,
     })
     yield put(assign_best_offer_response(response))
+  })
+}
+
+export function* get_product_offers() {
+  yield takeEvery(types.GET_PRODUCT_OFFERS_REQUEST, function* (data) {
+    const { payload } = data
+    const location = yield call(location_api.get_location)
+    const response = yield call(offers_api.get_product_offers, {
+      ...payload,
+      location,
+    })
+    yield put(get_product_offers_response(response))
   })
 }

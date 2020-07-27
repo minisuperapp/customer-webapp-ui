@@ -22,3 +22,11 @@ export function assign_best_offer_response(response) {
   return { type: types.ASSIGN_BEST_OFFER_RESPONSE, response }
 }
 
+export const get_product_offers_request = (payload) => ({
+  type: types.GET_PRODUCT_OFFERS_REQUEST,
+  payload,
+})
+
+export function get_product_offers_response(response) {
+  return { type: types.GET_PRODUCT_OFFERS_RESPONSE, response }
+}
