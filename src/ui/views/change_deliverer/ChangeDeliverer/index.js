@@ -1,18 +1,14 @@
 import React from 'react'
 import Style from './style'
-import Deliverer from './Deliverer'
+import DelivererList from './DelivererList'
 
 export class ChangeDeliverer extends React.Component {
   render() {
     const { cancel, offers } = this.props
     return (
       <Style>
-        {offers.map(offer => (
-          <Deliverer offer={offer} key={offer.code} />
-        ))}
-        <button onClick={cancel}>
-          Volver a Revisión de Orden
-        </button>
+        <DelivererList offers={offers} />
+        <button onClick={cancel}>Cancelar</button>
       </Style>
     )
   }
