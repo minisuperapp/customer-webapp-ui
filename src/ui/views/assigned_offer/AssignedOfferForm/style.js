@@ -117,7 +117,7 @@ export default styled.div`
     margin: 1em auto;
   }
 
-  & .button {
+  & .accept_button {
     background-color: #49a25b;
     box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
     font-family: SFProTextRegular, serif;

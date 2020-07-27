@@ -4,17 +4,12 @@ import Style from './style'
 class Provider extends React.Component {
   render() {
     const { offer } = this.props
-
     return (
       <Style>
+        <div>{offer.deliverer_name}</div>
+        <div>$ {offer.unit_price}</div>
         <div>
-          <h1>{offer.deliverer_name}</h1>
-        </div>
-        <div>
-          <h2>$ {offer.unit_price}</h2>
-        </div>
-        <div>
-          <button>Seleccionar</button>
+          <button className="select_button">Seleccionar</button>
         </div>
       </Style>
     )

@@ -5,7 +5,6 @@ import Style from './style'
 class DelivererList extends React.Component {
   render() {
     const { offers } = this.props
-
     return (
       <Style>
         {offers.map(offer => (

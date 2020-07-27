@@ -7,8 +7,11 @@ export class ChangeDeliverer extends React.Component {
     const { cancel, offers } = this.props
     return (
       <Style>
+        <div className="title">Selecciona tu repartidor</div>
         <DelivererList offers={offers} />
-        <button onClick={cancel}>Cancelar</button>
+        <button className="cancel_button" onClick={cancel}>
+          Cancelar
+        </button>
       </Style>
     )
   }
