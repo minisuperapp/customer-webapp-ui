@@ -1,4 +1,9 @@
 const initial_state = {
+  location: {
+    latitude: localStorage.getItem('latitude') || '',
+    longitude: localStorage.getItem('longitude') || '',
+    zoom: localStorage.getItem('zoom') || '10',
+  },
   products: {
     list: [],
     by_code: {},

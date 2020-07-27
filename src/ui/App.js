@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import Header from './components/header'
 import SubHeader from './components/subheader'
 import ProductsView from './views/products'
+import LocationView from './views/location'
 import QuantityView from './views/quantity'
 import AssignedOfferView from './views/assigned_offer'
 import DeliveryAddressView from './views/delivery_address'
@@ -32,6 +33,7 @@ class App extends Component {
         <SubHeader />
         <Switch>
           <Route exact path={paths.home} component={ProductsView} />
+          <Route exact path={paths.location} component={LocationView} />
           <Route exact path={paths.quantity} component={QuantityView} />
           <Route exact path={paths.assigned_offer} component={AssignedOfferView} />
           <Route exact path={paths.delivery_address} component={DeliveryAddressView} />
