@@ -5,7 +5,7 @@ import { paths } from 'src/constants'
 import { connect } from 'react-redux'
 
 class ChangeDelivererView extends React.Component {
-  goToAssignedOffer = () => {
+  cancel = () => {
     const { history } = this.props
     history.push(paths.assigned_offer)
   }
@@ -16,7 +16,8 @@ class ChangeDelivererView extends React.Component {
   }
 
   render() {
-    return <div>Change deliverer</div>
+    const { cart } = this.props
+    return <ChangeDeliverer cancel={this.cancel} offers={Object.values(cart.product_offers)} />
   }
 }
 

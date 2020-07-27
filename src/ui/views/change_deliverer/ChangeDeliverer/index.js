@@ -4,12 +4,13 @@ import Deliverer from './Deliverer'
 
 export class ChangeDeliverer extends React.Component {
   render() {
+    const { cancel, offers } = this.props
     return (
       <Style>
-        {this.props.offers.length
-          ? this.props.offers.map((o) => <Deliverer offer={o} key={o.id} />)
-          : 'Buscando repartidores...'}
-        <button className="backButton" onClick={this.props.goToAssignedOffer}>
+        {offers.map(offer => (
+          <Deliverer offer={offer} key={offer.code} />
+        ))}
+        <button onClick={cancel}>
           Volver a Revisión de Orden
         </button>
       </Style>
