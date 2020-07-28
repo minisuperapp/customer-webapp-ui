@@ -28,30 +28,16 @@ export default styled.div`
     display: table;
   }
 
-  .buttons {
-    display: flex;
-    justify-content: space-between;
+  .add {
+    padding: 15px;
     margin-top: 15px;
-
-    .verify {
-      font-size: 16px;
-      padding: 10px;
-      background-color: #49a25b;
-      box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
-      border-radius: 18px;
-      color: white;
-      cursor: pointer;
-    }
-
-    .add {
-      font-size: 16px;
-      background-color: #49a25b;
-      box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
-      border-radius: 18px;
-      color: white;
-      cursor: pointer;
-      margin-left: 15px;
-    }
+    font-size: 18px;
+    background-color: #49a25b;
+    box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
+    border-radius: 18px;
+    color: white;
+    cursor: pointer;
+    margin-left: 15px;
   }
 
   label {
