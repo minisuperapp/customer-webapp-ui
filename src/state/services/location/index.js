@@ -30,7 +30,7 @@ export const set_location = location => {
 export async function add_customer() {
   const request = {
     method: 'post',
-    path: '',
+    path: 'add_customer_location',
     payload: {},
   }
   const response = await apiRequester.send(request)

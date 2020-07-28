@@ -1,9 +1,9 @@
 import React from 'react'
-//import { add_customer_location_request } from 'src/state/actions/location_actions'
+import { connect } from 'react-redux'
 import Style from './style'
 import { paths } from 'src/constants'
 
-export class DeliveryAddressForm extends React.Component {
+class DeliveryAddressForm extends React.Component {
   state = {
     name: '',
     street: '',
@@ -127,3 +127,9 @@ export class DeliveryAddressForm extends React.Component {
     )
   }
 }
+
+function mapStateToProps() {}
+
+const mapDispatchToProps = {}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DeliveryAddressForm)
