@@ -7,7 +7,6 @@ import LocationView from './views/location'
 import QuantityView from './views/quantity'
 import AssignedOfferView from './views/assigned_offer'
 import DeliveryAddressView from './views/delivery_address'
-import DeliveryAdressForm from './views/delivery_address/components/DeliveryAddressForm'
 import ChangeDelivererView from './views/change_deliverer'
 import OrderView from './views/order'
 import OrdersListView from './views/orders_list'
@@ -39,7 +38,6 @@ class App extends Component {
           <Route exact path={paths.assigned_offer} component={AssignedOfferView} />
           <Route exact path={paths.delivery_address} component={DeliveryAddressView} />
           <Route exact path={paths.change_deliverer} component={ChangeDelivererView} />
-          <Route exact path={paths.delivery_address_form} component={DeliveryAdressForm} />
           <Route exact path={paths.order} component={OrderView} />
           <Route exact path={paths.orders_list} component={OrdersListView} />
           <Route exact path={paths.order_details} component={OrdersDetailsView} />
