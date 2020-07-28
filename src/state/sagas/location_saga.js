@@ -19,3 +19,9 @@ export function* set_location() {
     yield call(location_api.set_location, location)
   })
 }
+
+export function* add_customer_location() {
+  yield takeEvery(types.ADD_CUSTOMER_LOCATION_REQUEST, function* () {
+    yield call(location_api.add_customer_location)
+  })
+}
