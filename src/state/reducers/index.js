@@ -6,6 +6,7 @@ import cart from './cart_reducer'
 import best_offers from './best_offers_reducer'
 import auth from './auth_reducer'
 import location from './location_reducer'
+import customer_location from './customer_location_reducer'
 
 const createRootReducer = history =>
   combineReducers({
@@ -16,6 +17,7 @@ const createRootReducer = history =>
     cart,
     auth,
     location,
+    customer_location,
   })
 
 export default createRootReducer
