@@ -50,7 +50,7 @@ export class DeliveryAddressForm extends React.Component {
           <div className="exterior-number">
             <label htmlFor="exterior-number">Numero Exterior</label>
             <input
-              name="exterior-number"
+              name="exterior"
               placeholder="Numero Exterior"
               type="number"
               value={exterior}
@@ -60,7 +60,7 @@ export class DeliveryAddressForm extends React.Component {
           <div className="interior-number">
             <label htmlFor="interior-number">Numero Interior</label>
             <input
-              name="interior-number"
+              name="interior"
               placeholder="Numero Interior"
               type="number"
               value={interior}
@@ -90,7 +90,7 @@ export class DeliveryAddressForm extends React.Component {
           <div className="zip-code">
             <label htmlFor="zip-code">Codigo Postal</label>
             <input
-              name="zip-code"
+              name="zip"
               placeholder="Codigo Postal"
               type="number"
               value={zip}
