@@ -14,17 +14,17 @@ export class OffersGroupedByProductRequest {
   static get Builder() {
     class Builder {
       constructor() {
-        this.customerLocation = {
+        this.location = {
           latitude: '',
           longitude: '',
         }
       }
       withCustomerLocationLatitude(latitude) {
-        this.customerLocation.latitude = latitude
+        this.location.latitude = latitude
         return this
       }
       withCustomerLocationLongitude(longitude) {
-        this.customerLocation.longitude = longitude
+        this.location.longitude = longitude
         return this
       }
       build() {

@@ -16,7 +16,7 @@ export class SearchOffersForOneProductRequest {
       constructor() {
         this.product_code = ''
         this.quantity = ''
-        this.customerLocation = {
+        this.location = {
           latitude: '',
           longitude: '',
         }
@@ -30,11 +30,11 @@ export class SearchOffersForOneProductRequest {
        return this
       }
       withCustomerLocationLatitude(latitude) {
-        this.customerLocation.latitude = latitude
+        this.location.latitude = latitude
         return this
       }
       withCustomerLocationLongitude(longitude) {
-        this.customerLocation.longitude = longitude
+        this.location.longitude = longitude
         return this
       }
       build() {
