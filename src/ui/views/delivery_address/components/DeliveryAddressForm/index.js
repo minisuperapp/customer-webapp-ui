@@ -1,5 +1,7 @@
 import React from 'react'
+//import { add_customer_location_request } from 'src/state/actions/location_actions'
 import Style from './style'
+import { paths } from 'src/constants'
 
 export class DeliveryAddressForm extends React.Component {
   state = {
@@ -19,6 +21,15 @@ export class DeliveryAddressForm extends React.Component {
     this.setState({
       [name]: value,
     })
+  }
+
+  go_to_verify_order = () => {
+    const { history } = this.props
+    history.push(paths.assigned_offer)
+  }
+
+  on_accept = () => {
+    const { history } = this.props
   }
 
   render() {
@@ -109,8 +120,7 @@ export class DeliveryAddressForm extends React.Component {
           </div>
         </div>
 
-        <div className="buttons">
-          <button className="verify">Verifica tu Pedido</button>
+        <div className="btn">
           <button className="add">Añade esta Direccion</button>
         </div>
       </Style>
