@@ -13,7 +13,16 @@ export class DeliveryAddressForm extends React.Component {
     state: '',
   }
 
+  handleChange = event => {
+    const { name, value } = event.target
+
+    this.setState({
+      [name]: value,
+    })
+  }
+
   render() {
+    const { name, street, exterior, interior, neighboorhood, city, zip, state } = this.state
     return (
       <Style>
         <div className="title">Ingresa el lugar de entrega</div>
@@ -24,8 +33,8 @@ export class DeliveryAddressForm extends React.Component {
               name="name"
               placeholder="Donde te entregamos?"
               type="text"
-              value={this.state.name}
-              onChange={e => this.setState({ name: e.target.value })}
+              value={name}
+              onChange={this.handleChange}
             />
           </div>
           <div className="street">
@@ -34,8 +43,8 @@ export class DeliveryAddressForm extends React.Component {
               name="street"
               placeholder="Calle"
               type="text"
-              value={this.state.street}
-              onChange={e => this.setState({ street: e.target.value })}
+              value={street}
+              onChange={this.handleChange}
             />
           </div>
           <div className="exterior-number">
@@ -44,8 +53,8 @@ export class DeliveryAddressForm extends React.Component {
               name="exterior-number"
               placeholder="Numero Exterior"
               type="number"
-              value={this.state.exterior}
-              onChange={e => this.setState({ exterior: e.target.value })}
+              value={exterior}
+              onChange={this.handleChange}
             />
           </div>
           <div className="interior-number">
@@ -54,8 +63,8 @@ export class DeliveryAddressForm extends React.Component {
               name="interior-number"
               placeholder="Numero Interior"
               type="number"
-              value={this.state.interior}
-              onChange={e => this.setState({ interior: e.target.value })}
+              value={interior}
+              onChange={this.handleChange}
             />
           </div>
           <div className="neighboorhood">
@@ -64,8 +73,8 @@ export class DeliveryAddressForm extends React.Component {
               name="neighboorhood"
               placeholder="Colonia"
               type="text"
-              value={this.state.neighboorhood}
-              onChange={e => this.setState({ neighboorhood: e.target.value })}
+              value={neighboorhood}
+              onChange={this.handleChange}
             />
           </div>
           <div className="city">
@@ -74,8 +83,8 @@ export class DeliveryAddressForm extends React.Component {
               name="city"
               placeholder="Ciudad"
               type="text"
-              value={this.state.city}
-              onChange={e => this.setState({ city: e.target.value })}
+              value={city}
+              onChange={this.handleChange}
             />
           </div>
           <div className="zip-code">
@@ -84,8 +93,8 @@ export class DeliveryAddressForm extends React.Component {
               name="zip-code"
               placeholder="Codigo Postal"
               type="number"
-              value={this.state.zip}
-              onChange={e => this.setState({ zip: e.target.value })}
+              value={zip}
+              onChange={this.handleChange}
             />
           </div>
           <div className="state">
@@ -94,8 +103,8 @@ export class DeliveryAddressForm extends React.Component {
               name="state"
               placeholder="Estado"
               type="text"
-              value={this.state.state}
-              onChange={e => this.setState({ state: e.target.value })}
+              value={state}
+              onChange={this.handleChange}
             />
           </div>
         </div>
