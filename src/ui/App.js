@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import Header from './components/header'
 import SubHeader from './components/subheader'
 import ProductsView from './views/products'
+import LocationView from './views/location'
 import QuantityView from './views/quantity'
 import AssignedOfferView from './views/assigned_offer'
 import DeliveryAddressView from './views/delivery_address'
@@ -14,15 +15,15 @@ import Register from './views/register'
 import Login from './views/login'
 import Style from './style'
 import { get_product_request } from 'src/state/actions/product_actions'
-import { get_offers_by_product_request } from 'src/state/actions/offer_actions'
+import { get_best_offers_request } from 'src/state/actions/offer_actions'
 import { connect } from 'react-redux'
 import { paths } from 'src/constants'
 
 class App extends Component {
   async componentDidMount() {
-    const { get_product_request, get_offers_by_product_request } = this.props
+    const { get_product_request, get_best_offers_request } = this.props
     get_product_request()
-    get_offers_by_product_request()
+    get_best_offers_request()
   }
 
   render() {
@@ -32,6 +33,7 @@ class App extends Component {
         <SubHeader />
         <Switch>
           <Route exact path={paths.home} component={ProductsView} />
+          <Route exact path={paths.location} component={LocationView} />
           <Route exact path={paths.quantity} component={QuantityView} />
           <Route exact path={paths.assigned_offer} component={AssignedOfferView} />
           <Route exact path={paths.delivery_address} component={DeliveryAddressView} />
@@ -49,7 +51,7 @@ class App extends Component {
 
 const mapDispatchToProps = {
   get_product_request,
-  get_offers_by_product_request,
+  get_best_offers_request,
 }
 
 export default connect(() => ({}), mapDispatchToProps)(App)

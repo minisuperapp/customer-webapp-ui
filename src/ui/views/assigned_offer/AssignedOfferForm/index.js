@@ -11,6 +11,7 @@ export class AssignedOfferForm extends React.Component {
     const deliverer_name = _.get(offer, 'deliverer_name', 'Buscando...')
     const style = {
       backgroundImage: `url(${images.getProductImageURL(cart.product.code)})`,
+      backgroundPosition: 'center',
     }
     return (
       <Style>
@@ -50,7 +51,7 @@ export class AssignedOfferForm extends React.Component {
             Cancelar
           </button>
           <button
-            className={deliverer_name !== '-' ? 'button' : 'disabledButton'}
+            className={deliverer_name !== '-' ? 'accept_button' : 'disabledButton'}
             onClick={order}
             disabled={deliverer_name === '-'}>
             Pedir

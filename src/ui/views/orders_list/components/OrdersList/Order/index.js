@@ -15,7 +15,10 @@ export class Order extends React.Component {
       CANCELED_BY_CUSTOMER: 'Cancelada por el cliente',
       CANCELED_BY_DELIVERER: 'Cancelada por el proveedor',
     }
-    const imageURL = images.getProductImageURL(product.code)
+    const style = {
+      backgroundImage: `url(${images.getProductImageURL(product.code)})`,
+      backgroundPosition: 'center',
+    }
     return (
       <Style>
         <div className="header">{status[order.status]}</div>
@@ -27,9 +30,7 @@ export class Order extends React.Component {
               {order.product_quantity} {product.quantity_type}
             </div>
           </div>
-          <div className="image">
-            <img width="100px" height="100px" src={imageURL} alt="imagen del producto" />
-          </div>
+          <div className="image" style={style} />
         </div>
       </Style>
     )

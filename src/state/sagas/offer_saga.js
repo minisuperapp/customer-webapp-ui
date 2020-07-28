@@ -1,9 +1,10 @@
 import { take, put, takeEvery, call } from 'redux-saga/effects'
 import { eventChannel } from 'redux-saga'
 import {
-  get_offers_by_product_response,
+  get_best_offers_response,
   listen_published_offer_response,
   assign_best_offer_response,
+  get_product_offers_response,
 } from 'src/state/actions/offer_actions'
 import * as offers_api from 'src/state/services/offers'
 import * as types from 'src/state/actions/action_types'
@@ -11,11 +12,11 @@ import { connect } from 'src/state/api/socket'
 import * as location_api from 'src/state/services/location'
 import * as offersService from '../services/offers'
 
-export function* get_offers_by_product() {
-  yield takeEvery(types.GET_OFFERS_BY_PRODUCT_REQUEST, function* () {
+export function* get_best_offers() {
+  yield takeEvery(types.GET_BEST_OFFERS_REQUEST, function* () {
     const location = yield call(location_api.get_location)
-    const response = yield call(offers_api.get_offers_by_product, location)
-    yield put(get_offers_by_product_response(response))
+    const response = yield call(offers_api.get_best_offers, location)
+    yield put(get_best_offers_response(response))
   })
 }
 
@@ -52,5 +53,17 @@ export function* assign_best_offer() {
       quantity,
     })
     yield put(assign_best_offer_response(response))
+  })
+}
+
+export function* get_product_offers() {
+  yield takeEvery(types.GET_PRODUCT_OFFERS_REQUEST, function* (data) {
+    const { payload } = data
+    const location = yield call(location_api.get_location)
+    const response = yield call(offers_api.get_product_offers, {
+      ...payload,
+      location,
+    })
+    yield put(get_product_offers_response(response))
   })
 }

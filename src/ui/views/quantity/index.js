@@ -1,6 +1,6 @@
 import React from 'react'
 import _ from 'lodash'
-import { QuantityForm } from './components/QuantityForm'
+import { QuantityForm } from './QuantityForm'
 import { set_selected_quantity } from 'src/state/actions/cart_actions'
 import { connect } from 'react-redux'
 import { paths } from 'src/constants'
@@ -82,7 +82,7 @@ class QuantityView extends React.Component {
 function mapStateToProps(state) {
   const {
     cart,
-    offers: { lowest_price_by_product },
+    best_offers: { lowest_price_by_product },
   } = state
   return {
     cart,

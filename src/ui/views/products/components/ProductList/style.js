@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export default styled.div`
   margin-top: 1em;
+  margin-bottom: 1em;
 
   .search {
     display: flex;

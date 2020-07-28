@@ -13,14 +13,15 @@ export default styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 1em;
   }
 
   .image {
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
     justify-content: center;
     background-size: contain;
     background-repeat: no-repeat;
-    height: 100px;
+    height: 80px;
     width: 100px;
   }
 
@@ -123,7 +124,7 @@ export default styled.div`
     font-family: SFProTextRegular, serif;
     font-weight: bold;
     font-size: 18px;
-    border-radius: 18px;
+    border-radius: 10px;
     width: 100%;
     color: white;
     cursor: pointer;
@@ -131,15 +132,15 @@ export default styled.div`
   }
 
   .backButton {
-    border-color: #a24d0d;
-    background-color: white;
-    box-shadow: 0 2px 8px 0 rgb(162, 77, 13);
-    font-family: SFProTextRegular, serif;
-    font-size: 18px;
-    border-radius: 18px;
-    width: 100%;
-    color: #a24d0d;
-    cursor: pointer;
+    background-color: #fff;
+    color: black;
+    box-shadow: none;
     margin-right: 0.5em;
+    font-family: SFProTextRegular, serif;
+    font-weight: 700;
+    font-size: 18px;
+    border-radius: 10px;
+    width: 100%;
+    cursor: pointer;
   }
 `

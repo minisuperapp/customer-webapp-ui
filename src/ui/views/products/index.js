@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import _ from 'lodash'
 import { set_selected_product } from 'src/state/actions/cart_actions'
@@ -33,7 +34,10 @@ class ProductsView extends Component {
   }
 
   render() {
-    const { products, lowest_price_by_product } = this.props
+    const { products, lowest_price_by_product, location } = this.props
+    if (!location.latitude || !location.longitude) {
+      return <Redirect to={paths.location} />
+    }
     const { query } = this.state
     const products_to_show = query
       ? products.filter(
@@ -59,13 +63,15 @@ class ProductsView extends Component {
 function mapStateToProps(state) {
   const {
     products,
-    offers: { lowest_price_by_product },
+    best_offers: { lowest_price_by_product },
     orders,
+    location,
   } = state
   return {
     products: products.list,
     lowest_price_by_product,
     orders,
+    location,
   }
 }
 

@@ -11,6 +11,10 @@ export default styled.div`
 
   & .image {
     text-align: right;
+    height: 100px;
+    width: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 
   & .info {

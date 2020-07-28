@@ -1,16 +1,16 @@
 import React from 'react'
 import Style from './style'
-import Deliverer from './Deliverer'
+import DelivererList from './DelivererList'
 
 export class ChangeDeliverer extends React.Component {
   render() {
+    const { cancel, offers } = this.props
     return (
       <Style>
-        {this.props.offers.length
-          ? this.props.offers.map((o) => <Deliverer offer={o} key={o.id} />)
-          : 'Buscando repartidores...'}
-        <button className="backButton" onClick={this.props.goToAssignedOffer}>
-          Volver a Revisión de Orden
+        <div className="title">Selecciona tu repartidor</div>
+        <DelivererList offers={offers} />
+        <button className="cancel_button" onClick={cancel}>
+          Cancelar
         </button>
       </Style>
     )

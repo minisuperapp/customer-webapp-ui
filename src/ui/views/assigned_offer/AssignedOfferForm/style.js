@@ -14,7 +14,7 @@ export default styled.div`
     flex-direction: column;
     align-items: center;
   }
-  
+
   & .address_container {
     margin-top: 1em;
     display: flex;
@@ -42,7 +42,7 @@ export default styled.div`
     box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
     font-family: SFProTextRegular, serif;
     font-size: 18px;
-    border-radius: 18px;
+    border-radius: 10px;
     width: 100%;
     max-width: 200px;
     color: #49a25b;
@@ -117,13 +117,13 @@ export default styled.div`
     margin: 1em auto;
   }
 
-  & .button {
+  & .accept_button {
     background-color: #49a25b;
     box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
     font-family: SFProTextRegular, serif;
     font-weight: bold;
     font-size: 18px;
-    border-radius: 18px;
+    border-radius: 10px;
     width: 100%;
     color: white;
     cursor: pointer;
@@ -135,7 +135,7 @@ export default styled.div`
     box-shadow: 0 2px 8px 0 rgb(162, 156, 162);
     font-family: SFProTextRegular, serif;
     font-size: 18px;
-    border-radius: 18px;
+    border-radius: 10px;
     width: 100%;
     color: white;
     cursor: wait;
@@ -143,15 +143,15 @@ export default styled.div`
   }
 
   & .backButton {
-    border-color: #a24d0d;
-    box-shadow: 0 2px 8px 0 rgb(162, 77, 13);
-    font-family: SFProTextRegular, serif;
-    font-size: 18px;
-    border-radius: 18px;
-    width: 100%;
-    color: #a24d0d;
-    cursor: pointer;
+    background-color: #fff;
+    color: black;
+    box-shadow: none;
     margin-right: 0.5em;
-    background-color: white;
+    font-family: SFProTextRegular, serif;
+    font-weight: 700;
+    font-size: 18px;
+    border-radius: 10px;
+    width: 100%;
+    cursor: pointer;
   }
 `

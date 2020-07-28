@@ -11,6 +11,7 @@ export class QuantityForm extends React.Component {
     } = this.props
     const style = {
       backgroundImage: `url(${images.getProductImageURL(product.code)})`,
+      backgroundPosition: 'center',
     }
     return (
       <Style>

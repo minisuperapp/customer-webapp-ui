@@ -3,17 +3,19 @@ import { connectRouter } from 'connected-react-router'
 import products from './products_reducer'
 import orders from './orders_reducer'
 import cart from './cart_reducer'
-import offers from './offers_reducer'
+import best_offers from './best_offers_reducer'
 import auth from './auth_reducer'
+import location from './location_reducer'
 
-const createRootReducer = (history) =>
+const createRootReducer = history =>
   combineReducers({
     router: connectRouter(history),
     products,
     orders,
-    offers,
+    best_offers,
     cart,
     auth,
+    location,
   })
 
 export default createRootReducer
