@@ -23,6 +23,7 @@ const initial_state = {
     registration: {},
     login: {},
   },
+  customer_locations: [],
 }
 
 export default initial_state
