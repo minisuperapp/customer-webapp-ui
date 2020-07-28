@@ -1,6 +1,6 @@
 import React from 'react'
-import {DeliveryAddressForm} from './components/DeliveryAddressForm'
-import {connect} from 'react-redux'
+import { DeliveryAddressForm } from './components/DeliveryAddressForm'
+import { connect } from 'react-redux'
 
 class DeliveryAddressView extends React.Component {
   render() {
