@@ -14,6 +14,7 @@ const initial_state = {
     quantity: localStorage.getItem('cart_quantity') || 0,
     offer: {},
     product_offers: {},
+    customer_location: {},
   },
   best_offers: {
     by_product: {},
@@ -23,6 +24,7 @@ const initial_state = {
     registration: {},
     login: {},
   },
+  customer_locations: [],
 }
 
 export default initial_state
