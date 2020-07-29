@@ -14,10 +14,10 @@ export const set_location = location => ({
   location,
 })
 
-export function add_customer_location_request() {
-  return { type: types.ADD_CUSTOMER_LOCATION_REQUEST }
+export function add_customer_location_request(customer_location, on_success) {
+  return { type: types.ADD_CUSTOMER_LOCATION_REQUEST, customer_location, on_success }
 }
 
-export function add_customer_location_response() {
-  return { type: types.ADD_CUSTOMER_LOCATION_RESPONSE }
+export function add_customer_location_response(customer_location) {
+  return { type: types.ADD_CUSTOMER_LOCATION_RESPONSE, customer_location }
 }

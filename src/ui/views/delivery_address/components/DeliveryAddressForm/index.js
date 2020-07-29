@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { add_customer_location_request } from 'src/state/actions/location_actions'
 import Style from './style'
 import { paths } from 'src/constants'
 
@@ -29,7 +30,10 @@ class DeliveryAddressForm extends React.Component {
   }
 
   on_accept = () => {
-    const { history } = this.props
+    const { history, add_customer_location_request } = this.props
+    add_customer_location_request(this.state, () => {
+      history.push(paths.assigned_offer)
+    })
   }
 
   render() {
@@ -121,15 +125,21 @@ class DeliveryAddressForm extends React.Component {
         </div>
 
         <div className="btn">
-          <button className="add">Añade esta Direccion</button>
+          <button className="add" onClick={this.on_accept}>
+            Añade esta Direccion
+          </button>
         </div>
       </Style>
     )
   }
 }
 
-function mapStateToProps() {}
+function mapStateToProps() {
+  return {}
+}
 
-const mapDispatchToProps = {}
+const mapDispatchToProps = {
+  add_customer_location_request,
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeliveryAddressForm)

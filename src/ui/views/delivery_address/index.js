@@ -1,14 +1,16 @@
 import React from 'react'
-import { DeliveryAddressForm } from './components/DeliveryAddressForm'
+import DeliveryAddressForm from './components/DeliveryAddressForm'
 import { connect } from 'react-redux'
 
 class DeliveryAddressView extends React.Component {
   render() {
-    return <DeliveryAddressForm />
+    return <DeliveryAddressForm history={this.props.history} />
   }
 }
 
-function mapStateToProps() {}
+function mapStateToProps() {
+  return {}
+}
 
 const mapDispatchToProps = {}
 

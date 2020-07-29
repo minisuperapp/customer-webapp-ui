@@ -7,4 +7,4 @@ export {
   get_product_offers,
 } from './offer_saga'
 export { register_customer, login_customer } from './auth_saga'
-export { get_location, set_location } from './location_saga'
+export { get_location, set_location, add_customer_location } from './location_saga'
