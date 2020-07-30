@@ -8,7 +8,7 @@ export default styled.div`
   border: 1px solid black;
   border-radius: 10px;
   padding: 1em;
-  height: 6em;
+  height: 10em;
 
   & .select_button {
     background-color: #49a25b;
@@ -21,5 +21,13 @@ export default styled.div`
     color: white;
     cursor: pointer;
     margin-left: 0.5em;
+  }
+  .image {
+    margin-bottom: 0.5em;
+    justify-content: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 80px;
+    width: 100px;
   }
 `
