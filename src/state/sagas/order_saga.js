@@ -12,8 +12,8 @@ export function* place_order() {
     const { order } = data
     const info = { ...order, location }
     const response = yield call(orders_api.place_order, info)
-    yield put(place_order_response({ order, response }))
     if (response.success) {
+      yield put(place_order_response(response.data))
       yield put(push(paths.orders_list))
     } else {
       alert(JSON.stringify(response))

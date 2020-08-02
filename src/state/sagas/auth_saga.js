@@ -1,6 +1,6 @@
 import { put, takeEvery, call } from 'redux-saga/effects'
 import * as types from 'src/state/actions/action_types'
-import { login_customer_response, register_customer_response } from '../actions/auth_actions'
+import { login_customer_response } from '../actions/auth_actions'
 import * as auth_service from 'src/state/services/auth'
 
 export function* register_customer() {
