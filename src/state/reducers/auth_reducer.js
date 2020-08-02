@@ -4,11 +4,6 @@ import Immutable from 'seamless-immutable'
 
 export default function reducer(state = initial_state.auth, action) {
   switch (action.type) {
-    case types.REGISTER_CUSTOMER_RESPONSE:
-      return Immutable({
-        ...state,
-        registration: Immutable(action.response),
-      })
     case types.LOGIN_CUSTOMER_RESPONSE:
       return Immutable({
         ...state,
