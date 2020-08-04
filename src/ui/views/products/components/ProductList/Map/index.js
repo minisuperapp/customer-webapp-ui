@@ -23,14 +23,14 @@ class Map extends Component {
     })
     this.map.addControl(new mapboxgl.NavigationControl())
     const { get_location_request } = this.props
-    get_location_request((location) => {
+    get_location_request(location => {
       const { latitude, longitude } = location
       this.map.flyTo({ center: [longitude, latitude], zoom: 12 })
     })
   }
 
-  componentWillReceiveProps(nextProps, nextContext) {
-    const { offers } = nextProps
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    const { offers } = this.props
     Object.values(offers).map(offer_list => {
       const offer = offer_list.offers[0]
       if (!offer.longitude || !offer.latitude) {
