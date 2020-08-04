@@ -42,7 +42,7 @@ export default styled.div`
     max-width: 300px;
   }
 
-  & button {
+  .accept_button {
     font-family: SFProTextRegular, serif;
     font-size: 18px;
     border-radius: 18px;

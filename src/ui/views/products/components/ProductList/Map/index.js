@@ -18,7 +18,7 @@ export class Map extends Component {
     this.map.addControl(new mapboxgl.NavigationControl())
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
+  componentDidUpdate() {
     const { offers } = this.props
     Object.values(offers).map(offer_list => {
       const offer = offer_list.offers[0]

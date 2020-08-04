@@ -78,7 +78,9 @@ class LocationView extends React.Component {
         <div className="button_container">
           <button
             disabled={this.state.accept_disabled}
-            className={this.state.accept_disabled ? 'accept_disabled' : ''}
+            className={
+              this.state.accept_disabled ? 'accept_disabled accept_button' : 'accept_button'
+            }
             onClick={this.onAccept}>
             Seleccionar
           </button>
