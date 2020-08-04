@@ -64,23 +64,7 @@ module.exports = {
       },
       {
         test: /(\.css)$/,
-        use: [
-          MiniCssExtractPlugin.loader, // it will extract our css to a separate file
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true,
-              modules: true,
-            },
-          },
-          {
-            loader: 'postcss-loader', // this loader will run first
-            options: {
-              plugins: () => [require('cssnano')], // to minify our css
-              sourceMap: true,
-            },
-          },
-        ],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
