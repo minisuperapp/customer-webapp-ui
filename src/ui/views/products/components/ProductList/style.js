@@ -30,6 +30,17 @@ export default styled.div`
     font-size: 24px;
   }
 
+  .map_container {
+    position: relative;
+    margin-top: 1em;
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 10em;
+    width: 20em;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+  }
+
   & .container {
     display: flex;
     justify-content: center;
