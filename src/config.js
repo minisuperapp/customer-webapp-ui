@@ -2,6 +2,9 @@ module.exports = {
   get API_HOST() {
     return process.env.API_HOST
   },
+  get SOCKET_HOST() {
+    return process.env.SOCKET_HOST
+  },
   get API_URL() {
     return `${this.API_HOST}/api`
   },
@@ -23,8 +26,6 @@ module.exports = {
     const payload = {}
     if (this.isTestEnv) {
       payload.query = 'is-test=true'
-    } else {
-      payload.path = '/comprar/api/socket.io/'
     }
     return payload
   },

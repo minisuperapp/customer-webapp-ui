@@ -2,5 +2,5 @@ import io from 'socket.io-client'
 import config from 'src/config'
 
 export const connect = () => {
-  return io(config.API_HOST, config.socketPayload)
+  return io(config.SOCKET_HOST)
 }
