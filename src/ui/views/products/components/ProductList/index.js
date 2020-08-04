@@ -2,11 +2,17 @@ import React from 'react'
 import { Product } from './Product'
 import Style from './style'
 import { ProductRequest } from './RequestProduct'
-import Map from './Map'
+import { Map } from './Map'
 
 export class ProductList extends React.Component {
   render() {
-    const { lowest_price_by_product, handleProductSelection, handleProductSearch } = this.props
+    const {
+      lowest_price_by_product,
+      handleProductSelection,
+      handleProductSearch,
+      by_product,
+      location,
+    } = this.props
     return (
       <Style>
         <div className="title">Elige tu producto</div>
@@ -20,7 +26,7 @@ export class ProductList extends React.Component {
         </div>
         <div className="container">
           <div className="map_container">
-            <Map />
+            <Map offers={by_product} location={location} />
           </div>
           {this.props.products.map(p => (
             <Product

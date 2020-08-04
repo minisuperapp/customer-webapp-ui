@@ -1,32 +1,21 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import mapboxgl from 'mapbox-gl'
-import { get_location_request } from 'src/state/actions/location_actions'
 import Style from './style'
 import * as images from 'src/ui/views/common/images'
 
-class Map extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      lng: -102.552788,
-      lat: 23.634501,
-      zoom: 3,
-    }
-  }
+export class Map extends Component {
   async componentDidMount() {
+    const {
+      location: { latitude, longitude },
+    } = this.props
+    const zoom = 12
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
       style: 'mapbox://styles/mapbox/streets-v11',
-      center: [this.state.lng, this.state.lat],
-      zoom: this.state.zoom,
+      center: [longitude, latitude],
+      zoom: zoom,
     })
     this.map.addControl(new mapboxgl.NavigationControl())
-    const { get_location_request } = this.props
-    get_location_request(location => {
-      const { latitude, longitude } = location
-      this.map.flyTo({ center: [longitude, latitude], zoom: 12 })
-    })
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
@@ -56,18 +45,3 @@ class Map extends Component {
     )
   }
 }
-
-function mapStateToProps(state) {
-  const {
-    best_offers: { by_product },
-  } = state
-  return {
-    offers: by_product,
-  }
-}
-
-const mapDispatchToProps = {
-  get_location_request,
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Map)

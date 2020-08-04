@@ -34,7 +34,7 @@ class ProductsView extends Component {
   }
 
   render() {
-    const { products, lowest_price_by_product, location } = this.props
+    const { products, lowest_price_by_product, by_product, location } = this.props
     if (!location.latitude || !location.longitude) {
       return <Redirect to={paths.location} />
     }
@@ -55,21 +55,19 @@ class ProductsView extends Component {
         lowest_price_by_product={lowest_price_by_product}
         handleProductSelection={this.handleProductSelection}
         handleProductSearch={this.handleProductSearch}
+        by_product={by_product}
+        location={location}
       />
     )
   }
 }
 
 function mapStateToProps(state) {
-  const {
-    products,
-    best_offers: { lowest_price_by_product },
-    orders,
-    location,
-  } = state
+  const { products, best_offers, orders, location } = state
   return {
     products: products.list,
-    lowest_price_by_product,
+    lowest_price_by_product: best_offers.lowest_price_by_product,
+    by_product: best_offers.by_product,
     orders,
     location,
   }
