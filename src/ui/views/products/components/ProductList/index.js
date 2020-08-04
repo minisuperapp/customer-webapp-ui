@@ -1,7 +1,8 @@
 import React from 'react'
 import { Product } from './Product'
 import Style from './style'
-import {ProductRequest} from "./RequestProduct";
+import { ProductRequest } from './RequestProduct'
+import Map from './Map'
 
 export class ProductList extends React.Component {
   render() {
@@ -18,6 +19,9 @@ export class ProductList extends React.Component {
           />
         </div>
         <div className="container">
+          <div className="map_container">
+            <Map />
+          </div>
           {this.props.products.map(p => (
             <Product
               key={p.id}
