@@ -42,7 +42,7 @@ class LocationView extends React.Component {
       })
     })
     const { get_location_request } = this.props
-    get_location_request((location) => {
+    get_location_request(location => {
       const { latitude, longitude, zoom } = location
       this.map.flyTo({ center: [longitude, latitude], zoom })
     })
@@ -55,13 +55,17 @@ class LocationView extends React.Component {
 
   onAccept = () => {
     const { history, set_location } = this.props
-    set_location({
-      latitude: this.state.lat,
-      longitude: this.state.lng,
-      zoom: this.state.zoom,
-    }, () => {
-      history.push(paths.home)
-    })
+    set_location(
+      {
+        latitude: this.state.lat,
+        longitude: this.state.lng,
+        zoom: this.state.zoom,
+      },
+      () => {
+        history.push(paths.home)
+        window.location.reload()
+      },
+    )
   }
 
   render() {
@@ -69,7 +73,7 @@ class LocationView extends React.Component {
       <Style>
         <div className="title">Selecciona tu localización</div>
         <div className="map_container">
-          <div ref={(el) => (this.mapContainer = el)} className="map" />
+          <div ref={el => (this.mapContainer = el)} className="map" />
         </div>
         <div className="button_container">
           <button
