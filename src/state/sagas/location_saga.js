@@ -8,10 +8,9 @@ import * as types from 'src/state/actions/action_types'
 
 export function* get_location() {
   yield takeEvery(types.GET_LOCATION_REQUEST, function* (action) {
-    const { map } = action
+    const { on_success } = action
     const location = yield call(location_api.get_location)
-    const { latitude, longitude, zoom } = location
-    map && map.flyTo({ center: [longitude, latitude], zoom })
+    on_success && on_success(location)
     yield put(get_location_response(location))
   })
 }

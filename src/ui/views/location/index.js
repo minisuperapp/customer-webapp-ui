@@ -42,7 +42,10 @@ class LocationView extends React.Component {
       })
     })
     const { get_location_request } = this.props
-    get_location_request(map)
+    get_location_request((location) => {
+      const { latitude, longitude, zoom } = location
+      this.map.flyTo({ center: [longitude, latitude], zoom })
+    })
   }
 
   onCancel = () => {

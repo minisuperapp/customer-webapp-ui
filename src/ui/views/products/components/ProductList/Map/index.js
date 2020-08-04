@@ -23,7 +23,10 @@ class Map extends Component {
     })
     this.map.addControl(new mapboxgl.NavigationControl())
     const { get_location_request } = this.props
-    get_location_request(this.map)
+    get_location_request((location) => {
+      const { latitude, longitude } = location
+      this.map.flyTo({ center: [longitude, latitude], zoom: 12 })
+    })
   }
 
   componentWillReceiveProps(nextProps, nextContext) {

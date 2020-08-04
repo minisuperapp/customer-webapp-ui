@@ -1,8 +1,8 @@
 import * as types from './action_types'
 
-export const get_location_request = map => ({
+export const get_location_request = on_success => ({
   type: types.GET_LOCATION_REQUEST,
-  map,
+  on_success,
 })
 
 export function get_location_response(location) {
