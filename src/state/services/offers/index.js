@@ -4,6 +4,7 @@ import * as apiRequester from '../../api'
 import { OffersGroupedByProductRequest } from './requests/search_for_all_products'
 import { SearchOffersForOneProductRequest } from './requests/search_for_one_product'
 import { AssignBestOfferRequest } from './requests/assign_best'
+import { CHANGE_OFFER_REQUEST } from '../../actions/action_types'
 
 export const get_best_offers = async customerLocation => {
   const offersRequest = new OffersGroupedByProductRequest.Builder()
@@ -36,6 +37,12 @@ export const get_product_offers = async payload => {
     .build()
   const offers = await apiRequester.send(request)
   return offers.data
+}
+
+export const change_offer = async ({ product_code }) => {
+  const request = new CHANGE_OFFER_REQUEST.Builder().withProductCode(product_code).build()
+  const response = await apiRequester.send(request)
+  return _.get(response)
 }
 
 export const addToOffersByProduct = (offersByProduct, offer) => {
