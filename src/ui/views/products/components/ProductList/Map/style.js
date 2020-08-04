@@ -10,4 +10,12 @@ export default styled.div`
     overflow: hidden;
     border-radius: 10px;
   }
+
+  .marker {
+    display: block;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+  }
 `

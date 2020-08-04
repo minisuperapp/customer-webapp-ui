@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-
-import Style from './style'
+import { connect } from 'react-redux'
 import mapboxgl from 'mapbox-gl'
 import { get_location_request } from 'src/state/actions/location_actions'
-import { connect } from 'react-redux'
+import Style from './style'
+import * as images from 'src/ui/views/common/images'
 
 class Map extends Component {
   constructor(props) {
@@ -30,7 +30,18 @@ class Map extends Component {
     const { offers } = nextProps
     Object.values(offers).map(offer_list => {
       const offer = offer_list.offers[0]
-      new mapboxgl.Marker().setLngLat([offer.longitude, offer.latitude]).addTo(this.map)
+      if (!offer.longitude || !offer.latitude) {
+        return
+      }
+      const el = document.createElement('div')
+      el.className = 'marker'
+      el.style.backgroundImage = `url(${images.getProductImageURL(offer.product_code)})`
+      el.style.backgroundPosition = 'center'
+      el.style.backgroundSize = 'contain'
+      el.style.backgroundRepeat = 'no-repeat'
+      el.style.width = '30px'
+      el.style.height = '30px'
+      new mapboxgl.Marker(el).setLngLat([offer.longitude, offer.latitude]).addTo(this.map)
     })
   }
 
