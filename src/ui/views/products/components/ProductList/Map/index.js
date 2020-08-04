@@ -15,16 +15,25 @@ class Map extends Component {
     }
   }
   async componentDidMount() {
-    const map = new mapboxgl.Map({
+    this.map = new mapboxgl.Map({
       container: this.mapContainer,
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [this.state.lng, this.state.lat],
       zoom: this.state.zoom,
     })
-    map.addControl(new mapboxgl.NavigationControl())
+    this.map.addControl(new mapboxgl.NavigationControl())
     const { get_location_request } = this.props
-    get_location_request(map)
+    get_location_request(this.map)
   }
+
+  componentWillReceiveProps(nextProps, nextContext) {
+    const { offers } = nextProps
+    Object.values(offers).map(offer_list => {
+      const offer = offer_list.offers[0]
+      new mapboxgl.Marker().setLngLat([offer.longitude, offer.latitude]).addTo(this.map)
+    })
+  }
+
   render() {
     return (
       <Style>
@@ -34,8 +43,13 @@ class Map extends Component {
   }
 }
 
-function mapStateToProps() {
-  return {}
+function mapStateToProps(state) {
+  const {
+    best_offers: { by_product },
+  } = state
+  return {
+    offers: by_product,
+  }
 }
 
 const mapDispatchToProps = {

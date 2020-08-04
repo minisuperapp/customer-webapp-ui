@@ -8,5 +8,6 @@ export default styled.div`
     right: 0;
     left: 0;
     overflow: hidden;
+    border-radius: 10px;
   }
 `
