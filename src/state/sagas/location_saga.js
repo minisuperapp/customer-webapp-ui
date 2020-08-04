@@ -17,8 +17,9 @@ export function* get_location() {
 
 export function* set_location() {
   yield takeEvery(types.SET_LOCATION, function* (action) {
-    const { location } = action
+    const { location, on_success } = action
     yield call(location_api.set_location, location)
+    on_success && on_success()
   })
 }
 

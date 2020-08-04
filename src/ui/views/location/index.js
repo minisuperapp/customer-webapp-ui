@@ -59,8 +59,9 @@ class LocationView extends React.Component {
       latitude: this.state.lat,
       longitude: this.state.lng,
       zoom: this.state.zoom,
+    }, () => {
+      history.push(paths.home)
     })
-    history.push(paths.home)
   }
 
   render() {

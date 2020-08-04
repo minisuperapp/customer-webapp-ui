@@ -24,10 +24,11 @@ export default styled.div`
     width: 15em;
     font-family: SFProTextRegular, serif;
     font-size: 16px;
+    resize: none;
   }
 
   & button {
-    margin-top: 0.5em;
+    margin-top: 1em;
     font-family: SFProTextRegular, serif;
     font-size: 16px;
     border-radius: 10px;
