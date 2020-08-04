@@ -26,7 +26,8 @@ export default styled.div`
 
     & .orders_link {
       border: 1px solid black;
-      border-right: none;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
       padding: 0.5em;
     }
     

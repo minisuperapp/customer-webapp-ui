@@ -5,23 +5,24 @@ export default styled.div`
   display: flex;
   flex-direction: column;
   align-self: center;
-  border: 1px solid black;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
   padding: 0 20px 20px 20px;
   font-family: Arial, Helvetica, sans-serif;
 
-  .header {
-    background-color: #6f8f72;
-    padding: 0.5em 1em;
-    width: 95%;
-    text-align: center;
-    color: whitesmoke;
-    font-weight: bold;
+  & .title {
+    font-family: SFProText-Bold, serif;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   & .body {
     display: table;
+    margin-top: 1em;
+    padding: 1em;
+    border: 1px solid black;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 
     .name {
       display: table-row;
@@ -46,24 +47,25 @@ export default styled.div`
       width: auto;
       padding: 5px;
     }
-  }
-  & .buttons {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 20px;
+    
+    & .buttons {
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 20px;
 
-    .ok {
-      cursor: pointer;
-      font-size: 16px;
-      background-color: #6f8f72;
-      color: whitesmoke;
-      font-weight: bold;
-      padding: 10px;
-    }
+      .ok {
+        cursor: pointer;
+        font-size: 16px;
+        background-color: #6f8f72;
+        color: whitesmoke;
+        font-weight: bold;
+        padding: 10px;
+      }
 
-    .cancel {
-      cursor: pointer;
-      font-size: 14px;
+      .cancel {
+        cursor: pointer;
+        font-size: 14px;
+      }
     }
   }
 `

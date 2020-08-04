@@ -26,12 +26,6 @@ class SubHeader extends Component {
             to={paths.orders_list}>
             Mis Ordenes
           </Link>
-          <Link
-            className={`${active_page === paths.register ? 'active' : ''} account_link`}
-            onClick={this.refresh}
-            to={paths.register}>
-            Mi Cuenta
-          </Link>
         </div>
       </Style>
     )

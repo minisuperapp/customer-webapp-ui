@@ -33,7 +33,7 @@ class Register extends Component {
   render() {
     return (
       <Style>
-        <div className="header">Ingresa tus datos de registro</div>
+        <div className="title">Crea tu cuenta</div>
         <div className="body">
           <div className="name">
             <label htmlFor="name">Nombre: </label>
@@ -65,14 +65,12 @@ class Register extends Component {
               onChange={e => this.setState({ password: e.target.value })}
             />
           </div>
-        </div>
-        <div className="buttons">
-          <button className="ok" onClick={this.on_accept}>
-            Registrarse
-          </button>
-          <button className="cancel" onClick={this.go_to_login}>
-            Ya Tengo Cuenta
-          </button>
+
+          <div className="buttons">
+            <button className="ok" onClick={this.on_accept}>
+              Crear cuenta
+            </button>
+          </div>
         </div>
       </Style>
     )
