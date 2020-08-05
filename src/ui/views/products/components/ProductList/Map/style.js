@@ -18,4 +18,12 @@ export default styled.div`
     cursor: pointer;
     padding: 0;
   }
+
+  .change_location {
+    position: relative;
+    top: 10em;
+    left: 8em;
+    border-radius: 10px;
+    cursor: pointer;
+  }
 `

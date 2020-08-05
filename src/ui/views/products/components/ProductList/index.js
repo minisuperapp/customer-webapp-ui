@@ -12,6 +12,7 @@ export class ProductList extends React.Component {
       handleProductSearch,
       by_product,
       location,
+      go_to_location,
     } = this.props
     return (
       <Style>
@@ -26,7 +27,7 @@ export class ProductList extends React.Component {
         </div>
         <div className="container">
           <div className="map_container">
-            <Map offers={by_product} location={location} />
+            <Map offers={by_product} location={location} go_to_location={go_to_location} />
           </div>
           {this.props.products.map(p => (
             <Product

@@ -38,9 +38,13 @@ export class Map extends Component {
   }
 
   render() {
+    const { go_to_location } = this.props
     return (
       <Style>
         <div ref={el => (this.mapContainer = el)} className="map" />
+        <button className="change_location" onClick={go_to_location}>
+          Cambiar mi localizacion
+        </button>
       </Style>
     )
   }

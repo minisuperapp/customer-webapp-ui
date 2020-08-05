@@ -33,6 +33,11 @@ class ProductsView extends Component {
     })
   }
 
+  go_to_location = () => {
+    const { history } = this.props
+    history.push(paths.location)
+  }
+
   render() {
     const { products, lowest_price_by_product, by_product, location } = this.props
     if (!location.latitude || !location.longitude) {
@@ -57,6 +62,7 @@ class ProductsView extends Component {
         handleProductSearch={this.handleProductSearch}
         by_product={by_product}
         location={location}
+        go_to_location={this.go_to_location}
       />
     )
   }
