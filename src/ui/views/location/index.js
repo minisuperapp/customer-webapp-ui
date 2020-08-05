@@ -20,6 +20,9 @@ class LocationView extends React.Component {
     }
   }
   async componentDidMount() {
+    localStorage.removeItem('latitude')
+    localStorage.removeItem('longitude')
+    localStorage.removeItem('zoom')
     const map = new mapboxgl.Map({
       container: this.mapContainer,
       style: 'mapbox://styles/mapbox/streets-v11',
@@ -44,7 +47,7 @@ class LocationView extends React.Component {
     const { get_location_request } = this.props
     get_location_request(location => {
       const { latitude, longitude, zoom } = location
-      this.map.flyTo({ center: [longitude, latitude], zoom })
+      map.flyTo({ center: [longitude, latitude], zoom })
     })
   }
 
