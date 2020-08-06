@@ -9,6 +9,7 @@ export default styled.div`
   justify-content: center;
   border-bottom: 1px solid grey;
   background: white;
+  z-index: 1;
 
   & .links {
     margin-top: 1em;
