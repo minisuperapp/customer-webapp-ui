@@ -33,19 +33,21 @@ class App extends Component {
       <Style>
         <Header />
         <SubHeader />
-        <Switch>
-          <Route exact path={paths.home} component={ProductsView} />
-          <Route exact path={paths.location} component={LocationView} />
-          <Route exact path={paths.quantity} component={QuantityView} />
-          <Route exact path={paths.assigned_offer} component={AssignedOfferView} />
-          <Route exact path={paths.delivery_address} component={DeliveryAddressView} />
-          <Route exact path={paths.change_deliverer} component={ChangeDelivererView} />
-          <Route exact path={paths.order} component={OrderView} />
-          <Route exact path={paths.orders_list} component={OrdersListView} />
-          <Route exact path={paths.order_details} component={OrdersDetailsView} />
-          <Route exact path={paths.register} component={Register} />
-          <Route exact path={paths.login} component={Login} />
-        </Switch>
+        <div className="main">
+          <Switch>
+            <Route exact path={paths.home} component={ProductsView} />
+            <Route exact path={paths.location} component={LocationView} />
+            <Route exact path={paths.quantity} component={QuantityView} />
+            <Route exact path={paths.assigned_offer} component={AssignedOfferView} />
+            <Route exact path={paths.delivery_address} component={DeliveryAddressView} />
+            <Route exact path={paths.change_deliverer} component={ChangeDelivererView} />
+            <Route exact path={paths.order} component={OrderView} />
+            <Route exact path={paths.orders_list} component={OrdersListView} />
+            <Route exact path={paths.order_details} component={OrdersDetailsView} />
+            <Route exact path={paths.register} component={Register} />
+            <Route exact path={paths.login} component={Login} />
+          </Switch>
+        </div>
       </Style>
     )
   }

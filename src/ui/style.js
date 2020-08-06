@@ -6,4 +6,8 @@ export default styled.div`
   height: 100vh;
   background-color: #fff;
   flex-direction: column;
+
+  .main {
+    margin-top: 6em;
+  }
 `

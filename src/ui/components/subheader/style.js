@@ -3,7 +3,9 @@ import styled from 'styled-components'
 export default styled.div`
   display: flex;
   align-items: center;
-  height: 3em;
+  position: fixed;
+  top: 3em;
+  width: 100%;
   justify-content: center;
   border-bottom: 1px solid grey;
 
