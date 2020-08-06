@@ -1,9 +1,9 @@
 import * as apiRequester from '../../api'
 
-export async function register_customer(data) {
+export async function get_profile(data) {
   const request = {
     method: 'post',
-    path: 'register',
+    path: 'get_profile',
     payload: { ...data },
   }
   const response = await apiRequester.send(request)

@@ -14,7 +14,7 @@ import OrdersDetailsView from './views/order_details'
 import Register from './views/register'
 import Login from './views/login'
 import Style from './style'
-import { register_customer_request } from 'src/state/actions/auth_actions'
+import { get_profile_request } from 'src/state/actions/auth_actions'
 import { get_product_request } from 'src/state/actions/product_actions'
 import { get_best_offers_request } from 'src/state/actions/offer_actions'
 import { connect } from 'react-redux'
@@ -22,8 +22,8 @@ import { paths } from 'src/constants'
 
 class App extends Component {
   async componentDidMount() {
-    const { register_customer_request, get_product_request, get_best_offers_request } = this.props
-    register_customer_request()
+    const { get_profile_request, get_product_request, get_best_offers_request } = this.props
+    get_profile_request()
     get_product_request()
     get_best_offers_request()
   }
@@ -54,7 +54,7 @@ class App extends Component {
 }
 
 const mapDispatchToProps = {
-  register_customer_request,
+  get_profile_request,
   get_product_request,
   get_best_offers_request,
 }
