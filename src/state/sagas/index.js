@@ -5,6 +5,7 @@ export {
   listen_published_offers,
   assign_best_offer,
   get_product_offers,
+  change_offer,
 } from './offer_saga'
 export { register_customer, login_customer } from './auth_saga'
 export { get_location, set_location, add_customer_location } from './location_saga'
