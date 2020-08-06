@@ -4,11 +4,11 @@ import DelivererList from './DelivererList'
 
 export class ChangeDeliverer extends React.Component {
   render() {
-    const { cancel, offers } = this.props
+    const { cancel, offers, onChangeOffer } = this.props
     return (
       <Style>
         <div className="title">Selecciona tu repartidor</div>
-        <DelivererList offers={offers} />
+        <DelivererList offers={offers} onChangeOffer={onChangeOffer} />
         <button className="cancel_button" onClick={cancel}>
           Cancelar
         </button>

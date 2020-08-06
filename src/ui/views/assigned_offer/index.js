@@ -8,10 +8,12 @@ import { paths } from 'src/constants'
 class AssignedOfferView extends React.Component {
   async componentDidMount() {
     const { cart, assign_best_offer_request } = this.props
-    assign_best_offer_request({
-      product_code: cart.product.code,
-      quantity: cart.quantity,
-    })
+    if (!cart.offer.id) {
+      assign_best_offer_request({
+        product_code: cart.product.code,
+        quantity: cart.quantity,
+      })
+    }
   }
 
   changeDeliverer = async () => {

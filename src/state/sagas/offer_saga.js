@@ -5,6 +5,7 @@ import {
   listen_published_offer_response,
   assign_best_offer_response,
   get_product_offers_response,
+  change_offer_response,
 } from 'src/state/actions/offer_actions'
 import * as offers_api from 'src/state/services/offers'
 import * as types from 'src/state/actions/action_types'
@@ -65,5 +66,14 @@ export function* get_product_offers() {
       location,
     })
     yield put(get_product_offers_response(response))
+  })
+}
+
+export function* change_offer() {
+  yield takeEvery(types.CHANGE_OFFER_REQUEST, function* (data) {
+    yield put(change_offer_response(data.payload))
+    if (data.success) {
+      data.success()
+    }
   })
 }

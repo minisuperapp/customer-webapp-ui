@@ -4,7 +4,7 @@ import * as images from 'src/ui/views/common/images'
 
 class Provider extends React.Component {
   render() {
-    const { offer } = this.props
+    const { offer, onChangeOffer } = this.props
     const style = {
       backgroundImage: `url(${images.getProductImageURL(offer.product_code)})`,
       backgroundPosition: 'center',
@@ -15,7 +15,13 @@ class Provider extends React.Component {
         <div>{offer.deliverer_name}</div>
         <div>$ {offer.unit_price}</div>
         <div>
-          <button className="select_button">Seleccionar</button>
+          <button
+            className="select_button"
+            onClick={() => {
+              onChangeOffer(offer)
+            }}>
+            Seleccionar
+          </button>
         </div>
       </Style>
     )
