@@ -14,6 +14,7 @@ export class Map extends Component {
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [longitude, latitude],
       zoom: zoom,
+      interactive: false,
     })
     this.map.addControl(new mapboxgl.NavigationControl())
   }
