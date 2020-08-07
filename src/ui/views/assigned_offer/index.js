@@ -23,7 +23,7 @@ class AssignedOfferView extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    if (!this.state.customer_location_id) {
+    if (!this.state.customer_location_id && this.props.customer_locations.length) {
       this.setState({
         customer_location_id: this.props.customer_locations[0].id
       })
