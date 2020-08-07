@@ -1,11 +1,13 @@
 import { put, takeEvery, call } from 'redux-saga/effects'
 import * as types from 'src/state/actions/action_types'
 import { login_customer_response } from '../actions/auth_actions'
+import { get_profile_response } from '../actions/auth_actions'
 import * as auth_service from 'src/state/services/auth'
 
 export function* get_profile() {
   yield takeEvery(types.GET_PROFILE_REQUEST, function* () {
-    yield call(auth_service.get_profile)
+    const response = yield call(auth_service.get_profile)
+    yield put(get_profile_response(response.profile))
   })
 }
 

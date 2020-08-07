@@ -25,8 +25,8 @@ export function* set_location() {
 
 export function* add_customer_location() {
   yield takeEvery(types.ADD_CUSTOMER_LOCATION_REQUEST, function* (data) {
-    yield call(location_api.add_customer_location, data.customer_location)
-    yield put(add_customer_location_response(data.customer_location))
+    const response = yield call(location_api.add_customer_location, data.customer_location)
+    yield put(add_customer_location_response(response.data.location))
     data.on_success && data.on_success()
   })
 }

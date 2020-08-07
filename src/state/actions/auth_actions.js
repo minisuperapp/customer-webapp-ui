@@ -4,8 +4,8 @@ export function get_profile_request() {
   return { type: types.GET_PROFILE_REQUEST }
 }
 
-export function get_profile_response(response) {
-  return { type: types.GET_PROFILE_RESPONSE, response }
+export function get_profile_response(profile) {
+  return { type: types.GET_PROFILE_RESPONSE, profile }
 }
 
 export function register_customer_request() {

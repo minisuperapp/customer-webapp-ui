@@ -8,10 +8,8 @@ import * as location_api from '../services/location'
 
 export function* place_order() {
   yield takeEvery(types.PLACE_ORDER_REQUEST, function* (data) {
-    const location = yield call(location_api.get_location)
     const { order } = data
-    const info = { ...order, location }
-    const response = yield call(orders_api.place_order, info)
+    const response = yield call(orders_api.place_order, order)
     if (response.success) {
       yield put(place_order_response(response.data))
       yield put(push(paths.orders_list))

@@ -16,25 +16,18 @@ export class OrderPlacementRequest {
       constructor() {
         this.offerId = ''
         this.quantity = ''
-        this.customerLocation = {
-          latitude: '',
-          longitude: '',
-        }
+        this.customer_location_id = null
       }
       withOfferId(offerId) {
-       this.offerId = offerId
-       return this
-      }
-      withQuantity(quantity) {
-       this.quantity = quantity
-       return this
-      }
-      withCustomerLocationLatitude(latitude) {
-        this.customerLocation.latitude = latitude
+        this.offerId = offerId
         return this
       }
-      withCustomerLocationLongitude(longitude) {
-        this.customerLocation.longitude = longitude
+      withQuantity(quantity) {
+        this.quantity = quantity
+        return this
+      }
+      withCustomerLocationId(customer_location_id) {
+        this.customer_location_id = customer_location_id
         return this
       }
       build() {

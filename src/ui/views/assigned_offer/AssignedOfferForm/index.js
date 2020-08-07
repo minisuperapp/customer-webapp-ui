@@ -4,12 +4,21 @@ import Style from './style'
 import * as images from 'src/ui/views/common/images'
 import { Link } from 'react-router-dom'
 import { paths } from 'src/constants'
+import customer_locations from '../../../../state/reducers/customer_locations_reducer'
 
 export class AssignedOfferForm extends React.Component {
   render() {
-    const { cart, offer, changeDeliverer, onCancel, order } = this.props
+    const {
+      cart,
+      offer,
+      customer_locations,
+      changeDeliverer,
+      onCancel,
+      order,
+      onCustomerLocationChange,
+    } = this.props
     const deliverer_name = _.get(offer, 'deliverer_name', 'Buscando...')
-    const disableButton = deliverer_name === '-' || !cart.customer_location
+    const disableButton = deliverer_name === '-' || !customer_locations.length
     const style = {
       backgroundImage: `url(${images.getProductImageURL(cart.product.code)})`,
       backgroundPosition: 'center',
@@ -20,7 +29,20 @@ export class AssignedOfferForm extends React.Component {
 
         <div className="address_container">
           <div className="text_title">
-            ENTREGAR EN: <Link to={paths.delivery_address}>Indicar lugar de entrega</Link>
+            ENTREGAR EN:{' '}
+            {!customer_locations.length ? (
+              <Link to={paths.delivery_address}>Indicar lugar de entrega</Link>
+            ) : (
+              <select onChange={onCustomerLocationChange}>
+                {customer_locations.map(location => {
+                  return (
+                    <option key={location.id} value={location.id}>
+                      {location.name}
+                    </option>
+                  )
+                })}
+              </select>
+            )}
           </div>
         </div>
 
