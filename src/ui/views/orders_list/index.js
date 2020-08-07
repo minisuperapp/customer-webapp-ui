@@ -1,5 +1,5 @@
 import React from 'react'
-import { OrdersList } from './components/OrdersList'
+import { OrdersList } from './OrdersList'
 import { connect } from 'react-redux'
 import { get_current_orders_request } from 'src/state/actions/order_actions'
 import { paths } from 'src/constants'
