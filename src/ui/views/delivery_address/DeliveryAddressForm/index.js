@@ -13,8 +13,8 @@ class DeliveryAddressForm extends React.Component {
     apartment_number: '',
     neighborhood: '',
     city: '',
-    postal_code: '',
-    state: '',
+    postal_code: '33000',
+    state: 'Chihuahua',
     country: 'Mexico',
   }
 
@@ -55,10 +55,10 @@ class DeliveryAddressForm extends React.Component {
         <div className="title">Ingresa el lugar de entrega</div>
         <div className="body">
           <div className="name">
-            <label htmlFor="name">Nombre</label>
+            <label htmlFor="name">Tipo de lugar</label>
             <input
               name="name"
-              placeholder="Donde te entregamos?"
+              placeholder="ej. casa, oficina, taller"
               type="text"
               value={name}
               onChange={this.handleChange}
@@ -68,29 +68,19 @@ class DeliveryAddressForm extends React.Component {
             <label htmlFor="street">Calle</label>
             <input
               name="street"
-              placeholder="Calle"
+              placeholder="calle"
               type="text"
               value={street}
               onChange={this.handleChange}
             />
           </div>
           <div className="exterior-number">
-            <label htmlFor="number">Numero Exterior</label>
+            <label htmlFor="number">Número</label>
             <input
               name="number"
-              placeholder="Numero Exterior"
+              placeholder="número exterior"
               type="number"
               value={number}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className="interior-number">
-            <label htmlFor="apartment_number">Numero Interior</label>
-            <input
-              name="apartment_number"
-              placeholder="Numero Interior"
-              type="number"
-              value={apartment_number}
               onChange={this.handleChange}
             />
           </div>
@@ -98,7 +88,7 @@ class DeliveryAddressForm extends React.Component {
             <label htmlFor="neighborhood">Colonia</label>
             <input
               name="neighborhood"
-              placeholder="Colonia"
+              placeholder="colonia"
               type="text"
               value={neighborhood}
               onChange={this.handleChange}
@@ -108,37 +98,27 @@ class DeliveryAddressForm extends React.Component {
             <label htmlFor="city">Ciudad</label>
             <input
               name="city"
-              placeholder="Ciudad"
+              placeholder="ciudad"
               type="text"
               value={city}
               onChange={this.handleChange}
             />
           </div>
           <div className="zip-code">
-            <label htmlFor="postal_code">Codigo Postal</label>
+            <label htmlFor="postal_code">Código Postal</label>
             <input
               name="postal_code"
-              placeholder="Codigo Postal"
+              placeholder="código postal"
               type="number"
               value={postal_code}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className="state">
-            <label htmlFor="state">Estado</label>
-            <input
-              name="state"
-              placeholder="Estado"
-              type="text"
-              value={state}
               onChange={this.handleChange}
             />
           </div>
         </div>
 
         <div className="btn">
-          <button className="add" onClick={this.on_accept}>
-            Añade esta Direccion
+          <button className="accept_button" onClick={this.on_accept}>
+            Agregar lugar de entrega
           </button>
         </div>
       </Style>

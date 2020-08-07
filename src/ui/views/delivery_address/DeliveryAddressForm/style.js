@@ -9,15 +9,11 @@ export default styled.div`
   font-family: Roboto, Helvetica, sans-serif;
 
   .title {
-    font-size: 22px;
+    font-family: SFProText-Bold, serif;
+    font-size: 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #6f8f72;
-    padding: 0.5em 1em;
-    text-align: center;
-    color: whitesmoke;
-    border-radius: 4px;
   }
 
   .body {
@@ -26,18 +22,6 @@ export default styled.div`
     border-radius: 4px;
     padding: 15px;
     display: table;
-  }
-
-  .add {
-    padding: 15px;
-    margin-top: 15px;
-    font-size: 18px;
-    background-color: #49a25b;
-    box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
-    border-radius: 18px;
-    color: white;
-    cursor: pointer;
-    margin-left: 15px;
   }
 
   label {
@@ -84,5 +68,19 @@ export default styled.div`
 
   .state {
     display: table-row;
+  }
+  
+  .accept_button {
+    background-color: #49a25b;
+    margin-top: 1em;
+    box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
+    font-family: SFProTextRegular, serif;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 10px;
+    width: 100%;
+    color: white;
+    cursor: pointer;
+    margin-left: 0.5em;
   }
 `
