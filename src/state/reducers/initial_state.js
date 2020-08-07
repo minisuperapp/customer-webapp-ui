@@ -14,7 +14,7 @@ const initial_state = {
     quantity: localStorage.getItem('cart_quantity') || 0,
     offer: {},
     product_offers: {},
-    customer_location: {},
+    customer_location: null,
   },
   best_offers: {
     by_product: {},

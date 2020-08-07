@@ -138,7 +138,6 @@ export default styled.div`
     border-radius: 10px;
     width: 100%;
     color: white;
-    cursor: wait;
     margin-left: 0.5em;
   }
 

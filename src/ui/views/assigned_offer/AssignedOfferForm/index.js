@@ -9,6 +9,7 @@ export class AssignedOfferForm extends React.Component {
   render() {
     const { cart, offer, changeDeliverer, onCancel, order } = this.props
     const deliverer_name = _.get(offer, 'deliverer_name', 'Buscando...')
+    const disableButton = deliverer_name === '-' || !cart.customer_location
     const style = {
       backgroundImage: `url(${images.getProductImageURL(cart.product.code)})`,
       backgroundPosition: 'center',
@@ -51,9 +52,9 @@ export class AssignedOfferForm extends React.Component {
             Cancelar
           </button>
           <button
-            className={deliverer_name !== '-' ? 'accept_button' : 'disabledButton'}
+            className={disableButton ? 'disabledButton' : 'accept_button'}
             onClick={order}
-            disabled={deliverer_name === '-'}>
+            disabled={disableButton}>
             Pedir
           </button>
         </div>
