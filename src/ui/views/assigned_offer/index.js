@@ -22,20 +22,12 @@ class AssignedOfferView extends React.Component {
     }
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    if (!this.state.customer_location_id && this.props.customer_locations.length) {
-      this.setState({
-        customer_location_id: this.props.customer_locations[0].id
-      })
-    }
-  }
-
   changeDeliverer = async () => {
     const { history } = this.props
     history.push(paths.change_deliverer)
   }
 
-  onCustomerLocationChange = (event) => {
+  onCustomerLocationChange = event => {
     this.setState({
       customer_location_id: Number(event.target.value),
     })
@@ -44,10 +36,16 @@ class AssignedOfferView extends React.Component {
   order = async () => {
     const { cart, place_order_request, customer_locations } = this.props
     const offer = cart.offer
+    let customer_location_id
+    if (this.state.customer_location_id) {
+      customer_location_id = this.state.customer_location_id
+    } else if (this.props.customer_locations.length === 1) {
+      customer_location_id = this.props.customer_locations[0].id
+    }
     place_order_request({
       offerId: offer.code,
       quantity: cart.quantity,
-      customer_location_id: this.state.customer_location_id,
+      customer_location_id,
     })
   }
 
