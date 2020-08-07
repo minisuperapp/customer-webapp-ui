@@ -22,6 +22,14 @@ class AssignedOfferView extends React.Component {
     }
   }
 
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (!this.state.customer_location_id) {
+      this.setState({
+        customer_location_id: this.props.customer_locations[0].id
+      })
+    }
+  }
+
   changeDeliverer = async () => {
     const { history } = this.props
     history.push(paths.change_deliverer)
@@ -39,7 +47,7 @@ class AssignedOfferView extends React.Component {
     place_order_request({
       offerId: offer.code,
       quantity: cart.quantity,
-      customer_location_id: this.state.customer_location_id || customer_locations[0].id,
+      customer_location_id: this.state.customer_location_id,
     })
   }
 
