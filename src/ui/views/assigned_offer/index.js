@@ -14,12 +14,15 @@ class AssignedOfferView extends React.Component {
     }
   }
   async componentDidMount() {
-    const { cart, assign_best_offer_request } = this.props
+    const { cart, assign_best_offer_request, customer_locations, set_selected_customer_location } = this.props
     if (!cart.offer.id) {
       assign_best_offer_request({
         product_code: cart.product.code,
         quantity: cart.quantity,
       })
+    }
+    if (customer_locations.length) {
+      set_selected_customer_location(customer_locations[0].id)
     }
   }
 
