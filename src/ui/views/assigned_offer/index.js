@@ -4,6 +4,7 @@ import React from 'react'
 import { AssignedOfferForm } from './AssignedOfferForm'
 import { connect } from 'react-redux'
 import { paths } from 'src/constants'
+import { set_selected_customer_location } from 'src/state/actions/cart_actions'
 
 class AssignedOfferView extends React.Component {
   constructor(props) {
@@ -28,24 +29,17 @@ class AssignedOfferView extends React.Component {
   }
 
   onCustomerLocationChange = event => {
-    this.setState({
-      customer_location_id: Number(event.target.value),
-    })
+    const { set_selected_customer_location } = this.props
+    set_selected_customer_location(event.target.value)
   }
 
   order = async () => {
-    const { cart, place_order_request, customer_locations } = this.props
+    const { cart, place_order_request } = this.props
     const offer = cart.offer
-    let customer_location_id
-    if (this.state.customer_location_id) {
-      customer_location_id = this.state.customer_location_id
-    } else if (this.props.customer_locations.length === 1) {
-      customer_location_id = this.props.customer_locations[0].id
-    }
     place_order_request({
       offerId: offer.code,
       quantity: cart.quantity,
-      customer_location_id,
+      customer_location_id: cart.customer_location_id,
     })
   }
 
@@ -85,6 +79,7 @@ function mapStateToProps(state) {
 const mapDispatchToProps = {
   place_order_request,
   assign_best_offer_request,
+  set_selected_customer_location,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AssignedOfferView)

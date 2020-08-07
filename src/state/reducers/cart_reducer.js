@@ -31,6 +31,9 @@ export default function reducer(state = initial_state.cart, action) {
         ...state,
         offer: action.response,
       })
+    case types.SET_SELECTED_CUSTOMER_LOCATION: {
+      return Immutable({ ...state, customer_location_id: action.customer_location_id })
+    }
     default:
       return state
   }
