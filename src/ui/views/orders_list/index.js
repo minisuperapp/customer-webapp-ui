@@ -2,6 +2,7 @@ import React from 'react'
 import { OrdersList } from './OrdersList'
 import { connect } from 'react-redux'
 import { get_current_orders_request } from 'src/state/actions/order_actions'
+import EmptyOrdersMessage from './EmptyOrdersMessage'
 import { paths } from 'src/constants'
 
 class OrdersListView extends React.Component {
@@ -19,6 +20,9 @@ class OrdersListView extends React.Component {
 
   render() {
     const { orders, products_by_code } = this.props
+    if (!orders.length) {
+      return <EmptyOrdersMessage />
+    }
     return (
       <OrdersList
         orders={orders}
