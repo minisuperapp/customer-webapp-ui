@@ -31,7 +31,7 @@ class App extends Component {
   render() {
     return (
       <Style>
-        <Header />
+        <Header className={"header"}/>
         <SubHeader />
         <div className="main">
           <Switch>
