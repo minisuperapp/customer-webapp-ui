@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import _ from 'lodash'
 import { set_selected_product } from 'src/state/actions/cart_actions'
 import { get_current_orders_request } from 'src/state/actions/order_actions'
-import { ProductList } from './components/ProductList'
-import { LoadingList } from './components/LoadingList'
+import { ProductList } from './ProductList'
+import { LoadingList } from './LoadingList'
 import { paths } from 'src/constants'
 
 class ProductsView extends Component {
