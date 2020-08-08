@@ -22,8 +22,13 @@ export const assign_best_offer = async ({ location, product_code, quantity }) =>
     .withCustomerLocationLatitude(location.latitude)
     .withCustomerLocationLongitude(location.longitude)
     .build()
-  const response = await apiRequester.send(request)
-  return _.get(response, 'data.data', {})
+  let response
+  try {
+    response = await apiRequester.send(request)
+  } catch (err) {
+    return _.get(err, 'response.data', {})
+  }
+  return _.get(response, 'data', {})
 }
 
 export const get_product_offers = async payload => {

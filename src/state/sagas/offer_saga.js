@@ -46,6 +46,7 @@ export function* listen_published_offers() {
 
 export function* assign_best_offer() {
   yield takeEvery(types.ASSIGN_BEST_OFFER_REQUEST, function* (payload) {
+    const { on_error } = payload
     const { product_code, quantity } = payload.data
     const location = yield call(location_api.get_location)
     const response = yield call(offersService.assign_best_offer, {
@@ -53,7 +54,11 @@ export function* assign_best_offer() {
       product_code,
       quantity,
     })
-    yield put(assign_best_offer_response(response))
+    if (response.success) {
+      yield put(assign_best_offer_response(response.data))
+    } else {
+      on_error && on_error(response.errors)
+    }
   })
 }
 

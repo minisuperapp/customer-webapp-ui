@@ -11,15 +11,27 @@ class AssignedOfferView extends React.Component {
     super(props)
     this.state = {
       customer_location_id: null,
+      errors: null,
     }
   }
   async componentDidMount() {
-    const { cart, assign_best_offer_request, customer_locations, set_selected_customer_location } = this.props
+    const {
+      cart,
+      assign_best_offer_request,
+      customer_locations,
+      set_selected_customer_location,
+    } = this.props
     if (!cart.offer.id) {
-      assign_best_offer_request({
-        product_code: cart.product.code,
-        quantity: cart.quantity,
-      })
+      assign_best_offer_request(
+        {
+          product_code: cart.product.code,
+          quantity: cart.quantity,
+        },
+        () => {},
+        errors => {
+          this.setState({ errors })
+        },
+      )
     }
     if (customer_locations.length) {
       set_selected_customer_location(customer_locations[0].id)
@@ -52,6 +64,10 @@ class AssignedOfferView extends React.Component {
   }
 
   render() {
+    const { errors } = this.state
+    if (errors && errors.length && errors[0].message === 'no.offers.available') {
+      alert('El producto ya no esta disponible. Intenta mas tarde.')
+    }
     const { cart, total, customer_locations } = this.props
     const offer = cart.offer
     return (
