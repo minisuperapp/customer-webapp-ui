@@ -29,7 +29,7 @@ export default styled.div`
 
   & .delivererName {
     font-family: SFProText-Regular, serif;
-    font-size: 16px;
+    font-size: 1.2rem;
     color: black;
     text-align: center;
     margin-top: 1em;
@@ -117,12 +117,13 @@ export default styled.div`
     margin: 1em auto;
   }
 
-  & .accept_button {
+  .accept_button {
     background-color: #49a25b;
     box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
+    padding: 0.5em;
     font-family: SFProTextRegular, serif;
-    font-weight: bold;
-    font-size: 18px;
+    font-size: 1.7rem;
+    font-weight: 500;
     border-radius: 10px;
     width: 100%;
     color: white;
@@ -141,14 +142,13 @@ export default styled.div`
     margin-left: 0.5em;
   }
 
-  & .backButton {
+  .cancel_button {
     background-color: #fff;
     color: black;
     box-shadow: none;
     margin-right: 0.5em;
     font-family: SFProTextRegular, serif;
-    font-weight: 700;
-    font-size: 18px;
+    font-size: 1.5rem;
     border-radius: 10px;
     width: 100%;
     cursor: pointer;
