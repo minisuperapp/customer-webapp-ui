@@ -6,18 +6,6 @@ import { set_selected_customer_location } from 'src/state/actions/cart_actions'
 import { paths } from 'src/constants'
 
 class DeliveryAddressView extends React.Component {
-  state = {
-    name: '',
-    street: '',
-    number: '',
-    apartment_number: '',
-    neighborhood: '',
-    city: '',
-    postal_code: '33000',
-    state: 'Chihuahua',
-    country: 'Mexico',
-  }
-
   handleChange = event => {
     const { name, value } = event.target
 
@@ -63,13 +51,13 @@ function mapStateToProps(state) {
     //state,
   } = state
   return {
-    name: '',
-    street: '',
-    number: '',
+    name: name,
+    street: street,
+    number: number,
     //apartment_number: '',
-    neighborhood: '',
-    city: '',
-    postal_code: 33000,
+    neighborhood: neighborhood,
+    city: city,
+    postal_code: postal_code,
     state: 'Chihuahua',
     country: 'Mexico',
   }
