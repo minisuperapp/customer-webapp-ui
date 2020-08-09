@@ -43,7 +43,7 @@ export class QuantityForm extends React.Component {
           <button className="backButton" onClick={this.props.goToProducts}>
             Cancelar
           </button>
-          <button className="button" onClick={this.props.goToAssignedOffer}>
+          <button className="button" onClick={this.props.go_to_search_best_offer}>
             Continuar
           </button>
         </div>
