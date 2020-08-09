@@ -1,55 +1,21 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { add_customer_location_request } from 'src/state/actions/location_actions'
-import { set_selected_customer_location } from 'src/state/actions/cart_actions'
 import Style from './style'
-import { paths } from 'src/constants'
 
 class DeliveryAddressForm extends React.Component {
-  state = {
-    name: '',
-    street: '',
-    number: '',
-    apartment_number: '',
-    neighborhood: '',
-    city: '',
-    postal_code: '33000',
-    state: 'Chihuahua',
-    country: 'Mexico',
-  }
-
-  handleChange = event => {
-    const { name, value } = event.target
-
-    this.setState({
-      [name]: value,
-    })
-  }
-
-  go_to_verify_order = () => {
-    const { history } = this.props
-    history.push(paths.assigned_offer)
-  }
-
-  on_accept = () => {
-    const { history, add_customer_location_request, set_selected_customer_location } = this.props
-    add_customer_location_request(this.state, customer_location => {
-      set_selected_customer_location(customer_location.id)
-      history.push(paths.assigned_offer)
-    })
-  }
-
   render() {
     const {
+      handleChange,
+      on_accept,
       name,
       street,
       number,
-      apartment_number,
+      //apartment_number,
       neighborhood,
       city,
       postal_code,
-      state,
-    } = this.state
+      //state,
+    } = this.props
+
     return (
       <Style>
         <div className="title">Ingresa el lugar de entrega</div>
@@ -61,7 +27,7 @@ class DeliveryAddressForm extends React.Component {
               placeholder="ej. casa, oficina, taller"
               type="text"
               value={name}
-              onChange={this.handleChange}
+              onChange={handleChange}
             />
           </div>
           <div className="street">
@@ -71,7 +37,7 @@ class DeliveryAddressForm extends React.Component {
               placeholder="calle"
               type="text"
               value={street}
-              onChange={this.handleChange}
+              onChange={handleChange}
             />
           </div>
           <div className="exterior-number">
@@ -81,7 +47,7 @@ class DeliveryAddressForm extends React.Component {
               placeholder="número exterior"
               type="number"
               value={number}
-              onChange={this.handleChange}
+              onChange={handleChange}
             />
           </div>
           <div className="neighboorhood">
@@ -91,7 +57,7 @@ class DeliveryAddressForm extends React.Component {
               placeholder="colonia"
               type="text"
               value={neighborhood}
-              onChange={this.handleChange}
+              onChange={handleChange}
             />
           </div>
           <div className="city">
@@ -101,7 +67,7 @@ class DeliveryAddressForm extends React.Component {
               placeholder="ciudad"
               type="text"
               value={city}
-              onChange={this.handleChange}
+              onChange={handleChange}
             />
           </div>
           <div className="zip-code">
@@ -111,13 +77,13 @@ class DeliveryAddressForm extends React.Component {
               placeholder="código postal"
               type="number"
               value={postal_code}
-              onChange={this.handleChange}
+              onChange={handleChange}
             />
           </div>
         </div>
 
         <div className="btn">
-          <button className="accept_button" onClick={this.on_accept}>
+          <button className="accept_button" onClick={on_accept}>
             Agregar lugar de entrega
           </button>
         </div>
@@ -126,13 +92,4 @@ class DeliveryAddressForm extends React.Component {
   }
 }
 
-function mapStateToProps() {
-  return {}
-}
-
-const mapDispatchToProps = {
-  add_customer_location_request,
-  set_selected_customer_location,
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(DeliveryAddressForm)
+export default DeliveryAddressForm
