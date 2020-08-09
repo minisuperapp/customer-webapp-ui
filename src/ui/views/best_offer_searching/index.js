@@ -14,6 +14,10 @@ class BestOfferSearchingView extends Component {
   }
   componentDidMount() {
     const { history, cart, assign_best_offer_request } = this.props
+    if (history.action === 'POP') {
+      history.push(paths.quantity)
+      return
+    }
     assign_best_offer_request(
       {
         product_code: cart.product.code,
