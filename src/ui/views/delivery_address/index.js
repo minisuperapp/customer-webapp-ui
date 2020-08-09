@@ -31,8 +31,8 @@ class DeliveryAddressView extends React.Component {
     return (
       <DeliveryAddressForm
         history={this.props.history}
-        handleChange={this.props.handleChange}
-        on_accept={this.props.on_accept}
+        handleChange={this.handleChange}
+        on_accept={this.on_accept}
         go_to_verify_order={this.props.go_to_verify_order}
       />
     )
