@@ -30,9 +30,7 @@ export class AssignedOfferForm extends React.Component {
         <div className="address_container">
           <div className="text_title">
             ENTREGAR EN:{' '}
-            {!customer_locations.length ? (
-              <Link to={paths.delivery_address}>Indicar lugar de entrega</Link>
-            ) : (
+            {customer_locations.length && (
               <select onChange={onCustomerLocationChange} value={cart.customer_location_id || ''}>
                 {customer_locations.map(location => {
                   return (
@@ -43,6 +41,7 @@ export class AssignedOfferForm extends React.Component {
                 })}
               </select>
             )}
+            <Link to={paths.delivery_address}>Agregar lugar de entrega</Link>
             <div>
               {customer_locations.map(location => {
                 return (
