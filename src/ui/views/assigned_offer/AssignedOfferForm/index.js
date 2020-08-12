@@ -47,10 +47,10 @@ export class AssignedOfferForm extends React.Component {
               {customer_locations.map(location => {
                 return (
                   <div style={{ padding: '10px' }} key={location.id}>
-                    <li>{location.street}</li>
-                    <li>{location.number}</li>
-                    <li>{location.neighborhood}</li>
-                    <li>{location.city}</li>
+                    <div>{location.street}</div>
+                    <div>{location.number}</div>
+                    <div>{location.neighborhood}</div>
+                    <div>{location.city}</div>
                   </div>
                 )
               })}
