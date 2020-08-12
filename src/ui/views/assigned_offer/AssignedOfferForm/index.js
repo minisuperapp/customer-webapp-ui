@@ -43,6 +43,18 @@ export class AssignedOfferForm extends React.Component {
                 })}
               </select>
             )}
+            <div>
+              {customer_locations.map(location => {
+                return (
+                  <div style={{ padding: '10px' }} key={location.id}>
+                    <li>{location.street}</li>
+                    <li>{location.number}</li>
+                    <li>{location.neighborhood}</li>
+                    <li>{location.city}</li>
+                  </div>
+                )
+              })}
+            </div>
           </div>
         </div>
 
