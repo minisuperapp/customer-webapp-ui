@@ -18,7 +18,7 @@ class SubHeader extends Component {
             } products_link`}
             onClick={this.refresh}
             to={paths.home}>
-            Comprar
+            Productos
           </Link>
           <Link
             className={`${active_page === paths.orders_list ? 'active' : ''} orders_link`}

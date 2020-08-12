@@ -17,9 +17,9 @@ export class QuantityForm extends React.Component {
       <Style>
         <div className="title">Ingresa la cantidad</div>
         <div className="image" style={style} />
-        <div className="productName">{product.name}</div>
-        <Label value={'$' + price + ' / ' + product.quantity_type + ' (aprox.)'} />
-        <div className="quantity">Cantidad</div>
+        <div className="product_name">{product.name}</div>
+        <div className="price"> {'$' + price + ' / ' + product.quantity_type + ' (aprox.)'} </div>
+        <div className="quantity_label">Cantidad</div>
         <div className="spinners">
           <button className="subtractButton" onClick={this.props.subtractQuantity}>
             -
@@ -40,10 +40,10 @@ export class QuantityForm extends React.Component {
           <div className="total">${this.props.total} (aprox.)</div>
         </div>
         <div className="buttonContainer">
-          <button className="backButton" onClick={this.props.goToProducts}>
+          <button className="cancel_button" onClick={this.props.goToProducts}>
             Cancelar
           </button>
-          <button className="button" onClick={this.props.goToAssignedOffer}>
+          <button className="accept_button" onClick={this.props.go_to_search_best_offer}>
             Continuar
           </button>
         </div>

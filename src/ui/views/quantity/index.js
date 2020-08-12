@@ -23,10 +23,10 @@ class QuantityView extends React.Component {
     })
   }
 
-  goToAssignedOffer = () => {
+  go_to_search_best_offer = () => {
     const { history, set_selected_quantity } = this.props
     set_selected_quantity(this.state.quantity)
-    history.push(paths.assigned_offer)
+    history.push(paths.best_offer_searching)
   }
 
   addQuantity = () => {
@@ -70,7 +70,7 @@ class QuantityView extends React.Component {
         price={price}
         handleChange={this.handleChange}
         changeQuantity={this.changeQuantity}
-        goToAssignedOffer={this.goToAssignedOffer}
+        go_to_search_best_offer={this.go_to_search_best_offer}
         addQuantity={this.addQuantity}
         goToProducts={this.goToProducts}
         subtractQuantity={this.subtractQuantity}

@@ -70,7 +70,7 @@ export class AssignedOfferForm extends React.Component {
           <div>${this.props.total}</div>
         </div>
         <div className="button_container">
-          <button className="backButton" onClick={onCancel}>
+          <button className="cancel_button" onClick={onCancel}>
             Cancelar
           </button>
           <button

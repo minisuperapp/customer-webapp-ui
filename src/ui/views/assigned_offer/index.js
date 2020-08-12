@@ -1,5 +1,4 @@
 import { place_order_request } from 'src/state/actions/order_actions'
-import { assign_best_offer_request } from 'src/state/actions/offer_actions'
 import React from 'react'
 import { AssignedOfferForm } from './AssignedOfferForm'
 import { connect } from 'react-redux'
@@ -15,24 +14,7 @@ class AssignedOfferView extends React.Component {
     }
   }
   async componentDidMount() {
-    const {
-      cart,
-      assign_best_offer_request,
-      customer_locations,
-      set_selected_customer_location,
-    } = this.props
-    if (!cart.offer.id) {
-      assign_best_offer_request(
-        {
-          product_code: cart.product.code,
-          quantity: cart.quantity,
-        },
-        () => {},
-        errors => {
-          this.setState({ errors })
-        },
-      )
-    }
+    const { customer_locations, set_selected_customer_location } = this.props
     if (customer_locations.length) {
       set_selected_customer_location(customer_locations[0].id)
     }
@@ -97,7 +79,6 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
   place_order_request,
-  assign_best_offer_request,
   set_selected_customer_location,
 }
 

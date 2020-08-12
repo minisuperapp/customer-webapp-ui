@@ -8,11 +8,12 @@ export default styled.div`
   align-items: center;
 
   .title {
+    font-family: SFProText-Bold, serif;
     font-size: 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 0.5em;
+    margin-bottom: 1em;
   }
 
   .image {
@@ -35,38 +36,25 @@ export default styled.div`
     height: 50%;
   }
 
-  .product_name {
-    font-size: 1.8rem;
+  .productName {
+    font-family: SFProText-Bold, serif;
+    font-size: 20px;
     color: #212121;
     text-align: center;
   }
 
-  .price {
+  .priceText {
     font-family: SFProText-Regular, serif;
-    font-size: 1.5rem;
+    font-size: 12px;
     color: #212121;
     text-align: center;
-    margin-top: 1em;
-    margin-bottom: 1em;
-  }
-
-  .quantity_label {
-    display: flex;
-    margin-bottom: 0.5em;
-    font-size: 1.5rem;
-    text-align: center;
-  }
-
-  .spinners {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 1em;
+    margin-bottom: 10px;
   }
 
   .totalContainer {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
   }
@@ -75,9 +63,25 @@ export default styled.div`
     display: flex;
     margin-right: 1em;
     margin-bottom: 1em;
+    font-family: SFProText-Bold, sans-serif;
     font-size: 24px;
     color: #212121;
     text-align: center;
+  }
+
+  .quantity {
+    display: flex;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+    font-family: SFProText-Bold, serif;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .spinners {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2em;
   }
 
   .addButton {
@@ -114,13 +118,12 @@ export default styled.div`
     max-width: 300px;
   }
 
-  .accept_button {
+  .button {
     background-color: #49a25b;
     box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
-    padding: 0.5em;
     font-family: SFProTextRegular, serif;
-    font-size: 1.7rem;
-    font-weight: 500;
+    font-weight: bold;
+    font-size: 18px;
     border-radius: 10px;
     width: 100%;
     color: white;
@@ -128,13 +131,14 @@ export default styled.div`
     margin-left: 0.5em;
   }
 
-  .cancel_button {
+  .backButton {
     background-color: #fff;
     color: black;
     box-shadow: none;
     margin-right: 0.5em;
     font-family: SFProTextRegular, serif;
-    font-size: 1.5rem;
+    font-weight: 700;
+    font-size: 18px;
     border-radius: 10px;
     width: 100%;
     cursor: pointer;
