@@ -2,8 +2,8 @@ import React from 'react'
 import _ from 'lodash'
 import Style from './style'
 import * as images from 'src/ui/views/common/images'
-import { Link } from 'react-router-dom'
-import { paths } from 'src/constants'
+import {Link} from 'react-router-dom'
+import {paths} from 'src/constants'
 import customer_locations from '../../../../state/reducers/customer_locations_reducer'
 
 export class AssignedOfferForm extends React.Component {
@@ -17,8 +17,12 @@ export class AssignedOfferForm extends React.Component {
       order,
       onCustomerLocationChange,
     } = this.props
+
     const deliverer_name = _.get(offer, 'deliverer_name', 'Buscando...')
     const disableButton = deliverer_name === '-' || !customer_locations.length
+    const selected_customer_location = customer_locations.find(
+      loc => loc.id === cart.customer_location_id,
+    )
     const style = {
       backgroundImage: `url(${images.getProductImageURL(cart.product.code)})`,
       backgroundPosition: 'center',
@@ -29,23 +33,22 @@ export class AssignedOfferForm extends React.Component {
 
         <div className="address_container">
           <div className="text_title">
-            ENTREGAR EN:{' '}
-            {customer_locations.length && (
-              <select onChange={onCustomerLocationChange} value={cart.customer_location_id || ''}>
-                {customer_locations.map(location => {
-                  return (
-                    <option key={location.id} value={location.id}>
-                      {location.name}
-                    </option>
-                  )
-                })}
-              </select>
-            )}
+            {'ENTREGAR EN: '}
+            <select onChange={onCustomerLocationChange} value={cart.customer_location_id || ''}>
+              {customer_locations.map(location => {
+                return (
+                  <option key={location.id} value={location.id}>
+                    {location.name}
+                  </option>
+                )
+              })}
+            </select>
+
             <Link to={paths.delivery_address}>Agregar lugar de entrega</Link>
             <div>
               {customer_locations.map(location => {
                 return (
-                  <div style={{ padding: '10px' }} key={location.id}>
+                  <div style={{padding: '10px'}} key={location.id}>
                     Verifica tus datos de entrega:
                     <div>{location.street}</div>
                     <div>{location.number}</div>
@@ -69,7 +72,7 @@ export class AssignedOfferForm extends React.Component {
         <div className="offer_container">
           <div className="text_title">TU ORDEN:</div>
           <div className="productContainer">
-            <div className="image" style={style} />
+            <div className="image" style={style}/>
             <div className="productDetailsContainer">
               <div className="productName">{cart.product.name}</div>
               <div className="productPrice">Precio Unitario: ${offer.unit_price}</div>
