@@ -4,9 +4,10 @@ import { OrderPlacementRequest } from './requests/place_order'
 import { PendingToDeliverRequest } from './requests/pending_to_deliver'
 
 export const place_order = async (order) => {
-  const { offerId, quantity } = order
+  const { deliverer_id, offer_code, quantity } = order
   const request = new OrderPlacementRequest.Builder()
-    .withOfferId(offerId)
+    .withDelivererId(deliverer_id)
+    .withOfferCode(offer_code)
     .withQuantity(quantity)
     .withCustomerLocationId(order.customer_location_id)
     .build()
