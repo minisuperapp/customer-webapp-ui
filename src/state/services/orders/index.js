@@ -7,8 +7,7 @@ export const place_order = async (order) => {
   const { deliverer_id, offer_code, quantity } = order
   const request = new OrderPlacementRequest.Builder()
     .withDelivererId(deliverer_id)
-    .withOfferCode(offer_code)
-    .withQuantity(quantity)
+    .withOfferCodeAndQuantity(offer_code, quantity)
     .withCustomerLocationId(order.customer_location_id)
     .build()
   const response = await apiRequester.send(request)
