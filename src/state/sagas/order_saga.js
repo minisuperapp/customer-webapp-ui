@@ -4,14 +4,13 @@ import { place_order_response, get_current_orders_response } from 'src/state/act
 import * as orders_api from 'src/state/services/orders'
 import * as types from 'src/state/actions/action_types'
 import { paths } from '../../constants'
-import * as location_api from '../services/location'
 
 export function* place_order() {
   yield takeEvery(types.PLACE_ORDER_REQUEST, function* (data) {
     const { order } = data
     const response = yield call(orders_api.place_order, order)
     if (response.success) {
-      yield put(place_order_response(response.data))
+      yield put(place_order_response(response.order))
       yield put(push(paths.orders_list))
     } else {
       alert(JSON.stringify(response))
