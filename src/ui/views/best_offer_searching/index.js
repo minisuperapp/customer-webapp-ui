@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom'
 import { SearchingMessage } from './SearchingMessage'
 import { assign_best_offer_request } from 'src/state/actions/offer_actions'
 import { paths } from 'src/constants'
+import { show_alert_message } from '../../../state/actions/alert_actions'
 
 class BestOfferSearchingView extends Component {
   constructor(props) {
@@ -35,7 +36,7 @@ class BestOfferSearchingView extends Component {
   render() {
     const { errors } = this.state
     if (errors && errors.length) {
-      alert(errors[0].message)
+      show_alert_message(errors[0].message)
       return <Redirect to={paths.quantity} />
     }
     return <SearchingMessage />
@@ -51,6 +52,7 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
   assign_best_offer_request,
+  show_alert_message,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BestOfferSearchingView)
