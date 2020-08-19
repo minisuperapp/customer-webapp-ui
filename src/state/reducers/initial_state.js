@@ -4,6 +4,9 @@ const initial_state = {
     longitude: localStorage.getItem('longitude') || '',
     zoom: localStorage.getItem('zoom') || '10',
   },
+  alert: {
+    message: '',
+  },
   products: {
     list: [],
     by_code: {},

@@ -18,6 +18,7 @@ const createRootReducer = history =>
     auth,
     location,
     customer_locations,
+    alert,
   })
 
 export default createRootReducer
