@@ -1,6 +1,9 @@
 name: Customer WebApp UI
 
-on: [push]
+on:
+  push
+    branches:
+      - master
 
 jobs:
   build:
