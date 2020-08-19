@@ -7,6 +7,7 @@ import best_offers from './best_offers_reducer'
 import auth from './auth_reducer'
 import location from './location_reducer'
 import customer_locations from './customer_locations_reducer'
+import alert from './alert_reducer'
 
 const createRootReducer = history =>
   combineReducers({
