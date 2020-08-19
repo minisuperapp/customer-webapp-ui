@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export default styled.div`
+<<<<<<< HEAD
   position: absolute;
   top: 20%;
   left: 50%;
@@ -26,4 +27,7 @@ export default styled.div`
       left: 90%;
     }
   }
+=======
+
+>>>>>>> origin/master
 `

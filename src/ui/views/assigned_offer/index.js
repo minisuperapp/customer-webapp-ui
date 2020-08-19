@@ -35,7 +35,8 @@ class AssignedOfferView extends React.Component {
     const { cart, place_order_request } = this.props
     const offer = cart.offer
     place_order_request({
-      offerId: offer.code,
+      deliverer_id: offer.deliverer_id,
+      offer_code: offer.code,
       quantity: cart.quantity,
       customer_location_id: cart.customer_location_id,
     })

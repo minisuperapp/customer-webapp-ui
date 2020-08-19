@@ -120,7 +120,6 @@ export default styled.div`
   .accept_button {
     background-color: #49a25b;
     box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
-    padding: 0.5em;
     font-family: SFProTextRegular, serif;
     font-size: 1.7rem;
     font-weight: 500;

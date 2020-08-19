@@ -14,16 +14,21 @@ export class OrderPlacementRequest {
   static get Builder() {
     class Builder {
       constructor() {
-        this.offerId = ''
-        this.quantity = ''
+        this.deliverer_id = null
+        this.offers = {}
         this.customer_location_id = null
       }
-      withOfferId(offerId) {
-        this.offerId = offerId
+      withDelivererId(deliverer_id) {
+        this.deliverer_id = deliverer_id
         return this
       }
-      withQuantity(quantity) {
-        this.quantity = quantity
+      withOfferCodeAndQuantity(offer_code, quantity) {
+        this.offers = {
+          ...this.offers,
+          [offer_code]: {
+            quantity,
+          },
+        }
         return this
       }
       withCustomerLocationId(customer_location_id) {

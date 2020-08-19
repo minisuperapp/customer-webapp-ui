@@ -36,8 +36,12 @@ function mapStateToProps(state) {
   }
 }
 
+<<<<<<< HEAD
 const mapDispatchToProps = {
   hide_alert_message,
 }
+=======
+const mapDispatchToProps = {}
+>>>>>>> origin/master
 
 export default connect(mapStateToProps, mapDispatchToProps)(Alert)
