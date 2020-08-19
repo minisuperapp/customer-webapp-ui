@@ -4,7 +4,8 @@ import { place_order_response, get_current_orders_response } from 'src/state/act
 import * as orders_api from 'src/state/services/orders'
 import * as types from 'src/state/actions/action_types'
 import { paths } from '../../constants'
-import * as location_api from '../services/location'
+import { show_alert_message } from '../actions/alert_actions'
+//import * as location_api from '../services/location'
 
 export function* place_order() {
   yield takeEvery(types.PLACE_ORDER_REQUEST, function* (data) {
@@ -14,7 +15,7 @@ export function* place_order() {
       yield put(place_order_response(response.data))
       yield put(push(paths.orders_list))
     } else {
-      alert(JSON.stringify(response))
+      yield put(show_alert_message('Datos incorrectos'))
     }
   })
 }
