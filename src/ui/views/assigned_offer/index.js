@@ -4,6 +4,7 @@ import { AssignedOfferForm } from './AssignedOfferForm'
 import { connect } from 'react-redux'
 import { paths } from 'src/constants'
 import { set_selected_customer_location } from 'src/state/actions/cart_actions'
+import { show_alert_message } from '../../../state/actions/alert_actions'
 
 class AssignedOfferView extends React.Component {
   constructor(props) {
@@ -49,7 +50,7 @@ class AssignedOfferView extends React.Component {
   render() {
     const { errors } = this.state
     if (errors && errors.length && errors[0].message === 'no.offers.available') {
-      alert('El producto ya no esta disponible. Intenta mas tarde.')
+      show_alert_message('El producto ya no esta disponible. Intenta mas tarde.')
     }
     const { cart, total, customer_locations } = this.props
     const offer = cart.offer
@@ -75,6 +76,7 @@ function mapStateToProps(state) {
     cart,
     total,
     customer_locations,
+    show_alert_message,
   }
 }
 

@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { register_customer_request } from 'src/state/actions/auth_actions.js'
 import Style from './style'
 import { paths } from 'src/constants'
+import { show_alert_message } from '../../../state/actions/alert_actions'
 
 class Register extends Component {
   state = {
@@ -25,7 +26,7 @@ class Register extends Component {
         email: '',
         password: '',
       })
-      alert('Tu cuenta se ha registrado con exito!')
+      show_alert_message('Tu cuenta se ha registrado con exito!')
       history.push(paths.login)
     })
   }
@@ -83,5 +84,6 @@ function mapStateToProps() {
 
 const mapDispatchToProps = {
   register_customer_request,
+  show_alert_message,
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Register)

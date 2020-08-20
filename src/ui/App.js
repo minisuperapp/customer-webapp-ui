@@ -20,6 +20,7 @@ import { get_product_request } from 'src/state/actions/product_actions'
 import { get_best_offers_request } from 'src/state/actions/offer_actions'
 import { connect } from 'react-redux'
 import { paths } from 'src/constants'
+import Alert from './components/alert'
 
 class App extends Component {
   async componentDidMount() {
@@ -32,7 +33,8 @@ class App extends Component {
   render() {
     return (
       <Style>
-        <Header className={"header"}/>
+        <Header className={'header'} />
+        <Alert />
         <SubHeader />
         <div className="main">
           <Switch>

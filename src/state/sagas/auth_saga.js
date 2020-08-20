@@ -1,8 +1,8 @@
 import { put, takeEvery, call } from 'redux-saga/effects'
 import * as types from 'src/state/actions/action_types'
-import { login_customer_response } from '../actions/auth_actions'
-import { get_profile_response } from '../actions/auth_actions'
+import { login_customer_response, get_profile_response } from '../actions/auth_actions'
 import * as auth_service from 'src/state/services/auth'
+import { show_alert_message } from '../actions/alert_actions'
 
 export function* get_profile() {
   yield takeEvery(types.GET_PROFILE_REQUEST, function* () {
@@ -20,7 +20,7 @@ export function* login_customer() {
         on_success(response)
       }
     } else {
-      alert(JSON.stringify(response.errors))
+      yield put(show_alert_message('Los datos son incorrectos'))
     }
     yield put(login_customer_response(response))
   })
