@@ -10,6 +10,7 @@ export default styled.div`
     color: #555;
     border-radius: 10px;
     text-transform: uppercase;
+    text-align: center;
     background: #e9ffd9 no-repeat 10px 50%;
     border: 1px solid #a6ca8a;
     position: absolute;
