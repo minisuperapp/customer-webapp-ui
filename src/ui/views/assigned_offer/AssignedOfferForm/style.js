@@ -38,14 +38,14 @@ export default styled.div`
 
   & .changeDelivererButton {
     border-color: #49a25b;
-    background-color: white;
+    background-color: fcbf49;
     box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
     font-family: SFProTextRegular, serif;
     font-size: 18px;
     border-radius: 10px;
     width: 100%;
     max-width: 200px;
-    color: #49a25b;
+    color: #003049;
     cursor: pointer;
     margin: 0 auto;
   }
