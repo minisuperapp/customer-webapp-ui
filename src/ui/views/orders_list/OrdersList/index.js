@@ -4,7 +4,8 @@ import Style from './style'
 
 export class OrdersList extends React.Component {
   render() {
-    const { orders, products_by_code } = this.props
+    const { orders, products_by_code, go_to_products } = this.props
+
     return (
       <Style>
         <div className="title">Mis Ordenes</div>
@@ -14,7 +15,9 @@ export class OrdersList extends React.Component {
           })}
         </div>
         <div className="button">
-          <button className="keep-buying">Seguir Comprando</button>
+          <button className="keep-buying" onClick={() => go_to_products()}>
+            Seguir Comprando
+          </button>
         </div>
       </Style>
     )
