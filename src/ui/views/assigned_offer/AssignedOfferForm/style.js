@@ -37,15 +37,15 @@ export default styled.div`
   }
 
   & .changeDelivererButton {
-    border-color: #49a25b;
-    background-color: fcbf49;
+    border-color: black;
+    background-color: #fcbf49;
     box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
     font-family: SFProTextRegular, serif;
     font-size: 18px;
     border-radius: 10px;
     width: 100%;
     max-width: 200px;
-    color: #003049;
+    color: white;
     cursor: pointer;
     margin: 0 auto;
   }
@@ -118,7 +118,7 @@ export default styled.div`
   }
 
   .accept_button {
-    background-color: #49a25b;
+    background-color: #fcbf49;
     box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
     font-family: SFProTextRegular, serif;
     font-size: 1.7rem;
