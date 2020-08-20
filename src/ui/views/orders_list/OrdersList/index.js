@@ -1,4 +1,4 @@
-  import React from 'react'
+import React from 'react'
 import { Order } from './Order'
 import Style from './style'
 
@@ -9,9 +9,12 @@ export class OrdersList extends React.Component {
       <Style>
         <div className="title">Mis Ordenes</div>
         <div className="orders">
-          {orders.map((o) => {
+          {orders.map(o => {
             return <Order key={o.id} order={o} products_by_code={products_by_code} />
           })}
+        </div>
+        <div className="button">
+          <button className="keep-buying">Seguir Comprando</button>
         </div>
       </Style>
     )
