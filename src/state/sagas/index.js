@@ -9,3 +9,4 @@ export {
 } from './offer_saga'
 export { get_profile, login_customer } from './auth_saga'
 export { get_location, set_location, add_customer_location } from './location_saga'
+export { add_product_wish } from './product_wish_saga'
