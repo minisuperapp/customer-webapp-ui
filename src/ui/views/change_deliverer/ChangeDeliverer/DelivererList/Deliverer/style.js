@@ -11,14 +11,14 @@ export default styled.div`
   height: 10em;
 
   & .select_button {
-    background-color: #49a25b;
+    background-color: #003049;
     box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
     font-family: SFProTextRegular, serif;
     font-weight: bold;
     font-size: 16px;
     border-radius: 10px;
     width: 100%;
-    color: white;
+    color: #003049;
     cursor: pointer;
     margin-left: 0.5em;
   }

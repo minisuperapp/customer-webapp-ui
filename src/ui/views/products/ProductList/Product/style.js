@@ -60,6 +60,6 @@ export default styled.div`
     cursor: pointer;
     box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
     color: white;
-    background-color: #49a25b;
+    background-color: #003049;
   }
 `

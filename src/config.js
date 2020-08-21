@@ -29,4 +29,10 @@ module.exports = {
     }
     return payload
   },
+  get socket_path() {
+    if (this.isTestEnv) {
+      return ''
+    }
+    return '/comprar/api/socket.io/'
+  },
 }

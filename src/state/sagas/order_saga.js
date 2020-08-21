@@ -3,6 +3,7 @@ import { push } from 'connected-react-router'
 import { place_order_response, get_current_orders_response } from 'src/state/actions/order_actions'
 import * as orders_api from 'src/state/services/orders'
 import * as types from 'src/state/actions/action_types'
+import { show_alert_message } from '../actions/alert_actions'
 import { paths } from '../../constants'
 
 export function* place_order() {
@@ -13,7 +14,7 @@ export function* place_order() {
       yield put(place_order_response(response.order))
       yield put(push(paths.orders_list))
     } else {
-      alert(JSON.stringify(response))
+      yield put(show_alert_message('Datos incorrectos'))
     }
   })
 }

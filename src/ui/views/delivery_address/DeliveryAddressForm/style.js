@@ -35,7 +35,7 @@ export default styled.div`
     padding: 4px;
     font-size: 16px;
     display: table-cell;
-    margin-radius: 2px;
+    border-radius: 2px;
   }
 
   .name {
@@ -69,9 +69,9 @@ export default styled.div`
   .state {
     display: table-row;
   }
-  
+
   .accept_button {
-    background-color: #49a25b;
+    background-color: #003049;
     margin-top: 1em;
     box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
     font-family: SFProTextRegular, serif;
