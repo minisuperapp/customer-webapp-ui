@@ -2,18 +2,18 @@ import styled from 'styled-components'
 
 export default styled.div`
   display: flex;
+  justify-content: center;
   align-items: center;
   position: fixed;
+  bottom: 0;
   width: 100%;
-  justify-content: center;
-  border-bottom: 1px solid grey;
+  border-top: 1px solid grey;
   background: white;
   z-index: 3;
 
   & .links {
     margin-top: 1em;
     margin-bottom: 1em;
-    padding: 0.2em 2em;
 
     & a {
       text-decoration: none;
@@ -45,6 +45,9 @@ export default styled.div`
     & .active {
       background-color: #003049;
       color: white;
+    }
+    @media only screen and (min-width: 625px) {
+      display: none;
     }
   }
 `

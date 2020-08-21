@@ -11,9 +11,6 @@ import { paths } from 'src/constants'
 class ProductsView extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      query: null,
-    }
   }
   async componentDidMount() {
     const { get_current_orders_request } = this.props
@@ -26,29 +23,21 @@ class ProductsView extends Component {
     history.push(paths.quantity)
   }
 
-  handleProductSearch = event => {
-    const { value } = event.target
-    this.setState({
-      query: _.toLower(value),
-    })
-  }
-
   go_to_location = () => {
     const { history } = this.props
     history.push(paths.location)
   }
 
   render() {
-    const { products, lowest_price_by_product, by_product, location } = this.props
+    const { products, lowest_price_by_product, by_product, location, query } = this.props
     if (!location.latitude || !location.longitude) {
       return <Redirect to={paths.location} />
     }
-    const { query } = this.state
     const products_to_show = query
       ? products.filter(
           product =>
-            _.toLower(product.name).includes(query) ||
-            _.toLower(product.description).includes(query),
+            _.toLower(product.name).includes(_.toLower(query)) ||
+            _.toLower(product.description).includes(_.toLower(query)),
         )
       : products
     if (!products.length) {
@@ -59,7 +48,6 @@ class ProductsView extends Component {
         products={products_to_show}
         lowest_price_by_product={lowest_price_by_product}
         handleProductSelection={this.handleProductSelection}
-        handleProductSearch={this.handleProductSearch}
         by_product={by_product}
         location={location}
         go_to_location={this.go_to_location}
@@ -72,6 +60,7 @@ function mapStateToProps(state) {
   const { products, best_offers, orders, location } = state
   return {
     products: products.list,
+    query: products.query,
     lowest_price_by_product: best_offers.lowest_price_by_product,
     by_product: best_offers.by_product,
     orders,

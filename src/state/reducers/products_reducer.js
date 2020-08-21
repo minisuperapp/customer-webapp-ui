@@ -11,6 +11,11 @@ export default function reducer(state = initial_state.products, action) {
         list: Immutable(action.response),
         by_code: _.keyBy(action.response, 'code'),
       })
+    case types.SEARCH_PRODUCTS_REQUEST:
+      return Immutable({
+        ...state,
+        query: action.query,
+      })
     default:
       return state
   }

@@ -9,26 +9,16 @@ export class ProductList extends React.Component {
     const {
       lowest_price_by_product,
       handleProductSelection,
-      handleProductSearch,
       by_product,
       location,
       go_to_location,
     } = this.props
     return (
       <Style>
-        <div className="title">Elige tu producto</div>
-        <div className="search">
-          <input
-            autoFocus={true}
-            type="text"
-            placeholder="Buscar un producto..."
-            onChange={handleProductSearch}
-          />
-        </div>
         <div className="container">
-          <div className="map_container">
-            <Map offers={by_product} location={location} go_to_location={go_to_location} />
-          </div>
+          {/*<div className="map_container">*/}
+          {/*  <Map offers={by_product} location={location} go_to_location={go_to_location} />*/}
+          {/*</div>*/}
           {this.props.products.map(p => (
             <Product
               key={p.id}

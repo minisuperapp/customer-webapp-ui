@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Header from './components/header'
-import SubHeader from './components/subheader'
+import Footer from './components/footer'
 import ProductsView from './views/products'
 import LocationView from './views/location'
 import QuantityView from './views/quantity'
@@ -33,9 +33,8 @@ class App extends Component {
   render() {
     return (
       <Style>
-        <Header className={'header'} />
+        <Header />
         <Alert />
-        <SubHeader />
         <div className="main">
           <Switch>
             <Route exact path={paths.home} component={ProductsView} />
@@ -52,6 +51,7 @@ class App extends Component {
             <Route exact path={paths.login} component={Login} />
           </Switch>
         </div>
+        <Footer />
       </Style>
     )
   }

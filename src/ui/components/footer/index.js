@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Style from './style'
 import { paths } from 'src/constants'
+import { search_product_request } from 'src/state/actions/product_actions'
 
-class SubHeader extends Component {
+class Footer extends Component {
   refresh = () => {
     this.setState({})
   }
@@ -32,4 +34,10 @@ class SubHeader extends Component {
   }
 }
 
-export default SubHeader
+function mapStateToProps(state) {}
+
+const mapDispatchToProps = {
+  search_product_request,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Footer)
