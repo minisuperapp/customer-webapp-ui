@@ -81,7 +81,7 @@ export default styled.div`
   }
 
   .addButton {
-    background-color: #fcbf49;
+    background-color: #003049;
     border-bottom-right-radius: 18px;
     border-top-right-radius: 18px;
     box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
@@ -95,7 +95,7 @@ export default styled.div`
   }
 
   .subtractButton {
-    background-color: #fcbf49;
+    background-color: #003049;
     border-bottom-left-radius: 18px;
     border-top-left-radius: 18px;
     box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
@@ -115,7 +115,7 @@ export default styled.div`
   }
 
   .accept_button {
-    background-color: #fcbf49;
+    background-color: #003049;
     box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
     font-family: SFProTextRegular, serif;
     font-size: 1.7rem;

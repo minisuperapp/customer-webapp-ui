@@ -38,7 +38,7 @@ export default styled.div`
 
   & .changeDelivererButton {
     border-color: black;
-    background-color: #fcbf49;
+    background-color: #003049;
     box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
     font-family: SFProTextRegular, serif;
     font-size: 18px;
@@ -102,7 +102,6 @@ export default styled.div`
   }
 
   & .text_title {
-    alignment: left;
     font-family: SFProText-Bold, serif;
     font-size: 16px;
     color: #757575;
@@ -118,7 +117,7 @@ export default styled.div`
   }
 
   .accept_button {
-    background-color: #fcbf49;
+    background-color: #003049;
     box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
     font-family: SFProTextRegular, serif;
     font-size: 1.7rem;

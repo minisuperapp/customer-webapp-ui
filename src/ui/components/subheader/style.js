@@ -43,7 +43,7 @@ export default styled.div`
     }
 
     & .active {
-      background-color: #fcbf49;
+      background-color: #003049;
       color: white;
     }
   }
