@@ -13,15 +13,14 @@ export default styled.div`
     left: 50%;
     width: 18em;
     margin-left: -10.2em;
-    margin-top: 1em;
-    margin-bottom: 0.5em;
+    margin-top: 0.8em;
     & :focus {
       outline: none;
     }
     & input {
       font-size: 18px;
       padding: 0.5em 1em;
-      border-radius: 15px;
+      border-radius: 10px;
       width: 100%;
     }
   }

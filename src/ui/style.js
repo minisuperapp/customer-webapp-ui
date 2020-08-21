@@ -8,6 +8,6 @@ export default styled.div`
   flex-direction: column;
 
   .main {
-    margin-top: 3.5em;
+    margin-top: 4em;
   }
 `

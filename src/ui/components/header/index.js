@@ -29,7 +29,7 @@ class Header extends Component {
         </div>
         <div className="logo_links">
           <div className="logo">
-            <img alt="minisuper" src={logo} width="100" height="80" align="absmiddle" />
+            <img alt="minisuper" src={logo} width="80" height="70" align="absmiddle" />
           </div>
           <div />
           <div className="links">
