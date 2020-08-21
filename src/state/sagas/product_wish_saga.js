@@ -10,7 +10,7 @@ export function* add_product_wish() {
     const location = yield call(location_api.get_location)
     const response = yield call(product_wish_api.add_product_wish, { description, location })
     if (response.success) {
-      yield put(add_product_wish_response(response.data.location))
+      yield put(add_product_wish_response())
       on_success && on_success()
     }
   })

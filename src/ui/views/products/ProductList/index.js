@@ -1,7 +1,7 @@
 import React from 'react'
 import { Product } from './Product'
 import Style from './style'
-import { ProductRequest } from './RequestProduct'
+import ProductWish  from './ProductWish'
 import { Map } from './Map'
 
 export class ProductList extends React.Component {
@@ -37,7 +37,7 @@ export class ProductList extends React.Component {
               handleProductSelection={handleProductSelection}
             />
           ))}
-          <ProductRequest />
+          <ProductWish />
         </div>
       </Style>
     )

@@ -10,5 +10,6 @@ export async function add_product_wish(product_wish) {
     path: 'product_wish/add',
     payload: { description, latitude, longitude },
   }
-  return apiRequester.send(request)
+  const response = await apiRequester.send(request)
+  return response.data
 }
