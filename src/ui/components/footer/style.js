@@ -46,7 +46,7 @@ export default styled.div`
       background-color: #003049;
       color: white;
     }
-    @media only screen and (min-width: 625px) {
+    @media only screen and (min-width: 733px) {
       display: none;
     }
   }

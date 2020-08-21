@@ -19,9 +19,6 @@ class Header extends Component {
     const active_page = window.location.pathname
     return (
       <Style>
-        <div className="logo">
-          <img alt="minisuper" src={logo} width="100" height="80" align="absmiddle" />
-        </div>
         <div className="search">
           <input
             autoFocus={true}
@@ -30,21 +27,27 @@ class Header extends Component {
             onChange={this.handleProductSearch}
           />
         </div>
-        <div className="links">
-          <Link
-            className={`${
-              ![paths.register, paths.orders_list].includes(active_page) ? 'active' : ''
-            } products_link`}
-            onClick={this.refresh}
-            to={paths.home}>
-            Productos
-          </Link>
-          <Link
-            className={`${active_page === paths.orders_list ? 'active' : ''} orders_link`}
-            onClick={this.refresh}
-            to={paths.orders_list}>
-            Mis Ordenes
-          </Link>
+        <div className="logo_links">
+          <div className="logo">
+            <img alt="minisuper" src={logo} width="100" height="80" align="absmiddle" />
+          </div>
+          <div />
+          <div className="links">
+            <Link
+              className={`${
+                ![paths.register, paths.orders_list].includes(active_page) ? 'active' : ''
+              } products_link`}
+              onClick={this.refresh}
+              to={paths.home}>
+              Productos
+            </Link>
+            <Link
+              className={`${active_page === paths.orders_list ? 'active' : ''} orders_link`}
+              onClick={this.refresh}
+              to={paths.orders_list}>
+              Mis Ordenes
+            </Link>
+          </div>
         </div>
       </Style>
     )
