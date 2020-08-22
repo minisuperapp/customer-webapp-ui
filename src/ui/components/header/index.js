@@ -30,19 +30,21 @@ class Header extends Component {
   }
   handleProductSearch = event => {
     const { value } = event.target
-    const { search_product_request } = this.props
+    const { search_product_request, history } = this.props
+    if (history.location.path !== paths.home) {
+      history.push(paths.home)
+    }
     search_product_request(value)
   }
   render() {
     const { active_page } = this.state
-    const search_class = active_page === paths.home ? 'search' : 'hidden'
     return (
       <Style>
-        <div className={search_class}>
+        <div className="search">
           <input
             autoFocus={true}
             type="text"
-            placeholder="Buscar un producto..."
+            placeholder="Busca un producto..."
             onChange={this.handleProductSearch}
           />
         </div>
