@@ -33,7 +33,7 @@ class App extends Component {
   render() {
     return (
       <Style>
-        <Header />
+        <Header history={this.props.history}/>
         <Alert />
         <div className="main">
           <Switch>

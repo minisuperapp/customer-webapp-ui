@@ -4,6 +4,7 @@ export default styled.div`
   display: flex;
   position: fixed;
   width: 100%;
+  height: 4em;
   border-bottom: 1px solid grey;
   background: white;
   z-index: 3;
