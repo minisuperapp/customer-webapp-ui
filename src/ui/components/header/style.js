@@ -25,6 +25,10 @@ export default styled.div`
     }
   }
 
+  .hidden {
+    display: none;
+  }
+
   .logo_links {
     display: flex;
     justify-content: space-between;

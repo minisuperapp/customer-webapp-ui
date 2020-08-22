@@ -17,9 +17,10 @@ class Header extends Component {
   }
   render() {
     const active_page = window.location.pathname
+    const search_class = active_page === paths.home ? 'search' : 'hidden'
     return (
       <Style>
-        <div className="search">
+        <div className={search_class}>
           <input
             autoFocus={true}
             type="text"
