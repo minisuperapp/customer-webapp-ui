@@ -35,7 +35,6 @@ export default styled.div`
     width: 100%;
     max-width: 100px;
     cursor: pointer;
-    box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
     color: white;
     background-color: #003049;
   }

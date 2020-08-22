@@ -12,13 +12,12 @@ export default styled.div`
 
   & .select_button {
     background-color: #003049;
-    box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
     font-family: SFProTextRegular, serif;
     font-weight: bold;
     font-size: 16px;
     border-radius: 10px;
     width: 100%;
-    color: #003049;
+    color: white;
     cursor: pointer;
     margin-left: 0.5em;
   }

@@ -27,8 +27,8 @@ export default styled.div`
   .input {
     border-right-color: transparent;
     border-left-color: transparent;
-    border-top-color: #49a25b;
-    border-bottom-color: #49a25b;
+    border-top-color: #003049;
+    border-bottom-color: #003049;
     text-align: center;
     font-size: 22px;
     max-width: 100px;
@@ -84,7 +84,6 @@ export default styled.div`
     background-color: #003049;
     border-bottom-right-radius: 18px;
     border-top-right-radius: 18px;
-    box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
     border: none;
     color: white;
     text-align: center;
@@ -98,7 +97,6 @@ export default styled.div`
     background-color: #003049;
     border-bottom-left-radius: 18px;
     border-top-left-radius: 18px;
-    box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
     border: none;
     color: white;
     text-align: center;
@@ -116,7 +114,6 @@ export default styled.div`
 
   .accept_button {
     background-color: #003049;
-    box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
     font-family: SFProTextRegular, serif;
     font-size: 1.7rem;
     font-weight: 500;
@@ -130,7 +127,6 @@ export default styled.div`
   .cancel_button {
     background-color: #fff;
     color: black;
-    box-shadow: none;
     margin-right: 0.5em;
     font-family: SFProTextRegular, serif;
     font-size: 1.5rem;

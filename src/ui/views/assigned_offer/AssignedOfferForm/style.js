@@ -39,7 +39,6 @@ export default styled.div`
   & .changeDelivererButton {
     border-color: black;
     background-color: #003049;
-    box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
     font-family: SFProTextRegular, serif;
     font-size: 18px;
     border-radius: 10px;
@@ -118,7 +117,6 @@ export default styled.div`
 
   .accept_button {
     background-color: #003049;
-    box-shadow: 0 2px 8px 0 rgb(73, 162, 91);
     font-family: SFProTextRegular, serif;
     font-size: 1.7rem;
     font-weight: 500;

@@ -24,7 +24,8 @@ export default styled.div`
     margin-top: 1.5em;
 
     .keep-buying {
-      background-color: #49a25b;
+      background-color: #003049;
+      padding: 0.5em;
       border-radius: 5px;
       color: whitesmoke;
       cursor: pointer;

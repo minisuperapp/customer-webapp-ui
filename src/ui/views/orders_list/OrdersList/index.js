@@ -16,7 +16,7 @@ export class OrdersList extends React.Component {
         </div>
         <div className="button">
           <button className="keep-buying" onClick={() => go_to_products()}>
-            Seguir Comprando
+            Buscar mas productos
           </button>
         </div>
       </Style>
