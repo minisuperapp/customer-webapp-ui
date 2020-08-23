@@ -66,7 +66,7 @@ class Header extends Component {
               className={`${active_page === paths.orders_list ? 'active' : ''} orders_link`}
               onClick={this.refresh}
               to={paths.orders_list}>
-              Mis Ordenes
+              Mis Órdenes
             </Link>
           </div>
         </div>

@@ -82,7 +82,7 @@ export default styled.div`
     justify-content: center;
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
+    margin-left: 1em;
     align-items: flex-start;
   }
 
