@@ -32,7 +32,6 @@ export default styled.div`
     text-align: center;
     font-size: 22px;
     max-width: 100px;
-    height: 50%;
   }
 
   .product_name {
@@ -61,6 +60,7 @@ export default styled.div`
     display: flex;
     flex-direction: row;
     margin-bottom: 1em;
+    height: 2em;
   }
 
   .totalContainer {
@@ -82,27 +82,26 @@ export default styled.div`
 
   .addButton {
     background-color: #003049;
-    border-bottom-right-radius: 18px;
-    border-top-right-radius: 18px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
     border: none;
     color: white;
     text-align: center;
-    margin-bottom: 1em;
     font-size: 24px;
     cursor: pointer;
-    height: 1.4em;
+    width: 2em;
   }
 
   .subtractButton {
     background-color: #003049;
-    border-bottom-left-radius: 18px;
-    border-top-left-radius: 18px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
     border: none;
     color: white;
     text-align: center;
-    margin-bottom: 1em;
     font-size: 24px;
     cursor: pointer;
+    width: 2em;
   }
 
   .buttonContainer {

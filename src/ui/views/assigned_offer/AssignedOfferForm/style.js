@@ -19,6 +19,11 @@ export default styled.div`
     margin-top: 1em;
     display: flex;
     flex-direction: column;
+
+    .address {
+      margin-top: 0.5em;
+      padding-left: 2em;
+    }
   }
 
   & .deliverer_container {
@@ -32,8 +37,8 @@ export default styled.div`
     font-size: 1.2rem;
     color: black;
     text-align: center;
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
   }
 
   & .changeDelivererButton {
@@ -52,7 +57,7 @@ export default styled.div`
   & .offer_container {
     display: flex;
     flex-direction: column;
-    margin-top: 2em;
+    margin-top: 1em;
   }
 
   & .productContainer {
@@ -97,7 +102,15 @@ export default styled.div`
   & .total_container {
     display: flex;
     flex-direction: row;
-    margin: 1em auto;
+    margin: 0.5em auto;
+
+    .total {
+      display: flex;
+      margin-right: 1em;
+      font-size: 24px;
+      color: #212121;
+      text-align: center;
+    }
   }
 
   & .text_title {
@@ -105,6 +118,10 @@ export default styled.div`
     font-size: 16px;
     color: #757575;
     margin-left: 1em;
+
+    .add_address_link {
+      margin-left: 0.5em;
+    }
   }
 
   & .button_container {
@@ -112,7 +129,7 @@ export default styled.div`
     flex-direction: row;
     width: 100%;
     max-width: 300px;
-    margin: 1em auto;
+    margin: 0.5em auto;
   }
 
   .accept_button {
