@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom'
 import { SearchingMessage } from './SearchingMessage'
 import { assign_best_offer_request } from 'src/state/actions/offer_actions'
 import { paths } from 'src/constants'
-import { show_alert_message } from '../../../state/actions/alert_actions'
+import { show_alert_message } from 'src/state/actions/alert_actions'
 
 class BestOfferSearchingView extends Component {
   constructor(props) {

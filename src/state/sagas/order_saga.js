@@ -4,7 +4,7 @@ import { place_order_response, get_current_orders_response } from 'src/state/act
 import * as orders_api from 'src/state/services/orders'
 import * as types from 'src/state/actions/action_types'
 import { show_alert_message } from '../actions/alert_actions'
-import { paths } from '../../constants'
+import { paths } from 'src/constants'
 
 export function* place_order() {
   yield takeEvery(types.PLACE_ORDER_REQUEST, function* (data) {
