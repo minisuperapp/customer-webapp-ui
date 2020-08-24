@@ -14,20 +14,18 @@ export class AssignBestOfferRequest {
   static get Builder() {
     class Builder {
       constructor() {
-        this.product_code = ''
-        this.quantity = ''
+        this.products = []
         this.location = {
           latitude: '',
           longitude: '',
         }
       }
-      withProductCode(product_code) {
-       this.product_code = product_code
-       return this
-      }
-      withQuantity(quantity) {
-       this.quantity = quantity
-       return this
+      withProductCodeAndQuantity(product_code, quantity) {
+        this.products.push({
+          code: product_code,
+          quantity: quantity,
+        })
+        return this
       }
       withCustomerLocationLatitude(latitude) {
         this.location.latitude = latitude

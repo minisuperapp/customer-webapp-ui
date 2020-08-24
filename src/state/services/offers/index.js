@@ -17,8 +17,7 @@ export const get_best_offers = async customerLocation => {
 
 export const assign_best_offer = async ({ location, product_code, quantity }) => {
   const request = new AssignBestOfferRequest.Builder()
-    .withProductCode(product_code)
-    .withQuantity(quantity)
+    .withProductCodeAndQuantity(product_code, quantity)
     .withCustomerLocationLatitude(location.latitude)
     .withCustomerLocationLongitude(location.longitude)
     .build()
