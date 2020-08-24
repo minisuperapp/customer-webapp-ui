@@ -89,7 +89,8 @@
       "no-console": "warn",
       "no-unused-vars": "warn",
       "react/prop-types": "off",
-      "import/no-unresolved": "off"
+      "import/no-unresolved": "off",
+      "import/no-named-as-default": "off"
     },
     "settings": {
       "react": {

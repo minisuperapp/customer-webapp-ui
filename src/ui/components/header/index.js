@@ -50,7 +50,9 @@ class Header extends Component {
         </div>
         <div className="logo_links">
           <div className="logo">
-            <Link to={paths.home}><img alt="minisuper" src={logo} width="85" height="70" align="absmiddle" /></Link>
+            <Link to={paths.home}>
+              <img alt="minisuper" src={logo} width="85" height="70" align="absmiddle" />
+            </Link>
           </div>
           <div />
           <div className="links">
@@ -75,7 +77,9 @@ class Header extends Component {
   }
 }
 
-function mapStateToProps(state) {}
+function mapStateToProps() {
+  return {}
+}
 
 const mapDispatchToProps = {
   search_product_request,

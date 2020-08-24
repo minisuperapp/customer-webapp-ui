@@ -1,6 +1,5 @@
 import React from 'react'
 import Style from './style'
-import Label from 'src/ui/components/Label'
 import * as images from 'src/ui/views/common/images'
 
 export class QuantityForm extends React.Component {

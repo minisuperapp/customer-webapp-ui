@@ -34,7 +34,9 @@ class Footer extends Component {
   }
 }
 
-function mapStateToProps(state) {}
+function mapStateToProps() {
+  return {}
+}
 
 const mapDispatchToProps = {
   search_product_request,
