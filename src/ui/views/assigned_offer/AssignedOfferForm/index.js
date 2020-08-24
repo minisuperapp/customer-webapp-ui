@@ -66,7 +66,7 @@ export class AssignedOfferForm extends React.Component {
             <div className="productDetailsContainer">
               <div className="productName">{cart.product.name}</div>
               <div className="productPrice">Precio Unitario: ${offer.unit_price}</div>
-              <div className="productPrice">Cantidad: {cart.quantity}</div>
+              <div className="productPrice">Cantidad: {offer.available_quantity}</div>
             </div>
           </div>
         </div>

@@ -54,6 +54,11 @@ class AssignedOfferView extends React.Component {
     }
     const { cart, total, customer_locations } = this.props
     const offer = cart.offer
+    if (Number(cart.offer.available_quantity) < Number(cart.quantity)) {
+      alert(
+        `El repartidor solo cuenta con ${cart.offer.available_quantity} ${cart.product.quantity_type} ${cart.product.name}`,
+      )
+    }
     return (
       <AssignedOfferForm
         cart={cart}
