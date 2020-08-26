@@ -55,7 +55,7 @@ export function* assign_best_offer() {
       quantity,
     })
     if (response.success) {
-      yield put(assign_best_offer_response(response.data))
+      yield put(assign_best_offer_response(response.list[0]))
       on_success && on_success(response)
     } else {
       on_error && on_error(response.errors)
