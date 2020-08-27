@@ -5,6 +5,7 @@ import Style from './style'
 import { paths } from 'src/constants'
 import logo from 'src/ui/images/logo.png'
 import { search_product_request } from 'src/state/actions/product_actions'
+import NavigationMenu from 'src/ui/components/navigation_menu'
 
 class Header extends Component {
   state = {
@@ -44,28 +45,15 @@ class Header extends Component {
             onChange={this.handleProductSearch}
           />
         </div>
-        <div className="logo_links">
+        <div className="items">
           <div className="logo">
             <Link to={paths.home}>
               <img alt="minisuper" src={logo} width="85" height="70" align="absmiddle" />
             </Link>
           </div>
           <div />
-          <div className="links">
-            <Link
-              className={`${
-                ![paths.register, paths.orders_list].includes(active_page) ? 'active' : ''
-              } products_link`}
-              onClick={this.refresh}
-              to={paths.home}>
-              Productos
-            </Link>
-            <Link
-              className={`${active_page === paths.orders_list ? 'active' : ''} orders_link`}
-              onClick={this.refresh}
-              to={paths.orders_list}>
-              Mis Órdenes
-            </Link>
+          <div className="navigation_menu">
+            <NavigationMenu active_page={active_page} />
           </div>
         </div>
       </Style>
