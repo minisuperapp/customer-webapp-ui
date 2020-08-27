@@ -12,6 +12,8 @@ export default styled.div`
   z-index: 3;
 
   .navigation_menu {
+    margin-top: 1em;
+    margin-bottom: 1em;
     @media only screen and (min-width: 871px) {
       display: none;
     }

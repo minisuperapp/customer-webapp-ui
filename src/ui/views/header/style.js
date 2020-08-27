@@ -46,6 +46,9 @@ export default styled.div`
       }
     }
     .navigation_menu {
+      margin-top: 1em;
+      margin-bottom: 1em;
+      margin-right: 5em;
       @media only screen and (max-width: 870px) {
         display: none;
       }

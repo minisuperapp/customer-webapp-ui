@@ -1,10 +1,6 @@
 import styled from 'styled-components'
 
 export default styled.div`
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-right: 5em;
-
   & a {
     text-decoration: none;
     color: black;
