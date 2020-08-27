@@ -48,7 +48,7 @@ class Header extends Component {
         <div className="items">
           <div className="logo">
             <Link to={paths.home}>
-              <img alt="minisuper" src={logo} width="85" height="70" align="absmiddle" />
+              <img alt="minisuper" src={logo} align="absmiddle" />
             </Link>
           </div>
           <div />
