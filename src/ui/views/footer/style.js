@@ -14,7 +14,7 @@ export default styled.div`
   .navigation_menu {
     margin-top: 1em;
     margin-bottom: 1em;
-    @media only screen and (min-width: 871px) {
+    @media only screen and (min-width: 1045px) {
       display: none;
     }
   }

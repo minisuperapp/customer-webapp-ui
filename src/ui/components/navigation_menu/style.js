@@ -16,16 +16,22 @@ export default styled.div`
 
   & .orders_link {
     border: 1px solid black;
+    border-right: none;
+    padding: 0.5em;
+  }
+
+  & .cart_link {
+    border: 1px solid black;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     padding: 0.5em;
   }
 
-  & .account_link {
-    border: 1px solid black;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    padding: 0.5em;
+  .filled_cart {
+    background-color: #fefefe;
+    color: #003049;
+    font-weight: bold;
+    text-decoration: underline;
   }
 
   & .active {
