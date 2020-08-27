@@ -80,7 +80,7 @@ export default styled.div`
       cursor: pointer;
       color: black;
       border: none;
-      border-top: 2px solid #003049;
+      border-top: 1px solid #003049;
       background-color: #fcbf49;
     }
   }
