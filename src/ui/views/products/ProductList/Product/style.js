@@ -4,7 +4,7 @@ export default styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: 1px solid black;
+  border: 2px solid black;
   margin-bottom: 1em;
   margin-right: 0.5em;
   margin-left: 0.5em;
@@ -27,15 +27,15 @@ export default styled.div`
   & .main_panel {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
+    border-radius: 10px;
     background-color: #ffffff;
     width: 100%;
+    height: 100%;
   }
 
   & .text_title {
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-    margin-bottom: 0.5em;
+    margin: 0.5em 0.5em 0.5em;
     text-align: left;
     font-family: SFProText-Bold, serif;
     font-size: 20px;
@@ -50,15 +50,33 @@ export default styled.div`
     clear: right;
   }
 
-  & button {
-    margin-top: 0.5em;
-    font-family: SFProTextRegular, serif;
-    font-size: 16px;
-    border-radius: 10px;
-    width: 100%;
-    max-width: 100px;
-    cursor: pointer;
-    color: white;
-    background-color: #003049;
+  .buttons {
+    display: flex;
+    border-bottom-right-radius: 10px;
+
+    .buy_button {
+      margin-top: 0.5em;
+      font-family: SFProTextRegular, serif;
+      font-size: 16px;
+      border-top-left-radius: 10px;
+      width: 100%;
+      cursor: pointer;
+      color: #fefefe;
+      border: none;
+      background-color: #003049;
+    }
+
+    .add_cart_button {
+      margin-top: 0.5em;
+      font-family: SFProTextRegular, serif;
+      font-size: 16px;
+      border-bottom-right-radius: 8px;
+      width: 100%;
+      cursor: pointer;
+      color: black;
+      border: none;
+      border-top: 2px solid #003049;
+      background-color: #FCBF49;
+    }
   }
 `
