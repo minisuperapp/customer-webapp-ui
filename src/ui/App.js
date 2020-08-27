@@ -51,7 +51,7 @@ class App extends Component {
             <Route exact path={paths.login} component={Login} />
           </Switch>
         </div>
-        <Footer />
+        <Footer history={this.props.history}/>
       </Style>
     )
   }

@@ -6,11 +6,25 @@ import { paths } from 'src/constants'
 import { search_product_request } from 'src/state/actions/product_actions'
 
 class Footer extends Component {
-  refresh = () => {
-    this.setState({})
+  state = {
+    active_page: null,
+  }
+  componentDidMount() {
+    const { history } = this.props
+    this.setState({
+      active_page: history.location.pathname,
+    })
+    this.unregisterHistoryListener = history.listen(location => {
+      this.setState({
+        active_page: location.pathname,
+      })
+    })
+  }
+  componentWillUnmount() {
+    this.unregisterHistoryListener()
   }
   render() {
-    const active_page = window.location.pathname
+    const { active_page } = this.state
     return (
       <Style>
         <div className="links">

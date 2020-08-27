@@ -24,10 +24,6 @@ class Header extends Component {
   componentWillUnmount() {
     this.unregisterHistoryListener()
   }
-
-  refresh = () => {
-    this.setState({})
-  }
   handleProductSearch = event => {
     const { value } = event.target
     const { search_product_request, history } = this.props
