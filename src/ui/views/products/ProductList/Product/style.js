@@ -35,11 +35,16 @@ export default styled.div`
   }
 
   & .text_title {
-    margin: 0.5em 0.5em 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0.5em;
     text-align: left;
     font-family: SFProText-Bold, serif;
     font-size: 20px;
     color: #212121;
+    height: 3em;
+    overflow: scroll;
   }
 
   & .price {
@@ -76,7 +81,7 @@ export default styled.div`
       color: black;
       border: none;
       border-top: 2px solid #003049;
-      background-color: #FCBF49;
+      background-color: #fcbf49;
     }
   }
 `
