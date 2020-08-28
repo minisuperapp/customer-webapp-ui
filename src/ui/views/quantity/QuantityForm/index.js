@@ -5,7 +5,7 @@ import * as images from 'src/ui/views/common/images'
 export class QuantityForm extends React.Component {
   render() {
     const {
-      cart: { product },
+      product,
       price,
       subtractQuantity,
       addQuantity,
@@ -47,7 +47,7 @@ export class QuantityForm extends React.Component {
             Agregar a carrito
           </button>
           <button className="buy_button" onClick={go_to_search_best_offer}>
-            Comprar
+            Comprar ya
           </button>
         </div>
         <button className="cancel_button" onClick={this.props.goToProducts}>

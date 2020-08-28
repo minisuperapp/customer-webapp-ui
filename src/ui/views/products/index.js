@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import _ from 'lodash'
-import { set_selected_product } from 'src/state/actions/cart_actions'
 import { get_current_orders_request } from 'src/state/actions/order_actions'
 import { ProductList } from './ProductList'
 import { LoadingList } from './LoadingList'
@@ -18,9 +17,8 @@ class ProductsView extends Component {
   }
 
   handleProductSelection = product => () => {
-    const { history, set_selected_product } = this.props
-    set_selected_product(product)
-    history.push(paths.quantity)
+    const { history } = this.props
+    history.push({pathname: paths.quantity, search: `?product_code=${product.code}`})
   }
 
   go_to_location = () => {
@@ -69,7 +67,6 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-  set_selected_product,
   get_current_orders_request,
 }
 

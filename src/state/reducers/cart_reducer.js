@@ -5,12 +5,6 @@ import Immutable from 'seamless-immutable'
 
 export default function reducer(state = initial_state.cart, action) {
   switch (action.type) {
-    case types.SET_SELECTED_PRODUCT:
-      localStorage.setItem('cart_product', JSON.stringify(action.product))
-      return Immutable({
-        ...state,
-        product: action.product,
-      })
     case types.ADD_PRODUCT: {
       const { product_code, quantity } = action
       return Immutable({
@@ -43,7 +37,6 @@ export default function reducer(state = initial_state.cart, action) {
       return Immutable({ ...state, customer_location_id: action.customer_location_id })
     }
     case types.PLACE_ORDER_RESPONSE: {
-      localStorage.removeItem('cart_product')
       localStorage.removeItem('cart_quantity')
       return Immutable(initial_state.cart)
     }
