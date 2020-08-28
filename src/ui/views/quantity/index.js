@@ -30,8 +30,9 @@ class QuantityView extends React.Component {
 
   go_to_search_best_offer = () => {
     const { history, set_selected_quantity } = this.props
+    const { product } = this.state
     set_selected_quantity(this.state.quantity)
-    history.push(paths.best_offer_searching)
+    history.push({ pathname: paths.best_offer_searching, search: `?product_code=${product.code}` })
   }
 
   add_to_cart = () => {

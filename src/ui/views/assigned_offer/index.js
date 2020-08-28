@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import { paths } from 'src/constants'
 import { set_selected_customer_location } from 'src/state/actions/cart_actions'
 import { show_alert_message } from '../../../state/actions/alert_actions'
+import queryString from 'query-string'
+import { get_product_by_code } from 'src/state/services/products'
 
 class AssignedOfferView extends React.Component {
   constructor(props) {
@@ -12,13 +14,20 @@ class AssignedOfferView extends React.Component {
     this.state = {
       customer_location_id: null,
       errors: null,
+      product: {},
     }
   }
   async componentDidMount() {
+    const { product_code } = queryString.parse(this.props.location.search)
+    const product = await get_product_by_code(product_code)
     const { customer_locations, set_selected_customer_location } = this.props
     if (customer_locations.length) {
       set_selected_customer_location(customer_locations[0].id)
     }
+    debugger
+    this.setState({
+      product,
+    })
   }
 
   changeDeliverer = async () => {
@@ -54,15 +63,18 @@ class AssignedOfferView extends React.Component {
       show_alert_message('El producto ya no esta disponible. Intenta mas tarde.')
     }
     const { cart, total, customer_locations } = this.props
+    const { product } = this.state
+    debugger
     const offer = cart.offer
     if (Number(cart.offer.available_quantity) < Number(cart.quantity)) {
       show_alert_message(
-        `El repartidor solo cuenta con ${cart.offer.available_quantity} ${cart.product.quantity_type} ${cart.product.name}`,
+        `El repartidor solo cuenta con ${cart.offer.available_quantity} ${product.quantity_type} ${product.name}`,
       )
     }
     return (
       <AssignedOfferForm
         cart={cart}
+        product={product}
         offer={offer}
         total={total}
         customer_locations={customer_locations}
