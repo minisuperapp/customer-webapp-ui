@@ -24,7 +24,6 @@ class AssignedOfferView extends React.Component {
     if (customer_locations.length) {
       set_selected_customer_location(customer_locations[0].id)
     }
-    debugger
     this.setState({
       product,
     })
@@ -64,7 +63,6 @@ class AssignedOfferView extends React.Component {
     }
     const { cart, total, customer_locations } = this.props
     const { product } = this.state
-    debugger
     const offer = cart.offer
     if (Number(cart.offer.available_quantity) < Number(cart.quantity)) {
       show_alert_message(
