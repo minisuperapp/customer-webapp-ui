@@ -11,6 +11,13 @@ export default function reducer(state = initial_state.cart, action) {
         ...state,
         product: action.product,
       })
+    case types.ADD_PRODUCT: {
+      const { product_code, quantity } = action
+      return Immutable({
+        ...state,
+        products: [...state.products, { product_code, quantity }],
+      })
+    }
     case types.SET_SELECTED_QUANTITY:
       localStorage.setItem('cart_quantity', action.quantity)
       return Immutable({

@@ -7,6 +7,10 @@ export class QuantityForm extends React.Component {
     const {
       cart: { product },
       price,
+      subtractQuantity,
+      addQuantity,
+      go_to_search_best_offer,
+      add_to_cart,
     } = this.props
     const style = {
       backgroundImage: `url(${images.getProductImageURL(product.code)})`,
@@ -20,7 +24,7 @@ export class QuantityForm extends React.Component {
         <div className="price"> {'$' + price + ' / ' + product.quantity_type + ' (aprox.)'} </div>
         <div className="quantity_label">Cantidad</div>
         <div className="spinners">
-          <button className="subtractButton" onClick={this.props.subtractQuantity}>
+          <button className="subtractButton" onClick={subtractQuantity}>
             -
           </button>
           <input
@@ -30,7 +34,7 @@ export class QuantityForm extends React.Component {
             value={this.props.quantity}
             onChange={this.props.changeQuantity.bind(this)}
           />
-          <button className="addButton" onClick={this.props.addQuantity}>
+          <button className="addButton" onClick={addQuantity}>
             +
           </button>
         </div>
@@ -39,10 +43,10 @@ export class QuantityForm extends React.Component {
           <div className="total">${this.props.total} (aprox.)</div>
         </div>
         <div className="button_container">
-          <button className="add_cart_button" onClick={this.props.go_to_search_best_offer}>
+          <button className="add_cart_button" onClick={add_to_cart}>
             Agregar a carrito
           </button>
-          <button className="buy_button" onClick={this.props.go_to_search_best_offer}>
+          <button className="buy_button" onClick={go_to_search_best_offer}>
             Comprar
           </button>
         </div>
