@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
 export default styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 1em;
   margin-bottom: 1em;
 
@@ -10,17 +13,20 @@ export default styled.div`
     align-items: center;
     font-family: SFProText-Bold, serif;
     font-size: 24px;
+    margin-bottom: 0.2em;
   }
 
-  .map_container {
-    position: relative;
-    margin-top: 1em;
-    border: 1px solid black;
+  .purchase_button {
+    font-family: SFProTextRegular, serif;
+    font-size: 16px;
+    font-weight: bold;
     border-radius: 10px;
-    height: 10em;
-    width: 20em;
-    margin-right: 0.5em;
-    margin-left: 0.5em;
+    cursor: pointer;
+    color: #003049;
+    background-color: #fcbf49;
+    padding: 0.5em;
+    border: 2px solid #003049;
+    margin-bottom: 0.5em;
   }
 
   & .container {
