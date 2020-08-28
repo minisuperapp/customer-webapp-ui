@@ -13,29 +13,19 @@ class BestOfferSearchingView extends Component {
     super(props)
     this.state = {
       errors: null,
-      product: null,
     }
   }
   async componentDidMount() {
-    const { product_code } = queryString.parse(this.props.location.search)
-    const product = await get_product_by_code(product_code)
-    this.setState({
-      quantity: product.minimum_buying_quantity,
-      product,
-    })
-
     const { history, cart, assign_best_offer_request } = this.props
     if (history.action === 'POP') {
       history.push(paths.quantity)
       return
     }
+    debugger
     assign_best_offer_request(
-      {
-        product_code: product.code,
-        quantity: cart.quantity,
-      },
+      cart.products,
       () => {
-        history.push({ pathname: paths.assigned_offer, search: `?product_code=${product.code}` })
+        history.push({ pathname: paths.assigned_offer })
       },
       errors => {
         this.setState({ errors })

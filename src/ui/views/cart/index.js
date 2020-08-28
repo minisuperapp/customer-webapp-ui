@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import _ from 'lodash'
 import { get_current_orders_request } from 'src/state/actions/order_actions'
 import { ProductList } from './ProductList'
-import {paths} from "../../../constants";
+import { paths } from '../../../constants'
 
 class CartView extends Component {
   constructor(props) {
@@ -13,7 +13,12 @@ class CartView extends Component {
 
   handle_product_selection = product => () => {
     const { history } = this.props
-    history.push({pathname: paths.quantity, search: `?product_code=${product.code}`})
+    history.push({ pathname: paths.quantity, search: `?product_code=${product.code}` })
+  }
+
+  go_to_search_best_offer = () => {
+    const { history } = this.props
+    history.push({ pathname: paths.best_offer_searching })
   }
 
   render() {
@@ -24,6 +29,7 @@ class CartView extends Component {
         products_index={products_index}
         lowest_price_by_product={lowest_price_by_product}
         handle_product_selection={this.handle_product_selection}
+        go_to_search_best_offer={this.go_to_search_best_offer}
       />
     )
   }

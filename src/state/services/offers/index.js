@@ -15,16 +15,22 @@ export const get_best_offers = async customerLocation => {
   return _.get(offersByProductResponse, 'data.data.offersByProduct', {})
 }
 
-export const assign_best_offer = async ({ location, product_code, quantity }) => {
-  const request = new AssignBestOfferRequest.Builder()
-    .withProductCodeAndQuantity(product_code, quantity)
+export const assign_best_offer = async ({ location, products }) => {
+  const builder = new AssignBestOfferRequest.Builder()
     .withCustomerLocationLatitude(location.latitude)
     .withCustomerLocationLongitude(location.longitude)
-    .build()
+  Object.keys(products).map(key => {
+    const quantity = products[key]
+    builder.withProductCodeAndQuantity(key, quantity)
+  })
+  const request = builder.build()
+  debugger
   let response
   try {
     response = await apiRequester.send(request)
+    debugger
   } catch (err) {
+    debugger
     return _.get(err, 'response.data', {})
   }
   return _.get(response, 'data', {})

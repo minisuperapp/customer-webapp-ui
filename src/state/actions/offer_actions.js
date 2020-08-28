@@ -13,9 +13,9 @@ export function listen_published_offer_response(offer) {
   return { type: types.LISTEN_PUBLISHED_OFFER_RESPONSE, offer }
 }
 
-export const assign_best_offer_request = (data, on_success, on_error) => ({
+export const assign_best_offer_request = (products, on_success, on_error) => ({
   type: types.ASSIGN_BEST_OFFER_REQUEST,
-  data,
+  products,
   on_success,
   on_error,
 })

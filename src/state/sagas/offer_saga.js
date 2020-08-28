@@ -47,13 +47,14 @@ export function* listen_published_offers() {
 export function* assign_best_offer() {
   yield takeEvery(types.ASSIGN_BEST_OFFER_REQUEST, function* (payload) {
     const { on_success, on_error } = payload
-    const { product_code, quantity } = payload.data
+    const { products } = payload
     const location = yield call(location_api.get_location)
+    debugger
     const response = yield call(offersService.assign_best_offer, {
+      products,
       location,
-      product_code,
-      quantity,
     })
+    debugger
     if (response.success) {
       const offer = Object.values(response.index)
       yield put(assign_best_offer_response(offer[0]))
