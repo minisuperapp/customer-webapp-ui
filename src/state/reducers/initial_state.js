@@ -14,7 +14,7 @@ const initial_state = {
   },
   orders: [],
   cart: {
-    products: [],
+    products: {},
     quantity: localStorage.getItem('cart_quantity') || 0,
     offer: {},
     product_offers: {},

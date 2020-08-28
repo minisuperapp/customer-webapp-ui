@@ -9,7 +9,10 @@ export default function reducer(state = initial_state.cart, action) {
       const { product_code, quantity } = action
       return Immutable({
         ...state,
-        products: [...state.products, { product_code, quantity }],
+        products: {
+          ...state.products,
+          [product_code]: quantity,
+        },
       })
     }
     case types.SET_SELECTED_QUANTITY:

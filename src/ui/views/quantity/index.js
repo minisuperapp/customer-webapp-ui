@@ -14,10 +14,12 @@ class QuantityView extends React.Component {
   }
 
   async componentDidMount() {
+    const { cart } = this.props
     const { product_code } = queryString.parse(this.props.location.search)
     const product = await get_product_by_code(product_code)
+    const quantity = cart.products[product.code] || product.minimum_buying_quantity
     this.setState({
-      quantity: product.minimum_buying_quantity,
+      quantity ,
       product,
     })
   }
