@@ -14,16 +14,16 @@ export default styled.div`
     padding: 0.5em;
   }
 
-  & .orders_link {
+  & .cart_link {
     border: 1px solid black;
-    border-right: none;
     padding: 0.5em;
   }
 
-  & .cart_link {
+  & .orders_link {
     border: 1px solid black;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+    border-left: none;
     padding: 0.5em;
   }
 

@@ -15,16 +15,16 @@ export default class NavigationMenu extends Component {
           Productos
         </Link>
         <Link
-          className={`${paths.orders_list === active_page ? 'active' : ''} orders_link`}
-          onClick={this.refresh}
-          to={paths.orders_list}>
-          Órdenes
-        </Link>
-        <Link
           className={`${active_page === paths.cart ? 'active' : ''} cart_link`}
           onClick={this.refresh}
           to={paths.cart}>
           Carrito
+        </Link>
+        <Link
+          className={`${paths.orders_list === active_page ? 'active' : ''} orders_link`}
+          onClick={this.refresh}
+          to={paths.orders_list}>
+          Órdenes
         </Link>
       </Style>
     )
