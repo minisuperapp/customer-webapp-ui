@@ -57,31 +57,22 @@ export default styled.div`
 
   .buttons {
     display: flex;
+    justify-content: flex-end;
     border-bottom-right-radius: 10px;
+    height: 2.5em;
 
-    .buy_button {
-      margin-top: 0.5em;
-      font-family: SFProTextRegular, serif;
-      font-size: 16px;
-      border-top-left-radius: 10px;
-      width: 100%;
-      cursor: pointer;
-      color: #fefefe;
-      border: none;
-      background-color: #003049;
-    }
-
-    .add_cart_button {
+    .select_button {
       margin-top: 0.5em;
       font-family: SFProTextRegular, serif;
       font-size: 16px;
       border-bottom-right-radius: 8px;
-      width: 100%;
+      width: 50%;
       cursor: pointer;
       color: black;
       border: none;
-      border-top: 1px solid #003049;
-      background-color: #fcbf49;
+      border-top: 2px solid #003049;
+      border-left: 2px solid #003049;
+      background-color: #fefefe;
     }
   }
 `

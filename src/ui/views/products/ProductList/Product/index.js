@@ -21,14 +21,9 @@ export class Product extends Component {
           {this.props.lowestPrice ? (
             <div className="buttons">
               <button
-                className="buy_button"
+                className="select_button"
                 onClick={this.props.handleProductSelection(this.props.product)}>
-                Comprar
-              </button>
-              <button
-                className="add_cart_button"
-                onClick={this.props.handleProductSelection(this.props.product)}>
-                Agregar a carrito
+                Seleccionar
               </button>
             </div>
           ) : (
