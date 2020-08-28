@@ -41,7 +41,9 @@ export class AssignedOfferForm extends React.Component {
                 )
               })}
             </select>
-            <Link className="add_address_link" to={paths.delivery_address}>Agregar lugar</Link>
+            <Link className="add_address_link" to={paths.delivery_address}>
+              Agregar lugar
+            </Link>
           </div>
           <div className="address">
             <div>
@@ -67,7 +69,9 @@ export class AssignedOfferForm extends React.Component {
             <div className="productDetailsContainer">
               <div className="productName">{product.name}</div>
               <div className="productPrice">Precio Unitario: ${offer.unit_price}</div>
-              <div className="productPrice">Cantidad: {offer.available_quantity}</div>
+              <div className="productPrice">
+                Cantidad: {Math.min(cart.quantity, offer.available_quantity)}
+              </div>
             </div>
           </div>
         </div>

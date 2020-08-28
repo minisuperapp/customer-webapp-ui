@@ -52,7 +52,7 @@ class AssignedOfferView extends React.Component {
 
   onCancel = async () => {
     const { history } = this.props
-    history.push(paths.quantity)
+    history.push({ pathname: paths.quantity, search: `?product_code=${this.state.product.code}` })
   }
 
   render() {

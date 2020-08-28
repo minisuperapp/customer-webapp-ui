@@ -18,13 +18,13 @@ export default class NavigationMenu extends Component {
           className={`${paths.orders_list === active_page ? 'active' : ''} orders_link`}
           onClick={this.refresh}
           to={paths.orders_list}>
-          Mis Órdenes
+          Órdenes
         </Link>
         <Link
           className={`${active_page === paths.cart ? 'active' : ''} cart_link`}
           onClick={this.refresh}
           to={paths.cart}>
-          Mi Carrito
+          Carrito
         </Link>
       </Style>
     )
