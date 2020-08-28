@@ -40,12 +40,12 @@ class AssignedOfferView extends React.Component {
   }
 
   order = async () => {
-    const { cart, place_order_request } = this.props
+    const { cart, quantity, place_order_request } = this.props
     const offer = cart.offer
     place_order_request({
       deliverer_id: offer.deliverer_id,
       offer_code: offer.code,
-      quantity: cart.quantity,
+      quantity,
       customer_location_id: cart.customer_location_id,
     })
   }

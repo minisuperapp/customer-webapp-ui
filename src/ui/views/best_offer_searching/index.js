@@ -48,7 +48,7 @@ class BestOfferSearchingView extends Component {
     const { show_alert_message } = this.props
     if (errors && errors.length) {
       show_alert_message(errors[0].message)
-      return <Redirect to={paths.quantity} />
+      return <Redirect to={paths.home} />
     }
     return <SearchingMessage />
   }
