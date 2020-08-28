@@ -24,13 +24,10 @@ export const assign_best_offer = async ({ location, products }) => {
     builder.withProductCodeAndQuantity(key, quantity)
   })
   const request = builder.build()
-  debugger
   let response
   try {
     response = await apiRequester.send(request)
-    debugger
   } catch (err) {
-    debugger
     return _.get(err, 'response.data', {})
   }
   return _.get(response, 'data', {})

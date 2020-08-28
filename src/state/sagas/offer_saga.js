@@ -49,12 +49,10 @@ export function* assign_best_offer() {
     const { on_success, on_error } = payload
     const { products } = payload
     const location = yield call(location_api.get_location)
-    debugger
     const response = yield call(offersService.assign_best_offer, {
       products,
       location,
     })
-    debugger
     if (response.success) {
       const offer = Object.values(response.index)
       yield put(assign_best_offer_response(offer[0]))

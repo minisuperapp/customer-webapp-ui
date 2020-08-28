@@ -21,7 +21,6 @@ class BestOfferSearchingView extends Component {
       history.push(paths.quantity)
       return
     }
-    debugger
     assign_best_offer_request(
       cart.products,
       () => {
