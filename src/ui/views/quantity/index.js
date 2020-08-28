@@ -42,7 +42,7 @@ class QuantityView extends React.Component {
     const { product } = this.state
     add_product(product.code, this.state.quantity)
     show_alert_message('Producto agregado!')
-    history.push(paths.home)
+    history.push(paths.cart)
   }
 
   addQuantity = () => {

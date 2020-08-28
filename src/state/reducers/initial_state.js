@@ -9,12 +9,12 @@ const initial_state = {
   },
   products: {
     list: [],
-    by_code: {},
+    by_code: get_from_storage('products_by_code', '{}'),
     query: null,
   },
   orders: [],
   cart: {
-    products: {},
+    products: get_from_storage('cart_products', '{}'),
     quantity: localStorage.getItem('cart_quantity') || 0,
     offer: {},
     product_offers: {},
@@ -29,6 +29,15 @@ const initial_state = {
     login: {},
   },
   customer_locations: [],
+}
+
+function get_from_storage(key, default_value) {
+  try {
+    return JSON.parse(localStorage.getItem(key) || default_value)
+  } catch (err) {
+    console.log({ err })
+    return {}
+  }
 }
 
 export default initial_state

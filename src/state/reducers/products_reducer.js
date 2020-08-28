@@ -5,12 +5,16 @@ import Immutable from 'seamless-immutable'
 
 export default function reducer(state = initial_state.products, action) {
   switch (action.type) {
-    case types.GET_PRODUCTS_RESPONSE:
+    case types.GET_PRODUCTS_RESPONSE: {
+      const list = action.response
+      const by_code = _.keyBy(action.response, 'code')
+      localStorage.setItem('products_by_code', JSON.stringify(by_code))
       return Immutable({
         ...state,
-        list: Immutable(action.response),
-        by_code: _.keyBy(action.response, 'code'),
+        list,
+        by_code,
       })
+    }
     case types.SEARCH_PRODUCTS_REQUEST:
       return Immutable({
         ...state,
