@@ -34,18 +34,21 @@ export class QuantityForm extends React.Component {
             +
           </button>
         </div>
-        <div className="totalContainer">
+        <div className="total_container">
           <div className="total">Total</div>
           <div className="total">${this.props.total} (aprox.)</div>
         </div>
-        <div className="buttonContainer">
-          <button className="cancel_button" onClick={this.props.goToProducts}>
-            Cancelar
+        <div className="button_container">
+          <button className="add_cart_button" onClick={this.props.go_to_search_best_offer}>
+            Agregar a carrito
           </button>
-          <button className="accept_button" onClick={this.props.go_to_search_best_offer}>
-            Continuar
+          <button className="buy_button" onClick={this.props.go_to_search_best_offer}>
+            Comprar
           </button>
         </div>
+        <button className="cancel_button" onClick={this.props.goToProducts}>
+          Cancelar
+        </button>
       </Style>
     )
   }

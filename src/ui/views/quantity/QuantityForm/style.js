@@ -63,12 +63,11 @@ export default styled.div`
     height: 2em;
   }
 
-  .totalContainer {
+  .total_container {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    margin-bottom: 10px;
   }
 
   .total {
@@ -104,33 +103,52 @@ export default styled.div`
     width: 2em;
   }
 
-  .buttonContainer {
+  .button_container {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     width: 100%;
-    max-width: 300px;
-  }
+    margin: 0 auto;
 
-  .accept_button {
-    background-color: #003049;
-    font-family: SFProTextRegular, serif;
-    font-size: 1.7rem;
-    font-weight: 500;
-    border-radius: 10px;
-    width: 100%;
-    color: white;
-    cursor: pointer;
-    margin-left: 0.5em;
+    .add_cart_button {
+      font-family: SFProTextRegular, serif;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      margin-left: 0.2em;
+      margin-right: 0.2em;
+      width: 10em;
+      padding: 0.2em;
+      color: #003049;
+      font-weight: 600;
+      cursor: pointer;
+      border: 2px solid #003049;
+      background-color: #fcbf49;
+    }
+
+    .buy_button {
+      font-family: SFProTextRegular, serif;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      margin-left: 0.2em;
+      margin-right: 0.2em;
+      width: 10em;
+      padding: 0.2em;
+      color: #fefefe;
+      border: none;
+      cursor: pointer;
+      background-color: #003049;
+    }
   }
 
   .cancel_button {
     background-color: #fff;
     color: black;
+    margin-top: 1em;
     margin-right: 0.5em;
     font-family: SFProTextRegular, serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     border-radius: 10px;
-    width: 100%;
+    width: 6em;
     cursor: pointer;
   }
 `
