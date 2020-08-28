@@ -61,7 +61,7 @@ class AssignedOfferView extends React.Component {
     if (errors && errors.length && errors[0].message === 'no.offers.available') {
       show_alert_message('El producto ya no esta disponible. Intenta mas tarde.')
     }
-    const { cart, total, customer_locations } = this.props
+    const { cart, quantity, total, customer_locations } = this.props
     const { product } = this.state
     const offer = cart.offer
     if (Number(cart.offer.available_quantity) < Number(cart.quantity)) {
@@ -74,6 +74,7 @@ class AssignedOfferView extends React.Component {
         cart={cart}
         product={product}
         offer={offer}
+        quantity={quantity}
         total={total}
         customer_locations={customer_locations}
         changeDeliverer={this.changeDeliverer}
@@ -87,9 +88,11 @@ class AssignedOfferView extends React.Component {
 
 function mapStateToProps(state) {
   const { cart, customer_locations } = state
-  const total = Number(cart.offer.unit_price) * Number(cart.quantity)
+  const quantity = Math.min(cart.quantity, cart.offer.available_quantity)
+  const total = Number(cart.offer.unit_price) * quantity
   return {
     cart,
+    quantity,
     total,
     customer_locations,
   }

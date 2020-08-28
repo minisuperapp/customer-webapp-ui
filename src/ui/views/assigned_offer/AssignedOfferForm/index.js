@@ -8,6 +8,8 @@ import { paths } from 'src/constants'
 export class AssignedOfferForm extends React.Component {
   render() {
     const {
+      quantity,
+      total,
       cart,
       product,
       offer,
@@ -17,7 +19,6 @@ export class AssignedOfferForm extends React.Component {
       order,
       onCustomerLocationChange,
     } = this.props
-
     const deliverer_name = _.get(offer, 'deliverer_name', 'Buscando...')
     const disableButton = deliverer_name === '-' || !customer_locations.length
     const selected_customer_location =
@@ -70,14 +71,14 @@ export class AssignedOfferForm extends React.Component {
               <div className="productName">{product.name}</div>
               <div className="productPrice">Precio Unitario: ${offer.unit_price}</div>
               <div className="productPrice">
-                Cantidad: {Math.min(cart.quantity, offer.available_quantity)}
+                Cantidad: {quantity}
               </div>
             </div>
           </div>
         </div>
         <div className="total_container">
           <div className="total">Total:</div>
-          <div className="total">${this.props.total}</div>
+          <div className="total">${total}</div>
         </div>
         <div className="button_container">
           <button className="cancel_button" onClick={onCancel}>
