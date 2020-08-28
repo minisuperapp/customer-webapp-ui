@@ -65,14 +65,15 @@ export default styled.div`
       margin-top: 0.5em;
       font-family: SFProTextRegular, serif;
       font-size: 16px;
+      border-top-left-radius: 8px;
       border-bottom-right-radius: 8px;
       width: 50%;
       cursor: pointer;
-      color: black;
+      color: #fefefe;
       border: none;
       border-top: 2px solid #003049;
       border-left: 2px solid #003049;
-      background-color: #fefefe;
+      background-color: #003049;
     }
   }
 `
