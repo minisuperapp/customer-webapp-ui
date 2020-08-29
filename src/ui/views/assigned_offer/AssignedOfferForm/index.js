@@ -11,7 +11,6 @@ export class AssignedOfferForm extends React.Component {
       quantity,
       total,
       cart,
-      product,
       offer,
       customer_locations,
       changeDeliverer,
@@ -24,7 +23,7 @@ export class AssignedOfferForm extends React.Component {
     const selected_customer_location =
       customer_locations.find(loc => Number(loc.id) === Number(cart.customer_location_id)) || {}
     const style = {
-      backgroundImage: `url(${images.getProductImageURL(product.code)})`,
+      backgroundImage: `url(${images.getProductImageURL(offer.product_code)})`,
       backgroundPosition: 'center',
     }
     return (
@@ -68,7 +67,7 @@ export class AssignedOfferForm extends React.Component {
           <div className="productContainer">
             <div className="image" style={style} />
             <div className="productDetailsContainer">
-              <div className="productName">{product.name}</div>
+              <div className="productName">{offer.product_name}</div>
               <div className="productPrice">Precio Unitario: ${offer.unit_price}</div>
               <div className="productPrice">
                 Cantidad: {quantity}

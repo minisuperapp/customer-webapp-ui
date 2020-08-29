@@ -14,19 +14,13 @@ class AssignedOfferView extends React.Component {
     this.state = {
       customer_location_id: null,
       errors: null,
-      product: {},
     }
   }
   async componentDidMount() {
-    const { product_code } = queryString.parse(this.props.location.search)
-    const product = await get_product_by_code(product_code)
     const { customer_locations, set_selected_customer_location } = this.props
     if (customer_locations.length) {
       set_selected_customer_location(customer_locations[0].id)
     }
-    this.setState({
-      product,
-    })
   }
 
   changeDeliverer = async () => {
@@ -52,7 +46,7 @@ class AssignedOfferView extends React.Component {
 
   onCancel = async () => {
     const { history } = this.props
-    history.push({ pathname: paths.quantity, search: `?product_code=${this.state.product.code}` })
+    history.push({ pathname: paths.cart })
   }
 
   render() {
@@ -62,8 +56,8 @@ class AssignedOfferView extends React.Component {
       show_alert_message('El producto ya no esta disponible. Intenta mas tarde.')
     }
     const { cart, quantity, total, customer_locations } = this.props
-    const { product } = this.state
     const offer = cart.offer
+    const product = offer.product
     if (Number(cart.offer.available_quantity) < Number(cart.quantity)) {
       show_alert_message(
         `El repartidor solo cuenta con ${cart.offer.available_quantity} ${product.quantity_type} ${product.name}`,
@@ -72,7 +66,6 @@ class AssignedOfferView extends React.Component {
     return (
       <AssignedOfferForm
         cart={cart}
-        product={product}
         offer={offer}
         quantity={quantity}
         total={total}
