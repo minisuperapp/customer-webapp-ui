@@ -12,14 +12,19 @@ export class ProductList extends React.Component {
       go_to_search_best_offer,
       remove_product,
     } = this.props
+    const product_keys = Object.keys(cart.products) || []
     return (
       <Style>
         <div className="title">Mi carrito</div>
-        <button onClick={go_to_search_best_offer} className="purchase_button">
-          Finalizar compra
-        </button>
+        {product_keys.length ? (
+          <button onClick={go_to_search_best_offer} className="purchase_button">
+            Finalizar compra
+          </button>
+        ) : (
+          <div>Aun no has agregado productos</div>
+        )}
         <div className="container">
-          {Object.keys(cart.products).map(code => {
+          {product_keys.map(code => {
             const product = products_index[code]
             const quantity = cart.products[code]
             return (
