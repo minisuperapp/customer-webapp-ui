@@ -6,6 +6,7 @@ export class ProductList extends React.Component {
   render() {
     const {
       cart,
+      total,
       products_index,
       lowest_price_by_product,
       handle_product_selection,
@@ -13,16 +14,21 @@ export class ProductList extends React.Component {
       remove_product,
     } = this.props
     const product_keys = Object.keys(cart.products) || []
+    if (!product_keys.length) {
+      return (
+        <Style>
+          <div className="title">Mi carrito</div>
+          <div>Aun no has agregado productos</div>
+        </Style>
+      )
+    }
     return (
       <Style>
         <div className="title">Mi carrito</div>
-        {product_keys.length ? (
-          <button onClick={go_to_search_best_offer} className="purchase_button">
-            Finalizar compra
-          </button>
-        ) : (
-          <div>Aun no has agregado productos</div>
-        )}
+        <button onClick={go_to_search_best_offer} className="purchase_button">
+          Finalizar compra
+        </button>
+        <div className="grand_total">Total: ${total}</div>
         <div className="container">
           {product_keys.map(code => {
             const product = products_index[code]

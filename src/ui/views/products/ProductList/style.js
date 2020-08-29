@@ -23,9 +23,11 @@ export default styled.div`
     margin-left: 0.5em;
   }
 
-  & .container {
+  .container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    height: 100%;
+    margin-bottom: 4em;
   }
 `

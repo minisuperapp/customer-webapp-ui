@@ -29,9 +29,16 @@ export default styled.div`
     margin-bottom: 0.5em;
   }
 
-  & .container {
+  .grand_total {
+    margin-bottom: 0.5em;
+    font-weight: bold;
+  }
+
+  .container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    height: 100%;
+    margin-bottom: 4em;
   }
 `
