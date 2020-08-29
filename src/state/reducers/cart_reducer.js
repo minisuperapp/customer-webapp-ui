@@ -14,12 +14,6 @@ export default function reducer(state = initial_state.cart, action) {
       localStorage.setItem('cart_products', JSON.stringify(products))
       return Immutable({ ...state, products })
     }
-    case types.SET_SELECTED_QUANTITY:
-      localStorage.setItem('cart_quantity', action.quantity)
-      return Immutable({
-        ...state,
-        quantity: action.quantity,
-      })
     case types.ASSIGN_BEST_OFFER_RESPONSE:
       return Immutable({
         ...state,
@@ -39,7 +33,7 @@ export default function reducer(state = initial_state.cart, action) {
       return Immutable({ ...state, customer_location_id: action.customer_location_id })
     }
     case types.PLACE_ORDER_RESPONSE: {
-      localStorage.removeItem('cart_quantity')
+      localStorage.removeItem('cart_products')
       return Immutable(initial_state.cart)
     }
     case types.GET_PROFILE_RESPONSE: {

@@ -15,7 +15,6 @@ const initial_state = {
   orders: [],
   cart: {
     products: get_from_storage('cart_products', '{}'),
-    quantity: localStorage.getItem('cart_quantity') || 0,
     offer: {},
     product_offers: {},
     customer_location_id: null,

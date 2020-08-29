@@ -2,7 +2,7 @@ import React from 'react'
 import { QuantityForm } from './QuantityForm'
 import { show_alert_message } from 'src/state/actions/alert_actions'
 import { get_product_by_code } from 'src/state/services/products'
-import { set_selected_quantity, add_product } from 'src/state/actions/cart_actions'
+import { add_product } from 'src/state/actions/cart_actions'
 import { connect } from 'react-redux'
 import { paths } from 'src/constants'
 import queryString from 'query-string'
@@ -28,13 +28,6 @@ class QuantityView extends React.Component {
     this.setState({
       quantity: event.target.value,
     })
-  }
-
-  go_to_search_best_offer = () => {
-    const { history, set_selected_quantity } = this.props
-    const { product } = this.state
-    set_selected_quantity(this.state.quantity)
-    history.push({ pathname: paths.best_offer_searching, search: `?product_code=${product.code}` })
   }
 
   add_to_cart = () => {
@@ -85,7 +78,6 @@ class QuantityView extends React.Component {
         price={price}
         handleChange={this.handleChange}
         changeQuantity={this.changeQuantity}
-        go_to_search_best_offer={this.go_to_search_best_offer}
         addQuantity={this.addQuantity}
         goToProducts={this.goToProducts}
         subtractQuantity={this.subtractQuantity}
@@ -108,7 +100,6 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
   show_alert_message,
-  set_selected_quantity,
   add_product,
 }
 

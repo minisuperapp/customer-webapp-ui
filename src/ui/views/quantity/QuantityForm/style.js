@@ -110,22 +110,18 @@ export default styled.div`
     width: 100%;
     margin: 0 auto;
 
-    .add_cart_button {
+    .cancel_button {
+      background-color: #fff;
+      color: black;
+      margin-right: 0.5em;
       font-family: SFProTextRegular, serif;
       font-size: 1.2rem;
       border-radius: 10px;
-      margin-left: 0.2em;
-      margin-right: 0.2em;
-      width: 10em;
-      padding: 0.2em;
-      color: #003049;
-      font-weight: 600;
+      width: 6em;
       cursor: pointer;
-      border: 2px solid #003049;
-      background-color: #fcbf49;
     }
 
-    .buy_button {
+    .add_cart_button {
       font-family: SFProTextRegular, serif;
       font-size: 1.2rem;
       border-radius: 10px;
@@ -138,17 +134,5 @@ export default styled.div`
       cursor: pointer;
       background-color: #003049;
     }
-  }
-
-  .cancel_button {
-    background-color: #fff;
-    color: black;
-    margin-top: 1em;
-    margin-right: 0.5em;
-    font-family: SFProTextRegular, serif;
-    font-size: 1.2rem;
-    border-radius: 10px;
-    width: 6em;
-    cursor: pointer;
   }
 `

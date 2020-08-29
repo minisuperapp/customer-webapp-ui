@@ -1,9 +1,5 @@
 import * as types from './action_types'
 
-export function set_selected_quantity(quantity) {
-  return { type: types.SET_SELECTED_QUANTITY, quantity }
-}
-
 export function add_product(product_code, quantity) {
   return { type: types.ADD_PRODUCT, product_code, quantity }
 }

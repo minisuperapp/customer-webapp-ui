@@ -4,14 +4,7 @@ import * as images from 'src/ui/views/common/images'
 
 export class QuantityForm extends React.Component {
   render() {
-    const {
-      product,
-      price,
-      subtractQuantity,
-      addQuantity,
-      go_to_search_best_offer,
-      add_to_cart,
-    } = this.props
+    const { product, price, subtractQuantity, addQuantity, add_to_cart } = this.props
     const style = {
       backgroundImage: `url(${images.getProductImageURL(product.code)})`,
       backgroundPosition: 'center',
@@ -43,16 +36,13 @@ export class QuantityForm extends React.Component {
           <div className="total">${this.props.total} (aprox.)</div>
         </div>
         <div className="button_container">
+          <button className="cancel_button" onClick={this.props.goToProducts}>
+            Cancelar
+          </button>
           <button className="add_cart_button" onClick={add_to_cart}>
             Agregar a carrito
           </button>
-          <button className="buy_button" onClick={go_to_search_best_offer}>
-            Comprar ya
-          </button>
         </div>
-        <button className="cancel_button" onClick={this.props.goToProducts}>
-          Cancelar
-        </button>
       </Style>
     )
   }
