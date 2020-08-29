@@ -7,11 +7,8 @@ export default function reducer(state = initial_state.orders, action) {
     case types.GET_CURRENT_ORDERS_RESPONSE:
       return Immutable(action.response)
     case types.PLACE_ORDER_RESPONSE: {
-      const order = {
-        ...action.order,
-        product_code: action.order.order_details[0].product_code,
-      }
-      return Immutable([...state, order])
+      const { orders } = action
+      return Immutable([...state, orders])
     }
     default:
       return state

@@ -11,7 +11,7 @@ export function* place_order() {
     const { order } = data
     const response = yield call(orders_api.place_order, order)
     if (response.success) {
-      yield put(place_order_response(response.order))
+      yield put(place_order_response(response.orders))
       yield put(push(paths.orders_list))
     } else {
       yield put(show_alert_message('Datos incorrectos'))

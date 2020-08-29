@@ -5,8 +5,8 @@ export const place_order_request = (order) => ({
   order,
 })
 
-export function place_order_response(order) {
-  return { type: types.PLACE_ORDER_RESPONSE, order }
+export function place_order_response(orders) {
+  return { type: types.PLACE_ORDER_RESPONSE, orders }
 }
 
 export const get_current_orders_request = () => ({
