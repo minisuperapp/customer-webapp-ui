@@ -3,12 +3,11 @@ import * as apiRequester from '../../api'
 import { OrderPlacementRequest } from './requests/place_order'
 import { PendingToDeliverRequest } from './requests/pending_to_deliver'
 
-export const place_order = async (order) => {
-  const { deliverer_id, offer_code, quantity } = order
+export const place_order = async order => {
+  const { customer_location_id, offers } = order
   const request = new OrderPlacementRequest.Builder()
-    .withDelivererId(deliverer_id)
-    .withOfferCodeAndQuantity(offer_code, quantity)
-    .withCustomerLocationId(order.customer_location_id)
+    .withOffers(offers)
+    .withCustomerLocationId(customer_location_id)
     .build()
   const response = await apiRequester.send(request)
   return response.data

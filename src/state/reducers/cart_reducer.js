@@ -25,11 +25,19 @@ export default function reducer(state = initial_state.cart, action) {
       localStorage.setItem('cart_products', JSON.stringify(products))
       return Immutable({ ...state, products, total })
     }
-    case types.ASSIGN_BEST_OFFER_RESPONSE:
+    case types.ASSIGN_BEST_OFFER_RESPONSE: {
+      const { index, grouped_by_deliverer } = action.response
+      const quantities = Object.keys(index).reduce((acc, val) => {
+        const offer = index[val]
+        acc[val] = state.products[offer.product_code].quantity
+        return acc
+      }, {})
+      const offers = { index, grouped_by_deliverer, quantities }
       return Immutable({
         ...state,
-        offer: action.response,
+        offers,
       })
+    }
     case types.SET_SELECTED_CUSTOMER_LOCATION: {
       return Immutable({ ...state, customer_location_id: action.customer_location_id })
     }

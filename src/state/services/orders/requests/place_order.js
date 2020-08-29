@@ -22,13 +22,8 @@ export class OrderPlacementRequest {
         this.deliverer_id = deliverer_id
         return this
       }
-      withOfferCodeAndQuantity(offer_code, quantity) {
-        this.offers = {
-          ...this.offers,
-          [offer_code]: {
-            quantity,
-          },
-        }
+      withOffers(offers) {
+        this.offers = offers
         return this
       }
       withCustomerLocationId(customer_location_id) {

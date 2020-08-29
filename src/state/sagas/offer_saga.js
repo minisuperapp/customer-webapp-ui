@@ -54,8 +54,7 @@ export function* assign_best_offer() {
       location,
     })
     if (response.success) {
-      const offer = Object.values(response.index)
-      yield put(assign_best_offer_response(offer[0]))
+      yield put(assign_best_offer_response(response))
       on_success && on_success(response)
     } else {
       on_error && on_error(response.errors)

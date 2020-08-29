@@ -5,8 +5,6 @@ import { SearchingMessage } from './SearchingMessage'
 import { assign_best_offer_request } from 'src/state/actions/offer_actions'
 import { paths } from 'src/constants'
 import { show_alert_message } from 'src/state/actions/alert_actions'
-import queryString from 'query-string'
-import { get_product_by_code } from 'src/state/services/products'
 
 class BestOfferSearchingView extends Component {
   constructor(props) {

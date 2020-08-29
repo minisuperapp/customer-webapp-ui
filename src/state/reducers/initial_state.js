@@ -15,7 +15,11 @@ const initial_state = {
   orders: [],
   cart: {
     products: get_from_storage('cart_products', '{}'),
-    offer: {},
+    offers: {
+      index: {},
+      grouped_by_deliverer: [],
+      quantities: {}
+    },
     customer_location_id: null,
     total: get_from_storage('total', '0'),
   },

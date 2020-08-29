@@ -8,30 +8,22 @@ import { paths } from 'src/constants'
 export class AssignedOfferForm extends React.Component {
   render() {
     const {
-      quantity,
-      total,
       cart,
-      offer,
       customer_locations,
-      onCancel,
-      order,
-      onCustomerLocationChange,
+      on_cancel,
+      place_order,
+      on_customer_location_change,
     } = this.props
-    const deliverer_name = _.get(offer, 'deliverer_name', 'Buscando...')
-    const disableButton = deliverer_name === '-' || !customer_locations.length
     const selected_customer_location =
       customer_locations.find(loc => Number(loc.id) === Number(cart.customer_location_id)) || {}
-    const style = {
-      backgroundImage: `url(${images.getProductImageURL(offer.product_code)})`,
-      backgroundPosition: 'center',
-    }
+    const disableButton = !customer_locations.length
     return (
       <Style>
         <div className="title">Verifica tu pedido</div>
         <div className="address_container">
           <div className="text_title">
             {'ENTREGAR EN: '}
-            <select onChange={onCustomerLocationChange} value={cart.customer_location_id || ''}>
+            <select onChange={on_customer_location_change} value={cart.customer_location_id || ''}>
               {customer_locations.map(location => {
                 return (
                   <option key={location.id} value={location.id}>
@@ -55,15 +47,15 @@ export class AssignedOfferForm extends React.Component {
 
         <div className="total_container">
           <div className="total">Total:</div>
-          <div className="total">${total}</div>
+          <div className="total">${cart.total}</div>
         </div>
         <div className="button_container">
-          <button className="cancel_button" onClick={onCancel}>
+          <button className="cancel_button" onClick={on_cancel}>
             Ver Carrito
           </button>
           <button
             className={disableButton ? 'disabledButton' : 'accept_button'}
-            onClick={order}
+            onClick={place_order}
             disabled={disableButton}>
             Pedir
           </button>
