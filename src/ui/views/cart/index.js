@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-import _ from 'lodash'
-import { get_current_orders_request } from 'src/state/actions/order_actions'
+import { remove_product } from 'src/state/actions/cart_actions'
 import { ProductList } from './ProductList'
-import { paths } from '../../../constants'
+import { paths } from 'src/constants'
 
 class CartView extends Component {
   constructor(props) {
@@ -21,6 +19,11 @@ class CartView extends Component {
     history.push({ pathname: paths.best_offer_searching })
   }
 
+  remove_product = product_code => () => {
+    const { remove_product } = this.props
+    remove_product(product_code)
+  }
+
   render() {
     const { cart, products_index, lowest_price_by_product } = this.props
     return (
@@ -30,6 +33,7 @@ class CartView extends Component {
         lowest_price_by_product={lowest_price_by_product}
         handle_product_selection={this.handle_product_selection}
         go_to_search_best_offer={this.go_to_search_best_offer}
+        remove_product={this.remove_product}
       />
     )
   }
@@ -49,7 +53,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-  get_current_orders_request,
+  remove_product,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartView)

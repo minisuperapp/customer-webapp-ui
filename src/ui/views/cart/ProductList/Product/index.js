@@ -4,7 +4,7 @@ import * as images from 'src/ui/views/common/images'
 
 export class Product extends Component {
   render() {
-    const { product, quantity, lowestPrice, handle_product_selection } = this.props
+    const { product, quantity, lowestPrice, handle_product_selection, remove_product } = this.props
     const style = {
       backgroundImage: `url(${images.getProductImageURL(product.code)})`,
       backgroundPosition: 'center',
@@ -19,6 +19,7 @@ export class Product extends Component {
           <div className="price">Precio unitario: ${lowestPrice}</div>
           <div className="total">Total: ${total}</div>
           <div className="buttons">
+            <button onClick={remove_product(product.code)}>Eliminar</button>
             <button className="select_button" onClick={handle_product_selection(product)}>
               Modificar
             </button>

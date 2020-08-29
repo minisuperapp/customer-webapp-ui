@@ -14,6 +14,12 @@ export default function reducer(state = initial_state.cart, action) {
       localStorage.setItem('cart_products', JSON.stringify(products))
       return Immutable({ ...state, products })
     }
+    case types.REMOVE_PRODUCT: {
+      const { product_code } = action
+      const products = Immutable.without(state.products, product_code)
+      localStorage.setItem('cart_products', JSON.stringify(products))
+      return Immutable({ ...state, products })
+    }
     case types.ASSIGN_BEST_OFFER_RESPONSE:
       return Immutable({
         ...state,

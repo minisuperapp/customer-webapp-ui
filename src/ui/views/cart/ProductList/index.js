@@ -10,6 +10,7 @@ export class ProductList extends React.Component {
       lowest_price_by_product,
       handle_product_selection,
       go_to_search_best_offer,
+      remove_product,
     } = this.props
     return (
       <Style>
@@ -28,6 +29,7 @@ export class ProductList extends React.Component {
                 quantity={quantity}
                 lowestPrice={lowest_price_by_product[product.code]}
                 handle_product_selection={handle_product_selection}
+                remove_product={remove_product}
               />
             )
           })}
