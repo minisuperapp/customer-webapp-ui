@@ -17,9 +17,11 @@ class QuantityView extends React.Component {
     const { cart } = this.props
     const { product_code } = queryString.parse(this.props.location.search)
     const product = await get_product_by_code(product_code)
-    const quantity = cart.products[product.code] || product.minimum_buying_quantity
+    const quantity = cart.products[product.code]
+      ? cart.products[product.code].quantity
+      : product.minimum_buying_quantity
     this.setState({
-      quantity ,
+      quantity,
       product,
     })
   }
@@ -31,10 +33,10 @@ class QuantityView extends React.Component {
   }
 
   add_to_cart = () => {
-    const { add_product, show_alert_message, history } = this.props
+    const { add_product, history, lowest_price_by_product } = this.props
     const { product } = this.state
-    add_product(product.code, this.state.quantity)
-    show_alert_message('Producto agregado!')
+    const price = lowest_price_by_product[product.code]
+    add_product(product.code, this.state.quantity, price)
     history.push(paths.cart)
   }
 

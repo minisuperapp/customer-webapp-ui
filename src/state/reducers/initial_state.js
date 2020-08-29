@@ -16,8 +16,8 @@ const initial_state = {
   cart: {
     products: get_from_storage('cart_products', '{}'),
     offer: {},
-    product_offers: {},
     customer_location_id: null,
+    total: get_from_storage('total', '0'),
   },
   best_offers: {
     by_product: {},
@@ -32,7 +32,7 @@ const initial_state = {
 
 function get_from_storage(key, default_value) {
   try {
-    return JSON.parse(localStorage.getItem(key) || default_value)
+    return JSON.parse(localStorage.getItem(key) || sessionStorage.getItem(key) || default_value)
   } catch (err) {
     console.log({ err })
     return {}

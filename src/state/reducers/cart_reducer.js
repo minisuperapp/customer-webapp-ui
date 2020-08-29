@@ -6,31 +6,26 @@ import Immutable from 'seamless-immutable'
 export default function reducer(state = initial_state.cart, action) {
   switch (action.type) {
     case types.ADD_PRODUCT: {
-      const { product_code, quantity } = action
+      const { product_code, quantity, unit_price } = action
       const products = {
         ...state.products,
-        [product_code]: quantity,
+        [product_code]: {
+          quantity,
+          unit_price,
+        },
       }
+      const total = get_total(products)
       localStorage.setItem('cart_products', JSON.stringify(products))
-      return Immutable({ ...state, products })
+      return Immutable({ ...state, products, total })
     }
     case types.REMOVE_PRODUCT: {
       const { product_code } = action
       const products = Immutable.without(state.products, product_code)
+      const total = get_total(products)
       localStorage.setItem('cart_products', JSON.stringify(products))
-      return Immutable({ ...state, products })
+      return Immutable({ ...state, products, total })
     }
     case types.ASSIGN_BEST_OFFER_RESPONSE:
-      return Immutable({
-        ...state,
-        offer: action.response,
-      })
-    case types.GET_PRODUCT_OFFERS_RESPONSE:
-      return Immutable({
-        ...state,
-        product_offers: action.response.list,
-      })
-    case types.CHANGE_OFFER_RESPONSE:
       return Immutable({
         ...state,
         offer: action.response,
@@ -49,4 +44,18 @@ export default function reducer(state = initial_state.cart, action) {
     default:
       return state
   }
+}
+
+function get_total(products) {
+  const total = Object.keys(products)
+    .reduce((acc, val) => {
+      const quantity = products[val].quantity
+      const unit_price = products[val].unit_price
+      acc += Number(quantity) * Number(unit_price)
+      return acc
+    }, 0)
+    .toFixed(2)
+
+  sessionStorage.setItem('total', total)
+  return total
 }

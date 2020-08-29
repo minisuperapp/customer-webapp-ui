@@ -5,8 +5,6 @@ import { connect } from 'react-redux'
 import { paths } from 'src/constants'
 import { set_selected_customer_location } from 'src/state/actions/cart_actions'
 import { show_alert_message } from '../../../state/actions/alert_actions'
-import queryString from 'query-string'
-import { get_product_by_code } from 'src/state/services/products'
 
 class AssignedOfferView extends React.Component {
   constructor(props) {

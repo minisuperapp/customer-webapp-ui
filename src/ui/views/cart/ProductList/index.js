@@ -8,7 +8,6 @@ export class ProductList extends React.Component {
       cart,
       total,
       products_index,
-      lowest_price_by_product,
       handle_product_selection,
       go_to_search_best_offer,
       remove_product,
@@ -32,13 +31,14 @@ export class ProductList extends React.Component {
         <div className="container">
           {product_keys.map(code => {
             const product = products_index[code]
-            const quantity = cart.products[code]
+            const quantity = cart.products[code].quantity
+            const unit_price = cart.products[code].unit_price
             return (
               <Product
                 key={code}
                 product={product}
                 quantity={quantity}
-                lowestPrice={lowest_price_by_product[product.code]}
+                unit_price={unit_price}
                 handle_product_selection={handle_product_selection}
                 remove_product={remove_product}
               />

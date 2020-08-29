@@ -1,7 +1,7 @@
 import * as types from './action_types'
 
-export function add_product(product_code, quantity) {
-  return { type: types.ADD_PRODUCT, product_code, quantity }
+export function add_product(product_code, quantity, unit_price) {
+  return { type: types.ADD_PRODUCT, product_code, quantity, unit_price }
 }
 
 export function remove_product(product_code) {

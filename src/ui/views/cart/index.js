@@ -25,13 +25,12 @@ class CartView extends Component {
   }
 
   render() {
-    const { cart, total, products_index, lowest_price_by_product } = this.props
+    const { cart, total, products_index } = this.props
     return (
       <ProductList
         cart={cart}
         total={total}
         products_index={products_index}
-        lowest_price_by_product={lowest_price_by_product}
         handle_product_selection={this.handle_product_selection}
         go_to_search_best_offer={this.go_to_search_best_offer}
         remove_product={this.remove_product}
@@ -44,19 +43,12 @@ function mapStateToProps(state) {
   const {
     cart,
     products: { by_code },
-    best_offers: { lowest_price_by_product },
   } = state
-  const total = Object.keys(cart.products).reduce((acc, val) => {
-    const lowest_price = lowest_price_by_product[val]
-    const quantity = cart.products[val]
-    acc += Number(quantity) * Number(lowest_price)
-    return acc
-  }, 0)
+
   return {
     cart,
     products_index: by_code,
-    lowest_price_by_product,
-    total: total.toFixed(2),
+    total: cart.total,
   }
 }
 
