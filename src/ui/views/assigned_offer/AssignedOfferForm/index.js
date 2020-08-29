@@ -13,7 +13,6 @@ export class AssignedOfferForm extends React.Component {
       cart,
       offer,
       customer_locations,
-      changeDeliverer,
       onCancel,
       order,
       onCustomerLocationChange,
@@ -54,34 +53,13 @@ export class AssignedOfferForm extends React.Component {
           </div>
         </div>
 
-        <div className="deliverer_container">
-          <div className="text_title">TU REPARTIDOR:</div>
-          <div className="delivererName">{deliverer_name}</div>
-          <button className="changeDelivererButton" onClick={changeDeliverer}>
-            Cambiar repartidor
-          </button>
-        </div>
-
-        <div className="offer_container">
-          <div className="text_title">TU ORDEN:</div>
-          <div className="productContainer">
-            <div className="image" style={style} />
-            <div className="productDetailsContainer">
-              <div className="productName">{offer.product_name}</div>
-              <div className="productPrice">Precio Unitario: ${offer.unit_price}</div>
-              <div className="productPrice">
-                Cantidad: {quantity}
-              </div>
-            </div>
-          </div>
-        </div>
         <div className="total_container">
           <div className="total">Total:</div>
           <div className="total">${total}</div>
         </div>
         <div className="button_container">
           <button className="cancel_button" onClick={onCancel}>
-            Cancelar
+            Ver Carrito
           </button>
           <button
             className={disableButton ? 'disabledButton' : 'accept_button'}

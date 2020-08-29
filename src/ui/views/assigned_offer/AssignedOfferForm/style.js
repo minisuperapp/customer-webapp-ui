@@ -26,79 +26,6 @@ export default styled.div`
     }
   }
 
-  & .deliverer_container {
-    margin-top: 1em;
-    display: flex;
-    flex-direction: column;
-  }
-
-  & .delivererName {
-    font-family: SFProText-Regular, serif;
-    font-size: 1.2rem;
-    color: black;
-    text-align: center;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-  }
-
-  & .changeDelivererButton {
-    border-color: black;
-    background-color: #003049;
-    font-family: SFProTextRegular, serif;
-    font-size: 18px;
-    border-radius: 10px;
-    width: 100%;
-    max-width: 200px;
-    color: white;
-    cursor: pointer;
-    margin: 0 auto;
-  }
-
-  & .offer_container {
-    display: flex;
-    flex-direction: column;
-    margin-top: 1em;
-  }
-
-  & .productContainer {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-  }
-
-  & .image {
-    flex: 1;
-    margin: 1em auto auto 1em;
-    justify-content: center;
-    align-items: flex-end;
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 100px;
-    width: 100px;
-  }
-
-  & .productDetailsContainer {
-    flex: 1;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    margin-left: 1em;
-    align-items: flex-start;
-  }
-
-  & .productName {
-    font-family: SFProText-Regular, serif;
-    font-size: 18px;
-    font-weight: bold;
-    color: #212121;
-  }
-
-  & .productPrice {
-    font-family: SFProText-Regular, serif;
-    font-size: 16px;
-    color: #212121;
-  }
-
   & .total_container {
     display: flex;
     flex-direction: row;
@@ -148,8 +75,8 @@ export default styled.div`
     background-color: #b5bbb7;
     box-shadow: 0 2px 8px 0 rgb(162, 156, 162);
     font-family: SFProTextRegular, serif;
-    font-size: 18px;
     border-radius: 10px;
+    font-size: 1.7rem;  
     width: 100%;
     color: white;
     margin-left: 0.5em;
@@ -161,7 +88,7 @@ export default styled.div`
     box-shadow: none;
     margin-right: 0.5em;
     font-family: SFProTextRegular, serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     border-radius: 10px;
     width: 100%;
     cursor: pointer;
