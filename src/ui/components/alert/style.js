@@ -2,29 +2,31 @@ import styled from 'styled-components'
 
 export default styled.div`
   position: absolute;
-  top: 20%;
   left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 10em auto;
+  background: #4e9d11;
+  border: 2px solid black;
+  padding: 0.5em;
+  color: #fefefe;
+  font-weight: bold;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-family: Tahoma, Geneva, Arial, sans-serif;
+  font-size: 16px;
+  text-align: center;
+  width: 18em;
 
-  .alert-box {
-    font-weight: bold;
-    color: #555;
-    border-radius: 10px;
-    text-transform: uppercase;
-    text-align: center;
-    background: #e9ffd9 no-repeat 10px 50%;
-    border: 1px solid #a6ca8a;
-    position: absolute;
-    font-family: Tahoma, Geneva, Arial, sans-serif;
-    font-size: 16px;
-    padding: 10px 10px 10px 36px;
-    margin: 10px;
-    width: 300px;
-    transform: translate(-53%, -50%);
+  .message {
+    background: inherit;
+  }
 
-    .close {
-      position: absolute;
-      top: 10%;
-      left: 90%;
-    }
+  .close {
+    margin-top: 0.5em;
+    color: #fefefe;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #003049;
+    padding: 0.2em 1em;
   }
 `

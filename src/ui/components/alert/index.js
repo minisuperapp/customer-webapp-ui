@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { hide_alert_message } from '../../../state/actions/alert_actions'
+import { hide_alert_message } from 'src/state/actions/alert_actions'
 import Style from './style'
 
 class Alert extends Component {
@@ -15,13 +15,10 @@ class Alert extends Component {
     if (message) {
       return (
         <Style>
-          <div className="alert-box">
-            <button className="close" onClick={this.hideAlert}>
-              X
-            </button>
-            <br />
-            {message}
-          </div>
+          <div className="message">{message}</div>
+          <button className="close" onClick={this.hideAlert}>
+            OK
+          </button>
         </Style>
       )
     }
