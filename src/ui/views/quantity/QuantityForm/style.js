@@ -111,7 +111,7 @@ export default styled.div`
     margin: 0 auto;
 
     .cancel_button {
-      background-color: #fff;
+      background-color: #fefefe;
       color: black;
       margin-right: 0.5em;
       font-family: SFProTextRegular, serif;

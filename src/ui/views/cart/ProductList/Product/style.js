@@ -57,9 +57,25 @@ export default styled.div`
 
   .buttons {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     border-bottom-right-radius: 10px;
     height: 2.5em;
+
+    .remove_button {
+      margin-top: 0.5em;
+      font-family: SFProTextRegular, serif;
+      font-size: 16px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      width: 50%;
+      cursor: pointer;
+      border: none;
+      border-top: 2px solid #003049;
+      border-left: 2px solid #003049;
+      color: black;
+      background-color: #fefefe;
+    }
 
     .select_button {
       margin-top: 0.5em;

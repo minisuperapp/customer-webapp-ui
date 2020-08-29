@@ -19,7 +19,7 @@ export class Product extends Component {
           <div className="price">Precio unitario: ${lowestPrice}</div>
           <div className="total">Total: ${total}</div>
           <div className="buttons">
-            <button onClick={remove_product(product.code)}>Eliminar</button>
+            <button className="remove_button" onClick={remove_product(product.code)}>Eliminar</button>
             <button className="select_button" onClick={handle_product_selection(product)}>
               Modificar
             </button>

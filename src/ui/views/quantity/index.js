@@ -44,8 +44,8 @@ class QuantityView extends React.Component {
     })
   }
 
-  goToProducts = () => {
-    this.props.history.push(paths.home)
+  cancel = () => {
+    this.props.history.goBack()
   }
 
   subtractQuantity = () => {
@@ -79,7 +79,7 @@ class QuantityView extends React.Component {
         handleChange={this.handleChange}
         changeQuantity={this.changeQuantity}
         addQuantity={this.addQuantity}
-        goToProducts={this.goToProducts}
+        cancel={this.cancel}
         subtractQuantity={this.subtractQuantity}
         add_to_cart={this.add_to_cart}
       />
