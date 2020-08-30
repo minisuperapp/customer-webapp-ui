@@ -43,6 +43,7 @@ export default function reducer(state = initial_state.cart, action) {
     }
     case types.PLACE_ORDER_RESPONSE: {
       localStorage.removeItem('cart_products')
+      localStorage.removeItem('total')
       return Immutable(initial_state.cart)
     }
     case types.GET_PROFILE_RESPONSE: {
