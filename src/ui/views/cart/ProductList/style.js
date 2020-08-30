@@ -31,7 +31,7 @@ export default styled.div`
 
   .grand_total {
     margin-bottom: 0.5em;
-    font-weight: bold;
+    font-size: 24px;
   }
 
   .container {

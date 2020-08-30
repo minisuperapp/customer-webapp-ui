@@ -62,7 +62,7 @@ export default styled.div`
   .accept_button {
     background-color: #003049;
     font-family: SFProTextRegular, serif;
-    font-size: 1.7rem;
+    font-size: 1.2rem;
     font-weight: 500;
     border-radius: 10px;
     width: 100%;
@@ -76,7 +76,7 @@ export default styled.div`
     box-shadow: 0 2px 8px 0 rgb(162, 156, 162);
     font-family: SFProTextRegular, serif;
     border-radius: 10px;
-    font-size: 1.7rem;  
+    font-size: 1.2rem;  
     width: 100%;
     color: white;
     margin-left: 0.5em;

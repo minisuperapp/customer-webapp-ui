@@ -60,6 +60,7 @@ export default styled.div`
 
     @media only screen and (max-width: 1044px) {
       margin-bottom: 0.5em;
+      margin-left: 0;
     }
   }
 
