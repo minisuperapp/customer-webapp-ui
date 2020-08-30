@@ -3,7 +3,7 @@ export const paths = {
   location: `${process.env.SUBDIR}/location`,
   quantity: `${process.env.SUBDIR}/quantity`,
   best_offer_searching: `${process.env.SUBDIR}/best_offer_searching`,
-  assigned_offer: `${process.env.SUBDIR}/assigned_offer`,
+  checkout: `${process.env.SUBDIR}/checkout`,
   delivery_address: `${process.env.SUBDIR}/delivery_address`,
   change_deliverer: `${process.env.SUBDIR}/change_deliverer`,
   order: `${process.env.SUBDIR}/order`,

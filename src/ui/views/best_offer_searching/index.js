@@ -22,7 +22,7 @@ class BestOfferSearchingView extends Component {
     assign_best_offer_request(
       cart.products,
       () => {
-        history.push({ pathname: paths.assigned_offer })
+        history.push({ pathname: paths.checkout })
       },
       errors => {
         this.setState({ errors })

@@ -3,7 +3,7 @@ import Style from './style'
 import { Link } from 'react-router-dom'
 import { paths } from 'src/constants'
 
-export class AssignedOfferForm extends React.Component {
+export class CheckoutDetails extends React.Component {
   render() {
     const {
       cart,

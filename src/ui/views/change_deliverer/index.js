@@ -7,14 +7,14 @@ import { connect } from 'react-redux'
 class ChangeDelivererView extends React.Component {
   cancel = () => {
     const { history } = this.props
-    history.push(paths.assigned_offer)
+    history.push(paths.checkout)
   }
 
   onChangeOffer = offer => {
     const { change_offer_request } = this.props
     change_offer_request(offer, () => {
       const { history } = this.props
-      history.push(paths.assigned_offer)
+      history.push(paths.checkout)
     })
   }
 
