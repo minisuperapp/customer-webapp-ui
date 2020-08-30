@@ -7,11 +7,14 @@ export class CheckoutDetails extends React.Component {
   render() {
     const {
       cart,
+      products_index,
       customer_locations,
       on_cancel,
       place_order,
       on_customer_location_change,
     } = this.props
+    const offers_index = cart.offers.index
+    const offers_quantities = cart.offers.quantities
     const selected_customer_location =
       customer_locations.find(loc => Number(loc.id) === Number(cart.customer_location_id)) || {}
     const disableButton = !customer_locations.length
@@ -47,7 +50,19 @@ export class CheckoutDetails extends React.Component {
         </div>
         <div className="text_title">{'TU ORDEN: '}</div>
         <div className="offers_container">
-
+          {Object.keys(offers_index).map(offer_code => {
+            const offer = offers_index[offer_code]
+            const quantity = Number(offers_quantities[offer_code])
+            const unit_price = Number(offer.unit_price)
+            const total = (quantity * unit_price).toFixed(2)
+            return (
+              <div key={offer_code} className="offer_item">
+                * {quantity} {products_index[offer.product_code].quantity_type}{' '}
+                {products_index[offer.product_code].name} - <i>${total}</i>
+                <hr />
+              </div>
+            )
+          })}
         </div>
         <div className="total_container">
           <div className="total">Total:</div>

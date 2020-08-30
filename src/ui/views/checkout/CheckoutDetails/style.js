@@ -4,7 +4,7 @@ export default styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 350px;
+  max-width: 30em;
   margin: 1em auto;
 
   .title {
@@ -17,6 +17,7 @@ export default styled.div`
 
   .address_container {
     margin-top: 0.5em;
+    margin-bottom: 1em;
     display: flex;
     flex-direction: column;
 
@@ -28,8 +29,9 @@ export default styled.div`
 
   .total_container {
     display: flex;
+    justify-content: center;
+    margin-top: 0.5em;
     flex-direction: row;
-    margin: 0.5em auto;
 
     .total {
       display: flex;
@@ -61,7 +63,15 @@ export default styled.div`
   }
 
   .offers_container {
-  
+    margin-top: 0.5em;
+    max-height: 14em;
+    overflow: scroll;
+    margin-left: 1em;
+    margin-right: 1em;
+
+    .offer_item {
+      margin-bottom: 1em;
+    }
   }
 
   .button_container {

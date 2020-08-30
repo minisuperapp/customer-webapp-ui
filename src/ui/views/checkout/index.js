@@ -24,15 +24,9 @@ class CheckoutView extends React.Component {
     if (customer_locations.length) {
       set_selected_customer_location(customer_locations[0].id)
     }
-    assign_best_offer_request(
-      cart.products,
-      () => {
-        history.push({ pathname: paths.checkout })
-      },
-      errors => {
-        this.setState({ errors })
-      },
-    )
+    assign_best_offer_request(cart.products, errors => {
+      this.setState({ errors })
+    })
   }
 
   on_customer_location_change = event => {
@@ -55,11 +49,12 @@ class CheckoutView extends React.Component {
   }
 
   render() {
-    const { cart, customer_locations } = this.props
+    const { cart, customer_locations, products_index } = this.props
     return (
       <CheckoutDetails
         cart={cart}
         customer_locations={customer_locations}
+        products_index={products_index}
         place_order={this.place_order}
         on_cancel={this.on_cancel}
         on_customer_location_change={this.on_customer_location_change}
@@ -69,10 +64,15 @@ class CheckoutView extends React.Component {
 }
 
 function mapStateToProps(state) {
-  const { cart, customer_locations } = state
+  const {
+    cart,
+    customer_locations,
+    products: { by_code },
+  } = state
   return {
     cart,
     customer_locations,
+    products_index: by_code,
   }
 }
 
