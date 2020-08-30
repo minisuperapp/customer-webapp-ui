@@ -38,7 +38,6 @@ export default styled.div`
 
     .logo {
       margin-left: 5em;
-      margin-bottom: 0.5em;
       @media only screen and (max-width: 524px) {
         display: none;
       }
