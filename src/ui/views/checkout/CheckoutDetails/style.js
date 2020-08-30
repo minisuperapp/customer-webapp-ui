@@ -16,7 +16,7 @@ export default styled.div`
   }
 
   .address_container {
-    margin-top: 1em;
+    margin-top: 0.5em;
     display: flex;
     flex-direction: column;
 
@@ -41,6 +41,7 @@ export default styled.div`
   }
 
   .text_title {
+    margin-top: 0.5em;
     font-family: SFProText-Bold, serif;
     font-size: 16px;
     color: #757575;
@@ -59,47 +60,51 @@ export default styled.div`
     }
   }
 
+  .offers_container {
+  
+  }
+
   .button_container {
     display: flex;
     flex-direction: row;
     width: 100%;
     max-width: 300px;
     margin: 0.5em auto;
-  }
 
-  .accept_button {
-    background-color: #003049;
-    font-family: SFProTextRegular, serif;
-    font-size: 1.2rem;
-    font-weight: 500;
-    border-radius: 10px;
-    border: none;
-    width: 100%;
-    color: white;
-    cursor: pointer;
-    margin-left: 0.5em;
-  }
+    .accept_button {
+      background-color: #003049;
+      font-family: SFProTextRegular, serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      border-radius: 10px;
+      border: none;
+      width: 100%;
+      color: white;
+      cursor: pointer;
+      margin-left: 0.5em;
+    }
 
-  .disabledButton {
-    background-color: #b5bbb7;
-    box-shadow: 0 2px 8px 0 rgb(162, 156, 162);
-    font-family: SFProTextRegular, serif;
-    border-radius: 10px;
-    font-size: 1.2rem;
-    width: 100%;
-    color: white;
-    margin-left: 0.5em;
-  }
+    .disabled_button {
+      background-color: #b5bbb7;
+      box-shadow: 0 2px 8px 0 rgb(162, 156, 162);
+      font-family: SFProTextRegular, serif;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      width: 100%;
+      color: white;
+      margin-left: 0.5em;
+    }
 
-  .cancel_button {
-    background-color: #fff;
-    color: black;
-    box-shadow: none;
-    margin-right: 0.5em;
-    font-family: SFProTextRegular, serif;
-    font-size: 1.2rem;
-    border-radius: 10px;
-    width: 100%;
-    cursor: pointer;
+    .cancel_button {
+      background-color: #fff;
+      color: black;
+      box-shadow: none;
+      margin-right: 0.5em;
+      font-family: SFProTextRegular, serif;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      width: 100%;
+      cursor: pointer;
+    }
   }
 `

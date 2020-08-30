@@ -4,6 +4,7 @@ import { CheckoutDetails } from './CheckoutDetails'
 import { connect } from 'react-redux'
 import { paths } from 'src/constants'
 import { set_selected_customer_location } from 'src/state/actions/cart_actions'
+import { assign_best_offer_request } from 'src/state/actions/offer_actions'
 
 class CheckoutView extends React.Component {
   constructor(props) {
@@ -14,10 +15,24 @@ class CheckoutView extends React.Component {
     }
   }
   async componentDidMount() {
-    const { customer_locations, set_selected_customer_location } = this.props
+    const {
+      cart,
+      customer_locations,
+      set_selected_customer_location,
+      assign_best_offer_request,
+    } = this.props
     if (customer_locations.length) {
       set_selected_customer_location(customer_locations[0].id)
     }
+    assign_best_offer_request(
+      cart.products,
+      () => {
+        history.push({ pathname: paths.checkout })
+      },
+      errors => {
+        this.setState({ errors })
+      },
+    )
   }
 
   on_customer_location_change = event => {
@@ -62,6 +77,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
+  assign_best_offer_request,
   place_order_request,
   set_selected_customer_location,
 }

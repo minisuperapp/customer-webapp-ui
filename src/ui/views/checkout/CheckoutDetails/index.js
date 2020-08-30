@@ -18,8 +18,8 @@ export class CheckoutDetails extends React.Component {
     return (
       <Style>
         <div className="title">Verifica tu pedido</div>
+        <div className="text_title">{'ENTREGAR EN: '}</div>
         <div className="address_container">
-          <div className="text_title">{'ENTREGAR EN: '}</div>
           <div className="address_selection">
             <select
               className="address_list"
@@ -45,7 +45,10 @@ export class CheckoutDetails extends React.Component {
             <div>{selected_customer_location.city}</div>
           </div>
         </div>
+        <div className="text_title">{'TU ORDEN: '}</div>
+        <div className="offers_container">
 
+        </div>
         <div className="total_container">
           <div className="total">Total:</div>
           <div className="total">${cart.total}</div>
@@ -55,7 +58,7 @@ export class CheckoutDetails extends React.Component {
             Ver Carrito
           </button>
           <button
-            className={disableButton ? 'disabledButton' : 'accept_button'}
+            className={disableButton ? 'disabled_button' : 'accept_button'}
             onClick={place_order}
             disabled={disableButton}>
             Pedir

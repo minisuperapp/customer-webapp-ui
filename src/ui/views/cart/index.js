@@ -16,7 +16,7 @@ class CartView extends Component {
 
   go_to_search_best_offer = () => {
     const { history } = this.props
-    history.push({ pathname: paths.best_offer_searching })
+    history.push({ pathname: paths.checkout })
   }
 
   remove_product = product_code => () => {

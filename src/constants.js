@@ -2,7 +2,6 @@ export const paths = {
   home: `${process.env.SUBDIR}/`,
   location: `${process.env.SUBDIR}/location`,
   quantity: `${process.env.SUBDIR}/quantity`,
-  best_offer_searching: `${process.env.SUBDIR}/best_offer_searching`,
   checkout: `${process.env.SUBDIR}/checkout`,
   delivery_address: `${process.env.SUBDIR}/delivery_address`,
   change_deliverer: `${process.env.SUBDIR}/change_deliverer`,
