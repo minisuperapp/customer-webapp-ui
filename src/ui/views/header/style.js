@@ -53,7 +53,7 @@ export default styled.div`
     .navigation_menu {
       margin-top: 1em;
       margin-bottom: 1em;
-      margin-right: 5em;
+      margin-right: 3em;
       @media only screen and (max-width: 1044px) {
         display: none;
       }

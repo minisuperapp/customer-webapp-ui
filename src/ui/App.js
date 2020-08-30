@@ -34,7 +34,7 @@ class App extends Component {
   render() {
     return (
       <Style>
-        <Header history={this.props.history}/>
+        <Header history={this.props.history} />
         <Alert />
         <div className="main">
           <Switch>
@@ -53,7 +53,7 @@ class App extends Component {
             <Route exact path={paths.login} component={Login} />
           </Switch>
         </div>
-        <Footer history={this.props.history}/>
+        <Footer history={this.props.history} />
       </Style>
     )
   }

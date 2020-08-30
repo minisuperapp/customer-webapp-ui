@@ -35,6 +35,7 @@ class Header extends Component {
   }
   render() {
     const { active_page } = this.state
+    const { cart } = this.props
     return (
       <Style>
         <div className="search">
@@ -53,7 +54,7 @@ class Header extends Component {
           </div>
           <div />
           <div className="navigation_menu">
-            <NavigationMenu active_page={active_page} />
+            <NavigationMenu cart={cart} active_page={active_page} />
           </div>
         </div>
       </Style>
@@ -61,8 +62,11 @@ class Header extends Component {
   }
 }
 
-function mapStateToProps() {
-  return {}
+function mapStateToProps(state) {
+  const { cart } = state
+  return {
+    cart,
+  }
 }
 
 const mapDispatchToProps = {
