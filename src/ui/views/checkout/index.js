@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { paths } from 'src/constants'
 import { set_selected_customer_location } from 'src/state/actions/cart_actions'
 
-class AssignedOfferView extends React.Component {
+class CheckoutView extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -66,4 +66,4 @@ const mapDispatchToProps = {
   set_selected_customer_location,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AssignedOfferView)
+export default connect(mapStateToProps, mapDispatchToProps)(CheckoutView)
