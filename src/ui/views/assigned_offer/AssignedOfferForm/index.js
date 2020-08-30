@@ -1,7 +1,5 @@
 import React from 'react'
-import _ from 'lodash'
 import Style from './style'
-import * as images from 'src/ui/views/common/images'
 import { Link } from 'react-router-dom'
 import { paths } from 'src/constants'
 

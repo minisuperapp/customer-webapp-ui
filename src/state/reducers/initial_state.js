@@ -38,7 +38,7 @@ function get_from_storage(key, default_value) {
   try {
     return JSON.parse(localStorage.getItem(key) || sessionStorage.getItem(key) || default_value)
   } catch (err) {
-    console.log({ err })
+    console.error({ err })
     return {}
   }
 }
