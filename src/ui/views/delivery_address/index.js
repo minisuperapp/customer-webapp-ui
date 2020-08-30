@@ -27,12 +27,18 @@ class DeliveryAddressView extends React.Component {
     })
   }
 
+  on_cancel = () => {
+    const { history } = this.props
+    history.goBack()
+  }
+
   render() {
     return (
       <DeliveryAddressForm
         history={this.props.history}
         handleChange={this.handleChange}
         on_accept={this.on_accept}
+        on_cancel={this.on_cancel}
         go_to_verify_order={this.props.go_to_verify_order}
       />
     )

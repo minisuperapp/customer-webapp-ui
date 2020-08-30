@@ -21,9 +21,12 @@ export class AssignedOfferForm extends React.Component {
       <Style>
         <div className="title">Verifica tu pedido</div>
         <div className="address_container">
-          <div className="text_title">
-            {'ENTREGAR EN: '}
-            <select onChange={on_customer_location_change} value={cart.customer_location_id || ''}>
+          <div className="text_title">{'ENTREGAR EN: '}</div>
+          <div className="address_selection">
+            <select
+              className="address_list"
+              onChange={on_customer_location_change}
+              value={cart.customer_location_id || ''}>
               {customer_locations.map(location => {
                 return (
                   <option key={location.id} value={location.id}>

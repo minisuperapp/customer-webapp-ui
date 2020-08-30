@@ -27,15 +27,14 @@ export default styled.div`
   label {
     padding: 8px;
     font-size: 18px;
-    font-weight: bold;
     display: table-cell;
   }
 
-  input {
+  .field {
     padding: 4px;
+    border-radius: 5px;
     font-size: 16px;
     display: table-cell;
-    border-radius: 2px;
   }
 
   .name {
@@ -70,16 +69,36 @@ export default styled.div`
     display: table-row;
   }
 
-  .accept_button {
-    background-color: #003049;
-    margin-top: 1em;
-    font-family: SFProTextRegular, serif;
-    font-weight: bold;
-    font-size: 18px;
-    border-radius: 10px;
-    width: 100%;
-    color: white;
-    cursor: pointer;
-    margin-left: 0.5em;
+  .button_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto;
+
+    .cancel_button {
+      background-color: #fefefe;
+      color: black;
+      margin-top: 1em;
+      margin-right: 0.5em;
+      font-family: SFProTextRegular, serif;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      width: 6em;
+      cursor: pointer;
+    }
+
+    .accept_button {
+      background-color: #003049;
+      margin-top: 1em;
+      font-family: SFProTextRegular, serif;
+      font-size: 1.2rem;
+      padding: 0.2em;
+      border-radius: 10px;
+      border: none;
+      width: 100%;
+      color: white;
+      cursor: pointer;
+      margin-left: 0.5em;
+    }
   }
 `

@@ -15,7 +15,7 @@ export default styled.div`
     align-items: center;
   }
 
-  & .address_container {
+  .address_container {
     margin-top: 1em;
     display: flex;
     flex-direction: column;
@@ -26,7 +26,7 @@ export default styled.div`
     }
   }
 
-  & .total_container {
+  .total_container {
     display: flex;
     flex-direction: row;
     margin: 0.5em auto;
@@ -40,18 +40,26 @@ export default styled.div`
     }
   }
 
-  & .text_title {
+  .text_title {
     font-family: SFProText-Bold, serif;
     font-size: 16px;
     color: #757575;
     margin-left: 1em;
+  }
+
+  .address_selection {
+    display: flex;
+    .address_list {
+      margin-left: 1em;
+      width: 50%;
+    }
 
     .add_address_link {
-      margin-left: 0.5em;
+      margin-left: 1em;
     }
   }
 
-  & .button_container {
+  .button_container {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -65,18 +73,19 @@ export default styled.div`
     font-size: 1.2rem;
     font-weight: 500;
     border-radius: 10px;
+    border: none;
     width: 100%;
     color: white;
     cursor: pointer;
     margin-left: 0.5em;
   }
 
-  & .disabledButton {
+  .disabledButton {
     background-color: #b5bbb7;
     box-shadow: 0 2px 8px 0 rgb(162, 156, 162);
     font-family: SFProTextRegular, serif;
     border-radius: 10px;
-    font-size: 1.2rem;  
+    font-size: 1.2rem;
     width: 100%;
     color: white;
     margin-left: 0.5em;

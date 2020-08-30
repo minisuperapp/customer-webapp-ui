@@ -6,6 +6,7 @@ class DeliveryAddressForm extends React.Component {
     const {
       handleChange,
       on_accept,
+      on_cancel,
       name,
       street,
       number,
@@ -23,6 +24,7 @@ class DeliveryAddressForm extends React.Component {
           <div className="name">
             <label htmlFor="name">Tipo de lugar</label>
             <input
+              className="field"
               name="name"
               placeholder="ej. casa, oficina, taller"
               type="text"
@@ -33,6 +35,7 @@ class DeliveryAddressForm extends React.Component {
           <div className="street">
             <label htmlFor="street">Calle</label>
             <input
+              className="field"
               name="street"
               placeholder="calle"
               type="text"
@@ -43,6 +46,7 @@ class DeliveryAddressForm extends React.Component {
           <div className="exterior-number">
             <label htmlFor="number">Número</label>
             <input
+              className="field"
               name="number"
               placeholder="número exterior"
               type="number"
@@ -53,6 +57,7 @@ class DeliveryAddressForm extends React.Component {
           <div className="neighboorhood">
             <label htmlFor="neighborhood">Colonia</label>
             <input
+              className="field"
               name="neighborhood"
               placeholder="colonia"
               type="text"
@@ -63,6 +68,7 @@ class DeliveryAddressForm extends React.Component {
           <div className="city">
             <label htmlFor="city">Ciudad</label>
             <input
+              className="field"
               name="city"
               placeholder="ciudad"
               type="text"
@@ -73,6 +79,7 @@ class DeliveryAddressForm extends React.Component {
           <div className="zip-code">
             <label htmlFor="postal_code">Código Postal</label>
             <input
+              className="field"
               name="postal_code"
               placeholder="código postal"
               type="number"
@@ -82,9 +89,12 @@ class DeliveryAddressForm extends React.Component {
           </div>
         </div>
 
-        <div className="btn">
+        <div className="button_container">
+          <button className="cancel_button" onClick={on_cancel}>
+            Cancelar
+          </button>
           <button className="accept_button" onClick={on_accept}>
-            Agregar lugar de entrega
+            Agregar
           </button>
         </div>
       </Style>
