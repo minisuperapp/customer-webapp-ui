@@ -19,21 +19,22 @@ export class Order extends React.Component {
       <Style>
         <div className="header">{status[first_order_detail.status]}</div>
         <div className="content">
-          <div className="info">
-            <div>#{first_order_detail.id}</div>
+          <div>#{first_order_detail.id}</div>
+          <div className="order_products">
             {order_details.map(detail => {
               const product = products_by_code[detail.product_code]
               return (
                 <div key={detail.id}>
-                  <div>{detail.product_name}</div>
                   <div>
                     {detail.product_quantity} {product.quantity_type} {product.name}
                   </div>
+                  <hr />
                 </div>
               )
             })}
           </div>
           <div>Total: ${first_order_detail.total}</div>
+          <div>Repartidor: {first_order_detail.deliverer_name}</div>
         </div>
       </Style>
     )

@@ -9,25 +9,30 @@ export default styled.div`
   width: 15em;
   padding: 0.5em;
 
-  & .image {
-    text-align: right;
-    height: 100px;
-    width: 100px;
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-
-  & .info {
-    width: 50%;
-  }
-  & .header {
+  .header {
     text-align: center;
     border-bottom: 1px solid black;
   }
 
-  & .content {
+  .content {
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
     padding-top: 0.5em;
+    width: 100%;
+
+    .order_products {
+      display: flex;
+      flex-direction: column;
+      font-size: 1rem;
+      text-align: left;
+      max-height: 15em;
+      overflow: scroll;
+      padding: 0.2em;
+      border: 1px solid black;
+      margin-bottom: 0.5em;
+      margin-right: 0.5em;
+      //width: 100%;
+    }
   }
 `
