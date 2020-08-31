@@ -9,7 +9,8 @@ export class ProductList extends React.Component {
       total,
       products_index,
       handle_product_selection,
-      go_to_search_best_offer,
+      go_to_checkout,
+      go_to_products,
       remove_product,
     } = this.props
     const product_keys = Object.keys(cart.products) || []
@@ -24,9 +25,14 @@ export class ProductList extends React.Component {
     return (
       <Style>
         <div className="title">Mi carrito</div>
-        <button onClick={go_to_search_best_offer} className="purchase_button">
-          Finalizar compra
-        </button>
+        <div className="top_buttons">
+          <button onClick={go_to_products} className="keep_buying_button">
+            Seguir comprando
+          </button>
+          <button onClick={go_to_checkout} className="purchase_button">
+            Finalizar compra
+          </button>
+        </div>
         <div className="grand_total">Total: ${total}</div>
         <div className="container">
           {product_keys.map(code => {

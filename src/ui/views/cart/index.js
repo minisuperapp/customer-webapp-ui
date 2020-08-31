@@ -14,9 +14,14 @@ class CartView extends Component {
     history.push({ pathname: paths.quantity, search: `?product_code=${product.code}` })
   }
 
-  go_to_search_best_offer = () => {
+  go_to_checkout = () => {
     const { history } = this.props
     history.push({ pathname: paths.checkout })
+  }
+
+  go_to_products = () => {
+    const { history } = this.props
+    history.push({ pathname: paths.home })
   }
 
   remove_product = product_code => () => {
@@ -32,7 +37,8 @@ class CartView extends Component {
         total={total}
         products_index={products_index}
         handle_product_selection={this.handle_product_selection}
-        go_to_search_best_offer={this.go_to_search_best_offer}
+        go_to_checkout={this.go_to_checkout}
+        go_to_products={this.go_to_products}
         remove_product={this.remove_product}
       />
     )

@@ -16,17 +16,34 @@ export default styled.div`
     margin-bottom: 0.2em;
   }
 
-  .purchase_button {
-    font-family: SFProTextRegular, serif;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 10px;
-    cursor: pointer;
-    color: #003049;
-    background-color: #fcbf49;
-    padding: 0.5em;
-    border: 2px solid #003049;
-    margin-bottom: 0.5em;
+  .top_buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 20em;
+
+    .keep_buying_button {
+      font-family: SFProTextRegular, serif;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      color: #fefefe;
+      background-color: #003049;
+      padding: 0.5em;
+      border: 2px solid #003049;
+      margin-bottom: 0.5em;
+    }
+    .purchase_button {
+      font-family: SFProTextRegular, serif;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      color: #003049;
+      background-color: #fcbf49;
+      padding: 0.5em;
+      border: 2px solid #003049;
+      margin-bottom: 0.5em;
+    }
   }
 
   .grand_total {
