@@ -7,7 +7,7 @@ export default styled.div`
   margin-right: 0.5em;
   margin-left: 0.5em;
   width: 15em;
-  padding: 0.5em;
+  padding: 1em 1em 0.5em 0.5em;
 
   .header {
     text-align: center;
@@ -32,7 +32,7 @@ export default styled.div`
       border: 1px solid black;
       margin-bottom: 0.5em;
       margin-right: 0.5em;
-      //width: 100%;
+      width: 100%;
     }
   }
 `
