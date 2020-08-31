@@ -10,8 +10,9 @@ export class OrdersList extends React.Component {
       <Style>
         <div className="title">Mis Órdenes</div>
         <div className="orders">
-          {orders.map(o => {
-            return <Order key={o.order_detail_id} order={o} products_by_code={products_by_code} />
+          {Object.keys(orders).map(order_id => {
+            const order_details = orders[order_id]
+            return <Order key={order_id} order_details={order_details} products_by_code={products_by_code} />
           })}
         </div>
         <div className="button">

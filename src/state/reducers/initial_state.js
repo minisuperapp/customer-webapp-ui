@@ -12,7 +12,7 @@ const initial_state = {
     by_code: get_from_storage('products_by_code', '{}'),
     query: null,
   },
-  orders: [],
+  orders: {},
   cart: {
     products: get_from_storage('cart_products', '{}'),
     offers: {
