@@ -14,7 +14,7 @@ export class Product extends Component {
       <Style>
         <div className="image" style={style} />
         <div className="main_panel">
-          <div className="text_title"> {product.name}</div>
+          <div className="product_name"> {product.name}</div>
           <div className="quantity">{`${quantity} ${product.quantity_type}`}</div>
           <div className="price">Precio unitario: ${unit_price}</div>
           <div className="total">Total: ${total}</div>

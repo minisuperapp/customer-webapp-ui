@@ -34,14 +34,14 @@ export default styled.div`
     height: 100%;
   }
 
-  & .text_title {
+  & .product_name {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 0.5em;
     text-align: left;
     font-family: SFProText-Bold, serif;
-    font-size: 20px;
+    font-size: 1rem;
     color: #212121;
     height: 3em;
     overflow: scroll;
@@ -50,7 +50,7 @@ export default styled.div`
   & .quantity {
     margin-left: 0.5em;
     font-family: SFProTextRegular, sans-serif;
-    font-size: 18px;
+    font-size: 1rem;
     color: #212121;
     clear: right;
   }

@@ -32,6 +32,7 @@ export default styled.div`
       border: 2px solid #003049;
       margin-bottom: 0.5em;
     }
+    
     .purchase_button {
       font-family: SFProTextRegular, serif;
       font-size: 16px;
