@@ -33,6 +33,7 @@ export class Order extends React.Component {
               )
             })}
           </div>
+          <div>Total: ${first_order_detail.total}</div>
         </div>
       </Style>
     )
