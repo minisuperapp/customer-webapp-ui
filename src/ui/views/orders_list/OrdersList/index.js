@@ -11,7 +11,7 @@ export class OrdersList extends React.Component {
         <div className="title">Mis Órdenes</div>
         <div className="orders">
           {orders.map(order => {
-            return <Order key={order.id} order_details={order.order_details} products_by_code={products_by_code} />
+            return <Order key={order.id} order={order} order_details={order.order_details} products_by_code={products_by_code} />
           })}
         </div>
         <div className="button">

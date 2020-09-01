@@ -3,8 +3,7 @@ import Style from './style'
 
 export class Order extends React.Component {
   render() {
-    const { order_details, products_by_code } = this.props
-    const first_order_detail = order_details[0]
+    const { order, order_details, products_by_code } = this.props
     const status = {
       STARTED: 'Iniciada',
       PLACED: 'Ordenada',
@@ -16,9 +15,9 @@ export class Order extends React.Component {
     }
     return (
       <Style>
-        <div className="header">{status[first_order_detail.status]}</div>
+        <div className="header">{status[order.status]}</div>
         <div className="content">
-          <div>#{first_order_detail.id}</div>
+          <div>#{order.id}</div>
           <div className="order_products">
             {order_details.map(detail => {
               const product = products_by_code[detail.product_code]
@@ -32,8 +31,8 @@ export class Order extends React.Component {
               )
             })}
           </div>
-          <div>Total: ${first_order_detail.total}</div>
-          <div>Repartidor: {first_order_detail.deliverer_name}</div>
+          <div>Total: ${order.total}</div>
+          <div>Repartidor: {order.deliverer_name}</div>
         </div>
       </Style>
     )
