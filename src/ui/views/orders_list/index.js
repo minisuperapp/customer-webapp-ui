@@ -20,7 +20,7 @@ class OrdersListView extends React.Component {
 
   render() {
     const { orders, products_by_code } = this.props
-    if (!Object.keys(orders).length) {
+    if (!orders.length) {
       return <EmptyOrdersMessage />
     }
     return (
