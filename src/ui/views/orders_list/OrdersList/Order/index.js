@@ -1,6 +1,5 @@
 import React from 'react'
 import Style from './style'
-import * as images from 'src/ui/views/common/images'
 
 export class Order extends React.Component {
   render() {
