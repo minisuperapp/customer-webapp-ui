@@ -23,7 +23,7 @@ export class Order extends React.Component {
             {order_details.map(detail => {
               const product = products_by_code[detail.product_code]
               return (
-                <div key={detail.id}>
+                <div key={detail.order_detail_id}>
                   <div>
                     {detail.product_quantity} {product.quantity_type} {product.name}
                   </div>
