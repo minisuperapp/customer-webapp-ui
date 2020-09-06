@@ -92,7 +92,7 @@ class QuantityView extends React.Component {
 function mapStateToProps(state) {
   const {
     cart,
-    best_offers: { lowest_price_by_product },
+    products: { lowest_price_by_product },
   } = state
   return {
     cart,

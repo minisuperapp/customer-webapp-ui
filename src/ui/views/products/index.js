@@ -55,12 +55,12 @@ class ProductsView extends Component {
 }
 
 function mapStateToProps(state) {
-  const { products, best_offers, orders, location } = state
+  const { products, orders, location } = state
   return {
     products: products.list,
     query: products.query,
-    lowest_price_by_product: best_offers.lowest_price_by_product,
-    by_product: best_offers.by_product,
+    lowest_price_by_product: products.lowest_price_by_product,
+    by_product: products.best_offers_by_product,
     orders,
     location,
   }
