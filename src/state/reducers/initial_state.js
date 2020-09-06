@@ -11,7 +11,7 @@ const initial_state = {
     list: [],
     by_code: get_from_storage('products_by_code', '{}'),
     query: null,
-    by_offers_by_product: {},
+    best_offers_by_product: {},
     lowest_price_by_product: {},
   },
   orders: [],

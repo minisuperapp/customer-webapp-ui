@@ -12,9 +12,10 @@ import {
 export default function reducer(state = initial_state.products, action) {
   switch (action.type) {
     case types.GET_PRODUCTS_RESPONSE: {
-      const list = action.response
+      const products = action.response
       const by_code = _.keyBy(action.response, 'code')
       localStorage.setItem('products_by_code', JSON.stringify(by_code))
+      const list = get_sorted_products(products, state.best_offers_by_product)
       return Immutable({
         ...state,
         list,
@@ -28,9 +29,12 @@ export default function reducer(state = initial_state.products, action) {
       })
     case types.GET_BEST_OFFERS_RESPONSE: {
       const lowest_price_by_product = get_lowest_price_by_product(action.response)
+      const best_offers_by_product = action.response
+      const list = get_sorted_products(state.list, best_offers_by_product)
       return Immutable({
         ...state,
-        best_offers_by_product: action.response,
+        list,
+        best_offers_by_product,
         lowest_price_by_product,
       })
     }
@@ -43,8 +47,10 @@ export default function reducer(state = initial_state.products, action) {
           action.offer,
         )
       }
+      const list = get_sorted_products(state.list, best_offers_by_product)
       return Immutable({
         ...state,
+        list,
         best_offers_by_product,
         lowest_price_by_product: {
           ...(lowest_price_by_product || state.lowest_price_by_product),
@@ -54,4 +60,9 @@ export default function reducer(state = initial_state.products, action) {
     default:
       return state
   }
+}
+
+function get_sorted_products(list, best_offers_by_product) {
+  return [].concat(list)
+    .sort(product => best_offers_by_product[product.code] ? -1 : 1)
 }
