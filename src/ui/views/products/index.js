@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-import _ from 'lodash'
+import _toLower from 'lodash.tolower'
 import { get_current_orders_request } from 'src/state/actions/order_actions'
 import { ProductList } from './ProductList'
 import { LoadingList } from './LoadingList'
@@ -34,8 +34,8 @@ class ProductsView extends Component {
     const products_to_show = query
       ? products.filter(
           product =>
-            _.toLower(product.name).includes(_.toLower(query)) ||
-            _.toLower(product.description).includes(_.toLower(query)),
+            _toLower(product.name).includes(_toLower(query)) ||
+            _toLower(product.description).includes(_toLower(query)),
         )
       : products
     if (!products.length) {

@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import _keyBy from 'lodash.keyby'
 import * as types from '../actions/action_types'
 import initial_state from './initial_state'
 import Immutable from 'seamless-immutable'
@@ -13,7 +13,7 @@ export default function reducer(state = initial_state.products, action) {
   switch (action.type) {
     case types.GET_PRODUCTS_RESPONSE: {
       const products = action.response
-      const by_code = _.keyBy(action.response, 'code')
+      const by_code = _keyBy(action.response, 'code')
       localStorage.setItem('products_by_code', JSON.stringify(by_code))
       const list = get_sorted_products(products, state.best_offers_by_product)
       return Immutable({

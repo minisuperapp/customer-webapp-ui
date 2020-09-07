@@ -1,13 +1,10 @@
-import { place_order_request } from 'src/state/actions/order_actions'
 import React from 'react'
 import { CheckoutDetails } from './CheckoutDetails'
 import { connect } from 'react-redux'
 import { paths } from 'src/constants'
 import { set_selected_customer_location } from 'src/state/actions/cart_actions'
 import { assign_best_offer_request } from 'src/state/actions/offer_actions'
-import { get_current_orders_request } from 'src/state/actions/order_actions'
-import { put } from 'redux-saga/effects'
-import { push } from 'connected-react-router'
+import { place_order_request, get_current_orders_request } from 'src/state/actions/order_actions'
 
 class CheckoutView extends React.Component {
   constructor(props) {

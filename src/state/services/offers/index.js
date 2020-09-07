@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import _get from 'lodash.get'
 import * as R from 'ramda'
 import * as apiRequester from '../../api'
 import { OffersGroupedByProductRequest } from './requests/search_for_all_products'
@@ -12,7 +12,7 @@ export const get_best_offers = async customerLocation => {
     .build()
   const offersByProductResponse = await apiRequester.send(offersRequest)
 
-  return _.get(offersByProductResponse, 'data.data.offersByProduct', {})
+  return _get(offersByProductResponse, 'data.data.offersByProduct', {})
 }
 
 export const assign_best_offer = async ({ location, products }) => {
@@ -28,9 +28,9 @@ export const assign_best_offer = async ({ location, products }) => {
   try {
     response = await apiRequester.send(request)
   } catch (err) {
-    return _.get(err, 'response.data', {})
+    return _get(err, 'response.data', {})
   }
-  return _.get(response, 'data', {})
+  return _get(response, 'data', {})
 }
 
 export const get_product_offers = async payload => {

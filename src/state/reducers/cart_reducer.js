@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import _get from 'lodash.get'
 import * as types from '../actions/action_types'
 import initial_state from './initial_state'
 import Immutable from 'seamless-immutable'
@@ -47,7 +47,7 @@ export default function reducer(state = initial_state.cart, action) {
       return Immutable(initial_state.cart)
     }
     case types.GET_PROFILE_RESPONSE: {
-      const customer_location_id = _.get(action, 'profile.locations[0].id')
+      const customer_location_id = _get(action, 'profile.locations[0].id')
       return Immutable({ ...state, customer_location_id })
     }
     default:
