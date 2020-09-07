@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Style from './style'
-import 'mapbox-gl/dist/mapbox-gl.css'
 import { paths } from 'src/constants'
 import { get_location_request, set_location } from 'src/state/actions/location_actions'
 
@@ -16,12 +15,14 @@ class LocationView extends React.Component {
     }
   }
   async componentDidMount() {
+    await import('mapbox-gl/dist/mapbox-gl.css')
     const mapboxgl = await import('mapbox-gl')
     localStorage.removeItem('latitude')
     localStorage.removeItem('longitude')
     localStorage.removeItem('zoom')
     const map = new mapboxgl.Map({
-      accessToken: 'pk.eyJ1IjoiYWxheW9yIiwiYSI6ImNrY3RqNm5seTF5d2Eyem1veHoyb3hweWUifQ.qRXsxqw_UkcdHJ7aZ3aApw',
+      accessToken:
+        'pk.eyJ1IjoiYWxheW9yIiwiYSI6ImNrY3RqNm5seTF5d2Eyem1veHoyb3hweWUifQ.qRXsxqw_UkcdHJ7aZ3aApw',
       container: this.mapContainer,
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [this.state.lng, this.state.lat],
