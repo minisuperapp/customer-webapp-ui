@@ -5,6 +5,9 @@ import { connect } from 'react-redux'
 import { paths } from 'src/constants'
 import { set_selected_customer_location } from 'src/state/actions/cart_actions'
 import { assign_best_offer_request } from 'src/state/actions/offer_actions'
+import { get_current_orders_request } from 'src/state/actions/order_actions'
+import { put } from 'redux-saga/effects'
+import { push } from 'connected-react-router'
 
 class CheckoutView extends React.Component {
   constructor(props) {
@@ -35,12 +38,18 @@ class CheckoutView extends React.Component {
   }
 
   place_order = async () => {
-    const { cart, place_order_request } = this.props
+    const { history, cart, place_order_request, get_current_orders_request } = this.props
     const offers = cart.offers.quantities
-    place_order_request({
-      offers,
-      customer_location_id: cart.customer_location_id,
-    })
+    place_order_request(
+      {
+        offers,
+        customer_location_id: cart.customer_location_id,
+      },
+      () => {
+        get_current_orders_request()
+        history.push(paths.orders_list)
+      },
+    )
   }
 
   on_cancel = async () => {
@@ -80,6 +89,7 @@ const mapDispatchToProps = {
   assign_best_offer_request,
   place_order_request,
   set_selected_customer_location,
+  get_current_orders_request,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CheckoutView)

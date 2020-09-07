@@ -8,11 +8,11 @@ import { paths } from 'src/constants'
 
 export function* place_order() {
   yield takeEvery(types.PLACE_ORDER_REQUEST, function* (data) {
-    const { order } = data
+    const { order, on_success } = data
     const response = yield call(orders_api.place_order, order)
     if (response.success) {
       yield put(place_order_response(response.orders))
-      yield put(push(paths.orders_list))
+      on_success && on_success(response.orders)
     } else {
       yield put(show_alert_message('Datos incorrectos'))
     }
