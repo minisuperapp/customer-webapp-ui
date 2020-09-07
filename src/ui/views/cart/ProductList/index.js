@@ -25,12 +25,12 @@ export class ProductList extends React.Component {
     return (
       <Style>
         <div className="title">Mi carrito</div>
-        <div className="top_buttons">
+        <div className="button_container">
           <button onClick={go_to_products} className="keep_buying_button">
             Seguir comprando
           </button>
           <button onClick={go_to_checkout} className="purchase_button">
-            Finalizar compra
+            Listo para pedir
           </button>
         </div>
         <div className="grand_total">Total: ${total}</div>

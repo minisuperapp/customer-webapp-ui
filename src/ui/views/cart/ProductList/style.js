@@ -4,7 +4,7 @@ export default styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1em;
+  margin-top: 0.5em;
   margin-bottom: 1em;
 
   .title {
@@ -16,39 +16,44 @@ export default styled.div`
     margin-bottom: 0.2em;
   }
 
-  .top_buttons {
+  .button_container {
     display: flex;
-    justify-content: space-around;
-    width: 20em;
+    flex-direction: row;
+    width: 100%;
+    max-width: 300px;
+    margin: 0.5em auto;
 
     .keep_buying_button {
       font-family: SFProTextRegular, serif;
-      font-size: 16px;
-      border-radius: 10px;
+      font-size: 1.1rem;
+      border-radius: 8px;
       cursor: pointer;
-      color: #fefefe;
-      background-color: #003049;
-      padding: 0.5em;
+      color: black;
+      width: 100%;
+      background-color: #fefefe;
       border: 2px solid #003049;
       margin-bottom: 0.5em;
+      margin-right: 0.5em;
+      padding: 0.3em 0;
     }
-    
+
     .purchase_button {
       font-family: SFProTextRegular, serif;
-      font-size: 16px;
+      font-size: 1.1rem;
       font-weight: bold;
-      border-radius: 10px;
       cursor: pointer;
       color: #003049;
+      border-radius: 8px;
+      width: 100%;
       background-color: #fcbf49;
-      padding: 0.5em;
       border: 2px solid #003049;
       margin-bottom: 0.5em;
+      padding: 0.3em 0;
     }
   }
 
   .grand_total {
-    margin-bottom: 0.5em;
+    margin-bottom: 0.2em;
     font-size: 24px;
   }
 

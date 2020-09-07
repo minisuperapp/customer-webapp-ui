@@ -5,7 +5,7 @@ export default styled.div`
   flex-direction: column;
   width: 100%;
   max-width: 30em;
-  margin: 1em auto;
+  margin: 0.5em auto;
 
   .title {
     font-family: SFProText-Bold, serif;
@@ -82,39 +82,42 @@ export default styled.div`
     margin: 0.5em auto;
 
     .accept_button {
-      background-color: #003049;
       font-family: SFProTextRegular, serif;
-      font-size: 1.2rem;
-      font-weight: 500;
-      border-radius: 10px;
-      border: none;
-      width: 100%;
-      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
       cursor: pointer;
-      margin-left: 0.5em;
+      color: #003049;
+      border-radius: 8px;
+      width: 100%;
+      background-color: #fcbf49;
+      border: 2px solid #003049;
+      margin-bottom: 0.5em;
     }
 
     .disabled_button {
       background-color: #b5bbb7;
-      box-shadow: 0 2px 8px 0 rgb(162, 156, 162);
+      color: #fefefe;
       font-family: SFProTextRegular, serif;
-      border-radius: 10px;
-      font-size: 1.2rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
       width: 100%;
-      color: white;
-      margin-left: 0.5em;
+      border: 2px solid #003049;
+      margin-bottom: 0.5em;
     }
 
     .cancel_button {
-      background-color: #fff;
-      color: black;
-      box-shadow: none;
-      margin-right: 0.5em;
       font-family: SFProTextRegular, serif;
       font-size: 1.2rem;
-      border-radius: 10px;
-      width: 100%;
+      border-radius: 8px;
       cursor: pointer;
+      color: black;
+      width: 100%;
+      background-color: #fefefe;
+      border: 2px solid #003049;
+      margin-bottom: 0.5em;
+      margin-right: 0.5em;
     }
   }
 `
