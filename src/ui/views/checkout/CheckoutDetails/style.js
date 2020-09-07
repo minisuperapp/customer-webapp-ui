@@ -83,7 +83,7 @@ export default styled.div`
 
     .accept_button {
       font-family: SFProTextRegular, serif;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: bold;
       cursor: pointer;
       color: #003049;
@@ -98,7 +98,7 @@ export default styled.div`
       background-color: #b5bbb7;
       color: #fefefe;
       font-family: SFProTextRegular, serif;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       font-weight: bold;
       border-radius: 8px;
       cursor: pointer;

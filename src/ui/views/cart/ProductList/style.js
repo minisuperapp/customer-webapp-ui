@@ -28,10 +28,9 @@ export default styled.div`
       font-size: 1.1rem;
       border-radius: 8px;
       cursor: pointer;
-      color: black;
+      color: #fefefe;
       width: 100%;
-      background-color: #fefefe;
-      border: 2px solid #003049;
+      background-color: #003049;
       margin-bottom: 0.5em;
       margin-right: 0.5em;
       padding: 0.3em 0;
