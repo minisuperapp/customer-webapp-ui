@@ -76,7 +76,7 @@ export class CheckoutDetails extends React.Component {
             className={disableButton ? 'disabled_button' : 'accept_button'}
             onClick={place_order}
             disabled={disableButton}>
-            Ordenar
+            Ordenar Ya!
           </button>
         </div>
       </Style>

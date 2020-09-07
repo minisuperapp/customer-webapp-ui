@@ -30,7 +30,7 @@ export class ProductList extends React.Component {
             Seguir comprando
           </button>
           <button onClick={go_to_checkout} className="purchase_button">
-            Listo para pedir
+            Ordenar...
           </button>
         </div>
         <div className="grand_total">Total: ${total}</div>
