@@ -16,8 +16,8 @@ module.exports = {
   },
   get isApiHostProd() {
     return (
-      /^https:\/\/www\.minisuper\.app\/comprar\/api/.test(this.API_HOST) ||
-      /^https:\/\/minisuper\.app\/comprar\/api/.test(this.API_HOST)
+      /^https:\/\/www\.minisuper\.app\/comprar\/api/i.test(this.API_HOST) ||
+      /^https:\/\/minisuper\.app\/comprar\/api/i.test(this.API_HOST)
     )
   },
   get socketPayload() {
