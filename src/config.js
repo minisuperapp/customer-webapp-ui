@@ -31,6 +31,6 @@ module.exports = {
     if (this.isTestEnv) {
       return ''
     }
-    return '/comprar/api/socket.io/'
+    return '/customer_api/socket.io/'
   },
 }
