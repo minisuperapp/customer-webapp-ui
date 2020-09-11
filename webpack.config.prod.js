@@ -32,7 +32,7 @@ module.exports = {
     new webpack.DefinePlugin({
       // This global makes sure React is built in prod mode.
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-      'process.env.API_HOST': JSON.stringify('https://www.minisuper.app/comprar/api'),
+      'process.env.API_HOST': JSON.stringify('https://www.minisuper.app/customer_api'),
       'process.env.SOCKET_HOST': JSON.stringify('https://www.minisuper.app'),
       'process.env.SUBDIR': JSON.stringify('/comprar'),
     }),
