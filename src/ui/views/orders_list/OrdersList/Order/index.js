@@ -10,8 +10,8 @@ export class Order extends React.Component {
       IN_TRANSIT: 'En camino',
       ARRIVED: 'En puerta!',
       DELIVERED: 'Recibida',
-      CANCELED_BY_CUSTOMER: 'Cancelada por el cliente',
-      CANCELED_BY_DELIVERER: 'Cancelada por el proveedor',
+      CANCELED_BY_CUSTOMER: 'Cancelada',
+      CANCELED_BY_DELIVERER: 'Cancelada por el repartidor',
     }
     return (
       <Style>
