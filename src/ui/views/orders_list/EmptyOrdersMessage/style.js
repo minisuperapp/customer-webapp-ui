@@ -4,14 +4,14 @@ export default styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 3em;
+  margin-top: 2em;
 
   & .message {
     font-size: 18px;
   }
 
   & .link {
-    margin-top: 1.5em;
+    margin-top: 1em;
 
     & a {
       text-decoration: none;
