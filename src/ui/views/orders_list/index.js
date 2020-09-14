@@ -1,7 +1,7 @@
 import React from 'react'
 import { OrdersList } from './OrdersList'
 import { connect } from 'react-redux'
-import { get_current_orders_request } from 'src/state/actions/order_actions'
+import { get_orders_for_xday_request } from 'src/state/actions/order_actions'
 import EmptyOrdersMessage from './EmptyOrdersMessage'
 import { paths } from 'src/constants'
 
@@ -10,8 +10,8 @@ class OrdersListView extends React.Component {
     super(props)
   }
   async componentDidMount() {
-    const { get_current_orders_request } = this.props
-    get_current_orders_request()
+    const { get_orders_for_xday_request } = this.props
+    get_orders_for_xday_request()
   }
   go_to_products = () => {
     const { history } = this.props
@@ -42,7 +42,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-  get_current_orders_request,
+  get_orders_for_xday_request,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(OrdersListView)

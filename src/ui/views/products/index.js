@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import _toLower from 'lodash.tolower'
-import { get_current_orders_request } from 'src/state/actions/order_actions'
+import { get_orders_for_xday_request } from 'src/state/actions/order_actions'
 import { ProductList } from './ProductList'
 import { LoadingList } from './LoadingList'
 import { paths } from 'src/constants'
@@ -12,8 +12,8 @@ class ProductsView extends Component {
     super(props)
   }
   async componentDidMount() {
-    const { get_current_orders_request } = this.props
-    get_current_orders_request()
+    const { get_orders_for_xday_request } = this.props
+    get_orders_for_xday_request()
   }
 
   handleProductSelection = product => () => {
@@ -67,7 +67,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-  get_current_orders_request,
+  get_orders_for_xday_request,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsView)
