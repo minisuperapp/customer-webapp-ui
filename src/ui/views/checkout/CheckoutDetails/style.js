@@ -78,7 +78,7 @@ export default styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
-    max-width: 300px;
+    max-width: 20em;
     margin: 0.5em auto;
 
     .accept_button {
