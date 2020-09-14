@@ -15,8 +15,12 @@ class CartView extends Component {
   }
 
   go_to_checkout = () => {
-    const { history } = this.props
-    history.push({ pathname: paths.checkout })
+    const { history, customer_locations } = this.props
+    if (!customer_locations.length) {
+      history.push({ pathname: paths.delivery_address })
+    } else {
+      history.push({ pathname: paths.checkout })
+    }
   }
 
   go_to_products = () => {
@@ -48,6 +52,7 @@ class CartView extends Component {
 function mapStateToProps(state) {
   const {
     cart,
+    customer_locations,
     products: { by_code },
   } = state
 
@@ -55,6 +60,7 @@ function mapStateToProps(state) {
     cart,
     products_index: by_code,
     total: cart.total,
+    customer_locations,
   }
 }
 

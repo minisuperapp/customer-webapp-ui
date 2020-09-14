@@ -1,7 +1,6 @@
 import _get from 'lodash.get'
 import * as apiRequester from '../../api'
 import { OrderPlacementRequest } from './requests/place_order'
-import { PendingToDeliverRequest } from './requests/pending_to_deliver'
 import { ListForXdayRequest } from './requests/list_for_xday'
 
 export const place_order = async order => {

@@ -94,7 +94,7 @@ class DeliveryAddressForm extends React.Component {
             Cancelar
           </button>
           <button className="accept_button" onClick={on_accept}>
-            Agregar
+            Aceptar
           </button>
         </div>
       </Style>
