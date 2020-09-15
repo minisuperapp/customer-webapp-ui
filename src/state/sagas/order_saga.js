@@ -6,13 +6,13 @@ import { show_alert_message } from '../actions/alert_actions'
 
 export function* place_order() {
   yield takeEvery(types.PLACE_ORDER_REQUEST, function* (data) {
-    const { order, on_success } = data
+    const { order, on_success, on_error } = data
     const response = yield call(orders_api.place_order, order)
     if (response.success) {
       yield put(place_order_response(response.orders))
       on_success && on_success(response.orders)
     } else {
-      yield put(show_alert_message('Datos incorrectos'))
+      on_error && on_error(response.error)
     }
   })
 }

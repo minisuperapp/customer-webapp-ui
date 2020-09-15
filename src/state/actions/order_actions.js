@@ -1,9 +1,10 @@
 import * as types from './action_types'
 
-export const place_order_request = (order, on_success) => ({
+export const place_order_request = (order, on_success, on_error) => ({
   type: types.PLACE_ORDER_REQUEST,
   order,
   on_success,
+  on_error,
 })
 
 export function place_order_response(orders) {

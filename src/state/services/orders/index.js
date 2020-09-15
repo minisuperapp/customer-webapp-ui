@@ -9,8 +9,12 @@ export const place_order = async order => {
     .withOffers(offers)
     .withCustomerLocationId(customer_location_id)
     .build()
-  const response = await apiRequester.send(request)
-  return response.data
+  try {
+    const response = await apiRequester.send(request)
+    return response.data
+  } catch (err) {
+    return _get(err, 'response.data') || err
+  }
 }
 
 export const get_orders_for_xday = async xday => {
