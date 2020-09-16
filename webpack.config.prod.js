@@ -3,6 +3,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const webpackBundleAnalyzer = require('webpack-bundle-analyzer')
+const CompressionPlugin = require('compression-webpack-plugin')
 
 process.env.NODE_ENV = 'production'
 
@@ -20,7 +21,7 @@ module.exports = {
   resolve: {
     alias: {
       src: path.resolve(__dirname, 'src/'),
-    }
+    },
   },
   plugins: [
     // Webpack will automatically display a report of what's in our bundle when the build is completed
@@ -54,6 +55,12 @@ module.exports = {
         minifyURLs: true,
       },
     }),
+    new CompressionPlugin({
+      algorithm: 'gzip',
+      test: /\.js$/,
+      threshold: 10240,
+      minRatio: 0.8,
+    }),
   ],
   module: {
     //to tell webpack what files we want to handle
@@ -72,5 +79,5 @@ module.exports = {
         use: ['file-loader'],
       },
     ],
-  }
+  },
 }
