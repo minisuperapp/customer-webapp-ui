@@ -14,14 +14,15 @@ export default styled.div`
   height: 10em;
   width: 20em;
 
-  & .image {
+  .image_container {
     margin-left: 0.5em;
     margin-right: 0.5em;
-    height: 80%;
-    width: 100%;
-    max-width: 100px;
-    background: #ffffff no-repeat right;
-    background-size: contain;
+    width: 10em;
+
+    .image {
+      max-width: 100px;
+      max-height: 140px;
+    }
   }
 
   & .main_panel {
