@@ -6,6 +6,7 @@ import { paths } from 'src/constants'
 import logo from 'src/ui/images/logo.png'
 import { search_product_request } from 'src/state/actions/product_actions'
 import NavigationMenu from 'src/ui/components/navigation_menu'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 class Header extends Component {
   state = {
@@ -49,7 +50,7 @@ class Header extends Component {
         <div className="items">
           <div className="logo">
             <Link to={paths.home}>
-              <img alt="minisuper" src={logo} align="absmiddle" />
+              <LazyLoadImage alt="minisuper" src={logo} align="absmiddle" />
             </Link>
           </div>
           <div />
