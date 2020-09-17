@@ -8,6 +8,7 @@ export default function reducer(state = initial_state.alert, action) {
       return Immutable({
         ...state,
         message: action.message,
+        on_accept: action.on_accept,
       })
     }
     case types.HIDE_ALERT_MESSAGE: {

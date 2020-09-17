@@ -6,6 +6,7 @@ const initial_state = {
   },
   alert: {
     message: '',
+    on_accept: () => true,
   },
   products: {
     list: [],
@@ -20,7 +21,7 @@ const initial_state = {
     offers: {
       index: {},
       grouped_by_deliverer: [],
-      quantities: {}
+      quantities: {},
     },
     customer_location_id: null,
     total: get_from_storage('total', '0'),

@@ -4,9 +4,13 @@ import { hide_alert_message } from 'src/state/actions/alert_actions'
 import Style from './style'
 
 class Alert extends Component {
-  hideAlert = () => {
-    const { hide_alert_message } = this.props
+  handle_accept = () => {
+    const {
+      hide_alert_message,
+      alert: { on_accept },
+    } = this.props
     hide_alert_message()
+    on_accept && on_accept()
   }
   render() {
     const {
@@ -16,7 +20,7 @@ class Alert extends Component {
       return (
         <Style>
           <div className="message">{message}</div>
-          <button className="close" onClick={this.hideAlert}>
+          <button className="close" onClick={this.handle_accept}>
             OK
           </button>
         </Style>

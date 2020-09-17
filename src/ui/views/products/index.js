@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import _toLower from 'lodash.tolower'
 import { get_orders_for_xday_request } from 'src/state/actions/order_actions'
+import { show_alert_message } from 'src/state/actions/alert_actions'
 import { ProductList } from './ProductList'
 import { LoadingList } from './LoadingList'
 import { paths } from 'src/constants'
@@ -12,13 +12,19 @@ class ProductsView extends Component {
     super(props)
   }
   async componentDidMount() {
-    const { get_orders_for_xday_request } = this.props
-    get_orders_for_xday_request()
+    const { history, get_orders_for_xday_request, show_alert_message } = this.props
+    if (!location.latitude || !location.longitude) {
+      show_alert_message('Antes de comenzar, es necesario establecer tu ubicación.', () => {
+        history.push(paths.location)
+      })
+    } else {
+      get_orders_for_xday_request()
+    }
   }
 
   handleProductSelection = product => () => {
     const { history } = this.props
-    history.push({pathname: paths.quantity, search: `?product_code=${product.code}`})
+    history.push({ pathname: paths.quantity, search: `?product_code=${product.code}` })
   }
 
   go_to_location = () => {
@@ -28,9 +34,7 @@ class ProductsView extends Component {
 
   render() {
     const { products, lowest_price_by_product, by_product, location, query } = this.props
-    if (!location.latitude || !location.longitude) {
-      return <Redirect to={paths.location} />
-    }
+
     const products_to_show = query
       ? products.filter(
           product =>
@@ -68,6 +72,7 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
   get_orders_for_xday_request,
+  show_alert_message,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsView)
