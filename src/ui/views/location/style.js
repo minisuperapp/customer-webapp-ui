@@ -12,12 +12,12 @@ export default styled.div`
     font-size: 24px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    text-align: center;
   }
 
   & .map_container {
     position: relative;
-    margin: 2em auto;
+    margin: 1em auto;
     height: 20em;
     width: 40em;
 
