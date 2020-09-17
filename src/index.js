@@ -26,5 +26,5 @@ render(
 
 const disable_logrocket = localStorage.getItem('disable_logrocket')
 if (!config.isTestEnv && !disable_logrocket) {
-  LogRocket.init('pr05ix/minisuper-customer')
+  // LogRocket.init('pr05ix/minisuper-customer')
 }
