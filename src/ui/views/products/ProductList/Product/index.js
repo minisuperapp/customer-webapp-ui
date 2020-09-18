@@ -5,15 +5,24 @@ import Style from './style'
 import * as images from 'src/ui/views/common/images'
 
 export class Product extends Component {
+  quantity_type_map = {
+    PZ: ' ',
+  }
   render() {
     const { product } = this.props
+    const quantity_type =
+      this.quantity_type_map[product.quantity_type] || product.quantity_type
     const price = this.props.lowestPrice
-      ? `$${this.props.lowestPrice}  ${product.quantity_type}`
+      ? `$${Number(this.props.lowestPrice).toFixed(2)}  ${quantity_type}`
       : 'No disponible'
     return (
       <Style>
         <div className="image_container">
-          <LazyLoadImage className="image" alt={product.name} src={images.getProductImageURL(product.code)} />
+          <LazyLoadImage
+            className="image"
+            alt={product.name}
+            src={images.getProductImageURL(product.code)}
+          />
         </div>
         <div className="main_panel">
           <div className="text_title"> {product.name}</div>
