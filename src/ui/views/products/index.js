@@ -34,7 +34,9 @@ class ProductsView extends Component {
 
   render() {
     const { products, lowest_price_by_product, by_product, location, query, cart } = this.props
-
+    if (!location.latitude || !location.longitude) {
+      return null
+    }
     const products_to_show = query
       ? products.filter(
           product =>
