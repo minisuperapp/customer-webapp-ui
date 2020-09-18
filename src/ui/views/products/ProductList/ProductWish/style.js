@@ -12,7 +12,7 @@ export default styled.div`
   border-radius: 10px;
   box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08);
   display: flex;
-  height: 10em;
+  height: 9em;
   width: 20em;
 
   & .subtitle {
