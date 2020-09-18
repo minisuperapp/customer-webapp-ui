@@ -22,11 +22,14 @@ class PreferencesView extends React.Component {
   }
 
   on_save = () => {
+    debugger
+    const { show_alert_message } = this.props
     set_location({
       latitude: this.state.location.lat,
       longitude: this.state.location.lng,
       zoom: this.state.location.zoom,
     })
+    show_alert_message('Tu ubicación ha sido actualizada')
   }
 
   render() {

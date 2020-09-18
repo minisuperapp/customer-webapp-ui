@@ -9,5 +9,9 @@ export default styled.div`
 
   .main {
     margin-top: 4em;
+
+    @media only screen and (max-width: 524px) {
+      margin-top: 3.1em;
+    }
   }
 `

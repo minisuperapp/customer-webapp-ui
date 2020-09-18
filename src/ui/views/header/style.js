@@ -9,12 +9,16 @@ export default styled.div`
   background: white;
   z-index: 3;
 
+  @media only screen and (max-width: 524px) {
+    height: 3.1em;
+  }
+
   .search {
     position: fixed;
     left: 50%;
     width: 18em;
     margin-left: -10.2em;
-    margin-top: 0.8em;
+    margin-top: 0.6em;
     & :focus {
       outline: none;
     }
@@ -23,6 +27,9 @@ export default styled.div`
       padding: 0.5em 1em;
       border-radius: 10px;
       width: 100%;
+    }
+    @media only screen and (max-width: 524px) {
+      margin-top: 0.2em;
     }
   }
 
