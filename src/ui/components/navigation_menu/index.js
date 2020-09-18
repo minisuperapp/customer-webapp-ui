@@ -7,7 +7,6 @@ export default class NavigationMenu extends Component {
   render() {
     const { cart, active_page } = this.props
     const cart_count = Object.keys(cart.products).length
-    const show_purchase_button = paths.home === active_page && cart_count
     const cart_link_name = cart_count ? `Carrito (${cart_count})` : 'Carrito'
     return (
       <Style>

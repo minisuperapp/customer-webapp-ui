@@ -33,7 +33,7 @@ class ProductsView extends Component {
   }
 
   render() {
-    const { products, lowest_price_by_product, by_product, location, query } = this.props
+    const { products, lowest_price_by_product, by_product, location, query, cart } = this.props
 
     const products_to_show = query
       ? products.filter(
@@ -53,13 +53,14 @@ class ProductsView extends Component {
         by_product={by_product}
         location={location}
         go_to_location={this.go_to_location}
+        cart={cart}
       />
     )
   }
 }
 
 function mapStateToProps(state) {
-  const { products, orders, location } = state
+  const { products, orders, location, cart } = state
   return {
     products: products.list,
     query: products.query,
@@ -67,6 +68,7 @@ function mapStateToProps(state) {
     by_product: products.best_offers_by_product,
     orders,
     location,
+    cart,
   }
 }
 

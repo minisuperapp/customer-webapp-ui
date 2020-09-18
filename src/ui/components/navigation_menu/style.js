@@ -52,24 +52,6 @@ export default styled.div`
     }
   }
 
-  .complete_purchase_link {
-    font-family: SFProTextRegular, serif;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 10px;
-    cursor: pointer;
-    color: #003049;
-    background-color: #fcbf49;
-    padding: 0.3em;
-    border: 2px solid #003049;
-    margin-left: 1em;
-
-    @media only screen and (max-width: 1044px) {
-      margin-bottom: 0.5em;
-      margin-left: 0;
-    }
-  }
-
   .hidden {
     display: none;
   }
