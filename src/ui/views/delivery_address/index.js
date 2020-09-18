@@ -1,7 +1,7 @@
 import React from 'react'
 import DeliveryAddressForm from './DeliveryAddressForm'
 import { connect } from 'react-redux'
-import { add_customer_location_request } from 'src/state/actions/location_actions'
+import { add_customer_address_request } from 'src/state/actions/address_actions'
 import { set_selected_customer_location } from 'src/state/actions/cart_actions'
 import { paths } from 'src/constants'
 
@@ -20,9 +20,9 @@ class DeliveryAddressView extends React.Component {
   }
 
   on_accept = () => {
-    const { history, add_customer_location_request, set_selected_customer_location } = this.props
-    add_customer_location_request(this.state, customer_location => {
-      set_selected_customer_location(customer_location.id)
+    const { history, add_customer_address_request, set_selected_customer_location } = this.props
+    add_customer_address_request(this.state, customer_address => {
+      set_selected_customer_location(customer_address.id)
       history.push(paths.checkout)
     })
   }
@@ -70,7 +70,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-  add_customer_location_request,
+  add_customer_address_request,
   set_selected_customer_location,
 }
 

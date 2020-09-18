@@ -19,11 +19,11 @@ export const set_location = location => {
   localStorage.setItem('zoom', location.zoom)
 }
 
-export async function add_customer_location(customer_location) {
+export async function add_customer_address(customer_address) {
   const request = {
     method: 'post',
     path: 'addresses/add',
-    payload: customer_location,
+    payload: customer_address,
   }
   return apiRequester.send(request)
 }

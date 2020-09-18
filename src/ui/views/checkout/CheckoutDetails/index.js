@@ -8,7 +8,7 @@ export class CheckoutDetails extends React.Component {
     const {
       cart,
       products_index,
-      customer_locations,
+      customer_addresses,
       on_cancel,
       place_order,
       on_customer_location_change,
@@ -16,8 +16,8 @@ export class CheckoutDetails extends React.Component {
     const offers_index = cart.offers.index
     const offers_quantities = cart.offers.quantities
     const selected_customer_location =
-      customer_locations.find(loc => Number(loc.id) === Number(cart.customer_address_id)) || {}
-    const disableButton = !customer_locations.length
+      customer_addresses.find(loc => Number(loc.id) === Number(cart.customer_address_id)) || {}
+    const disableButton = !customer_addresses.length
     return (
       <Style>
         <div className="title">Verifica tu pedido</div>
@@ -28,7 +28,7 @@ export class CheckoutDetails extends React.Component {
               className="address_list"
               onChange={on_customer_location_change}
               value={cart.customer_address_id || ''}>
-              {customer_locations.map(location => {
+              {customer_addresses.map(location => {
                 return (
                   <option key={location.id} value={location.id}>
                     {location.name}

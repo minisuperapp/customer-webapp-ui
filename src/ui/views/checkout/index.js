@@ -19,12 +19,12 @@ class CheckoutView extends React.Component {
   async componentDidMount() {
     const {
       cart,
-      customer_locations,
+      customer_addresses,
       set_selected_customer_location,
       assign_best_offer_request,
     } = this.props
-    if (customer_locations.length) {
-      set_selected_customer_location(customer_locations[0].id)
+    if (customer_addresses.length) {
+      set_selected_customer_location(customer_addresses[0].id)
     }
     assign_best_offer_request(cart.products, errors => {
       this.setState({errors})
@@ -69,11 +69,11 @@ class CheckoutView extends React.Component {
   }
 
   render() {
-    const {cart, customer_locations, products_index} = this.props
+    const {cart, customer_addresses, products_index} = this.props
     return (
       <CheckoutDetails
         cart={cart}
-        customer_locations={customer_locations}
+        customer_addresses={customer_addresses}
         products_index={products_index}
         place_order={this.place_order}
         on_cancel={this.on_cancel}
@@ -86,12 +86,12 @@ class CheckoutView extends React.Component {
 function mapStateToProps(state) {
   const {
     cart,
-    customer_locations,
+    customer_addresses,
     products: {by_code},
   } = state
   return {
     cart,
-    customer_locations,
+    customer_addresses,
     products_index: by_code,
   }
 }

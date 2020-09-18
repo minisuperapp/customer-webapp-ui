@@ -30,7 +30,7 @@ const initial_state = {
     registration: {},
     login: {},
   },
-  customer_locations: [],
+  customer_addresses: [],
 }
 
 function get_from_storage(key, default_value) {
