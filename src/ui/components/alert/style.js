@@ -16,6 +16,7 @@ export default styled.div`
   font-size: 16px;
   text-align: center;
   width: 18em;
+  z-index: 3;
 
   .message {
     background: inherit;
