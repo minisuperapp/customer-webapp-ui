@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export default styled.div`
-  margin-top: 1em;
+  margin-top: 0.5em;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -4,6 +4,7 @@ import LocationView from './LocationView'
 import { get_location_request, set_location } from 'src/state/actions/location_actions'
 import { show_alert_message } from 'src/state/actions/alert_actions'
 import Style from './style'
+import { paths } from '../../../constants'
 
 class PreferencesView extends React.Component {
   state = {
@@ -22,7 +23,7 @@ class PreferencesView extends React.Component {
   }
 
   on_save = () => {
-    const { show_alert_message, set_location } = this.props
+    const { history, show_alert_message, set_location } = this.props
     set_location(
       {
         latitude: this.state.location.lat,
@@ -30,7 +31,10 @@ class PreferencesView extends React.Component {
         zoom: this.state.location.zoom,
       },
       () => {
-        show_alert_message('Tu ubicación ha sido actualizada')
+        show_alert_message('Tu ubicación ha sido actualizada', () => {
+          history.push(paths.home)
+          window.location.reload()
+        })
       },
     )
   }
