@@ -53,7 +53,7 @@ export default styled.div`
       margin-top: 1em;
       margin-bottom: 1em;
       margin-right: 3em;
-      @media only screen and (max-width: 1044px) {
+      @media only screen and (max-width: 1110px) {
         display: none;
       }
     }

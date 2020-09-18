@@ -33,11 +33,6 @@ export default class NavigationMenu extends Component {
             Preferencias
           </Link>
         </div>
-        <Link
-          className={`${show_purchase_button ? 'complete_purchase_link' : 'hidden'}`}
-          to={paths.checkout}>
-          Ordenar...
-        </Link>
       </Style>
     )
   }
