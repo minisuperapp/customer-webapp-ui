@@ -29,7 +29,7 @@ export default class NavigationMenu extends Component {
           <Link
             className={`${paths.preferences === active_page ? 'active' : ''} preferences_link`}
             to={paths.preferences}>
-            Preferencias
+            Mi ubicación
           </Link>
         </div>
       </Style>
