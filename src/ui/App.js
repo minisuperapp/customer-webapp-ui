@@ -4,7 +4,6 @@ import Header from './views/header'
 import Footer from './views/footer'
 import ProductsView from './views/products'
 import PreferencesView from './views/preferences'
-import LocationView from './views/location'
 import QuantityView from './views/quantity'
 import CartView from './views/cart'
 import CheckoutView from './views/checkout'
@@ -40,7 +39,6 @@ class App extends Component {
           <Switch>
             <Route exact path={paths.home} component={ProductsView} />
             <Route exact path={paths.preferences} component={PreferencesView} />
-            <Route exact path={paths.location} component={LocationView} />
             <Route exact path={paths.quantity} component={QuantityView} />
             <Route exact path={paths.cart} component={CartView} />
             <Route exact path={paths.checkout} component={CheckoutView} />

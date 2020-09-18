@@ -15,7 +15,7 @@ class ProductsView extends Component {
     const { history, get_orders_for_xday_request, location, show_alert_message } = this.props
     if (!location.latitude || !location.longitude) {
       show_alert_message('Antes de comenzar, es necesario establecer tu ubicación.', () => {
-        history.push(paths.location)
+        history.push(paths.preferences)
       })
     } else {
       get_orders_for_xday_request()
