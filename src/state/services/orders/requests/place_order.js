@@ -16,7 +16,7 @@ export class OrderPlacementRequest {
       constructor() {
         this.deliverer_id = null
         this.offers = {}
-        this.customer_location_id = null
+        this.customer_address_id = null
       }
       withDelivererId(deliverer_id) {
         this.deliverer_id = deliverer_id
@@ -26,8 +26,8 @@ export class OrderPlacementRequest {
         this.offers = offers
         return this
       }
-      withCustomerLocationId(customer_location_id) {
-        this.customer_location_id = customer_location_id
+      withCustomerLocationId(customer_address_id) {
+        this.customer_address_id = customer_address_id
         return this
       }
       build() {

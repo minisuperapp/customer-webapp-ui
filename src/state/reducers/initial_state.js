@@ -23,7 +23,7 @@ const initial_state = {
       grouped_by_deliverer: [],
       quantities: {},
     },
-    customer_location_id: null,
+    customer_address_id: null,
     total: get_from_storage('total', '0'),
   },
   auth: {

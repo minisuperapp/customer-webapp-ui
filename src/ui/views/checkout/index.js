@@ -11,7 +11,7 @@ class CheckoutView extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      customer_location_id: null,
+      customer_address_id: null,
       errors: null,
     }
   }
@@ -48,7 +48,7 @@ class CheckoutView extends React.Component {
     place_order_request(
       {
         offers,
-        customer_location_id: cart.customer_location_id,
+        customer_address_id: cart.customer_address_id,
       },
       () => {
         get_orders_for_xday_request()

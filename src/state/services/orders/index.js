@@ -4,10 +4,10 @@ import { OrderPlacementRequest } from './requests/place_order'
 import { ListForXdayRequest } from './requests/list_for_xday'
 
 export const place_order = async order => {
-  const { customer_location_id, offers } = order
+  const { customer_address_id, offers } = order
   const request = new OrderPlacementRequest.Builder()
     .withOffers(offers)
-    .withCustomerLocationId(customer_location_id)
+    .withCustomerLocationId(customer_address_id)
     .build()
   try {
     const response = await apiRequester.send(request)

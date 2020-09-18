@@ -39,7 +39,7 @@ export default function reducer(state = initial_state.cart, action) {
       })
     }
     case types.SET_SELECTED_CUSTOMER_LOCATION: {
-      return Immutable({ ...state, customer_location_id: action.customer_location_id })
+      return Immutable({ ...state, customer_address_id: action.customer_address_id })
     }
     case types.PLACE_ORDER_RESPONSE: {
       localStorage.removeItem('cart_products')
@@ -47,8 +47,8 @@ export default function reducer(state = initial_state.cart, action) {
       return Immutable(initial_state.cart)
     }
     case types.GET_PROFILE_RESPONSE: {
-      const customer_location_id = _get(action, 'profile.locations[0].id')
-      return Immutable({ ...state, customer_location_id })
+      const customer_address_id = _get(action, 'profile.locations[0].id')
+      return Immutable({ ...state, customer_address_id })
     }
     default:
       return state
