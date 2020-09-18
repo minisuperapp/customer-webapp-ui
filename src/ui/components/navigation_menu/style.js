@@ -34,6 +34,12 @@ export default styled.div`
 
     .orders_link {
       border: 1px solid black;
+      border-left: none;
+      padding: 0.5em;
+    }
+
+    .preferences_link {
+      border: 1px solid black;
       border-top-right-radius: 10px;
       border-bottom-right-radius: 10px;
       border-left: none;

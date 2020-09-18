@@ -27,6 +27,11 @@ export default class NavigationMenu extends Component {
             to={paths.orders_list}>
             Órdenes
           </Link>
+          <Link
+            className={`${paths.preferences === active_page ? 'active' : ''} preferences_link`}
+            to={paths.preferences}>
+            Preferencias
+          </Link>
         </div>
         <Link
           className={`${show_purchase_button ? 'complete_purchase_link' : 'hidden'}`}
