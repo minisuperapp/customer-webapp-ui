@@ -11,7 +11,7 @@ class LocationView extends React.Component {
       lng: -102.552788,
       lat: 23.634501,
       zoom: 3,
-      accept_disabled: true,
+      loading_map: true,
     }
   }
   async componentDidMount() {
@@ -42,7 +42,7 @@ class LocationView extends React.Component {
     })
     map.on('idle', () => {
       this.setState({
-        accept_disabled: false,
+        loading_map: false,
       })
     })
 
@@ -56,11 +56,6 @@ class LocationView extends React.Component {
       })
       map.flyTo({ center: [longitude, latitude], zoom })
     })
-  }
-
-  onCancel = () => {
-    const { history } = this.props
-    history.push(paths.products)
   }
 
   onAccept = () => {
@@ -79,18 +74,21 @@ class LocationView extends React.Component {
   }
 
   render() {
+    const { loading_map } = this.state
+    let title = 'Mueve el mapa para colocar el marcador en tu ubicación.'
+    if (loading_map) {
+      title = 'Cargando mapa...'
+    }
     return (
       <Style>
-        <div className="title">Mueve el mapa para colocar el marcador en tu ubicación.</div>
+        <div className="title">{title}</div>
         <div className="map_container">
           <div ref={el => (this.mapContainer = el)} className="map" />
         </div>
         <div className="button_container">
           <button
-            disabled={this.state.accept_disabled}
-            className={
-              this.state.accept_disabled ? 'accept_disabled accept_button' : 'accept_button'
-            }
+            disabled={this.state.loading_map}
+            className={this.state.loading_map ? 'accept_disabled accept_button' : 'accept_button'}
             onClick={this.onAccept}>
             Seleccionar
           </button>
