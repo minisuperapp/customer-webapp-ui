@@ -11,7 +11,7 @@ export default styled.div`
     justify-content: center;
     width: 100%;
     max-width: 320px;
-    margin-top: 1em;
+    margin-top: 0.5em;
 
     .accept_button {
       font-family: SFProTextRegular, serif;

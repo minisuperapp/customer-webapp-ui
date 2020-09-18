@@ -45,7 +45,9 @@ class PreferencesView extends React.Component {
           get_location_request={get_location_request}
         />
         <div className="button_container">
-          <button onClick={this.on_save}>Guardar</button>
+          <button className="accept_button" onClick={this.on_save}>
+            Guardar
+          </button>
         </div>
       </Style>
     )
