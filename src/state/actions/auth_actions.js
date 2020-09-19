@@ -1,7 +1,7 @@
 import * as types from './action_types'
 
-export function get_profile_request() {
-  return { type: types.GET_PROFILE_REQUEST }
+export function get_profile_request(on_success) {
+  return { type: types.GET_PROFILE_REQUEST, on_success }
 }
 
 export function get_profile_response(profile) {

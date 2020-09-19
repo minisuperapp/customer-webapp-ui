@@ -5,9 +5,11 @@ import * as auth_service from 'src/state/services/auth'
 import { show_alert_message } from '../actions/alert_actions'
 
 export function* get_profile() {
-  yield takeEvery(types.GET_PROFILE_REQUEST, function* () {
+  yield takeEvery(types.GET_PROFILE_REQUEST, function* (data) {
+    const { on_success } = data
     const response = yield call(auth_service.get_profile)
     yield put(get_profile_response(response.profile))
+    on_success && on_success(response)
   })
 }
 

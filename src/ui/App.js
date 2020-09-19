@@ -20,12 +20,20 @@ import { get_product_request } from 'src/state/actions/product_actions'
 import { get_best_offers_request } from 'src/state/actions/offer_actions'
 import { connect } from 'react-redux'
 import { paths } from 'src/constants'
+import config from '../config'
 import Alert from './components/alert'
+import LogRocket from 'logrocket'
 
 class App extends Component {
   async componentDidMount() {
     const { get_profile_request, get_product_request, get_best_offers_request } = this.props
-    get_profile_request()
+    get_profile_request(response => {
+      if (!config.isTestEnv && !config.disable_logrocket) {
+        LogRocket.identify(response.customer_id, {
+          customer_id: response.customer_id,
+        })
+      }
+    })
     get_product_request()
     get_best_offers_request()
   }

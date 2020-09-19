@@ -33,4 +33,7 @@ module.exports = {
     }
     return '/customer_api/socket.io/'
   },
+  get disable_logrocket() {
+    return localStorage.getItem('disable_logrocket')
+  }
 }
