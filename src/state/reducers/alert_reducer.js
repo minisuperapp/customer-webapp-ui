@@ -7,8 +7,8 @@ export default function reducer(state = initial_state.alert, action) {
     case types.SHOW_ALERT_MESSAGE: {
       return Immutable({
         ...state,
-        message: action.message,
-        ok_button_name: action.properties.ok_button_name,
+        message: action.properties.message,
+        ok_button_name: action.properties.ok_button_name || 'OK',
         on_accept: action.on_accept,
       })
     }

@@ -20,7 +20,7 @@ export function* login_customer() {
         on_success(response)
       }
     } else {
-      yield put(show_alert_message('Los datos son incorrectos'))
+      yield put(show_alert_message({ message: 'Los datos son incorrectos' }))
     }
     yield put(login_customer_response(response))
   })

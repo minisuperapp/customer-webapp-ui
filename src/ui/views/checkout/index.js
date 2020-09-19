@@ -1,11 +1,11 @@
 import React from 'react'
-import {CheckoutDetails} from './CheckoutDetails'
-import {connect} from 'react-redux'
-import {paths} from 'src/constants'
-import {set_selected_customer_location} from 'src/state/actions/cart_actions'
-import {assign_best_offer_request} from 'src/state/actions/offer_actions'
-import {place_order_request, get_orders_for_xday_request} from 'src/state/actions/order_actions'
-import {show_alert_message} from 'src/state/actions/alert_actions'
+import { CheckoutDetails } from './CheckoutDetails'
+import { connect } from 'react-redux'
+import { paths } from 'src/constants'
+import { set_selected_customer_location } from 'src/state/actions/cart_actions'
+import { assign_best_offer_request } from 'src/state/actions/offer_actions'
+import { place_order_request, get_orders_for_xday_request } from 'src/state/actions/order_actions'
+import { show_alert_message } from 'src/state/actions/alert_actions'
 
 class CheckoutView extends React.Component {
   constructor(props) {
@@ -27,12 +27,12 @@ class CheckoutView extends React.Component {
       set_selected_customer_location(customer_addresses[0].id)
     }
     assign_best_offer_request(cart.products, errors => {
-      this.setState({errors})
+      this.setState({ errors })
     })
   }
 
   on_customer_location_change = event => {
-    const {set_selected_customer_location} = this.props
+    const { set_selected_customer_location } = this.props
     set_selected_customer_location(event.target.value)
   }
 
@@ -54,22 +54,22 @@ class CheckoutView extends React.Component {
         get_orders_for_xday_request()
         history.push(paths.orders_list)
       },
-      (response) => {
+      response => {
         const products = response.data.map(e => `${e.product}(${e.quantity})`).join('\n')
-        show_alert_message(
-          `No hay suficiente cantidad de estos productos.\n ${products}`,
-        )
+        show_alert_message({
+          message: `No hay suficiente cantidad de estos productos.\n ${products}`,
+        })
       },
     )
   }
 
   on_cancel = async () => {
-    const {history} = this.props
-    history.push({pathname: paths.cart})
+    const { history } = this.props
+    history.push({ pathname: paths.cart })
   }
 
   render() {
-    const {cart, customer_addresses, products_index} = this.props
+    const { cart, customer_addresses, products_index } = this.props
     return (
       <CheckoutDetails
         cart={cart}
@@ -87,7 +87,7 @@ function mapStateToProps(state) {
   const {
     cart,
     customer_addresses,
-    products: {by_code},
+    products: { by_code },
   } = state
   return {
     cart,

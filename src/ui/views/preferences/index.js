@@ -31,7 +31,7 @@ class PreferencesView extends React.Component {
         zoom: this.state.location.zoom,
       },
       () => {
-        show_alert_message('Tu ubicación ha sido actualizada', () => {
+        show_alert_message({ message: 'Tu ubicación ha sido actualizada' }, () => {
           history.push(paths.home)
           window.location.reload()
         })

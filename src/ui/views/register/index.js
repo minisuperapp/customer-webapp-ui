@@ -26,7 +26,7 @@ class Register extends Component {
         email: '',
         password: '',
       })
-      show_alert_message('Tu cuenta se ha registrado con exito!')
+      show_alert_message({ message: 'Tu cuenta se ha registrado con exito!' })
       history.push(paths.login)
     })
   }

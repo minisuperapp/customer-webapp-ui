@@ -14,11 +14,15 @@ class ProductsView extends Component {
   async componentDidMount() {
     const { history, get_orders_for_xday_request, location, show_alert_message } = this.props
     if (!location.latitude || !location.longitude) {
-      show_alert_message('Antes de comenzar, establece tu ubicación.', {
-        ok_button_name: 'Establecer ubicación'
-      }, () => {
-        history.push(paths.preferences)
-      })
+      show_alert_message(
+        {
+          message: 'Antes de comenzar, establece tu ubicación.',
+          ok_button_name: 'Establecer ubicación',
+        },
+        () => {
+          history.push(paths.preferences)
+        },
+      )
     } else {
       get_orders_for_xday_request()
     }
