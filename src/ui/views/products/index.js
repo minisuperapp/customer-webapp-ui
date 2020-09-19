@@ -14,7 +14,9 @@ class ProductsView extends Component {
   async componentDidMount() {
     const { history, get_orders_for_xday_request, location, show_alert_message } = this.props
     if (!location.latitude || !location.longitude) {
-      show_alert_message('Antes de comenzar, es necesario establecer tu ubicación.', () => {
+      show_alert_message('Antes de comenzar, establece tu ubicación.', {
+        ok_button_name: 'Establecer ubicación'
+      }, () => {
         history.push(paths.preferences)
       })
     } else {
@@ -34,9 +36,6 @@ class ProductsView extends Component {
 
   render() {
     const { products, lowest_price_by_product, by_product, location, query, cart } = this.props
-    if (!location.latitude || !location.longitude) {
-      return null
-    }
     const products_to_show = query
       ? products.filter(
           product =>

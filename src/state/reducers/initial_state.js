@@ -6,6 +6,7 @@ const initial_state = {
   },
   alert: {
     message: '',
+    ok_button_name: 'OK',
     on_accept: () => true,
   },
   products: {

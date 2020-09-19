@@ -43,7 +43,7 @@ class LocationView extends React.Component {
   render() {
     return (
       <Style>
-        <div className="title">Selecciona tu ubicación exacta</div>
+        <div className="title">Selecciona y guarda tu ubicación exacta</div>
         <div className="map_container">
           <div ref={el => (this.mapContainer = el)} className="map" />
         </div>

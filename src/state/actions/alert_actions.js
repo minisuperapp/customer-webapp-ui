@@ -1,7 +1,7 @@
 import * as types from './action_types'
 
-export function show_alert_message(message, on_accept) {
-  return { type: types.SHOW_ALERT_MESSAGE, message, on_accept }
+export function show_alert_message(message, properties, on_accept) {
+  return { type: types.SHOW_ALERT_MESSAGE, message, properties, on_accept }
 }
 
 export function hide_alert_message() {

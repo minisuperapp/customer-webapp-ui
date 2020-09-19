@@ -14,14 +14,14 @@ class Alert extends Component {
   }
   render() {
     const {
-      alert: { message },
+      alert: { message, ok_button_name },
     } = this.props
     if (message) {
       return (
         <Style>
           <div className="message">{message}</div>
           <button className="close" onClick={this.handle_accept}>
-            OK
+            {ok_button_name}
           </button>
         </Style>
       )

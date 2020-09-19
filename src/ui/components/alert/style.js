@@ -7,15 +7,13 @@ export default styled.div`
   margin: 10em auto;
   background: #4e9d11;
   border: 2px solid black;
-  padding: 0.5em;
+  padding: 0.2em;
   color: #fefefe;
-  font-weight: bold;
   border-radius: 10px;
-  text-transform: uppercase;
   font-family: Tahoma, Geneva, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 1.2rem;
   text-align: center;
-  width: 18em;
+  width: 15em;
   z-index: 3;
 
   .message {
@@ -29,5 +27,6 @@ export default styled.div`
     cursor: pointer;
     background-color: #003049;
     padding: 0.2em 1em;
+    font-size: 1.2rem;
   }
 `
