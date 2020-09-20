@@ -1,3 +1,5 @@
+import * as apiRequester from '../../api'
+
 export const get_location = async () => {
   const latitude = localStorage.getItem('latitude')
   const longitude = localStorage.getItem('longitude')
@@ -15,4 +17,10 @@ export const set_location = location => {
   localStorage.setItem('latitude', location.latitude)
   localStorage.setItem('longitude', location.longitude)
   localStorage.setItem('zoom', location.zoom)
+  const request = {
+    method: 'post',
+    path: 'location/set_location',
+    payload: location,
+  }
+  return apiRequester.send(request)
 }
