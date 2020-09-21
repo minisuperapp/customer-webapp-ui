@@ -1,4 +1,5 @@
 export const paths = {
+  onboarding: `${process.env.SUBDIR}/onboarding`,
   home: `${process.env.SUBDIR}/`,
   quantity: `${process.env.SUBDIR}/quantity`,
   checkout: `${process.env.SUBDIR}/checkout`,

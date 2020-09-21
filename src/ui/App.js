@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Header from './views/header'
 import Footer from './views/footer'
+import OnboardingView from './views/onboarding'
 import ProductsView from './views/products'
 import PreferencesView from './views/preferences'
 import QuantityView from './views/quantity'
@@ -33,6 +34,9 @@ class App extends Component {
           customer_id: response.customer_id,
         })
       }
+      if (!response.location) {
+
+      }
     })
     get_product_request()
     get_best_offers_request()
@@ -45,6 +49,7 @@ class App extends Component {
         <Alert />
         <div className="main">
           <Switch>
+            <Route exact path={paths.onboarding} component={OnboardingView} />
             <Route exact path={paths.home} component={ProductsView} />
             <Route exact path={paths.preferences} component={PreferencesView} />
             <Route exact path={paths.quantity} component={QuantityView} />
