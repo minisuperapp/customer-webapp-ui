@@ -39,4 +39,12 @@ export default styled.div`
     width: 10em;
     border-radius: 8px;
   }
+
+  .area {
+    margin-top: 1em;
+    font-size: 1.5rem;
+    padding: 0.2em;
+    width: 10em;
+    border-radius: 8px;
+  }
 `
