@@ -29,6 +29,7 @@ export default styled.div`
     font-size: 1.5rem;
     padding: 0.2em;
     width: 10em;
+    border-radius: 8px;
   }
 
   .city {
@@ -36,5 +37,6 @@ export default styled.div`
     font-size: 1.5rem;
     padding: 0.2em;
     width: 10em;
+    border-radius: 8px;
   }
 `
