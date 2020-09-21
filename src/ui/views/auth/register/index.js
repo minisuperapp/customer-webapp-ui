@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { register_customer_request } from 'src/state/actions/auth_actions.js'
 import Style from './style'
 import { paths } from 'src/constants'
-import { show_alert_message } from '../../../state/actions/alert_actions'
+import { show_alert_message } from '../../../../state/actions/alert_actions'
 
 class Register extends Component {
   state = {

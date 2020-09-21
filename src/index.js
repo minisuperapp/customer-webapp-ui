@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import configure_store, { history } from './state/configure_store'
 import LogRocket from 'logrocket'
 import config from './config'
-import App from './ui/App'
+import UI from './ui'
 
 window.onresize = function () {
   document.body.height = window.innerHeight
@@ -18,7 +18,7 @@ const store = configure_store()
 render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <App history={history} />
+      <UI history={history} />
     </ConnectedRouter>
   </Provider>,
   document.getElementById('app'),

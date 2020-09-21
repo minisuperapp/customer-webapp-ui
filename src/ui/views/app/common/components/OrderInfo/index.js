@@ -1,6 +1,6 @@
 import React from 'react'
 import Style from './style'
-import * as images from 'src/ui/views/common/images'
+import * as images from 'src/ui/views/app/common/images'
 
 export class OrderInfo extends React.Component {
   render() {

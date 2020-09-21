@@ -1,28 +1,26 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import Header from './views/header'
-import Footer from './views/footer'
-import OnboardingView from './views/onboarding'
-import ProductsView from './views/products'
-import PreferencesView from './views/preferences'
-import QuantityView from './views/quantity'
-import CartView from './views/cart'
-import CheckoutView from './views/checkout'
-import DeliveryAddressView from './views/delivery_address'
-import ChangeDelivererView from './views/change_deliverer'
-import OrderView from './views/order'
-import OrdersListView from './views/orders_list'
-import OrdersDetailsView from './views/order_details'
-import Register from './views/register'
-import Login from './views/login'
+import Header from './header'
+import Footer from './footer'
+import OnboardingView from './onboarding'
+import ProductsView from './products'
+import PreferencesView from './preferences'
+import QuantityView from './quantity'
+import CartView from './cart'
+import CheckoutView from './checkout'
+import DeliveryAddressView from './delivery_address'
+import ChangeDelivererView from './change_deliverer'
+import OrderView from './order'
+import OrdersListView from './orders_list'
+import OrdersDetailsView from './order_details'
 import Style from './style'
 import { get_profile_request } from 'src/state/actions/auth_actions'
 import { get_product_request } from 'src/state/actions/product_actions'
 import { get_best_offers_request } from 'src/state/actions/offer_actions'
 import { connect } from 'react-redux'
 import { paths } from 'src/constants'
-import config from '../config'
-import Alert from './components/alert'
+import config from 'src/config'
+import Alert from 'src/ui/components/alert'
 import LogRocket from 'logrocket'
 
 class App extends Component {
@@ -57,8 +55,6 @@ class App extends Component {
             <Route exact path={paths.order} component={OrderView} />
             <Route exact path={paths.orders_list} component={OrdersListView} />
             <Route exact path={paths.order_details} component={OrdersDetailsView} />
-            <Route exact path={paths.register} component={Register} />
-            <Route exact path={paths.login} component={Login} />
           </Switch>
         </div>
         <Footer history={this.props.history} />

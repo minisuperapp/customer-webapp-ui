@@ -1,5 +1,5 @@
 import React from 'react'
-import {OrderInfo} from 'src/ui/views/common/components/OrderInfo'
+import {OrderInfo} from '../common/components/OrderInfo'
 import io from 'socket.io-client'
 import config from 'src/config'
 import Style from './style'

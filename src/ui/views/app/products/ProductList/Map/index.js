@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import mapboxgl from 'mapbox-gl'
 import Style from './style'
-import * as images from 'src/ui/views/common/images'
+import * as images from 'src/ui/views/app/common/images'
 
 export class Map extends Component {
   async componentDidMount() {

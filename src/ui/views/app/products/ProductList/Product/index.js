@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 import Style from './style'
-import * as images from 'src/ui/views/common/images'
+import * as images from 'src/ui/views/app/common/images'
 
 export class Product extends Component {
   quantity_type_map = {

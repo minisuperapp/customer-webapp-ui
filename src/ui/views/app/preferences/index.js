@@ -4,7 +4,7 @@ import LocationView from './LocationView'
 import { get_location_request, set_location } from 'src/state/actions/location_actions'
 import { show_alert_message } from 'src/state/actions/alert_actions'
 import Style from './style'
-import { paths } from '../../../constants'
+import { paths } from '../../../../constants'
 
 class PreferencesView extends React.Component {
   state = {
