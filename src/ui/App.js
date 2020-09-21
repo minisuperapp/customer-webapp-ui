@@ -34,9 +34,6 @@ class App extends Component {
           customer_id: response.customer_id,
         })
       }
-      if (!response.location) {
-
-      }
     })
     get_product_request()
     get_best_offers_request()
