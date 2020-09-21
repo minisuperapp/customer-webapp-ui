@@ -81,9 +81,9 @@ class LocationView extends Component {
           autoFocus={true}
           options={areas}
           placeholder="Colonia"
-          isClearable={true}
           isLoading={loading}
         />
+        <div className="area_name">{selected_area && selected_area.label}</div>
       </Style>
     )
   }

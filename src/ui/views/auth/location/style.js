@@ -47,4 +47,8 @@ export default styled.div`
     width: 10em;
     border-radius: 8px;
   }
+
+  .area_name {
+    color: #fefefe;
+  }
 `
