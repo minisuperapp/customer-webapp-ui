@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Header from './header'
 import Footer from './footer'
-import OnboardingView from './onboarding'
 import ProductsView from './products'
 import PreferencesView from './preferences'
 import QuantityView from './quantity'
@@ -14,25 +13,15 @@ import OrderView from './order'
 import OrdersListView from './orders_list'
 import OrdersDetailsView from './order_details'
 import Style from './style'
-import { get_profile_request } from 'src/state/actions/auth_actions'
 import { get_product_request } from 'src/state/actions/product_actions'
 import { get_best_offers_request } from 'src/state/actions/offer_actions'
 import { connect } from 'react-redux'
 import { paths } from 'src/constants'
-import config from 'src/config'
 import Alert from 'src/ui/components/alert'
-import LogRocket from 'logrocket'
 
 class App extends Component {
   async componentDidMount() {
-    const { get_profile_request, get_product_request, get_best_offers_request } = this.props
-    get_profile_request(response => {
-      if (!config.isTestEnv && !config.disable_logrocket) {
-        LogRocket.identify(response.customer_id, {
-          customer_id: response.customer_id,
-        })
-      }
-    })
+    const { get_product_request, get_best_offers_request } = this.props
     get_product_request()
     get_best_offers_request()
   }
@@ -44,7 +33,6 @@ class App extends Component {
         <Alert />
         <div className="main">
           <Switch>
-            <Route exact path={paths.onboarding} component={OnboardingView} />
             <Route exact path={paths.home} component={ProductsView} />
             <Route exact path={paths.preferences} component={PreferencesView} />
             <Route exact path={paths.quantity} component={QuantityView} />
@@ -64,7 +52,6 @@ class App extends Component {
 }
 
 const mapDispatchToProps = {
-  get_profile_request,
   get_product_request,
   get_best_offers_request,
 }
