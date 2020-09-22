@@ -1,8 +1,8 @@
 const initial_state = {
   location: {
-    latitude: localStorage.getItem('latitude') || '',
-    longitude: localStorage.getItem('longitude') || '',
-    zoom: localStorage.getItem('zoom') || '10',
+    longitude: -102.552788,
+    latitude: 23.634501,
+    zoom: 3,
   },
   alert: {
     message: '',

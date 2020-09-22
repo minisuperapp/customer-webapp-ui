@@ -1,34 +1,50 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import LocationView from './LocationView'
-import { get_location_request, set_location } from 'src/state/actions/location_actions'
+import { set_location } from 'src/state/actions/location_actions'
 import { show_alert_message } from 'src/state/actions/alert_actions'
 import Style from './style'
 import { paths } from '../../../../constants'
 
 class PreferencesView extends React.Component {
   state = {
-    location: {
-      lng: -102.552788,
-      lat: 23.634501,
+    map_location: {
+      longitude: -102.552788,
+      latitude: 23.634501,
       zoom: 3,
     },
   }
-  componentDidMount() {}
 
-  on_move_location = location => {
+  componentDidMount() {
+    const { location } = this.props
+    this.setState({ map_location: location })
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    const { location } = this.props
+    if (
+      prevState.map_location.latitude !== location.latitude ||
+      prevState.map_location.longitude !== location.longitude ||
+      prevState.map_location.zoom !== location.zoom
+    ) {
+      this.setState({ map_location: location })
+    }
+  }
+
+  on_move_location = map_location => {
     this.setState({
-      location,
+      map_location,
     })
   }
 
   on_save = () => {
     const { history, show_alert_message, set_location } = this.props
+    const { latitude, longitude, zoom } = this.state.map_location
     set_location(
       {
-        latitude: this.state.location.lat,
-        longitude: this.state.location.lng,
-        zoom: this.state.location.zoom,
+        latitude,
+        longitude,
+        zoom,
       },
       () => {
         show_alert_message({ message: 'Tu ubicación ha sido actualizada' }, () => {
@@ -40,14 +56,10 @@ class PreferencesView extends React.Component {
   }
 
   render() {
-    const { get_location_request } = this.props
+    const { map_location } = this.state
     return (
       <Style>
-        <LocationView
-          location={this.state.location}
-          on_move_location={this.on_move_location}
-          get_location_request={get_location_request}
-        />
+        <LocationView map_location={map_location} on_move_location={this.on_move_location} />
         <div className="button_container">
           <button className="accept_button" onClick={this.on_save}>
             Guardar
@@ -59,14 +71,14 @@ class PreferencesView extends React.Component {
 }
 
 function mapStateToProps(state) {
-  const { preferences } = state
+  const { preferences, location } = state
   return {
     preferences,
+    location,
   }
 }
 
 const mapDispatchToProps = {
-  get_location_request,
   show_alert_message,
   set_location,
 }

@@ -6,40 +6,17 @@ import { SearchOffersForOneProductRequest } from './requests/search_for_one_prod
 import { AssignBestOfferRequest } from './requests/assign_best'
 
 export const get_best_offers = async customerLocation => {
-  const offersRequest = new OffersGroupedByProductRequest.Builder()
-    .withCustomerLocationLatitude(customerLocation.latitude)
-    .withCustomerLocationLongitude(customerLocation.longitude)
-    .build()
+  const offersRequest = new OffersGroupedByProductRequest.Builder().build()
   const offersByProductResponse = await apiRequester.send(offersRequest)
 
   return _get(offersByProductResponse, 'data.data.offersByProduct', {})
 }
 
-export const assign_best_offer = async ({ location, products }) => {
-  const builder = new AssignBestOfferRequest.Builder()
-    .withCustomerLocationLatitude(location.latitude)
-    .withCustomerLocationLongitude(location.longitude)
-  Object.keys(products).map(key => {
-    const quantity = products[key]
-    builder.withProductCodeAndQuantity(key, quantity)
-  })
-  const request = builder.build()
-  let response
-  try {
-    response = await apiRequester.send(request)
-  } catch (err) {
-    return _get(err, 'response.data', {})
-  }
-  return _get(response, 'data', {})
-}
-
 export const get_product_offers = async payload => {
-  const { location, product_code, quantity } = payload
+  const { product_code, quantity } = payload
   const request = new SearchOffersForOneProductRequest.Builder()
     .withProductCode(product_code)
     .withQuantity(quantity)
-    .withCustomerLocationLatitude(location.latitude)
-    .withCustomerLocationLongitude(location.longitude)
     .build()
   const offers = await apiRequester.send(request)
   return offers.data

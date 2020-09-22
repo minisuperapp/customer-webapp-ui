@@ -51,9 +51,13 @@ class App extends Component {
   }
 }
 
+function mapStateToProps() {
+  return {}
+}
+
 const mapDispatchToProps = {
   get_product_request,
   get_best_offers_request,
 }
 
-export default connect(() => ({}), mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App)

@@ -16,8 +16,8 @@ export class ProductWish extends Component {
   }
 
   handle_product_wish = () => {
-    const { add_product_wish_request } = this.props
-    add_product_wish_request(this.state.description, () => {
+    const { add_product_wish_request, location } = this.props
+    add_product_wish_request(this.state.description, location, () => {
       this.setState({
         done: true,
       })
@@ -49,8 +49,11 @@ export class ProductWish extends Component {
   }
 }
 
-function mapStateToProps() {
-  return {}
+function mapStateToProps(state) {
+  const { location } = state
+  return {
+    location,
+  }
 }
 
 const mapDispatchToProps = {
