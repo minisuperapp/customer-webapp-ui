@@ -7,17 +7,26 @@ import { paths } from 'src/constants'
 import { connect } from 'react-redux'
 
 class NoOffersView extends Component {
-  go_to_products = () => {
-    const { history, hide_no_offers_alert } = this.props
+  componentDidMount() {
+    const { hide_no_offers_alert } = this.props
     hide_no_offers_alert()
+  }
+
+  go_to_products = () => {
+    const { history } = this.props
     history.push(paths.app.index)
   }
+
+  go_to_preferences = () => {
+    const { history } = this.props
+    history.push(paths.app.preferences)
+  }
+
   render() {
     return (
       <Style>
         <LazyLoadImage className="logo" alt="minisuper" src={logo} align="absmiddle" />
-        <div className="ups">Ups!</div>
-        <div className="title">No hay ofertas disponibles en tu zona :(</div>
+        <div className="title">No hay ofertas disponibles en tu zona.</div>
         <div className="subtitle">Te recomendamos intentar más tarde.</div>
         <div className="buttons">
           <button className="subscribe_button">Avisarme cuando haya ofertas en mi zona</button>
@@ -26,7 +35,9 @@ class NoOffersView extends Component {
           </button>
         </div>
         <div className="note">Nota: Asegúrate que tu ubicación este correcta.</div>
-        <button className="verify_button">Verificar mi ubicación</button>
+        <button className="verify_button" onClick={this.go_to_preferences}>
+          Verificar mi ubicación
+        </button>
       </Style>
     )
   }
