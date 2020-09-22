@@ -3,6 +3,7 @@ export { place_order, get_orders_for_xday } from './order_saga'
 export {
   get_best_offers,
   listen_published_offers,
+  assign_best_offer,
   get_product_offers,
   change_offer,
 } from './offer_saga'
