@@ -21,8 +21,7 @@ export function* get_best_offers() {
 
 export function* listen_published_offers() {
   const socket = connect()
-  const location = {}
-  socket.emit('subscribe_for_offers_updates', location, function () {})
+  socket.emit('subscribe_for_offers_updates')
   const chan = new eventChannel(emit => {
     socket.on('published_offer', offer => {
       emit({ channel: 'published_offer', offer })
