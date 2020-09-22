@@ -22,6 +22,11 @@ class NoOffersView extends Component {
     history.push(paths.app.preferences)
   }
 
+  go_to_offer_avail_enrollment = () => {
+    const { history } = this.props
+    history.push(paths.onboarding.offer_avail_enrollment)
+  }
+
   render() {
     return (
       <Style>
@@ -29,7 +34,9 @@ class NoOffersView extends Component {
         <div className="title">No hay ofertas disponibles en tu zona.</div>
         <div className="subtitle">Te recomendamos intentar más tarde.</div>
         <div className="buttons">
-          <button className="subscribe_button">Avisarme cuando haya ofertas en mi zona</button>
+          <button className="subscribe_button" onClick={this.go_to_offer_avail_enrollment}>
+            Avisarme cuando haya ofertas en mi zona
+          </button>
           <button className="go_to_products_button" onClick={this.go_to_products}>
             Ver productos
           </button>
