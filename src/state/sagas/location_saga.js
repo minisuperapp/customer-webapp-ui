@@ -15,8 +15,8 @@ export function* set_location() {
 export function* set_postal_area() {
   yield takeEvery(types.SET_POSTAL_AREA_REQUEST, function* (action) {
     const { postal_area, on_success } = action
-    yield call(location_api.set_postal_area, postal_area)
-    yield put(set_postal_area_response())
+    const response = yield call(location_api.set_postal_area, postal_area)
+    yield put(set_postal_area_response(response))
     on_success && on_success()
   })
 }

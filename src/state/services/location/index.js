@@ -1,6 +1,6 @@
 import * as apiRequester from '../../api'
 
-export const set_location = location => {
+export const set_location = async location => {
   const request = {
     method: 'post',
     path: 'location/set_location',
@@ -9,11 +9,12 @@ export const set_location = location => {
   return apiRequester.send(request)
 }
 
-export const set_postal_area = postal_area => {
+export const set_postal_area = async postal_area => {
   const request = {
     method: 'post',
     path: 'location/set_postal_area',
     payload: postal_area,
   }
-  return apiRequester.send(request)
+  const response = await apiRequester.send(request)
+  return response.data
 }
