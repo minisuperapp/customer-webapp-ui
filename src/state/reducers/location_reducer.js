@@ -9,8 +9,12 @@ export default function reducer(state = initial_state.location, action) {
       return Immutable({ latitude, longitude, zoom })
     }
     case types.GET_PROFILE_RESPONSE: {
-      const { latitude, longitude, zoom } = action.profile.location
-      return Immutable({ latitude, longitude, zoom: zoom || 12 })
+      const { location } = action.profile
+      if (location) {
+        const { latitude, longitude, zoom } = location
+        return Immutable({ latitude, longitude, zoom: zoom || 12 })
+      }
+      return state
     }
     default:
       return state

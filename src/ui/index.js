@@ -10,12 +10,15 @@ import LogRocket from 'logrocket'
 
 class UI extends Component {
   async componentDidMount() {
-    const { get_profile_request } = this.props
+    const { history, get_profile_request } = this.props
     get_profile_request(response => {
       if (!config.isTestEnv && !config.disable_logrocket) {
         LogRocket.identify(response.customer_id, {
           customer_id: response.customer_id,
         })
+      }
+      if (!response.location) {
+        history.push(paths.location)
       }
     })
   }
