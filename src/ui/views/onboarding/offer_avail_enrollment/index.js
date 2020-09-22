@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Style from './style'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-import { show_alert_message } from 'src/state/actions/alert_actions'
+import { hide_no_offers_alert, show_alert_message } from 'src/state/actions/alert_actions'
 import { save_email_phone_request } from 'src/state/actions/auth_actions'
 import logo from 'src/ui/images/logo.png'
 import { connect } from 'react-redux'
@@ -11,6 +11,11 @@ class OfferAvailEnrollmentView extends Component {
   state = {
     email: '',
     phone_number: '',
+  }
+
+  componentDidMount() {
+    const { hide_no_offers_alert } = this.props
+    hide_no_offers_alert()
   }
 
   go_to_products = () => {
@@ -34,13 +39,19 @@ class OfferAvailEnrollmentView extends Component {
     event.preventDefault()
     const { history, show_alert_message, save_email_phone_request } = this.props
     const { phone_number, email } = this.state
-    if (!email.trim() || !phone_number) {
-      show_alert_message('Ingresa to correo y/o número de teléfono.')
+    if (!email.trim() && !phone_number) {
+      show_alert_message({ message: 'Ingresa to correo y/o número de teléfono.' })
       return
     }
     save_email_phone_request({ phone_number, email }, () => {
-      show_alert_message('Listo! Nosotros te avisaremos cuando exista alguna oferta.')
-      history.push(paths.app.index)
+      show_alert_message(
+        {
+          message: 'Listo! Nosotros te avisaremos cuando exista alguna oferta.',
+        },
+        () => {
+          history.push(paths.app.index)
+        },
+      )
     })
   }
 
@@ -73,9 +84,12 @@ class OfferAvailEnrollmentView extends Component {
             <button className="go_back_button" onClick={this.go_to_products}>
               Volver
             </button>
-            <button className="accept_button" onClick={this.on_accept}>
-              Aceptar
-            </button>
+            <input
+              type="submit"
+              className="accept_button"
+              value="Aceptar"
+              onClick={this.on_accept}
+            />
           </div>
         </form>
       </Style>
@@ -89,6 +103,7 @@ function mapStateToProps() {
 
 const mapDispatchToProps = {
   show_alert_message,
+  hide_no_offers_alert,
   save_email_phone_request,
 }
 
