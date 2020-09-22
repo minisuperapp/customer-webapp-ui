@@ -14,7 +14,11 @@ export const paths = {
     preferences: `${process.env.SUBDIR}/preferences`,
     cart: `${process.env.SUBDIR}/cart`,
     order_details: `${process.env.SUBDIR}/order_details`,
-    register: `${process.env.SUBDIR}/register`,
-    login: `${process.env.SUBDIR}/login`,
+
   },
+  auth: {
+    index: `${process.env.SUBDIR}/auth`,
+    register: `${process.env.SUBDIR}/auth/register`,
+    login: `${process.env.SUBDIR}/auth/login`,
+  }
 }
