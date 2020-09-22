@@ -28,15 +28,21 @@ class NoOffersView extends Component {
   }
 
   render() {
+    const {
+      profile: { email, phone_number },
+    } = this.props
+    const show_enrollment_button = !email && !phone_number
     return (
       <Style>
         <LazyLoadImage className="logo" alt="minisuper" src={logo} align="absmiddle" />
         <div className="title">No hay ofertas disponibles en tu zona.</div>
         <div className="subtitle">Te recomendamos intentar más tarde.</div>
         <div className="buttons">
-          <button className="subscribe_button" onClick={this.go_to_offer_avail_enrollment}>
-            Avisarme cuando haya ofertas en mi zona
-          </button>
+          {show_enrollment_button && (
+            <button className="subscribe_button" onClick={this.go_to_offer_avail_enrollment}>
+              Avisarme cuando haya ofertas en mi zona
+            </button>
+          )}
           <button className="go_to_products_button" onClick={this.go_to_products}>
             Ver productos
           </button>
@@ -50,8 +56,11 @@ class NoOffersView extends Component {
   }
 }
 
-function mapStateToProps() {
-  return {}
+function mapStateToProps(state) {
+  const { profile } = state
+  return {
+    profile,
+  }
 }
 
 const mapDispatchToProps = {
