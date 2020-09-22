@@ -90,7 +90,7 @@ class LocationView extends Component {
       <Style>
         <LazyLoadImage className="logo" alt="minisuper" src={logo} align="absmiddle" />
         <div className="welcome">Bienvenido a Minisuper</div>
-        <div className="title">Antes de comenzar, selecciona tu ubicación</div>
+        <div className="title">Para continuar, selecciona tu ubicación</div>
         <Select className="state" defaultValue={states[0]} options={states} />
         <Select
           className="city"
