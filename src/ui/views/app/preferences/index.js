@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import LocationView from './LocationView'
-import { set_location } from 'src/state/actions/location_actions'
+import { set_location_request } from 'src/state/actions/location_actions'
 import { show_alert_message } from 'src/state/actions/alert_actions'
 import Style from './style'
 import { paths } from '../../../../constants'
@@ -38,9 +38,9 @@ class PreferencesView extends React.Component {
   }
 
   on_save = () => {
-    const { history, show_alert_message, set_location } = this.props
+    const { history, show_alert_message, set_location_request } = this.props
     const { latitude, longitude, zoom } = this.state.map_location
-    set_location(
+    set_location_request(
       {
         latitude,
         longitude,
@@ -80,7 +80,7 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
   show_alert_message,
-  set_location,
+  set_location_request,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PreferencesView)

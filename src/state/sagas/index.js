@@ -8,6 +8,6 @@ export {
   change_offer,
 } from './offer_saga'
 export { get_profile, login_customer } from './auth_saga'
-export { set_location, set_postal_area_request } from './location_saga'
+export { set_location, set_postal_area } from './location_saga'
 export { add_customer_address } from './address_saga'
 export { add_product_wish } from './product_wish_saga'
