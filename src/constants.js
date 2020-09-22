@@ -2,6 +2,7 @@ export const paths = {
   onboarding: {
     index: `${process.env.SUBDIR}/onboarding`,
     location: `${process.env.SUBDIR}/onboarding/location`,
+    no_offers: `${process.env.SUBDIR}/onboarding/no_offers`,
   },
   app: {
     index: `${process.env.SUBDIR}/`,
