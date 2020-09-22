@@ -82,6 +82,7 @@ class LocationView extends Component {
 
   render() {
     const { counties, states, areas, loading, selected_area } = this.state
+    const disable_button = !selected_area
     return (
       <Style>
         <LazyLoadImage className="logo" alt="minisuper" src={logo} align="absmiddle" />
@@ -100,11 +101,19 @@ class LocationView extends Component {
           className="area"
           autoFocus={true}
           options={areas}
-          placeholder="Colonia"
+          placeholder="Selecciona tu colonia"
           isLoading={loading}
+          noOptionsMessage={() => 'No hay datos'}
         />
-        <button onClick={this.on_accept}>Continuar</button>
-        <div className="area_name">{selected_area && selected_area.label}</div>
+        <div className="area_name">
+          {selected_area && `${selected_area.value} - ${selected_area.label}`}
+        </div>
+        <button
+          disabled={disable_button}
+          className={disable_button ? 'disabled_button' : 'accept_button'}
+          onClick={this.on_accept}>
+          Continuar
+        </button>
       </Style>
     )
   }
