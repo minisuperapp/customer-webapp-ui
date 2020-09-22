@@ -12,12 +12,26 @@ class OfferAvailEnrollmentView extends Component {
     email: '',
     phone_number: '',
   }
+
   go_to_products = () => {
     const { history } = this.props
     history.push(paths.onboarding.no_offers)
   }
 
-  on_accept = () => {
+  on_email_change = event => {
+    this.setState({
+      email: event.target.value,
+    })
+  }
+
+  on_phone_number_change = event => {
+    this.setState({
+      phone_number: event.target.value,
+    })
+  }
+
+  on_submit = event => {
+    event.preventDefault()
     const { history, show_alert_message, save_email_phone_request } = this.props
     const { phone_number, email } = this.state
     if (!email.trim() || !phone_number) {
@@ -31,19 +45,39 @@ class OfferAvailEnrollmentView extends Component {
   }
 
   render() {
+    const { email, phone_number } = this.state
+
     return (
       <Style>
         <LazyLoadImage className="logo" alt="minisuper" src={logo} align="absmiddle" />
         <div className="title">Introduce tu correo y/o teléfono.</div>
         <div className="subtitle">Te avisaremos cuando existan ofertas cerca de tí.</div>
-        <div className="buttons">
-          <button className="go_back_button" onClick={this.go_to_products}>
-            Volver
-          </button>
-          <button className="accept_button" onClick={this.on_accept}>
-            Aceptar
-          </button>
-        </div>
+        <form className="form" onSubmit={this.on_submit}>
+          <div className="form_fields">
+            <input
+              type="email"
+              className="field"
+              placeholder="Correo electrónico"
+              onChange={this.on_email_change}
+              value={email}
+            />
+            <input
+              type="tel"
+              className="field"
+              placeholder="Número de teléfono"
+              onChange={this.on_phone_number_change}
+              value={phone_number}
+            />
+          </div>
+          <div className="buttons">
+            <button className="go_back_button" onClick={this.go_to_products}>
+              Volver
+            </button>
+            <button className="accept_button" onClick={this.on_accept}>
+              Aceptar
+            </button>
+          </div>
+        </form>
       </Style>
     )
   }
