@@ -42,6 +42,9 @@ class LocationView extends Component {
   }
 
   on_city_change = async city => {
+    this.setState({
+      selected_county: city,
+    })
     await this.get_postal_areas(city.value)
   }
 
