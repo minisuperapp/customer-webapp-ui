@@ -8,8 +8,8 @@ export default function reducer(state = initial_state.profile, action) {
       const { email, phone_number } = action.response
       return Immutable({
         ...state,
-        email,
-        phone_number,
+        ...(phone_number && { phone_number }),
+        ...(email && { email }),
       })
     }
     default:
