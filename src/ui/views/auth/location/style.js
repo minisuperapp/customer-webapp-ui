@@ -41,10 +41,10 @@ export default styled.div`
   }
 
   .area {
-    margin-top: 1.1em;
-    font-size: 1.2rem;
+    margin-top: 1em;
+    font-size: 1.5rem;
     padding: 0.2em;
-    width: 12.5em;
+    width: 14em;
     border-radius: 8px;
   }
 

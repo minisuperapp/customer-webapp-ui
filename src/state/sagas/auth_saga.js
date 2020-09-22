@@ -8,7 +8,7 @@ export function* get_profile() {
   yield takeEvery(types.GET_PROFILE_REQUEST, function* (data) {
     const { on_success } = data
     const response = yield call(auth_service.get_profile)
-    yield put(get_profile_response(response.profile))
+    yield put(get_profile_response(response))
     on_success && on_success(response)
   })
 }

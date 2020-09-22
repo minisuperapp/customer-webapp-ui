@@ -12,20 +12,8 @@ class ProductsView extends Component {
     super(props)
   }
   async componentDidMount() {
-    const { history, get_orders_for_xday_request, location, show_alert_message } = this.props
-    if (!location.latitude || !location.longitude) {
-      show_alert_message(
-        {
-          message: 'Antes de comenzar, establece tu ubicación.',
-          ok_button_name: 'Establecer ubicación',
-        },
-        () => {
-          history.push(paths.preferences)
-        },
-      )
-    } else {
-      get_orders_for_xday_request()
-    }
+    const { get_orders_for_xday_request } = this.props
+    get_orders_for_xday_request()
   }
 
   handleProductSelection = product => () => {

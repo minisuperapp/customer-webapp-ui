@@ -8,7 +8,8 @@ export default function reducer(state = initial_state.customer_addresses, action
       return Immutable([...state, action.customer_address])
     }
     case types.GET_PROFILE_RESPONSE: {
-      return Immutable(action.addresses || [])
+      const { addresses } = action.profile
+      return Immutable(addresses || [])
     }
     default:
       return state
