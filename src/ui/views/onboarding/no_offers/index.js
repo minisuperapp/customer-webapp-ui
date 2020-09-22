@@ -36,12 +36,18 @@ class NoOffersView extends Component {
       <Style>
         <LazyLoadImage className="logo" alt="minisuper" src={logo} align="absmiddle" />
         <div className="title">No hay ofertas disponibles en tu zona.</div>
-        <div className="subtitle">Te recomendamos intentar más tarde.</div>
         <div className="buttons">
-          {show_enrollment_button && (
-            <button className="subscribe_button" onClick={this.go_to_offer_avail_enrollment}>
-              Avisarme cuando haya ofertas en mi zona
-            </button>
+          {show_enrollment_button ? (
+            <>
+              <div className="subtitle">Te recomendamos intentar más tarde.</div>
+              <button className="subscribe_button" onClick={this.go_to_offer_avail_enrollment}>
+                Avisarme cuando haya ofertas en mi zona
+              </button>
+            </>
+          ) : (
+            <div className="subtitle">
+              Nosotros te avisaremos cuando haya alguna oferta disponible.
+            </div>
           )}
           <button className="go_to_products_button" onClick={this.go_to_products}>
             Ver productos
