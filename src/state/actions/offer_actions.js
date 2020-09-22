@@ -1,7 +1,8 @@
 import * as types from './action_types'
 
-export const get_best_offers_request = () => ({
+export const get_best_offers_request = on_success => ({
   type: types.GET_BEST_OFFERS_REQUEST,
+  on_success,
 })
 
 export function get_best_offers_response(response) {

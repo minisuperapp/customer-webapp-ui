@@ -18,6 +18,12 @@ export default function reducer(state = initial_state.alert, action) {
         message: '',
       })
     }
+    case types.HIDE_NO_OFFERS_ALERT: {
+      return Immutable({
+        ...state,
+        hide_no_offers_alert: true,
+      })
+    }
     default:
       return state
   }

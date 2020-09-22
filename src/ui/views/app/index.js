@@ -21,9 +21,18 @@ import Alert from 'src/ui/components/alert'
 
 class App extends Component {
   async componentDidMount() {
-    const { get_product_request, get_best_offers_request } = this.props
+    const {
+      history,
+      get_product_request,
+      get_best_offers_request,
+      hide_no_offers_alert,
+    } = this.props
     get_product_request()
-    get_best_offers_request()
+    get_best_offers_request(offers => {
+      if (!Object.keys(offers).length && !hide_no_offers_alert) {
+        history.push(paths.onboarding.no_offers)
+      }
+    })
   }
 
   render() {
@@ -51,8 +60,13 @@ class App extends Component {
   }
 }
 
-function mapStateToProps() {
-  return {}
+function mapStateToProps(state) {
+  const {
+    alert: { hide_no_offers_alert },
+  } = state
+  return {
+    hide_no_offers_alert
+  }
 }
 
 const mapDispatchToProps = {

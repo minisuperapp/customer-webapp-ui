@@ -13,9 +13,11 @@ import { connect } from 'src/state/api/socket'
 import * as offersService from '../services/offers'
 
 export function* get_best_offers() {
-  yield takeEvery(types.GET_BEST_OFFERS_REQUEST, function* () {
+  yield takeEvery(types.GET_BEST_OFFERS_REQUEST, function* (data) {
+    const { on_success } = data
     const response = yield call(offers_api.get_best_offers)
     yield put(get_best_offers_response(response))
+    on_success && on_success(response)
   })
 }
 

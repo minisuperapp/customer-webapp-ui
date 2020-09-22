@@ -8,6 +8,7 @@ const initial_state = {
     message: '',
     ok_button_name: 'OK',
     on_accept: () => true,
+    hide_no_offers_alert: false,
   },
   products: {
     list: [],
