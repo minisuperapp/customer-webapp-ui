@@ -15,7 +15,7 @@ class Register extends Component {
 
   go_to_login = () => {
     const { history } = this.props
-    history.push(paths.login)
+    history.push(paths.auth.login)
   }
 
   on_accept = () => {
@@ -27,7 +27,7 @@ class Register extends Component {
         password: '',
       })
       show_alert_message({ message: 'Tu cuenta se ha registrado con exito!' })
-      history.push(paths.login)
+      history.push(paths.auth.login)
     })
   }
 

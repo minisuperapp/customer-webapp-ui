@@ -18,12 +18,12 @@ class ProductsView extends Component {
 
   handleProductSelection = product => () => {
     const { history } = this.props
-    history.push({ pathname: paths.quantity, search: `?product_code=${product.code}` })
+    history.push({ pathname: paths.app.quantity, search: `?product_code=${product.code}` })
   }
 
   go_to_location = () => {
     const { history } = this.props
-    history.push(paths.location)
+    history.push(paths.app.location)
   }
 
   render() {

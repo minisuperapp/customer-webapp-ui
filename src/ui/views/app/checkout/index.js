@@ -52,7 +52,7 @@ class CheckoutView extends React.Component {
       },
       () => {
         get_orders_for_xday_request()
-        history.push(paths.orders_list)
+        history.push(paths.app.orders_list)
       },
       response => {
         const products = response.data.map(e => `${e.product}(${e.quantity})`).join('\n')
@@ -65,7 +65,7 @@ class CheckoutView extends React.Component {
 
   on_cancel = async () => {
     const { history } = this.props
-    history.push({ pathname: paths.cart })
+    history.push({ pathname: paths.app.cart })
   }
 
   render() {

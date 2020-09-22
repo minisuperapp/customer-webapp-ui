@@ -29,8 +29,8 @@ class Header extends Component {
   handleProductSearch = event => {
     const { value } = event.target
     const { search_product_request, history } = this.props
-    if (history.location.path !== paths.home) {
-      history.push(paths.home)
+    if (history.location.path !== paths.app.index) {
+      history.push(paths.app.index)
     }
     search_product_request(value)
   }
@@ -49,7 +49,7 @@ class Header extends Component {
         </div>
         <div className="items">
           <div className="logo">
-            <Link to={paths.home}>
+            <Link to={paths.app.index}>
               <LazyLoadImage alt="minisuper" src={logo} align="absmiddle" />
             </Link>
           </div>

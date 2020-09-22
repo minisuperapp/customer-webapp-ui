@@ -15,7 +15,7 @@ class OrdersListView extends React.Component {
   }
   go_to_products = () => {
     const { history } = this.props
-    history.push(paths.home)
+    history.push(paths.app.index)
   }
 
   render() {

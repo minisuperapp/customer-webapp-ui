@@ -11,21 +11,21 @@ class CartView extends Component {
 
   handle_product_selection = product => () => {
     const { history } = this.props
-    history.push({ pathname: paths.quantity, search: `?product_code=${product.code}` })
+    history.push({ pathname: paths.app.quantity, search: `?product_code=${product.code}` })
   }
 
   go_to_checkout = () => {
     const { history, customer_addresses } = this.props
     if (!customer_addresses.length) {
-      history.push({ pathname: paths.delivery_address })
+      history.push({ pathname: paths.app.delivery_address })
     } else {
-      history.push({ pathname: paths.checkout })
+      history.push({ pathname: paths.app.checkout })
     }
   }
 
   go_to_products = () => {
     const { history } = this.props
-    history.push({ pathname: paths.home })
+    history.push({ pathname: paths.app.index })
   }
 
   remove_product = product_code => () => {

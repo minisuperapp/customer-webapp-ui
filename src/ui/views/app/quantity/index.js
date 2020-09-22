@@ -37,7 +37,7 @@ class QuantityView extends React.Component {
     const { product } = this.state
     const price = lowest_price_by_product[product.code]
     add_product(product.code, this.state.quantity, price)
-    history.push(paths.cart)
+    history.push(paths.app.cart)
   }
 
   addQuantity = () => {

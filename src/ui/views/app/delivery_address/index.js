@@ -16,14 +16,14 @@ class DeliveryAddressView extends React.Component {
 
   go_to_verify_order = () => {
     const { history } = this.props
-    history.push(paths.checkout)
+    history.push(paths.app.checkout)
   }
 
   on_accept = () => {
     const { history, add_customer_address_request, set_selected_customer_location } = this.props
     add_customer_address_request(this.state, customer_address => {
       set_selected_customer_location(customer_address.id)
-      history.push(paths.checkout)
+      history.push(paths.app.checkout)
     })
   }
 

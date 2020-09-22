@@ -36,7 +36,7 @@ export class CheckoutDetails extends React.Component {
                 )
               })}
             </select>
-            <Link className="add_address_link" to={paths.delivery_address}>
+            <Link className="add_address_link" to={paths.app.delivery_address}>
               Agregar lugar
             </Link>
           </div>

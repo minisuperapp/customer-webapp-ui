@@ -48,7 +48,7 @@ class PreferencesView extends React.Component {
       },
       () => {
         show_alert_message({ message: 'Tu ubicación ha sido actualizada' }, () => {
-          history.push(paths.home)
+          history.push(paths.app.index)
           window.location.reload()
         })
       },

@@ -8,7 +8,7 @@ class EmptyOrdersMessage extends Component {
     return (
       <Style>
         <div className="message">No tienes órdenes el día de hoy.</div>
-        <Link className={'link'} to={paths.home}>
+        <Link className={'link'} to={paths.app.index}>
           Buscar productos
         </Link>
       </Style>

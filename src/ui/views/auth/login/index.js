@@ -12,7 +12,7 @@ class Login extends Component {
 
   go_to_registration = () => {
     const { history } = this.props
-    history.push(paths.register)
+    history.push(paths.app.register)
   }
 
   on_accept = () => {
@@ -22,7 +22,7 @@ class Login extends Component {
         email: '',
         password: '',
       })
-      history.push(paths.home)
+      history.push(paths.app.index)
     })
   }
 

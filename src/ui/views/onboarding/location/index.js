@@ -78,7 +78,7 @@ class LocationView extends Component {
         postal_area_state: this.default_state.value,
       },
       () => {
-        history.push(paths.home)
+        history.push(paths.app.index)
       },
     )
   }

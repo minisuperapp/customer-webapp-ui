@@ -15,7 +15,7 @@ class OrderView extends React.Component {
 
   goToProducts = () => {
     const { history } = this.props
-    history.push(paths.home)
+    history.push(paths.app.index)
   }
 
   async componentDidMount() {

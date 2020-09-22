@@ -12,7 +12,7 @@ export class ProductList extends React.Component {
     return (
       <Style>
         <Link
-          to={paths.checkout}
+          to={paths.app.checkout}
           className={`${show_purchase_button ? 'complete_purchase_button' : 'hidden'}`}>
           Listo para ordenar
         </Link>

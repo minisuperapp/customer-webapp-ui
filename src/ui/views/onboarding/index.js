@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { paths } from 'src/constants'
-import LocationView from './location'
+import LocationView from '../onboarding/location'
 import Style from './style'
 
 class Auth extends Component {
@@ -10,7 +10,7 @@ class Auth extends Component {
     return (
       <Style>
         <Switch>
-          <Route exact path={paths.location} component={LocationView} />
+          <Route exact path={paths.onboarding.location} component={LocationView} />
         </Switch>
       </Style>
     )

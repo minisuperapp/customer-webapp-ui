@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import Auth from './views/auth'
+import Onboarding from './views/onboarding'
 import App from './views/app'
 import { paths } from 'src/constants'
 import { get_profile_request } from '../state/actions/auth_actions'
@@ -18,16 +18,16 @@ class UI extends Component {
         })
       }
       if (!response.location) {
-        history.push(paths.location)
+        history.push(paths.onboarding.location)
       }
     })
   }
   render() {
     return (
       <Switch>
-        <Route exact path={paths.auth} render={props => <App {...props} />} />
-        <Route path={paths.auth} render={props => <Auth {...props} />} />
-        <Route path={paths.home} render={props => <App {...props} />} />
+        <Route exact path={paths.onboarding.index} render={props => <App {...props} />} />
+        <Route path={paths.onboarding.index} render={props => <Onboarding {...props} />} />
+        <Route path={paths.app.index} render={props => <App {...props} />} />
       </Switch>
     )
   }

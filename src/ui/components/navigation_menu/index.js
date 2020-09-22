@@ -12,23 +12,23 @@ export default class NavigationMenu extends Component {
       <Style>
         <div className="menu">
           <Link
-            className={`${paths.home === active_page ? 'active' : ''} products_link`}
-            to={paths.home}>
+            className={`${paths.app.index === active_page ? 'active' : ''} products_link`}
+            to={paths.app.index}>
             Productos
           </Link>
           <Link
-            className={`${active_page === paths.cart ? 'active' : ''} cart_link`}
-            to={paths.cart}>
+            className={`${active_page === paths.app.cart ? 'active' : ''} cart_link`}
+            to={paths.app.cart}>
             {cart_link_name}
           </Link>
           <Link
-            className={`${paths.orders_list === active_page ? 'active' : ''} orders_link`}
-            to={paths.orders_list}>
+            className={`${paths.app.orders_list === active_page ? 'active' : ''} orders_link`}
+            to={paths.app.orders_list}>
             Órdenes
           </Link>
           <Link
-            className={`${paths.preferences === active_page ? 'active' : ''} preferences_link`}
-            to={paths.preferences}>
+            className={`${paths.app.preferences === active_page ? 'active' : ''} preferences_link`}
+            to={paths.app.preferences}>
             Mi ubicación
           </Link>
         </div>

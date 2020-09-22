@@ -33,16 +33,16 @@ class App extends Component {
         <Alert />
         <div className="main">
           <Switch>
-            <Route exact path={paths.home} component={ProductsView} />
-            <Route exact path={paths.preferences} component={PreferencesView} />
-            <Route exact path={paths.quantity} component={QuantityView} />
-            <Route exact path={paths.cart} component={CartView} />
-            <Route exact path={paths.checkout} component={CheckoutView} />
-            <Route exact path={paths.delivery_address} component={DeliveryAddressView} />
-            <Route exact path={paths.change_deliverer} component={ChangeDelivererView} />
-            <Route exact path={paths.order} component={OrderView} />
-            <Route exact path={paths.orders_list} component={OrdersListView} />
-            <Route exact path={paths.order_details} component={OrdersDetailsView} />
+            <Route exact path={paths.app.index} component={ProductsView} />
+            <Route exact path={paths.app.preferences} component={PreferencesView} />
+            <Route exact path={paths.app.quantity} component={QuantityView} />
+            <Route exact path={paths.app.cart} component={CartView} />
+            <Route exact path={paths.app.checkout} component={CheckoutView} />
+            <Route exact path={paths.app.delivery_address} component={DeliveryAddressView} />
+            <Route exact path={paths.app.change_deliverer} component={ChangeDelivererView} />
+            <Route exact path={paths.app.order} component={OrderView} />
+            <Route exact path={paths.app.orders_list} component={OrdersListView} />
+            <Route exact path={paths.app.order_details} component={OrdersDetailsView} />
           </Switch>
         </div>
         <Footer history={this.props.history} />
