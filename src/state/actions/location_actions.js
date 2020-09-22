@@ -10,15 +10,18 @@ export function get_location_response(location) {
 }
 
 export const set_location = (location, on_success) => ({
-  type: types.SET_LOCATION,
+  type: types.SET_LOCATION_REQUEST,
   location,
   on_success,
 })
 
-export function add_customer_address_request(customer_address, on_success) {
-  return { type: types.ADD_CUSTOMER_ADDRESS_REQUEST, customer_address, on_success }
-}
+export const set_postal_area_request = (postal_area, on_success) => ({
+  type: types.SET_POSTAL_AREA_REQUEST,
+  postal_area,
+  on_success,
+})
 
-export function add_customer_address_response(customer_address) {
-  return { type: types.ADD_CUSTOMER_ADDRESS_RESPONSE, customer_address }
-}
+export const set_postal_area_response = response => ({
+  type: types.SET_POSTAL_AREA_RESPONSE,
+  response,
+})

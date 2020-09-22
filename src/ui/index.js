@@ -5,8 +5,8 @@ import App from './views/app'
 import { paths } from 'src/constants'
 import { get_profile_request } from '../state/actions/auth_actions'
 import { connect } from 'react-redux'
-import config from "../config";
-import LogRocket from "logrocket";
+import config from '../config'
+import LogRocket from 'logrocket'
 
 class UI extends Component {
   async componentDidMount() {

@@ -2,23 +2,27 @@ import React, { Component } from 'react'
 import Style from './style'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import * as postal_areas from 'src/state/services/postal_areas'
+import { set_postal_area_request } from 'src/state/actions/location_actions'
 import logo from 'src/ui/images/logo.png'
 import Select from 'react-select'
+import { connect } from 'react-redux'
+import { paths } from 'src/constants'
 
 class LocationView extends Component {
+  default_state = {
+    value: 'Chihuahua',
+    label: 'Chihuahua',
+  }
+  default_county = {
+    value: 'Delicias',
+    label: 'Delicias',
+  }
+
   state = {
     loading: false,
-    states: [
-      {
-        value: 'Chihuahua',
-        label: 'Chihuahua',
-      },
-    ],
+    states: [this.default_state],
     counties: [
-      {
-        value: 'Delicias',
-        label: 'Delicias',
-      },
+      this.default_county,
       {
         value: 'Meoqui',
         label: 'Meoqui',
@@ -29,6 +33,7 @@ class LocationView extends Component {
       },
     ],
     areas: [],
+    selected_county: this.default_county,
     selected_area: null,
   }
 
@@ -60,6 +65,21 @@ class LocationView extends Component {
     )
   }
 
+  on_accept = () => {
+    const { history, set_postal_area_request } = this.props
+    set_postal_area_request(
+      {
+        postal_area_code: this.state.selected_area.value,
+        postal_area_name: this.state.selected_area.label,
+        postal_area_county: this.state.selected_county.value,
+        postal_area_state: this.default_state.value,
+      },
+      () => {
+        history.push(paths.home)
+      },
+    )
+  }
+
   render() {
     const { counties, states, areas, loading, selected_area } = this.state
     return (
@@ -83,10 +103,19 @@ class LocationView extends Component {
           placeholder="Colonia"
           isLoading={loading}
         />
+        <button onClick={this.on_accept}>Continuar</button>
         <div className="area_name">{selected_area && selected_area.label}</div>
       </Style>
     )
   }
 }
 
-export default LocationView
+function mapStateToProps() {
+  return {}
+}
+
+const mapDispatchToProps = {
+  set_postal_area_request,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LocationView)

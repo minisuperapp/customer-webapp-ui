@@ -24,3 +24,12 @@ export const set_location = location => {
   }
   return apiRequester.send(request)
 }
+
+export const set_postal_area = postal_area => {
+  const request = {
+    method: 'post',
+    path: 'location/set_postal_area',
+    payload: postal_area,
+  }
+  return apiRequester.send(request)
+}
