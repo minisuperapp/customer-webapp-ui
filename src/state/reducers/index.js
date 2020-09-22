@@ -7,6 +7,7 @@ import auth from './auth_reducer'
 import location from './location_reducer'
 import customer_addresses from './customer_addresses_reducer'
 import alert from './alert_reducer'
+import profile from './profile_reducer'
 
 const createRootReducer = history =>
   combineReducers({
@@ -18,6 +19,7 @@ const createRootReducer = history =>
     location,
     customer_addresses,
     alert,
+    profile,
   })
 
 export default createRootReducer

@@ -33,6 +33,10 @@ const initial_state = {
     login: {},
   },
   customer_addresses: [],
+  profile: {
+    phone_number: '',
+    email: '',
+  },
 }
 
 function get_from_storage(key, default_value) {

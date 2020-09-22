@@ -16,6 +16,14 @@ export function register_customer_response(response) {
   return { type: types.REGISTER_CUSTOMER_RESPONSE, response }
 }
 
+export function save_email_phone_request(payload, on_success) {
+  return { type: types.SAVE_EMAIL_PHONE_REQUEST, payload, on_success }
+}
+
+export function save_email_phone_response(response) {
+  return { type: types.SAVE_EMAIL_PHONE_RESPONSE, response }
+}
+
 export function login_customer_request(credentials, on_success) {
   return { type: types.LOGIN_CUSTOMER_REQUEST, credentials, on_success }
 }

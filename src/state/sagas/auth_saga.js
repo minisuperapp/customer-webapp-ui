@@ -1,6 +1,10 @@
 import { put, takeEvery, call } from 'redux-saga/effects'
 import * as types from 'src/state/actions/action_types'
-import { login_customer_response, get_profile_response } from '../actions/auth_actions'
+import {
+  login_customer_response,
+  get_profile_response,
+  save_email_phone_response,
+} from '../actions/auth_actions'
 import * as auth_service from 'src/state/services/auth'
 import { show_alert_message } from '../actions/alert_actions'
 
@@ -9,6 +13,15 @@ export function* get_profile() {
     const { on_success } = data
     const response = yield call(auth_service.get_profile)
     yield put(get_profile_response(response))
+    on_success && on_success(response)
+  })
+}
+
+export function* save_email_phone() {
+  yield takeEvery(types.SAVE_EMAIL_PHONE_REQUEST, function* (data) {
+    const { on_success, payload } = data
+    const response = yield call(auth_service.save_email_phone, payload)
+    yield put(save_email_phone_response(payload))
     on_success && on_success(response)
   })
 }
