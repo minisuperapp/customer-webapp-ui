@@ -41,7 +41,6 @@ class Header extends Component {
       <Style>
         <div className="search">
           <input
-            autoFocus={true}
             type="text"
             placeholder="Busca un producto..."
             onChange={this.handleProductSearch}
