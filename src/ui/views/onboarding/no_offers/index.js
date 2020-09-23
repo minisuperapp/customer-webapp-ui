@@ -7,18 +7,15 @@ import { paths } from 'src/constants'
 import { connect } from 'react-redux'
 
 class NoOffersView extends Component {
-  componentDidMount() {
-    const { hide_no_offers_alert } = this.props
-    hide_no_offers_alert()
-  }
-
   go_to_products = () => {
-    const { history } = this.props
+    const { history, hide_no_offers_alert } = this.props
+    hide_no_offers_alert()
     history.push(paths.app.index)
   }
 
   go_to_preferences = () => {
-    const { history } = this.props
+    const { history, hide_no_offers_alert } = this.props
+    hide_no_offers_alert()
     history.push(paths.app.preferences)
   }
 

@@ -13,13 +13,9 @@ class OfferAvailEnrollmentView extends Component {
     phone_number: '',
   }
 
-  componentDidMount() {
-    const { hide_no_offers_alert } = this.props
-    hide_no_offers_alert()
-  }
-
   go_to_products = () => {
-    const { history } = this.props
+    const { history, hide_no_offers_alert } = this.props
+    hide_no_offers_alert()
     history.push(paths.onboarding.no_offers)
   }
 
