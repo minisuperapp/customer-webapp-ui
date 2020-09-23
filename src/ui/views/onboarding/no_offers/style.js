@@ -22,6 +22,7 @@ export default styled.div`
     font-size: 1.5rem;
     text-align: center;
     color: #fefefe;
+    width: 80%;
   }
 
   .subtitle {
@@ -29,6 +30,7 @@ export default styled.div`
     font-size: 1.3rem;
     text-align: center;
     color: #fefefe;
+    width: 80%;
   }
 
   .buttons {
@@ -62,6 +64,7 @@ export default styled.div`
     font-size: 1.2rem;
     text-align: center;
     color: #fefefe;
+    width: 80%;
   }
 
   .verify_button {
