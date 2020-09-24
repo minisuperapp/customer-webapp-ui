@@ -7,22 +7,25 @@ export default function reducer(state = initial_state.location, action) {
     case types.SET_POSTAL_AREA_RESPONSE: {
       const { location } = action.response
       if (location) {
-        const { latitude, longitude, zoom } = location
-        return Immutable({ latitude, longitude, zoom })
+        return Immutable(location)
       }
       return state
     }
     case types.GET_PROFILE_RESPONSE: {
       const { location } = action.profile
       if (location) {
-        const { latitude, longitude, zoom } = location
-        return Immutable({ latitude, longitude, zoom: zoom || 12 })
+        return Immutable(location)
       }
       return state
     }
     case types.SET_LOCATION_REQUEST: {
       const { latitude, longitude, zoom } = action.location
-      return Immutable({ latitude, longitude, zoom })
+      return Immutable({
+        latitude,
+        longitude,
+        zoom,
+        ...state,
+      })
     }
     default:
       return state

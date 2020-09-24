@@ -3,6 +3,10 @@ const initial_state = {
     longitude: -102.552788,
     latitude: 23.634501,
     zoom: 3,
+    postal_area_code: '',
+    postal_area_name: '',
+    postal_area_county: '',
+    postal_area_state: '',
   },
   alert: {
     message: '',

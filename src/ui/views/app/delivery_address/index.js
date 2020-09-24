@@ -6,9 +6,13 @@ import { set_selected_customer_location } from 'src/state/actions/cart_actions'
 import { paths } from 'src/constants'
 
 class DeliveryAddressView extends React.Component {
+  state = {
+    name: '',
+    street: '',
+    number: '',
+  }
   handleChange = event => {
     const { name, value } = event.target
-
     this.setState({
       [name]: value,
     })
@@ -20,8 +24,22 @@ class DeliveryAddressView extends React.Component {
   }
 
   on_accept = () => {
-    const { history, add_customer_address_request, set_selected_customer_location } = this.props
-    add_customer_address_request(this.state, customer_address => {
+    const {
+      history,
+      location,
+      add_customer_address_request,
+      set_selected_customer_location,
+    } = this.props
+    const { postal_area_code, postal_area_name, postal_area_county, postal_area_state } = location
+    const address = {
+      ...this.state,
+      neighborhood: postal_area_name,
+      city: postal_area_county,
+      state: postal_area_state,
+      postal_code: postal_area_code,
+      country: 'Mexico'
+    }
+    add_customer_address_request(address, customer_address => {
       set_selected_customer_location(customer_address.id)
       history.push(paths.app.checkout)
     })
@@ -33,9 +51,14 @@ class DeliveryAddressView extends React.Component {
   }
 
   render() {
+    const { name, street, number } = this.state
+    const { location } = this.props
     return (
       <DeliveryAddressForm
-        history={this.props.history}
+        name={name}
+        street={street}
+        number={number}
+        location={location}
         handleChange={this.handleChange}
         on_accept={this.on_accept}
         on_cancel={this.on_cancel}
@@ -46,26 +69,9 @@ class DeliveryAddressView extends React.Component {
 }
 
 function mapStateToProps(state) {
-  const {
-    name,
-    street,
-    number,
-    apartment_number,
-    neighborhood,
-    city,
-    postal_code,
-    //state,
-  } = state
+  const { location } = state
   return {
-    name: name,
-    street: street,
-    number: number,
-    apartment_number: apartment_number,
-    neighborhood: neighborhood,
-    city: city,
-    postal_code: postal_code,
-    state: 'Chihuahua',
-    country: 'Mexico',
+    location,
   }
 }
 

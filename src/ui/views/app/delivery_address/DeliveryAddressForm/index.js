@@ -3,19 +3,7 @@ import Style from './style'
 
 class DeliveryAddressForm extends React.Component {
   render() {
-    const {
-      handleChange,
-      on_accept,
-      on_cancel,
-      name,
-      street,
-      number,
-      //apartment_number,
-      neighborhood,
-      city,
-      postal_code,
-      //state,
-    } = this.props
+    const { name, street, number, location, handleChange, on_accept, on_cancel } = this.props
 
     return (
       <Style>
@@ -58,11 +46,10 @@ class DeliveryAddressForm extends React.Component {
             <label htmlFor="neighborhood">Colonia</label>
             <input
               className="field"
+              disabled={true}
               name="neighborhood"
-              placeholder="colonia"
               type="text"
-              value={neighborhood}
-              onChange={handleChange}
+              value={location.postal_area_name}
             />
           </div>
           <div className="city">
@@ -70,10 +57,9 @@ class DeliveryAddressForm extends React.Component {
             <input
               className="field"
               name="city"
-              placeholder="ciudad"
               type="text"
-              value={city}
-              onChange={handleChange}
+              disabled={true}
+              value={location.postal_area_county}
             />
           </div>
           <div className="zip-code">
@@ -81,10 +67,9 @@ class DeliveryAddressForm extends React.Component {
             <input
               className="field"
               name="postal_code"
-              placeholder="código postal"
               type="number"
-              value={postal_code}
-              onChange={handleChange}
+              disabled={true}
+              value={location.postal_area_code}
             />
           </div>
         </div>
