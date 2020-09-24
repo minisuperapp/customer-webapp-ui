@@ -20,7 +20,7 @@ class PreferencesView extends React.Component {
     this.setState({ map_location: location })
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
+  componentDidUpdate(prevProps, prevState) {
     const { location } = this.props
     if (
       prevState.map_location.latitude !== location.latitude ||

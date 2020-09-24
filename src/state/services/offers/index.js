@@ -5,10 +5,9 @@ import { OffersGroupedByProductRequest } from './requests/search_for_all_product
 import { SearchOffersForOneProductRequest } from './requests/search_for_one_product'
 import { AssignBestOfferRequest } from './requests/assign_best'
 
-export const get_best_offers = async customerLocation => {
+export const get_best_offers = async () => {
   const offersRequest = new OffersGroupedByProductRequest.Builder().build()
   const offersByProductResponse = await apiRequester.send(offersRequest)
-
   return _get(offersByProductResponse, 'data.data.offersByProduct', {})
 }
 

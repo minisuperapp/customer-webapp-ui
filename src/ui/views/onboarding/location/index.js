@@ -79,6 +79,7 @@ class LocationView extends Component {
       },
       () => {
         history.push(paths.app.index)
+        window.location.reload()
       },
     )
   }
@@ -104,7 +105,7 @@ class LocationView extends Component {
           className="area"
           autoFocus={true}
           options={areas}
-          placeholder="Selecciona tu colonia"
+          placeholder="Ingresa tu colonia"
           isLoading={loading}
           noOptionsMessage={() => 'No hay datos'}
         />
