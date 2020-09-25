@@ -59,6 +59,7 @@ export default styled.div`
     border-radius: 8px;
     background-color: #fcbf49;
     color: #003049;
+    cursor: pointer;
   }
 
   .disabled_button {
@@ -68,5 +69,6 @@ export default styled.div`
     border-radius: 8px;
     background-color: #b5bbb7;
     color: #fefefe;
+    cursor: pointer;
   }
 `

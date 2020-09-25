@@ -63,6 +63,7 @@ export default styled.div`
         width: 10em;
         background-color: #fcbf49;
         color: #003049;
+        cursor: pointer;
       }
 
       .go_back_button {
@@ -74,6 +75,7 @@ export default styled.div`
         width: 10em;
         background-color: #fefefe;
         color: #003049;
+        cursor: pointer;
       }
     }
   }
