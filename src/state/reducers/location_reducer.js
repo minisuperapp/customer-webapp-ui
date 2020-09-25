@@ -7,7 +7,11 @@ export default function reducer(state = initial_state.location, action) {
     case types.SET_POSTAL_AREA_RESPONSE: {
       const { location } = action.response
       if (location) {
-        return Immutable(location)
+        return Immutable({
+          ...state,
+          ...location,
+          zoom: location.zoom || 12,
+        })
       }
       return state
     }
