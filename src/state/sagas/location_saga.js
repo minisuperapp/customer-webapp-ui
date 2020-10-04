@@ -7,7 +7,7 @@ export function* set_location() {
   yield takeEvery(types.SET_LOCATION_REQUEST, function* (action) {
     const { location, on_success } = action
     yield call(location_api.set_location, location)
-    set_location_response(location)
+    yield put(set_location_response(location))
     on_success && on_success()
   })
 }

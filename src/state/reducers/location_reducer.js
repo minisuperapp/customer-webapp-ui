@@ -18,13 +18,13 @@ export default function reducer(state = initial_state.location, action) {
       }
       return state
     }
-    case types.SET_LOCATION_REQUEST: {
+    case types.SET_LOCATION_RESPONSE: {
       const { latitude, longitude, zoom } = action.location
       return Immutable({
+        ...state,
         latitude,
         longitude,
         zoom,
-        ...state,
       })
     }
     default:
