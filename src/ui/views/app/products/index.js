@@ -26,6 +26,19 @@ class ProductsView extends Component {
     history.push(paths.app.location)
   }
 
+  go_to_checkout = () => {
+    const { history, customer_addresses, cart, show_alert_message } = this.props
+    if (Number(cart.total) < 100) {
+      show_alert_message({ message: 'El mínimo de compra es de $100' })
+      return
+    }
+    if (!customer_addresses.length) {
+      history.push({ pathname: paths.app.delivery_address })
+    } else {
+      history.push({ pathname: paths.app.checkout })
+    }
+  }
+
   render() {
     const { products, lowest_price_by_product, by_product, location, query, cart } = this.props
     const products_to_show = query
@@ -47,13 +60,14 @@ class ProductsView extends Component {
         location={location}
         go_to_location={this.go_to_location}
         cart={cart}
+        go_to_checkout={this.go_to_checkout}
       />
     )
   }
 }
 
 function mapStateToProps(state) {
-  const { products, orders, location, cart } = state
+  const { products, orders, location, cart, customer_addresses } = state
   return {
     products: products.list,
     query: products.query,
@@ -62,6 +76,7 @@ function mapStateToProps(state) {
     orders,
     location,
     cart,
+    customer_addresses,
   }
 }
 

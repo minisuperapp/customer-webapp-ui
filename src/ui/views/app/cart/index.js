@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { remove_product } from 'src/state/actions/cart_actions'
+import { show_alert_message } from 'src/state/actions/alert_actions'
 import { ProductList } from './ProductList'
 import { paths } from 'src/constants'
 
@@ -15,7 +16,11 @@ class CartView extends Component {
   }
 
   go_to_checkout = () => {
-    const { history, customer_addresses } = this.props
+    const { history, customer_addresses, cart, show_alert_message } = this.props
+    if (Number(cart.total) < 100) {
+      show_alert_message({ message: 'El mínimo de compra es de $100' })
+      return
+    }
     if (!customer_addresses.length) {
       history.push({ pathname: paths.app.delivery_address })
     } else {
@@ -66,6 +71,7 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
   remove_product,
+  show_alert_message,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartView)
