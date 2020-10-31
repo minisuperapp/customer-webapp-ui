@@ -92,12 +92,13 @@ class LocationView extends Component {
         <LazyLoadImage className="logo" alt="minisuper" src={logo} align="absmiddle" />
         <div className="welcome">Bienvenido a Minisuper</div>
         <div className="title">Para continuar, selecciona tu ubicación</div>
-        <Select className="state" defaultValue={states[0]} options={states} />
+        <Select className="state" defaultValue={states[0]} options={states} isSearchable={false} />
         <Select
           className="city"
           defaultValue={counties[0]}
           options={counties}
           onChange={this.on_city_change}
+          isSearchable={false}
         />
         <Select
           value={selected_area}
@@ -105,7 +106,7 @@ class LocationView extends Component {
           className="area"
           autoFocus={true}
           options={areas}
-          placeholder="Ingresa tu colonia"
+          placeholder="Busca tu colonia"
           isLoading={loading}
           noOptionsMessage={() => 'No hay datos'}
         />
