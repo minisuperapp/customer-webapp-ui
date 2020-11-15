@@ -5,9 +5,10 @@ import Immutable from 'seamless-immutable'
 export default function reducer(state = initial_state.profile, action) {
   switch (action.type) {
     case types.GET_PROFILE_RESPONSE: {
-      const { email, phone_number } = action.profile
+      const { email, phone_number, customer_id } = action.profile
       return Immutable({
         ...state,
+        customer_id,
         email,
         phone_number,
       })

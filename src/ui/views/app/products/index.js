@@ -12,8 +12,10 @@ class ProductsView extends Component {
     super(props)
   }
   async componentDidMount() {
-    const { get_orders_for_xday_request } = this.props
-    get_orders_for_xday_request()
+    const { get_orders_for_xday_request, profile } = this.props
+    if (profile.customer_id) {
+      get_orders_for_xday_request()
+    }
   }
 
   handleProductSelection = product => () => {
@@ -67,7 +69,7 @@ class ProductsView extends Component {
 }
 
 function mapStateToProps(state) {
-  const { products, orders, location, cart, customer_addresses } = state
+  const { products, orders, location, cart, customer_addresses, profile } = state
   return {
     products: products.list,
     query: products.query,
@@ -77,6 +79,7 @@ function mapStateToProps(state) {
     location,
     cart,
     customer_addresses,
+    profile,
   }
 }
 

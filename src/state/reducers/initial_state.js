@@ -38,6 +38,7 @@ const initial_state = {
   },
   customer_addresses: [],
   profile: {
+    customer_id: '',
     phone_number: '',
     email: '',
   },
