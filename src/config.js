@@ -10,14 +10,14 @@ module.exports = {
   },
   get isTestEnv() {
     return !(
-      /^https:\/\/www\.minisuper\.app\/comprar/i.test(window.location.href) ||
-      /^https:\/\/minisuper\.app\/comprar/i.test(window.location.href)
+      /^https:\/\/www\.minisuper\.com\.mx\/comprar/i.test(window.location.href) ||
+      /^https:\/\/minisuper\.com\.mx\/comprar/i.test(window.location.href)
     )
   },
   get isApiHostProd() {
     return (
-      /^https:\/\/www\.minisuper\.app\/customer_api/.test(this.API_HOST) ||
-      /^https:\/\/minisuper\.app\/customer_api/.test(this.API_HOST)
+      /^https:\/\/www\.minisuper\.com\.mx\/customer_api/.test(this.API_HOST) ||
+      /^https:\/\/minisuper\.com\.mx\/customer_api/.test(this.API_HOST)
     )
   },
   get socketPayload() {

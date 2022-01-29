@@ -2,7 +2,7 @@
   "name": "minisuper-customer-webapp-ui",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://minisuper.app/comprar/",
+  "homepage": "https://minisuper.com.mx/comprar/",
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.dev.js --port 8080",
     "test": "echo \"run jest --watch\"",
