@@ -6,7 +6,7 @@ export class AssignBestOfferRequest {
     return 'POST'
   }
   get path() {
-    return 'offers/assign_best'
+    return 'offer/assign_best'
   }
   get payload() {
     return this.body

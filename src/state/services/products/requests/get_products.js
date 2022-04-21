@@ -6,7 +6,7 @@ export class GetProductsRequest {
     return 'POST'
   }
   get path() {
-    return 'products'
+    return 'product/get_all'
   }
   get payload() {
     return this.body

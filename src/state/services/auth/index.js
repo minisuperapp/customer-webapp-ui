@@ -3,7 +3,7 @@ import * as apiRequester from '../../api'
 export async function get_profile(payload) {
   const request = {
     method: 'post',
-    path: 'get_profile',
+    path: 'auth/get_profile',
     payload,
   }
   const response = await apiRequester.send(request)

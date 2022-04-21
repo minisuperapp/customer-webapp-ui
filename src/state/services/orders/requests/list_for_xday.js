@@ -6,7 +6,7 @@ export class ListForXdayRequest {
     return 'POST'
   }
   get path() {
-    return 'orders/list_for_xday'
+    return 'order/list_for_xday'
   }
   get payload() {
     return this.body

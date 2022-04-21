@@ -6,7 +6,7 @@ module.exports = {
     return process.env.SOCKET_HOST
   },
   get API_URL() {
-    return `${this.API_HOST}/api`
+    return `${this.API_HOST}/customer`
   },
   get isTestEnv() {
     return !(
